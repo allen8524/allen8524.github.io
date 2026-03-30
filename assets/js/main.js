@@ -211,16 +211,16 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
   /**
-   * Social links: copy Discord ID with a reusable toast
+   * Reusable copy actions with a shared toast
    */
-  const discordCopyLinks = document.querySelectorAll('.social-copy-discord');
-  let socialToast = null;
-  let socialToastHideTimer = null;
-  let socialToastCleanupTimer = null;
+  const copyTriggers = document.querySelectorAll('.social-copy-discord, [data-copy-text]');
+  let copyToast = null;
+  let copyToastHideTimer = null;
+  let copyToastCleanupTimer = null;
 
-  function ensureSocialToast() {
-    if (socialToast) {
-      return socialToast;
+  function ensureCopyToast() {
+    if (copyToast) {
+      return copyToast;
     }
 
     const rootStyles = getComputedStyle(document.documentElement);
@@ -228,40 +228,40 @@
     const toastText = rootStyles.getPropertyValue('--default-color').trim() || '#f3f4f6';
     const toastAccent = rootStyles.getPropertyValue('--accent-color').trim() || '#22e7a1';
 
-    socialToast = document.createElement('div');
-    socialToast.className = 'social-copy-toast';
-    socialToast.setAttribute('role', 'status');
-    socialToast.setAttribute('aria-live', 'polite');
-    socialToast.setAttribute('aria-atomic', 'true');
-    socialToast.style.position = 'fixed';
-    socialToast.style.left = '50%';
-    socialToast.style.bottom = '24px';
-    socialToast.style.transform = 'translate(-50%, 12px)';
-    socialToast.style.padding = '10px 16px';
-    socialToast.style.borderRadius = '999px';
-    socialToast.style.maxWidth = 'calc(100vw - 32px)';
-    socialToast.style.backgroundColor = toastBackground;
-    socialToast.style.border = `1px solid ${toastAccent}`;
-    socialToast.style.color = toastText;
-    socialToast.style.fontSize = '0.9rem';
-    socialToast.style.lineHeight = '1.4';
-    socialToast.style.textAlign = 'center';
-    socialToast.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.18)';
-    socialToast.style.opacity = '0';
-    socialToast.style.visibility = 'hidden';
-    socialToast.style.pointerEvents = 'none';
-    socialToast.style.zIndex = '10000';
-    socialToast.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-    document.body.appendChild(socialToast);
+    copyToast = document.createElement('div');
+    copyToast.className = 'social-copy-toast';
+    copyToast.setAttribute('role', 'status');
+    copyToast.setAttribute('aria-live', 'polite');
+    copyToast.setAttribute('aria-atomic', 'true');
+    copyToast.style.position = 'fixed';
+    copyToast.style.left = '50%';
+    copyToast.style.bottom = '24px';
+    copyToast.style.transform = 'translate(-50%, 12px)';
+    copyToast.style.padding = '10px 16px';
+    copyToast.style.borderRadius = '999px';
+    copyToast.style.maxWidth = 'calc(100vw - 32px)';
+    copyToast.style.backgroundColor = toastBackground;
+    copyToast.style.border = `1px solid ${toastAccent}`;
+    copyToast.style.color = toastText;
+    copyToast.style.fontSize = '0.9rem';
+    copyToast.style.lineHeight = '1.4';
+    copyToast.style.textAlign = 'center';
+    copyToast.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.18)';
+    copyToast.style.opacity = '0';
+    copyToast.style.visibility = 'hidden';
+    copyToast.style.pointerEvents = 'none';
+    copyToast.style.zIndex = '10000';
+    copyToast.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    document.body.appendChild(copyToast);
 
-    return socialToast;
+    return copyToast;
   }
 
-  function showSocialToast(message) {
-    const toast = ensureSocialToast();
+  function showCopyToast(message) {
+    const toast = ensureCopyToast();
 
-    clearTimeout(socialToastHideTimer);
-    clearTimeout(socialToastCleanupTimer);
+    clearTimeout(copyToastHideTimer);
+    clearTimeout(copyToastCleanupTimer);
 
     toast.textContent = message;
     toast.style.visibility = 'visible';
@@ -273,11 +273,11 @@
       toast.style.transform = 'translate(-50%, 0)';
     });
 
-    socialToastHideTimer = window.setTimeout(() => {
+    copyToastHideTimer = window.setTimeout(() => {
       toast.style.opacity = '0';
       toast.style.transform = 'translate(-50%, 12px)';
 
-      socialToastCleanupTimer = window.setTimeout(() => {
+      copyToastCleanupTimer = window.setTimeout(() => {
         toast.style.visibility = 'hidden';
       }, 220);
     }, 1800);
@@ -317,28 +317,36 @@
     return isCopied;
   }
 
-  async function handleDiscordCopy(trigger) {
-    const discordId = trigger?.dataset.discordId;
-    if (!discordId) {
+  async function handleCopyAction(trigger) {
+    const copyText = trigger?.dataset.copyText || trigger?.dataset.discordId;
+    if (!copyText) {
       return;
     }
 
-    const isCopied = await copyTextToClipboard(discordId);
-    showSocialToast(isCopied ? '디스코드 아이디가 복사되었습니다' : '복사에 실패했습니다. 다시 시도해주세요');
+    const successMessage = trigger?.dataset.copyMessage || '복사되었습니다';
+    const errorMessage = trigger?.dataset.copyErrorMessage || '복사에 실패했습니다. 다시 시도해주세요';
+    const isCopied = await copyTextToClipboard(copyText);
+    showCopyToast(isCopied ? successMessage : errorMessage);
   }
 
-  discordCopyLinks.forEach((discordLink) => {
-    discordLink.addEventListener('click', async function(e) {
-      e.preventDefault();
-      await handleDiscordCopy(this);
+  copyTriggers.forEach((trigger) => {
+    const isButtonElement = trigger.tagName === 'BUTTON';
+
+    trigger.addEventListener('click', async function(e) {
+      if (!isButtonElement) {
+        e.preventDefault();
+      }
+      await handleCopyAction(this);
     });
 
-    discordLink.addEventListener('keydown', async function(e) {
-      if (e.key === ' ' || e.key === 'Spacebar') {
-        e.preventDefault();
-        await handleDiscordCopy(this);
-      }
-    });
+    if (!isButtonElement) {
+      trigger.addEventListener('keydown', async function(e) {
+        if (e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          await handleCopyAction(this);
+        }
+      });
+    }
   });
 
 })();
