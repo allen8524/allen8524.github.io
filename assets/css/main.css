@@ -10,11 +10,115 @@
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
+/* Local-first font registration so licensed fonts can slot in without
+   introducing third-party font dependencies into the project. */
+@font-face {
+  font-family: "Adobe Caslon";
+  src: local("Adobe Caslon"), local("Adobe Caslon Pro"), local("Adobe Caslon Regular");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Brandon Grotesque";
+  src: local("Brandon Grotesque"), local("Brandon Grotesque Regular"), local("Brandon Text");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: local("Effra"), local("Effra Regular"), local("Effra Std");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim"), local("GT Walsheim Pro"), local("GT Walsheim Regular");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: local("Myriad Pro"), local("MyriadPro-Regular"), local("Myriad Pro Regular");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rosario";
+  src: local("Rosario"), local("Rosario Regular");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NY Irvin";
+  src: local("NY Irvin"), local("NY Irvin Text"), local("NY Irvin Headline");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adelle Sans";
+  src: local("Adelle Sans"), local("AdelleSans"), local("Adelle Sans Regular");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: local("Museo Sans"), local("MuseoSans"), local("Museo Sans 500");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neutraface";
+  src: local("Neutraface"), local("Neutraface Text"), local("Neutraface Text Book");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Museo Sans Rounded";
+  src: local("Museo Sans Rounded"), local("Museo Sans Rounded 500"), local("MuseoSansRounded-500");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 /* Fonts */
 :root {
-  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Open Sans", sans-serif;
-  --nav-font: "Open Sans", sans-serif;
+  --font-display: "NY Irvin", "NY Irvin Text", "Adobe Caslon", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
+  --font-hero: "Adobe Caslon", "Adobe Caslon Pro", "Rosario", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
+  --font-heading: "GT Walsheim", "GT Walsheim Pro", "Brandon Grotesque", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-subheading: "Neutraface", "Neutraface Text", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Adelle Sans", "Myriad Pro", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Effra", "Myriad Pro", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-button: "Museo Sans Rounded", "Museo Sans", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Myriad Pro", "Effra", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-accent: "Rosario", "Adobe Caslon", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
+  --font-editorial: "Adobe Caslon", "Adobe Caslon Pro", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
+  --font-card-title: "Brandon Grotesque", "GT Walsheim", "Neutraface", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-card-body: "Museo Sans", "Adelle Sans", "Myriad Pro", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-nav: "Brandon Grotesque", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-brand: "Brandon Grotesque", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  --default-font: var(--font-body);
+  --heading-font: var(--font-heading);
+  --nav-font: var(--font-nav);
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -3714,6 +3818,180 @@ section,
     position: static;
     margin-top: 3rem;
   }
+}
+
+/*--------------------------------------------------------------
+# Typography System
+--------------------------------------------------------------*/
+.header .logo h1,
+.footer .sitename {
+  font-family: var(--font-brand);
+}
+
+.page-title h1,
+.about .philosophy-quote .quote-mark {
+  font-family: var(--font-display);
+}
+
+.hero .hero-content h1,
+.about .intro-header h1,
+.portfolio-details .hero-section .project-header .project-title,
+.service-details .service-content .service-hero h2 {
+  font-family: var(--font-hero);
+}
+
+.section-title h2,
+.resume .section-intro h2,
+.about .bottom-section .collaboration-text h3,
+.contact .form-header h3,
+.portfolio-details .content-section .main-content h2,
+.portfolio-details .process-timeline .timeline-header h2,
+.portfolio-details .tools-section h2,
+.portfolio-details .impact-metrics .metrics-container .metrics-header h2,
+.service-details .service-content .service-description h3,
+.service-details .service-content .process-section h3 {
+  font-family: var(--font-heading);
+}
+
+.hero .hero-content h1 .accent-text,
+.about .intro-header .subtitle,
+.section-title p,
+.skills .intro-content .lead-text {
+  font-family: var(--font-accent);
+}
+
+.about .philosophy-quote p,
+.testimonials .testimonial-body p,
+.service-details .service-sidebar .testimonial-block blockquote {
+  font-family: var(--font-editorial);
+}
+
+.about .expertise-grid .expertise-item .expertise-content h4,
+.stats .achievement .achievement-content h4,
+.skills .skills-sidebar .technologies-section .tech-title,
+.skills .skills-sidebar .achievements-section .achievements-title,
+.resume .professional-journey .experience-timeline .timeline-item .timeline-content h4,
+.resume .education-skills .education-grid .certification-section h4,
+.portfolio-details .tools-section .tools-grid .tool-category h5,
+.service-details .service-content .service-description .features-list .feature-item h4,
+.service-details .service-content .process-section .process-steps .step h4,
+.service-details .service-sidebar .service-info h4,
+.service-details .service-sidebar .cta-block h4,
+.service-details .service-sidebar .testimonial-block .testimonial-author .author-info h5,
+.hero .hero-content .hero-stats .stat-item .stat-number,
+.stats .stat-item .stat-number,
+.skills .skills-sidebar .expertise-highlight .experience-number .purecounter,
+.portfolio-details .process-timeline .timeline-steps .timeline-item .step-marker .step-number,
+.portfolio-details .impact-metrics .metrics-container .metrics-grid .metric-card .metric-value,
+.service-details .service-content .process-section .process-steps .step .step-number {
+  font-family: var(--font-subheading);
+}
+
+.skills .skills-container .skill-category .category-header .category-title,
+.skills .skills-sidebar .expertise-highlight .highlight-title,
+.resume .professional-journey .experience-timeline .timeline-item .timeline-content h3,
+.resume .education-skills .education-grid .education-card .education-header .degree-info h3,
+.resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-name,
+.portfolio .portfolio-title,
+.services .service-content h3,
+.contact .info-item .info-content h4,
+.testimonials .author-details h4,
+.portfolio-details .process-timeline .timeline-steps .timeline-item .step-content h4,
+.portfolio-details .project-nav .nav-wrapper .nav-link.prev-project .nav-content .nav-title,
+.portfolio-details .project-nav .nav-wrapper .nav-link.next-project .nav-content .nav-title {
+  font-family: var(--font-card-title);
+}
+
+body,
+.hero .hero-content .hero-description,
+.about .content-area .story-block .lead-text,
+.about .content-area .story-block p,
+.about .bottom-section .collaboration-text p,
+.resume .section-intro p,
+.contact .info-item .info-content p,
+.portfolio-details .hero-section .project-header .project-summary,
+.portfolio-details .content-section .main-content p,
+.portfolio-details .tools-section p,
+.portfolio-details .impact-metrics .metrics-container .metrics-header p,
+.service-details .service-content .service-hero .lead,
+.service-details .service-content .service-description>p,
+.starter-section p {
+  font-family: var(--font-body);
+}
+
+.stats .achievement .achievement-content p,
+.skills .skills-sidebar .expertise-highlight .highlight-description,
+.resume .professional-journey .experience-timeline .timeline-item .timeline-content p,
+.resume .education-skills .education-grid .education-card .education-details p,
+.portfolio .portfolio-description,
+.services .service-content p,
+.portfolio-details .process-timeline .timeline-steps .timeline-item .step-content p,
+.service-details .service-content .service-description .features-list .feature-item p,
+.service-details .service-content .process-section .process-steps .step p,
+.service-details .service-sidebar .cta-block p {
+  font-family: var(--font-card-body);
+}
+
+.page-title .breadcrumbs ol,
+.hero .hero-content .hero-stats .stat-item .stat-label,
+.about .profile-section .profile-meta .location,
+.about .profile-section .profile-meta .status,
+.stats .stat-item .stat-label,
+.skills .skills-container .skill-category .category-header .category-subtitle,
+.skills .skills-sidebar .expertise-highlight .experience-number .experience-label,
+.skills .skills-sidebar .achievements-section .achievement-list .achievement-item .achievement-date,
+.resume .professional-journey .experience-timeline .timeline-item .timeline-content .position-meta .timeline-year,
+.resume .education-skills .education-grid .education-card .education-header .degree-info .institution,
+.resume .education-skills .education-grid .education-card .education-header .degree-info .graduation-year,
+.resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-provider,
+.portfolio .portfolio-meta,
+.testimonials .author-details .role,
+.testimonials .author-details .company,
+.contact .contact-details .detail-item .detail-content .detail-label,
+.footer,
+.footer p,
+.footer .copyright,
+.footer .credits,
+.portfolio-details .hero-section .project-header .project-meta .category,
+.portfolio-details .hero-section .project-header .project-meta .year,
+.portfolio-details .content-section .project-specs .spec-item h5,
+.portfolio-details .impact-metrics .metrics-container .metrics-grid .metric-card .metric-label,
+.portfolio-details .project-nav .nav-wrapper .nav-link.prev-project .nav-content .nav-direction,
+.portfolio-details .project-nav .nav-wrapper .nav-link.next-project .nav-content .nav-direction,
+.service-details .service-sidebar .testimonial-block .testimonial-author .author-info span {
+  font-family: var(--font-label);
+}
+
+.php-email-form .error-message,
+.php-email-form .sent-message,
+.php-email-form .loading,
+.skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-name,
+.skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-percentage,
+.skills .skills-sidebar .technologies-section .tech-stack .tech-item span,
+.contact .contact-details .detail-item .detail-content .detail-value,
+.contact .form-wrapper .form-group label,
+.contact .form-wrapper .form-group input,
+.contact .form-wrapper .form-group select,
+.contact .form-wrapper .form-group textarea,
+.portfolio-details .content-section .project-specs .spec-item p,
+.service-details .service-sidebar .service-info .info-list li,
+.service-details .service-sidebar .service-info .info-list li strong {
+  font-family: var(--font-ui);
+}
+
+.hero .hero-content .hero-actions .btn-primary,
+.hero .hero-content .hero-actions .btn-secondary,
+.about .bottom-section .action-buttons .btn-custom,
+.resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements .achievement-tag,
+.resume .education-skills .education-grid .education-card .education-details .honors .honor-badge,
+.portfolio .portfolio-filters li,
+.services .read-more,
+.contact .form-wrapper .submit-btn,
+.portfolio-details .hero-section .project-header .project-tags .tag,
+.portfolio-details .tools-section .tools-grid .tool-category .tool-list .tool-item,
+.portfolio-details .project-nav .nav-wrapper .nav-link.all-projects,
+.service-details .service-sidebar .cta-block .btn {
+  font-family: var(--font-button);
 }
 
 /*--------------------------------------------------------------
