@@ -210,4 +210,135 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Social links: copy Discord ID with a reusable toast
+   */
+  const discordCopyLinks = document.querySelectorAll('.social-copy-discord');
+  let socialToast = null;
+  let socialToastHideTimer = null;
+  let socialToastCleanupTimer = null;
+
+  function ensureSocialToast() {
+    if (socialToast) {
+      return socialToast;
+    }
+
+    const rootStyles = getComputedStyle(document.documentElement);
+    const toastBackground = rootStyles.getPropertyValue('--surface-color').trim() || '#293443';
+    const toastText = rootStyles.getPropertyValue('--default-color').trim() || '#f3f4f6';
+    const toastAccent = rootStyles.getPropertyValue('--accent-color').trim() || '#22e7a1';
+
+    socialToast = document.createElement('div');
+    socialToast.className = 'social-copy-toast';
+    socialToast.setAttribute('role', 'status');
+    socialToast.setAttribute('aria-live', 'polite');
+    socialToast.setAttribute('aria-atomic', 'true');
+    socialToast.style.position = 'fixed';
+    socialToast.style.left = '50%';
+    socialToast.style.bottom = '24px';
+    socialToast.style.transform = 'translate(-50%, 12px)';
+    socialToast.style.padding = '10px 16px';
+    socialToast.style.borderRadius = '999px';
+    socialToast.style.maxWidth = 'calc(100vw - 32px)';
+    socialToast.style.backgroundColor = toastBackground;
+    socialToast.style.border = `1px solid ${toastAccent}`;
+    socialToast.style.color = toastText;
+    socialToast.style.fontSize = '0.9rem';
+    socialToast.style.lineHeight = '1.4';
+    socialToast.style.textAlign = 'center';
+    socialToast.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.18)';
+    socialToast.style.opacity = '0';
+    socialToast.style.visibility = 'hidden';
+    socialToast.style.pointerEvents = 'none';
+    socialToast.style.zIndex = '10000';
+    socialToast.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    document.body.appendChild(socialToast);
+
+    return socialToast;
+  }
+
+  function showSocialToast(message) {
+    const toast = ensureSocialToast();
+
+    clearTimeout(socialToastHideTimer);
+    clearTimeout(socialToastCleanupTimer);
+
+    toast.textContent = message;
+    toast.style.visibility = 'visible';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translate(-50%, 12px)';
+
+    requestAnimationFrame(() => {
+      toast.style.opacity = '1';
+      toast.style.transform = 'translate(-50%, 0)';
+    });
+
+    socialToastHideTimer = window.setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translate(-50%, 12px)';
+
+      socialToastCleanupTimer = window.setTimeout(() => {
+        toast.style.visibility = 'hidden';
+      }, 220);
+    }, 1800);
+  }
+
+  async function copyTextToClipboard(text) {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (error) {
+        // Fall back to a selection-based copy for restricted environments.
+      }
+    }
+
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.setAttribute('readonly', '');
+    textArea.style.position = 'fixed';
+    textArea.style.top = '-9999px';
+    textArea.style.left = '-9999px';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    textArea.setSelectionRange(0, text.length);
+
+    let isCopied = false;
+
+    try {
+      isCopied = document.execCommand('copy');
+    } catch (error) {
+      isCopied = false;
+    }
+
+    document.body.removeChild(textArea);
+    return isCopied;
+  }
+
+  async function handleDiscordCopy(trigger) {
+    const discordId = trigger?.dataset.discordId;
+    if (!discordId) {
+      return;
+    }
+
+    const isCopied = await copyTextToClipboard(discordId);
+    showSocialToast(isCopied ? '디스코드 아이디가 복사되었습니다' : '복사에 실패했습니다. 다시 시도해주세요');
+  }
+
+  discordCopyLinks.forEach((discordLink) => {
+    discordLink.addEventListener('click', async function(e) {
+      e.preventDefault();
+      await handleDiscordCopy(this);
+    });
+
+    discordLink.addEventListener('keydown', async function(e) {
+      if (e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        await handleDiscordCopy(this);
+      }
+    });
+  });
+
 })();
