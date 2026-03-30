@@ -489,7 +489,6 @@ h6 {
 
 .footer p {
   font-size: 15;
-  font-style: italic;
   padding: 0;
   margin: 0 0 30px 0;
 }
@@ -1123,7 +1122,6 @@ section,
 .about .philosophy-quote p {
   font-size: 1.2rem;
   line-height: 1.7;
-  font-style: italic;
   font-weight: 300;
   color: var(--default-color);
   margin: 0;
@@ -2544,7 +2542,6 @@ section,
 .testimonials .testimonial-body p {
   font-size: 1.25rem;
   line-height: 1.8;
-  font-style: italic;
   color: var(--heading-color);
   margin: 0;
   position: relative;
@@ -3728,7 +3725,6 @@ section,
 }
 
 .service-details .service-sidebar .testimonial-block blockquote {
-  font-style: italic;
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -3851,13 +3847,6 @@ section,
 .service-details .service-content .service-description h3,
 .service-details .service-content .process-section h3 {
   font-family: var(--font-heading);
-}
-
-.hero .hero-content h1 .accent-text,
-.about .intro-header .subtitle,
-.section-title p,
-.skills .intro-content .lead-text {
-  font-family: var(--font-accent);
 }
 
 .about .philosophy-quote p,
