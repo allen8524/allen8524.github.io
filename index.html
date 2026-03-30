@@ -846,13 +846,13 @@
 
     </section><!-- /Services Section -->
 
-    <!-- Testimonials Section -->
+    <!-- Troubleshooting Section -->
     <section id="testimonials" class="testimonials section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>성장 방향과 개발 태도를 짧게 정리했습니다.</p>
+        <h2>Troubleshooting</h2>
+        <p>프로젝트를 진행하며 해결한 문제들</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -884,26 +884,28 @@
               <div class="testimonial-slide" data-aos="fade-up" data-aos-delay="200">
                 <div class="testimonial-header">
                   <div class="stars-rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-person-check"></i>
+                    <i class="bi bi-shield-lock"></i>
+                    <i class="bi bi-arrow-left-right"></i>
                   </div>
                   <div class="quote-icon">
-                    <i class="bi bi-quote"></i>
+                    <i class="bi bi-tools"></i>
                   </div>
                 </div>
                 <div class="testimonial-body">
-                  <p>"맡은 일을 끝까지 책임지고 해결하려는 성실함과 집중력을 바탕으로 안정적인 서비스를 만드는 개발자가 되겠습니다."</p>
+                  <div class="d-flex flex-column gap-2">
+                    <div><strong>문제 상황:</strong> 로그인 상태와 관리자 권한을 함께 처리하면서 일부 화면 접근 조건이 섞이는 문제가 있었습니다.</div>
+                    <div><strong>해결 방법:</strong> 세션 체크와 권한 분기를 다시 정리하고, 기능별 진입 조건을 나눠 접근 제어 흐름을 수정했습니다.</div>
+                    <div><strong>배운 점:</strong> 인증과 권한은 화면 하나가 아니라 전체 흐름 기준으로 점검해야 안정적이라는 점을 배웠습니다.</div>
+                  </div>
                 </div>
                 <div class="testimonial-footer">
                   <div class="author-info">
-                    <img src="assets/img/person/person-f-12.webp" alt="Author" class="author-avatar">
+                    <div class="author-avatar d-flex align-items-center justify-content-center fw-semibold" aria-label="쇼핑몰 프로젝트">SM</div>
                     <div class="author-details">
-                      <h4>성실함</h4>
-                      <span class="role">끝까지 해결하는 태도</span>
-                      <span class="company">문제 원인 분석 중심</span>
+                      <h4>쇼핑몰 프로젝트</h4>
+                      <span class="role">관련 기술: PHP · Bootstrap</span>
+                      <span class="company">문제 유형: 로그인 · 권한 처리</span>
                     </div>
                   </div>
                 </div>
@@ -914,26 +916,28 @@
               <div class="testimonial-slide" data-aos="fade-up" data-aos-delay="300">
                 <div class="testimonial-header">
                   <div class="stars-rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-bug"></i>
+                    <i class="bi bi-table"></i>
+                    <i class="bi bi-search"></i>
                   </div>
                   <div class="quote-icon">
-                    <i class="bi bi-quote"></i>
+                    <i class="bi bi-braces"></i>
                   </div>
                 </div>
                 <div class="testimonial-body">
-                  <p>"CS 스터디와 알고리즘 학습을 병행하며 자료구조, 운영체제, 네트워크 등 핵심 기초를 꾸준히 강화했습니다."</p>
+                  <div class="d-flex flex-column gap-2">
+                    <div><strong>문제 상황:</strong> 게시판과 정보 조회 기능 구현 중 일부 데이터가 의도와 다르게 출력되거나 누락되는 문제가 있었습니다.</div>
+                    <div><strong>해결 방법:</strong> 테이블 구조와 조회 조건을 다시 점검하고, 필요한 데이터만 가져오도록 쿼리와 출력 로직을 정리했습니다.</div>
+                    <div><strong>배운 점:</strong> 화면 문제처럼 보여도 실제 원인은 DB 구조나 조회 방식에 있을 수 있다는 점을 경험했습니다.</div>
+                  </div>
                 </div>
                 <div class="testimonial-footer">
                   <div class="author-info">
-                    <img src="assets/img/person/person-m-14.webp" alt="Author" class="author-avatar">
+                    <div class="author-avatar d-flex align-items-center justify-content-center fw-semibold" aria-label="e스포츠 프로젝트">ES</div>
                     <div class="author-details">
-                      <h4>기초 역량</h4>
-                      <span class="role">CS 지식 및 알고리즘</span>
-                      <span class="company">지속적인 학습 습관</span>
+                      <h4>e스포츠 프로젝트</h4>
+                      <span class="role">관련 기술: Laravel · MySQL</span>
+                      <span class="company">문제 유형: CRUD · 조회 로직</span>
                     </div>
                   </div>
                 </div>
@@ -944,26 +948,28 @@
               <div class="testimonial-slide" data-aos="fade-up" data-aos-delay="400">
                 <div class="testimonial-header">
                   <div class="stars-rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-diagram-3"></i>
+                    <i class="bi bi-database-gear"></i>
+                    <i class="bi bi-arrow-repeat"></i>
                   </div>
                   <div class="quote-icon">
-                    <i class="bi bi-quote"></i>
+                    <i class="bi bi-database-check"></i>
                   </div>
                 </div>
                 <div class="testimonial-body">
-                  <p>"협업과 코드 리뷰 경험을 바탕으로 팀에 빠르게 기여하고, 실무 경험을 통해 더 큰 가치를 만드는 개발자로 성장하겠습니다."</p>
+                  <div class="d-flex flex-column gap-2">
+                    <div><strong>문제 상황:</strong> 재고와 매출 데이터를 연결하는 과정에서 중복 데이터가 생기고 관리 포인트가 복잡해지는 문제가 있었습니다.</div>
+                    <div><strong>해결 방법:</strong> 테이블 관계를 다시 정리하고 기능별 책임을 나눠 입력과 조회 흐름을 단순하게 재구성했습니다.</div>
+                    <div><strong>배운 점:</strong> 초반 구조 설계가 이후 수정과 유지보수 난이도에 큰 영향을 준다는 점을 직접 느꼈습니다.</div>
+                  </div>
                 </div>
                 <div class="testimonial-footer">
                   <div class="author-info">
-                    <img src="assets/img/person/person-f-11.webp" alt="Author" class="author-avatar">
+                    <div class="author-avatar d-flex align-items-center justify-content-center fw-semibold" aria-label="베이커리 프로젝트">BK</div>
                     <div class="author-details">
-                      <h4>협업 역량</h4>
-                      <span class="role">스터디 발표 · 코드 리뷰</span>
-                      <span class="company">팀 기여 중심 성장</span>
+                      <h4>베이커리 프로젝트</h4>
+                      <span class="role">관련 기술: Laravel · DB 설계</span>
+                      <span class="company">문제 유형: 테이블 관계 · 데이터 중복</span>
                     </div>
                   </div>
                 </div>
@@ -982,7 +988,7 @@
 
       </div>
 
-    </section><!-- /Testimonials Section -->
+    </section><!-- /Troubleshooting Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
