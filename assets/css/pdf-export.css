@@ -1,0 +1,102 @@
+.pdf-export-container {
+  position: fixed;
+  left: -100000px;
+  top: 0;
+  width: 210mm;
+  background: #ffffff;
+  z-index: -1;
+}
+
+.pdf-export-root {
+  width: 100%;
+  max-width: 210mm;
+  margin: 0;
+  padding: 12mm 10mm;
+  background: #ffffff;
+  color: #111111;
+  font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.pdf-export-root,
+.pdf-export-root * {
+  background: transparent !important;
+  color: #111111 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.pdf-export-root a {
+  color: #111111 !important;
+  text-decoration: none !important;
+}
+
+.pdf-export-root img {
+  max-width: 100% !important;
+  height: auto !important;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export-root section,
+.pdf-export-root .container,
+.pdf-export-root .row,
+.pdf-export-root .section-title,
+.pdf-export-root .portfolio-card,
+.pdf-export-root .testimonial-slide,
+.pdf-export-root .service-item,
+.pdf-export-root .education-card,
+.pdf-export-root .timeline-item,
+.pdf-export-root .achievement,
+.pdf-export-root .skill-category,
+.pdf-export-root .detail-item,
+.pdf-export-root .info-item,
+.pdf-export-root .form-wrapper {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export-root section {
+  padding-top: 10mm !important;
+  padding-bottom: 8mm !important;
+}
+
+.pdf-export-root .section-title {
+  margin-bottom: 6mm !important;
+}
+
+.pdf-export-root .swiper-wrapper,
+.pdf-export-root .swiper-slide {
+  transform: none !important;
+}
+
+.pdf-export-root [class*="floating"],
+.pdf-export-root .swiper-navigation-wrapper,
+.pdf-export-root .portfolio-actions,
+.pdf-export-root .portfolio-overlay,
+.pdf-export-root .glightbox,
+.pdf-export-root .btn,
+.pdf-export-root [class*="btn-"],
+.pdf-export-root button,
+.pdf-export-root [role="button"],
+.pdf-export-root .header-toggle,
+.pdf-export-root .scroll-top,
+.pdf-export-root #preloader,
+.pdf-export-root .social-links,
+.pdf-export-root .action-buttons,
+.pdf-export-root .hero-actions,
+.pdf-export-root .copy-trigger,
+.pdf-export-root .submit-btn,
+.pdf-export-root .quote-icon,
+.pdf-export-root .stars-rating,
+.pdf-export-root .swiper-pagination,
+.pdf-export-root .swiper-button-next,
+.pdf-export-root .swiper-button-prev,
+.pdf-export-root .portfolio-filters {
+  display: none !important;
+}
