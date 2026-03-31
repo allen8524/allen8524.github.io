@@ -4,17 +4,15 @@
   const PDF_FILE_NAME = 'Hwang_Minseo_Resume.pdf';
   const PDF_EXPORT_CONTAINER_CLASS = 'pdf-export-container';
   const PDF_EXPORT_ROOT_CLASS = 'pdf-export-root';
+  const RESUME_SECTION_IDS = ['about', 'stats', 'skills', 'resume', 'portfolio', 'contact'];
   const EXCLUDE_SELECTORS = [
     'header',
     'nav',
     'footer',
+    'aside',
     '#scroll-top',
     '#preloader',
-    '.header',
-    '.navmenu',
-    '.social-links',
     '.hero-actions',
-    '.action-buttons',
     '.portfolio-filters',
     '.portfolio-actions',
     '.portfolio-overlay',
@@ -22,13 +20,14 @@
     '.swiper-button-next',
     '.swiper-button-prev',
     '.swiper-pagination',
-    '.copy-trigger',
+    '.form-wrapper',
     '.submit-btn',
-    '[data-aos]',
-    '[data-aos-delay]',
-    '[role="button"]',
+    '.copy-trigger',
     '[aria-label="이력서"]',
-    '[download="Hwang_Minseo_Resume.pdf"]'
+    '[download="Hwang_Minseo_Resume.pdf"]',
+    '[role="button"]',
+    '[style*="position:fixed"]',
+    '[style*="position: sticky"]'
   ];
 
   let isExporting = false;
@@ -37,17 +36,33 @@
     return document.querySelector('a[download="Hwang_Minseo_Resume.pdf"], a[aria-label="이력서"], a[title="이력서"], button[aria-label="이력서"]');
   }
 
-  function removeUnwantedNodes(root) {
+  function getExportSections(mainElement) {
+    const selectedSections = RESUME_SECTION_IDS
+      .map((sectionId) => mainElement.querySelector(`section#${sectionId}`))
+      .filter(Boolean);
+
+    if (selectedSections.length > 0) {
+      return selectedSections;
+    }
+
+    return Array.from(mainElement.querySelectorAll('section.section'))
+      .filter((section) => section.id !== 'hero')
+      .slice(0, 6);
+  }
+
+  function sanitizeClonedSection(sectionClone) {
     EXCLUDE_SELECTORS.forEach((selector) => {
-      root.querySelectorAll(selector).forEach((node) => node.remove());
+      sectionClone.querySelectorAll(selector).forEach((node) => node.remove());
     });
 
-    root.querySelectorAll('script, noscript, iframe, video, audio').forEach((node) => node.remove());
-    root.querySelectorAll('*').forEach((node) => {
-      node.removeAttribute('id');
+    sectionClone.querySelectorAll('script, noscript, iframe, video, audio, form').forEach((node) => node.remove());
+    sectionClone.querySelectorAll('[data-aos], [data-aos-delay], [data-aos-duration]').forEach((node) => {
       node.removeAttribute('data-aos');
       node.removeAttribute('data-aos-delay');
+      node.removeAttribute('data-aos-duration');
     });
+
+    sectionClone.classList.add('pdf-export-section');
   }
 
   function createPdfContentClone() {
@@ -56,16 +71,23 @@
       throw new Error('PDF 생성 대상(main)을 찾을 수 없습니다.');
     }
 
+    const sourceSections = getExportSections(mainElement);
+    if (sourceSections.length === 0) {
+      throw new Error('PDF 생성 대상 섹션을 찾을 수 없습니다.');
+    }
+
     const offscreenContainer = document.createElement('div');
     offscreenContainer.className = PDF_EXPORT_CONTAINER_CLASS;
 
     const rootWrapper = document.createElement('div');
     rootWrapper.className = PDF_EXPORT_ROOT_CLASS;
 
-    const clonedMain = mainElement.cloneNode(true);
-    removeUnwantedNodes(clonedMain);
+    sourceSections.forEach((section) => {
+      const sectionClone = section.cloneNode(true);
+      sanitizeClonedSection(sectionClone);
+      rootWrapper.appendChild(sectionClone);
+    });
 
-    rootWrapper.appendChild(clonedMain);
     offscreenContainer.appendChild(rootWrapper);
     document.body.appendChild(offscreenContainer);
 
@@ -78,7 +100,7 @@
       return Promise.resolve();
     }
 
-    const loadPromises = images.map((image) => {
+    const imageLoadPromises = images.map((image) => {
       if (image.complete) {
         return Promise.resolve();
       }
@@ -95,11 +117,17 @@
       });
     });
 
-    const maxWait = new Promise((resolve) => {
-      setTimeout(resolve, 4000);
+    const timeout = new Promise((resolve) => {
+      setTimeout(resolve, 2500);
     });
 
-    return Promise.race([Promise.all(loadPromises), maxWait]);
+    return Promise.race([Promise.all(imageLoadPromises), timeout]);
+  }
+
+  function waitForNextPaint() {
+    return new Promise((resolve) => {
+      requestAnimationFrame(() => requestAnimationFrame(resolve));
+    });
   }
 
   function updateButtonState(button, busy) {
@@ -111,7 +139,7 @@
       button.dataset.originalText = button.textContent;
       button.textContent = 'PDF 생성 중...';
       button.setAttribute('aria-busy', 'true');
-      button.classList.add('disabled');
+      button.setAttribute('aria-disabled', 'true');
       button.style.pointerEvents = 'none';
       return;
     }
@@ -120,8 +148,9 @@
       button.textContent = button.dataset.originalText;
       delete button.dataset.originalText;
     }
+
     button.removeAttribute('aria-busy');
-    button.classList.remove('disabled');
+    button.removeAttribute('aria-disabled');
     button.style.pointerEvents = '';
   }
 
@@ -136,35 +165,25 @@
     }
 
     const resumeButton = findResumeButton();
-    const previousHref = resumeButton ? resumeButton.getAttribute('href') : null;
+    let container = null;
 
     isExporting = true;
     updateButtonState(resumeButton, true);
 
-    if (resumeButton && previousHref && previousHref !== '#') {
-      resumeButton.setAttribute('href', '#');
-    }
-
-    let container;
-
     try {
       container = createPdfContentClone();
       await waitForImages(container);
+      await waitForNextPaint();
 
       const exportRoot = container.querySelector(`.${PDF_EXPORT_ROOT_CLASS}`);
-
       const options = {
-        margin: [8, 7, 8, 7],
+        margin: [8, 8, 8, 8],
         filename: PDF_FILE_NAME,
-        image: { type: 'jpeg', quality: 0.98 },
+        image: { type: 'jpeg', quality: 0.95 },
         html2canvas: {
-          scale: 2,
+          scale: 1.3,
           useCORS: true,
-          allowTaint: true,
-          backgroundColor: '#ffffff',
-          scrollX: 0,
-          scrollY: 0,
-          windowWidth: exportRoot.scrollWidth
+          backgroundColor: '#ffffff'
         },
         jsPDF: {
           unit: 'mm',
@@ -182,10 +201,6 @@
     } finally {
       if (container && container.parentNode) {
         container.parentNode.removeChild(container);
-      }
-
-      if (resumeButton && previousHref && previousHref !== '#') {
-        resumeButton.setAttribute('href', previousHref);
       }
 
       updateButtonState(resumeButton, false);

@@ -1,6 +1,6 @@
 .pdf-export-container {
   position: fixed;
-  left: -100000px;
+  left: -99999px;
   top: 0;
   width: 210mm;
   background: #ffffff;
@@ -8,10 +8,9 @@
 }
 
 .pdf-export-root {
-  width: 100%;
-  max-width: 210mm;
+  width: 210mm;
   margin: 0;
-  padding: 12mm 10mm;
+  padding: 10mm;
   background: #ffffff;
   color: #111111;
   font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", "Segoe UI", sans-serif;
@@ -21,14 +20,22 @@
 
 .pdf-export-root,
 .pdf-export-root * {
-  background: transparent !important;
   color: #111111 !important;
   box-shadow: none !important;
   text-shadow: none !important;
   filter: none !important;
+  backdrop-filter: none !important;
   animation: none !important;
   transition: none !important;
   transform: none !important;
+}
+
+.pdf-export-root,
+.pdf-export-root section,
+.pdf-export-root .container,
+.pdf-export-root .card,
+.pdf-export-root [class*="background"] {
+  background: #ffffff !important;
 }
 
 .pdf-export-root a {
@@ -36,67 +43,63 @@
   text-decoration: none !important;
 }
 
+.pdf-export-root .row {
+  display: block !important;
+  margin: 0 !important;
+}
+
+.pdf-export-root .row > [class*="col-"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-bottom: 5mm !important;
+}
+
+.pdf-export-root .pdf-export-section,
+.pdf-export-root section,
+.pdf-export-root .section-title,
+.pdf-export-root .portfolio-card,
+.pdf-export-root .service-item,
+.pdf-export-root .testimonial-slide,
+.pdf-export-root .education-card,
+.pdf-export-root .timeline-item,
+.pdf-export-root .skill-category,
+.pdf-export-root .achievement,
+.pdf-export-root .detail-item,
+.pdf-export-root .info-item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.pdf-export-root .pdf-export-section {
+  padding: 0 0 8mm 0 !important;
+}
+
+.pdf-export-root .portfolio-filters,
+.pdf-export-root .portfolio-actions,
+.pdf-export-root .portfolio-overlay,
+.pdf-export-root .swiper-navigation-wrapper,
+.pdf-export-root .swiper-button-prev,
+.pdf-export-root .swiper-button-next,
+.pdf-export-root .swiper-pagination,
+.pdf-export-root .hero-actions,
+.pdf-export-root .form-wrapper,
+.pdf-export-root form,
+.pdf-export-root button,
+.pdf-export-root [role="button"],
+.pdf-export-root [class*="btn"],
+.pdf-export-root .social-links,
+.pdf-export-root .scroll-top,
+.pdf-export-root #preloader,
+.pdf-export-root [class*="floating"] {
+  display: none !important;
+}
+
 .pdf-export-root img {
   max-width: 100% !important;
   height: auto !important;
-  page-break-inside: avoid;
   break-inside: avoid;
-}
-
-.pdf-export-root section,
-.pdf-export-root .container,
-.pdf-export-root .row,
-.pdf-export-root .section-title,
-.pdf-export-root .portfolio-card,
-.pdf-export-root .testimonial-slide,
-.pdf-export-root .service-item,
-.pdf-export-root .education-card,
-.pdf-export-root .timeline-item,
-.pdf-export-root .achievement,
-.pdf-export-root .skill-category,
-.pdf-export-root .detail-item,
-.pdf-export-root .info-item,
-.pdf-export-root .form-wrapper {
   page-break-inside: avoid;
-  break-inside: avoid;
-}
-
-.pdf-export-root section {
-  padding-top: 10mm !important;
-  padding-bottom: 8mm !important;
-}
-
-.pdf-export-root .section-title {
-  margin-bottom: 6mm !important;
-}
-
-.pdf-export-root .swiper-wrapper,
-.pdf-export-root .swiper-slide {
-  transform: none !important;
-}
-
-.pdf-export-root [class*="floating"],
-.pdf-export-root .swiper-navigation-wrapper,
-.pdf-export-root .portfolio-actions,
-.pdf-export-root .portfolio-overlay,
-.pdf-export-root .glightbox,
-.pdf-export-root .btn,
-.pdf-export-root [class*="btn-"],
-.pdf-export-root button,
-.pdf-export-root [role="button"],
-.pdf-export-root .header-toggle,
-.pdf-export-root .scroll-top,
-.pdf-export-root #preloader,
-.pdf-export-root .social-links,
-.pdf-export-root .action-buttons,
-.pdf-export-root .hero-actions,
-.pdf-export-root .copy-trigger,
-.pdf-export-root .submit-btn,
-.pdf-export-root .quote-icon,
-.pdf-export-root .stars-rating,
-.pdf-export-root .swiper-pagination,
-.pdf-export-root .swiper-button-next,
-.pdf-export-root .swiper-button-prev,
-.pdf-export-root .portfolio-filters {
-  display: none !important;
 }
