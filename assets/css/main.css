@@ -3605,6 +3605,10 @@ section,
   gap: 1.5rem;
 }
 
+.service-details .service-content .service-description .features-list .feature-item[id] {
+  scroll-margin-top: 110px;
+}
+
 .service-details .service-content .service-description .features-list .feature-item i {
   font-size: 1.5rem;
   color: var(--accent-color);
