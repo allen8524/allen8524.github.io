@@ -157,6 +157,12 @@
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
 
+      if (swiperElement.closest(".portfolio-details .additional-gallery")) {
+        config.autoHeight = true;
+        config.observer = true;
+        config.observeParents = true;
+      }
+
       if (swiperElement.classList.contains("swiper-tab")) {
         initSwiperWithCustomPagination(swiperElement, config);
       } else {

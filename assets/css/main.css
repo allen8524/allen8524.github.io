@@ -3040,11 +3040,21 @@ section,
   color: var(--accent-color);
 }
 
+.portfolio-details .hero-section .hero-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .portfolio-details .hero-section .hero-image img {
+  display: block;
   border-radius: 6px;
   width: 100%;
-  height: 400px;
+  max-width: 100%;
+  height: auto;
+  max-height: min(75vh, 760px);
   object-fit: contain;
+  margin: 0 auto;
   background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
 }
 
@@ -3055,17 +3065,22 @@ section,
 .portfolio-details .visual-showcase .showcase-gallery {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: auto auto;
   gap: 1rem;
-  height: 500px;
+  align-items: start;
 }
 
 .portfolio-details .visual-showcase .showcase-gallery .gallery-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
   border-radius: 6px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: transform 0.4s ease;
+  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
 }
 
 .portfolio-details .visual-showcase .showcase-gallery .gallery-item.large {
@@ -3073,11 +3088,17 @@ section,
 }
 
 .portfolio-details .visual-showcase .showcase-gallery .gallery-item img {
+  display: block;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(60vh, 420px);
   object-fit: contain;
-  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
   transition: transform 0.5s ease;
+}
+
+.portfolio-details .visual-showcase .showcase-gallery .gallery-item.large img {
+  max-height: min(72vh, 760px);
 }
 
 .portfolio-details .visual-showcase .showcase-gallery .gallery-item:hover {
@@ -3126,9 +3147,13 @@ section,
 }
 
 .portfolio-details .representative-preview .preview-card img {
+  display: block;
   width: 100%;
-  max-height: 620px;
+  max-width: 100%;
+  height: auto;
+  max-height: min(80vh, 900px);
   object-fit: contain;
+  margin: 0 auto;
   border-radius: 8px;
   background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
 }
@@ -3161,13 +3186,21 @@ section,
 .portfolio-details .feature-previews .feature-grid .feature-item .feature-image {
   margin: 0;
   padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
 }
 
 .portfolio-details .feature-previews .feature-grid .feature-item .feature-image img {
+  display: block;
   width: 100%;
-  height: 280px;
+  max-width: 100%;
+  height: auto;
+  max-height: min(56vh, 420px);
   object-fit: contain;
+  margin: 0 auto;
   border-radius: 8px;
   background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
 }
@@ -3439,12 +3472,24 @@ section,
 
 .portfolio-details .additional-gallery .gallery-slider .swiper-wrapper {
   height: auto !important;
+  align-items: flex-start;
+}
+
+.portfolio-details .additional-gallery .gallery-slider .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }
 
 .portfolio-details .additional-gallery .gallery-slider .swiper-slide img {
+  display: block;
   width: 100%;
-  height: 300px;
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, 620px);
   object-fit: contain;
+  margin: 0 auto;
   background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
   border-radius: 6px;
   cursor: pointer;
@@ -3540,15 +3585,20 @@ section,
 @media (max-width: 1200px) {
   .portfolio-details .visual-showcase .showcase-gallery {
     grid-template-columns: 1fr;
-    height: auto;
+    grid-template-rows: auto;
   }
 
   .portfolio-details .visual-showcase .showcase-gallery .gallery-item {
-    height: 300px;
+    padding: 0.85rem;
   }
 
   .portfolio-details .visual-showcase .showcase-gallery .gallery-item.large {
     grid-row: span 1;
+  }
+
+  .portfolio-details .visual-showcase .showcase-gallery .gallery-item img,
+  .portfolio-details .visual-showcase .showcase-gallery .gallery-item.large img {
+    max-height: min(62vh, 560px);
   }
 }
 
@@ -3602,8 +3652,16 @@ section,
     font-size: 2rem;
   }
 
+  .portfolio-details .hero-section .hero-image img {
+    max-height: min(60vh, 520px);
+  }
+
   .portfolio-details .feature-previews .feature-grid .feature-item .feature-image img {
-    height: 240px;
+    max-height: min(52vh, 320px);
+  }
+
+  .portfolio-details .additional-gallery .gallery-slider .swiper-slide img {
+    max-height: min(52vh, 360px);
   }
 
   .portfolio-details .process-timeline .timeline-steps .timeline-item {
