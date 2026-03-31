@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>주문 및 장바구니 | 황민서 포트폴리오</title>
+  <meta name="description" content="상품 선택부터 장바구니, 주문 처리, 상태 관리까지 쇼핑몰 핵심 플로우 구현 경험을 소개합니다.">
+  <meta name="keywords" content="장바구니, 주문 처리, 쇼핑몰, 수량 변경, 주문 상태, 예외 처리">
+  <meta name="author" content="황민서">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="service-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column justify-content-between">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="header-top">
+      <div class="profile-img">
+        <img src="assets/img/profile/profile-square-14.webp" alt="포트폴리오 프로필 이미지" class="img-fluid">
+      </div>
+
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <h1 class="sitename">황민서</h1>
+      </a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>홈</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> 소개</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> 이력 및 활동</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> 프로젝트</a></li>
+        <li><a href="index.html#services" class="active"><i class="bi bi-hdd-stack navicon"></i> 개발 역량</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> 연락처</a></li>
+      </ul>
+    </nav>
+
+    <div class="social-links text-center">
+      <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+      <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container">
+        <h1>주문 및 장바구니</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">홈</a></li>
+            <li class="current">주문 및 장바구니</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-8">
+
+            <div class="service-content">
+
+              <div class="service-hero" data-aos="fade-up" data-aos-delay="200">
+                <h2>상품 선택부터 주문 완료까지 끊기지 않는 흐름을 구현했습니다</h2>
+                <p class="lead">쇼핑몰 프로젝트에서 상품 조회, 장바구니, 수량 변경, 주문서 작성, 주문 상태 관리까지 전체 주문 플로우를 직접 구현했습니다. 사용자 화면과 관리자 확인 흐름이 연결되도록 데이터 구조와 화면 동작을 함께 맞췄습니다.</p>
+              </div>
+
+              <div class="service-image" data-aos="zoom-in" data-aos-delay="300">
+                <img src="assets/img/services/services-3.webp" alt="웹 서비스 구현 역량을 설명하는 이미지" class="img-fluid">
+              </div>
+
+              <div class="service-description" data-aos="fade-up" data-aos-delay="400">
+                <h3>핵심 구현 내용</h3>
+                <p>단일 기능이 아닌 주문 라이프사이클 중심으로 정리했습니다. 장바구니 변경 내용이 주문서와 DB에 정확히 반영되도록 처리했고, 중간 이탈이나 비정상 입력 같은 예외 상황도 함께 검증했습니다.</p>
+
+                <div class="features-list">
+                  <div class="feature-item" id="order-selection">
+                    <i class="bi bi-bag-check"></i>
+                    <div>
+                      <h4>상품 선택 및 상세 조회</h4>
+                      <p>상품 목록/상세 화면에서 옵션과 수량을 선택하고 바로 장바구니 또는 주문으로 이어지도록 구성했습니다. 품절 상품이나 비정상 요청은 안내 메시지와 함께 차단했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="order-cart-flow">
+                    <i class="bi bi-cart3"></i>
+                    <div>
+                      <h4>장바구니 처리와 수량 변경</h4>
+                      <p>장바구니 담기, 수량 증가/감소, 선택 삭제 기능을 구현하고 총 금액이 즉시 반영되도록 처리했습니다. 수량이 0 이하로 내려가는 상황이나 중복 담기 케이스도 별도로 처리했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="order-checkout">
+                    <i class="bi bi-receipt"></i>
+                    <div>
+                      <h4>주문 처리 및 상태 관리</h4>
+                      <p>주문서 작성 후 주문 데이터를 저장하고, 주문 상태를 단계별로 관리했습니다. 사용자 주문 내역 조회와 관리자 주문 확인 흐름을 연결해 운영 화면에서도 동일한 상태를 확인할 수 있게 했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="order-exception">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <div>
+                      <h4>예외 케이스 대응</h4>
+                      <p>로그인 만료 상태에서 주문 요청, 잘못된 수량 입력, 이미 처리된 주문 재요청 같은 케이스를 검증해 중복 처리와 데이터 꼬임을 방지했습니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-section" data-aos="fade-up" data-aos-delay="500">
+                <h3>주문 기능 구현 포인트</h3>
+                <div class="process-steps">
+                  <div class="step">
+                    <div class="step-number">01</div>
+                    <h4>주문 플로우 정의</h4>
+                    <p>상품 상세 → 장바구니 → 주문서 → 주문 완료 흐름을 먼저 고정했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">02</div>
+                    <h4>상태 데이터 설계</h4>
+                    <p>장바구니 항목, 주문 테이블, 주문 상태 값의 관계를 명확히 정리했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">03</div>
+                    <h4>화면/DB 동기화</h4>
+                    <p>수량 변경, 금액 계산, 주문 저장 결과가 화면과 DB에서 동일하게 반영되도록 구현했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">04</div>
+                    <h4>예외 상황 점검</h4>
+                    <p>로그인 만료, 비정상 수량, 중복 요청 상황을 테스트하며 처리 로직을 보완했습니다.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-4">
+
+            <div class="service-sidebar">
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="600">
+                <h4>주 사용 기술</h4>
+                <ul class="info-list">
+                  <li><strong>Back-End:</strong> PHP, Laravel, Spring</li>
+                  <li><strong>Front-End:</strong> HTML, CSS, Bootstrap, JavaScript</li>
+                  <li><strong>Database:</strong> MySQL, Oracle, MS-SQL</li>
+                  <li><strong>Tools:</strong> Git, GitHub, VS Code</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="700">
+                <h4>구현 포인트</h4>
+                <ul class="info-list">
+                  <li><strong>장바구니:</strong> 담기/삭제/수량 변경/총액 재계산 처리</li>
+                  <li><strong>주문서:</strong> 배송 정보와 주문 항목 검증 후 저장</li>
+                  <li><strong>상태 관리:</strong> 주문 접수 이후 단계별 상태 값 관리</li>
+                  <li><strong>관리자 연동:</strong> 주문 확인 화면과 사용자 내역 화면 동기화</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="800">
+                <h4>관련 프로젝트 연결</h4>
+                <ul class="info-list">
+                  <li><strong>온라인 쇼핑몰:</strong> 상품, 장바구니, 주문 처리 핵심 기능 구현</li>
+                  <li><strong>베이커리 관리 웹:</strong> 주문·판매 데이터 기반 운영 화면 경험</li>
+                  <li><strong>트러블슈팅 기록:</strong> 주문 흐름 예외 처리 과정 블로그 정리</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="900">
+                <h4>사용 기술</h4>
+                <ul class="info-list">
+                  <li>Laravel/PHP 기반 주문 로직과 상태 처리</li>
+                  <li>JavaScript를 활용한 장바구니 수량 및 금액 반영</li>
+                  <li>MySQL 연동으로 주문/장바구니 데이터 관리</li>
+                </ul>
+              </div>
+
+              <div class="cta-block" data-aos="fade-up" data-aos-delay="1000">
+                <h4>바로 이동</h4>
+                <p>주문 및 장바구니 흐름은 쇼핑몰 프로젝트 상세 페이지에서 화면 단위로 확인할 수 있습니다.</p>
+                <a href="https://github.com/allen8524" class="btn btn-primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://allen8524.tistory.com/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="index.html#contact" class="btn btn-outline">연락처</a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">황민서</h3>
+      <p>상품 선택, 장바구니, 주문 상태 관리까지 실제 쇼핑몰 흐름을 안정적으로 구현해왔습니다.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+        <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">황민서</strong> <span>모든 권리 보유</span>
+        </div>
+        <div class="credits">
+          <!-- BootstrapMade 무료 템플릿 라이선스의 출처 표기 요구사항에 따라 유지합니다. -->
+          Template attribution: <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
