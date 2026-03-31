@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>게시판 및 콘텐츠 | 황민서 포트폴리오</title>
+  <meta name="description" content="게시판 CRUD, 목록/상세/수정/삭제, 첨부 처리, 관리자 콘텐츠 운영 경험을 소개합니다.">
+  <meta name="keywords" content="게시판 CRUD, 콘텐츠 관리, 이미지 업로드, 페이징, 검색, 관리자">
+  <meta name="author" content="황민서">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="service-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column justify-content-between">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="header-top">
+      <div class="profile-img">
+        <img src="assets/img/profile/profile-square-14.webp" alt="포트폴리오 프로필 이미지" class="img-fluid">
+      </div>
+
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <h1 class="sitename">황민서</h1>
+      </a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>홈</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> 소개</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> 이력 및 활동</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> 프로젝트</a></li>
+        <li><a href="index.html#services" class="active"><i class="bi bi-hdd-stack navicon"></i> 개발 역량</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> 연락처</a></li>
+      </ul>
+    </nav>
+
+    <div class="social-links text-center">
+      <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+      <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container">
+        <h1>게시판 및 콘텐츠</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">홈</a></li>
+            <li class="current">게시판 및 콘텐츠</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-8">
+
+            <div class="service-content">
+
+              <div class="service-hero" data-aos="fade-up" data-aos-delay="200">
+                <h2>사용자 중심 정보 구조를 고려한 게시판 기능을 구현했습니다</h2>
+                <p class="lead">e스포츠 정보 포털과 관리형 웹 기능을 만들면서 게시글 등록부터 상세 조회, 수정/삭제, 검색과 페이징까지 기본 게시판 흐름을 직접 구성했습니다. 운영 관점의 콘텐츠 관리 기능도 함께 구현했습니다.</p>
+              </div>
+
+              <div class="service-image" data-aos="zoom-in" data-aos-delay="300">
+                <img src="assets/img/services/services-3.webp" alt="웹 서비스 구현 역량을 설명하는 이미지" class="img-fluid">
+              </div>
+
+              <div class="service-description" data-aos="fade-up" data-aos-delay="400">
+                <h3>핵심 구현 내용</h3>
+                <p>단순 CRUD 나열이 아니라 실제 사용 흐름에 맞춰 화면, 데이터, 운영 기능을 연결했습니다. 사용자에게 필요한 정보를 빠르게 보여주고, 관리자 입장에서 콘텐츠를 정리하기 쉬운 구조를 목표로 구현했습니다.</p>
+
+                <div class="features-list">
+                  <div class="feature-item" id="board-crud">
+                    <i class="bi bi-journal-text"></i>
+                    <div>
+                      <h4>게시판 CRUD</h4>
+                      <p>게시글 작성/수정/삭제/상세 조회 기능을 구현하고 작성자 기준 접근 제어를 적용했습니다. 입력값 검증과 오류 메시지 처리를 통해 기본 동작 안정성을 높였습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="board-list-view">
+                    <i class="bi bi-list-ul"></i>
+                    <div>
+                      <h4>목록, 검색, 페이징</h4>
+                      <p>목록 화면에서 검색 조건과 페이징을 적용해 데이터가 많아져도 탐색이 가능하도록 구현했습니다. 검색 결과가 없는 경우도 별도 안내를 제공해 사용자 경험을 보완했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="board-content-mgmt">
+                    <i class="bi bi-folder-check"></i>
+                    <div>
+                      <h4>콘텐츠 관리 및 첨부 흐름</h4>
+                      <p>관리자 화면에서 게시글 상태를 관리하고 필요 시 이미지 첨부 처리까지 연결했습니다. 첨부 파일 누락이나 형식 오류 같은 케이스는 업로드 단계에서 검증했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="board-troubleshooting">
+                    <i class="bi bi-tools"></i>
+                    <div>
+                      <h4>문제 해결 경험</h4>
+                      <p>수정 화면에서 기존 데이터가 정확히 반영되지 않던 문제를 요청/응답 흐름으로 추적해 해결했습니다. 삭제 후 목록 갱신 지연 이슈도 쿼리와 리다이렉트 흐름 조정으로 개선했습니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-section" data-aos="fade-up" data-aos-delay="500">
+                <h3>게시판 구현 포인트</h3>
+                <div class="process-steps">
+                  <div class="step">
+                    <div class="step-number">01</div>
+                    <h4>정보 구조 설계</h4>
+                    <p>카테고리, 목록, 상세 화면의 이동 흐름을 먼저 설계했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">02</div>
+                    <h4>CRUD 기능 구현</h4>
+                    <p>작성·수정·삭제·조회 기능을 권한 조건과 함께 구현했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">03</div>
+                    <h4>검색/페이징 최적화</h4>
+                    <p>목록 탐색 편의성을 위해 검색 조건과 페이지 이동 로직을 정리했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">04</div>
+                    <h4>운영 기능 보완</h4>
+                    <p>관리자 콘텐츠 관리와 첨부 처리 검증으로 운영 안정성을 높였습니다.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-4">
+
+            <div class="service-sidebar">
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="600">
+                <h4>주 사용 기술</h4>
+                <ul class="info-list">
+                  <li><strong>Back-End:</strong> PHP, Laravel, Spring</li>
+                  <li><strong>Front-End:</strong> HTML, CSS, Bootstrap, JavaScript</li>
+                  <li><strong>Database:</strong> MySQL, Oracle, MS-SQL</li>
+                  <li><strong>Tools:</strong> Git, GitHub, VS Code</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="700">
+                <h4>구현 포인트</h4>
+                <ul class="info-list">
+                  <li><strong>핵심 기능:</strong> 게시글 작성·조회·수정·삭제 전 과정 구현</li>
+                  <li><strong>목록 탐색:</strong> 검색 조건과 페이징 처리로 접근성 개선</li>
+                  <li><strong>첨부 처리:</strong> 이미지 업로드 및 기본 검증 흐름 적용</li>
+                  <li><strong>운영 관리:</strong> 관리자 기준 콘텐츠 노출/관리 기능 구성</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="800">
+                <h4>관련 프로젝트 연결</h4>
+                <ul class="info-list">
+                  <li><strong>e스포츠 포털:</strong> 콘텐츠성 게시판과 정보 페이지 구성</li>
+                  <li><strong>쇼핑몰 프로젝트:</strong> 공지/문의 성격 게시판 기능 구현</li>
+                  <li><strong>개발 블로그:</strong> 게시판 기능 구현 및 오류 해결 기록 정리</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="900">
+                <h4>사용 기술</h4>
+                <ul class="info-list">
+                  <li>PHP/Laravel 기반 게시판 CRUD 및 권한 처리</li>
+                  <li>MySQL 조회 쿼리와 페이징 로직 구성</li>
+                  <li>Bootstrap/JavaScript로 목록·상세·입력 화면 연결</li>
+                </ul>
+              </div>
+
+              <div class="cta-block" data-aos="fade-up" data-aos-delay="1000">
+                <h4>바로 이동</h4>
+                <p>게시판과 콘텐츠 관리 경험은 프로젝트 결과물과 개발 기록에서 함께 확인할 수 있습니다.</p>
+                <a href="https://github.com/allen8524" class="btn btn-primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://allen8524.tistory.com/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="index.html#contact" class="btn btn-outline">연락처</a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">황민서</h3>
+      <p>게시판 CRUD와 콘텐츠 운영 흐름을 사용자 경험과 함께 고려해 구현해왔습니다.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+        <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">황민서</strong> <span>모든 권리 보유</span>
+        </div>
+        <div class="credits">
+          <!-- BootstrapMade 무료 템플릿 라이선스의 출처 표기 요구사항에 따라 유지합니다. -->
+          Template attribution: <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

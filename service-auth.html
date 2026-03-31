@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>회원 및 권한 관리 | 황민서 포트폴리오</title>
+  <meta name="description" content="회원가입, 로그인, 세션 처리, 권한 분기, 관리자 접근 제어 등 인증/인가 구현 경험을 소개합니다.">
+  <meta name="keywords" content="회원가입, 로그인, 세션, 인증, 인가, 권한 관리, 관리자 페이지">
+  <meta name="author" content="황민서">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="service-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column justify-content-between">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="header-top">
+      <div class="profile-img">
+        <img src="assets/img/profile/profile-square-14.webp" alt="포트폴리오 프로필 이미지" class="img-fluid">
+      </div>
+
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <h1 class="sitename">황민서</h1>
+      </a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>홈</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> 소개</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> 이력 및 활동</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> 프로젝트</a></li>
+        <li><a href="index.html#services" class="active"><i class="bi bi-hdd-stack navicon"></i> 개발 역량</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> 연락처</a></li>
+      </ul>
+    </nav>
+
+    <div class="social-links text-center">
+      <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+      <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container">
+        <h1>회원 및 권한 관리</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">홈</a></li>
+            <li class="current">회원 및 권한 관리</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-8">
+
+            <div class="service-content">
+
+              <div class="service-hero" data-aos="fade-up" data-aos-delay="200">
+                <h2>회원가입부터 관리자 접근 제어까지 인증/인가 흐름을 직접 구현했습니다</h2>
+                <p class="lead">쇼핑몰과 관리형 웹 프로젝트에서 회원가입, 로그인, 세션 유지, 권한 분기를 한 흐름으로 설계했습니다. 단순 로그인 화면이 아니라 사용자/관리자 경계를 분명히 두고 접근 제어를 구현한 경험을 정리했습니다.</p>
+              </div>
+
+              <div class="service-image" data-aos="zoom-in" data-aos-delay="300">
+                <img src="assets/img/services/services-3.webp" alt="웹 서비스 구현 역량을 설명하는 이미지" class="img-fluid">
+              </div>
+
+              <div class="service-description" data-aos="fade-up" data-aos-delay="400">
+                <h3>핵심 구현 내용</h3>
+                <p>기능 단위 설명이 아니라 실제 구현 기준으로 정리했습니다. 인증 상태 유지, 권한에 따른 메뉴/기능 노출, 관리자 페이지 접근 제한까지 운영 관점에서 필요한 항목을 함께 다뤘습니다.</p>
+
+                <div class="features-list">
+                  <div class="feature-item" id="auth-signup-login">
+                    <i class="bi bi-person-plus"></i>
+                    <div>
+                      <h4>회원가입/로그인 흐름</h4>
+                      <p>유효성 검증, 중복 계정 확인, 로그인 실패 처리까지 포함해 회원가입과 로그인 흐름을 구현했습니다. 입력값 누락이나 중복 데이터 같은 예외 케이스를 초기에 걸러 실제 사용 중 오류를 줄였습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="auth-session">
+                    <i class="bi bi-shield-lock"></i>
+                    <div>
+                      <h4>세션 처리 및 상태 유지</h4>
+                      <p>로그인 성공 시 세션에 사용자 정보를 저장하고, 필요한 페이지에서 세션 존재 여부를 점검해 접근을 제어했습니다. 로그아웃 시 세션 정리까지 포함해 인증 상태가 일관되게 동작하도록 구성했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="auth-role">
+                    <i class="bi bi-person-gear"></i>
+                    <div>
+                      <h4>권한 분기와 관리자 접근 제어</h4>
+                      <p>일반 사용자와 관리자 계정을 분리하고, 관리자 전용 기능은 권한 확인 로직을 통과한 경우에만 실행되도록 구현했습니다. URL 직접 접근 시에도 권한 검사를 적용해 우회 접근을 막았습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="auth-troubleshooting">
+                    <i class="bi bi-bug"></i>
+                    <div>
+                      <h4>문제 해결 경험</h4>
+                      <p>세션 만료 타이밍 차이로 발생하던 화면 오류를 재현해 확인하고, 공통 체크 로직을 정리해 페이지별 처리 편차를 줄였습니다. 로그인 상태와 화면 노출이 어긋나던 문제도 조건식 정리로 해결했습니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-section" data-aos="fade-up" data-aos-delay="500">
+                <h3>인증/인가 구현 포인트</h3>
+                <div class="process-steps">
+                  <div class="step">
+                    <div class="step-number">01</div>
+                    <h4>요구사항 분리</h4>
+                    <p>회원 기능과 관리자 기능을 먼저 분리하고, 각 화면에서 필요한 권한 범위를 명확히 정의했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">02</div>
+                    <h4>세션 기준 설계</h4>
+                    <p>로그인 유지 기준, 만료 처리, 로그아웃 동작을 먼저 설계해 상태 꼬임을 줄였습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">03</div>
+                    <h4>권한 체크 공통화</h4>
+                    <p>페이지 단위로 권한 확인 로직을 통일해 우회 접근과 중복 코드를 함께 줄였습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">04</div>
+                    <h4>예외 흐름 검증</h4>
+                    <p>로그인 실패, 세션 만료, 비정상 접근 시 메시지와 이동 경로를 점검하며 안정성을 보완했습니다.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-4">
+
+            <div class="service-sidebar">
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="600">
+                <h4>주 사용 기술</h4>
+                <ul class="info-list">
+                  <li><strong>Back-End:</strong> PHP, Laravel, Spring</li>
+                  <li><strong>Front-End:</strong> HTML, CSS, Bootstrap, JavaScript</li>
+                  <li><strong>Database:</strong> MySQL, Oracle, MS-SQL</li>
+                  <li><strong>Tools:</strong> Git, GitHub, VS Code</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="700">
+                <h4>구현 포인트</h4>
+                <ul class="info-list">
+                  <li><strong>회원가입:</strong> 중복 검사, 필수값 검증, 실패 메시지 처리</li>
+                  <li><strong>로그인/세션:</strong> 세션 저장, 유지, 로그아웃 정리</li>
+                  <li><strong>권한 분기:</strong> 사용자/관리자 메뉴 및 기능 분리</li>
+                  <li><strong>접근 제어:</strong> 관리자 URL 직접 접근 차단 로직 적용</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="800">
+                <h4>관련 프로젝트 연결</h4>
+                <ul class="info-list">
+                  <li><strong>쇼핑몰 프로젝트:</strong> 회원가입, 로그인, 마이페이지 흐름 구현</li>
+                  <li><strong>베이커리 관리 웹:</strong> 관리자 계정 기반 관리 메뉴 접근 제어</li>
+                  <li><strong>e스포츠 정보 포털:</strong> 사용자 중심 정보 화면과 권한별 기능 분리</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="900">
+                <h4>사용 기술</h4>
+                <ul class="info-list">
+                  <li>PHP/Laravel 기반 인증 처리와 세션 관리</li>
+                  <li>Spring/JSP 구조에서 권한 분기 로직 구성</li>
+                  <li>HTML/CSS/Bootstrap/JavaScript로 로그인·마이페이지 UI 연동</li>
+                </ul>
+              </div>
+
+              <div class="cta-block" data-aos="fade-up" data-aos-delay="1000">
+                <h4>바로 이동</h4>
+                <p>인증/인가 구현 흐름과 실제 적용 화면은 프로젝트 페이지에서 더 자세히 확인할 수 있습니다.</p>
+                <a href="https://github.com/allen8524" class="btn btn-primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://allen8524.tistory.com/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="index.html#contact" class="btn btn-outline">연락처</a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">황민서</h3>
+      <p>회원가입, 로그인, 세션 처리, 권한 분기 경험을 바탕으로 안정적인 인증/인가 흐름을 구현합니다.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+        <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">황민서</strong> <span>모든 권리 보유</span>
+        </div>
+        <div class="credits">
+          <!-- BootstrapMade 무료 템플릿 라이선스의 출처 표기 요구사항에 따라 유지합니다. -->
+          Template attribution: <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

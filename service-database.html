@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>DB 설계 및 연동 | 황민서 포트폴리오</title>
+  <meta name="description" content="테이블 관계 설계, 정규화, CRUD/JOIN 쿼리, 데이터 일관성 및 예외 처리 경험을 소개합니다.">
+  <meta name="keywords" content="DB 설계, ERD, 정규화, MySQL, Oracle, MS-SQL, 데이터 일관성">
+  <meta name="author" content="황민서">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="service-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column justify-content-between">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="header-top">
+      <div class="profile-img">
+        <img src="assets/img/profile/profile-square-14.webp" alt="포트폴리오 프로필 이미지" class="img-fluid">
+      </div>
+
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <h1 class="sitename">황민서</h1>
+      </a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>홈</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> 소개</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> 이력 및 활동</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> 프로젝트</a></li>
+        <li><a href="index.html#services" class="active"><i class="bi bi-hdd-stack navicon"></i> 개발 역량</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> 연락처</a></li>
+      </ul>
+    </nav>
+
+    <div class="social-links text-center">
+      <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+      <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container">
+        <h1>DB 설계 및 연동</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">홈</a></li>
+            <li class="current">DB 설계 및 연동</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-8">
+
+            <div class="service-content">
+
+              <div class="service-hero" data-aos="fade-up" data-aos-delay="200">
+                <h2>기능 요구사항을 테이블 구조와 쿼리로 연결해 구현했습니다</h2>
+                <p class="lead">회원, 주문, 게시글처럼 서로 연결되는 데이터를 기준으로 ERD를 정리하고 정규화한 뒤, 화면 기능과 DB 로직을 함께 구현했습니다. 단순 저장이 아니라 조회 흐름과 예외 처리까지 고려한 DB 연동 경험을 담았습니다.</p>
+              </div>
+
+              <div class="service-image" data-aos="zoom-in" data-aos-delay="300">
+                <img src="assets/img/services/services-3.webp" alt="웹 서비스 구현 역량을 설명하는 이미지" class="img-fluid">
+              </div>
+
+              <div class="service-description" data-aos="fade-up" data-aos-delay="400">
+                <h3>핵심 구현 내용</h3>
+                <p>데이터 모델링부터 쿼리 구성, 예외 처리까지 실제 구현 범위를 중심으로 정리했습니다. 화면 요구사항이 바뀌어도 테이블 관계와 쿼리 흐름이 유지되도록 설계하는 데 집중했습니다.</p>
+
+                <div class="features-list">
+                  <div class="feature-item" id="db-erd">
+                    <i class="bi bi-diagram-3"></i>
+                    <div>
+                      <h4>테이블 관계 설계와 정규화</h4>
+                      <p>회원, 상품, 주문, 게시글 테이블의 관계를 기준으로 ERD를 작성하고 중복 컬럼을 정리해 정규화했습니다. 기능 추가 시 확장 가능한 구조를 우선 고려했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="db-query-flow">
+                    <i class="bi bi-search"></i>
+                    <div>
+                      <h4>CRUD 및 조회 쿼리 흐름</h4>
+                      <p>기본 CRUD뿐 아니라 목록/상세 화면에 필요한 JOIN 조회를 구현했습니다. 조건별 조회와 정렬 로직을 분리해 유지보수 시 수정 범위를 줄였습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="db-integration">
+                    <i class="bi bi-link-45deg"></i>
+                    <div>
+                      <h4>웹 기능과 DB 연동</h4>
+                      <p>컨트롤러에서 전달된 입력값이 DB에 반영되고, 다시 화면으로 정확히 조회되도록 데이터 흐름을 구성했습니다. Laravel, Spring 프로젝트에서 MySQL, Oracle, MS-SQL 연동 경험을 쌓았습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item" id="db-consistency">
+                    <i class="bi bi-shield-check"></i>
+                    <div>
+                      <h4>예외 처리와 데이터 일관성</h4>
+                      <p>잘못된 파라미터, 누락 데이터, 중복 입력 같은 예외 케이스를 사전에 검증했습니다. 삭제/수정 시 연관 데이터 영향을 함께 확인해 무결성 문제가 발생하지 않도록 처리했습니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-section" data-aos="fade-up" data-aos-delay="500">
+                <h3>DB 설계/연동 구현 포인트</h3>
+                <div class="process-steps">
+                  <div class="step">
+                    <div class="step-number">01</div>
+                    <h4>요구사항 기반 모델링</h4>
+                    <p>화면 기능을 기준으로 엔터티와 관계를 정의하고 ERD를 먼저 작성했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">02</div>
+                    <h4>정규화 및 키 설계</h4>
+                    <p>중복 데이터를 줄이고 PK/FK 기준을 명확히 정리했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">03</div>
+                    <h4>쿼리/연동 구현</h4>
+                    <p>CRUD와 JOIN 조회를 구현하고 컨트롤러-서비스-DB 흐름을 연결했습니다.</p>
+                  </div>
+                  <div class="step">
+                    <div class="step-number">04</div>
+                    <h4>무결성 검증</h4>
+                    <p>예외 입력과 연관 데이터 변경 시나리오를 점검해 일관성을 보완했습니다.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-4">
+
+            <div class="service-sidebar">
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="600">
+                <h4>주 사용 기술</h4>
+                <ul class="info-list">
+                  <li><strong>Back-End:</strong> PHP, Laravel, Spring</li>
+                  <li><strong>Front-End:</strong> HTML, CSS, Bootstrap, JavaScript</li>
+                  <li><strong>Database:</strong> MySQL, Oracle, MS-SQL</li>
+                  <li><strong>Tools:</strong> Git, GitHub, VS Code</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="700">
+                <h4>구현 포인트</h4>
+                <ul class="info-list">
+                  <li><strong>모델링:</strong> ERD 작성 및 테이블 관계 정의</li>
+                  <li><strong>쿼리 구성:</strong> CRUD, JOIN, 조건 조회 로직 분리</li>
+                  <li><strong>연동 처리:</strong> 화면 입력값과 DB 결과의 일관된 매핑</li>
+                  <li><strong>예외 대응:</strong> 중복/누락/무결성 이슈 사전 검증</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="800">
+                <h4>관련 프로젝트 연결</h4>
+                <ul class="info-list">
+                  <li><strong>온라인 쇼핑몰:</strong> 회원-상품-주문 관계 테이블 설계/연동</li>
+                  <li><strong>e스포츠 포털:</strong> 콘텐츠 데이터 구조와 조회 쿼리 구성</li>
+                  <li><strong>베이커리 관리 웹:</strong> 판매 데이터 저장/집계용 DB 처리 경험</li>
+                </ul>
+              </div>
+
+              <div class="service-info" data-aos="fade-up" data-aos-delay="900">
+                <h4>사용 기술</h4>
+                <ul class="info-list">
+                  <li>MySQL, Oracle, MS-SQL 기반 데이터 처리</li>
+                  <li>Laravel/Spring 환경의 DB 연동 및 쿼리 작성</li>
+                  <li>정규화, 관계 설계, 무결성 검증 중심 접근</li>
+                </ul>
+              </div>
+
+              <div class="cta-block" data-aos="fade-up" data-aos-delay="1000">
+                <h4>바로 이동</h4>
+                <p>DB 설계와 연동 방식은 프로젝트 상세 페이지에서 기능 흐름과 함께 확인할 수 있습니다.</p>
+                <a href="https://github.com/allen8524" class="btn btn-primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://allen8524.tistory.com/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="index.html#contact" class="btn btn-outline">연락처</a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">황민서</h3>
+      <p>테이블 관계 설계부터 쿼리 연동, 예외 처리까지 데이터 중심으로 안정적인 서비스를 구현합니다.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+        <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">황민서</strong> <span>모든 권리 보유</span>
+        </div>
+        <div class="credits">
+          <!-- BootstrapMade 무료 템플릿 라이선스의 출처 표기 요구사항에 따라 유지합니다. -->
+          Template attribution: <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
