@@ -92,7 +92,7 @@
                   <span class="year">2025.06</span>
                 </div>
                 <h1 class="project-title">쇼핑몰 판매관리 사이트</h1>
-                <p class="project-summary">PHP와 Bootstrap 기반 반응형 쇼핑몰 웹사이트로, 상품 검색부터 장바구니, 주문·결제와 관리자 운영 흐름까지 직접 구현한 프로젝트입니다.</p>
+                <p class="project-summary">PHP와 MySQL 기반으로 상품 조회·검색·정렬, 상세 페이지, 옵션 선택, 장바구니, 주문·결제, 주문 조회까지 구현한 반응형 쇼핑몰 판매관리 프로젝트입니다. 관리자 페이지에서는 회원, 상품, 주문, 옵션, FAQ 관리 기능을 분리해 운영 흐름까지 함께 구성했습니다.</p>
                 <div class="project-tags">
                   <span class="tag">PHP</span>
                   <span class="tag">Bootstrap</span>
@@ -127,9 +127,9 @@
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
               <div class="main-content">
                 <h2>개발 목적</h2>
-                <p>쇼핑몰 서비스에서 자주 사용되는 핵심 흐름을 직접 구현해보는 것을 목표로, 상품 조회부터 주문 처리와 관리자 운영까지 하나의 프로젝트 안에서 연결해보았습니다.</p>
-                <p>단순히 화면을 구성하는 데 그치지 않고, 사용자 화면과 관리자 화면이 서로 어떤 데이터 흐름으로 이어지는지 확인하며 기능 단위로 구조를 나누어 구현했습니다.</p>
-                <p>특히 주문·결제 흐름과 관리 기능을 함께 다루면서, 실제 서비스에 가까운 쇼핑몰 구조를 익히는 데 초점을 맞췄습니다.</p>
+                <p>쇼핑몰의 전체 구매 흐름과 운영 구조를 서버사이드 방식으로 직접 구현해보며, PHP와 MySQL 기반 데이터 처리 방식을 익히기 위해 진행한 프로젝트입니다.</p>
+                <p>사용자 화면에서는 상품 탐색부터 장바구니, 주문, 비회원 주문 조회까지의 흐름을 연결하고, 관리자 화면에서는 회원, 상품, 주문, 옵션, FAQ 관리 기능을 분리해 역할별 구조를 정리했습니다.</p>
+                <p>특히 쿠키 + JSON 장바구니, 주문 마스터와 상세 분리 저장, 주문번호 자동 생성, 공통 페이징 함수처럼 실제 운영을 고려한 구조를 적용하며 CRUD와 주문 데이터 설계를 학습하는 데 초점을 두었습니다.</p>
               </div>
             </div>
             <div class="col-lg-4 offset-lg-1" data-aos="fade-up" data-aos-delay="200">
@@ -144,11 +144,11 @@
                 </div>
                 <div class="spec-item">
                   <h5>한줄 소개</h5>
-                  <p>상품 검색부터 주문 처리까지 구현한 반응형 쇼핑몰 프로젝트</p>
+                  <p>PHP와 MySQL로 상품 탐색, 주문 처리, 관리자 운영까지 구현한 반응형 쇼핑몰 판매관리 프로젝트</p>
                 </div>
                 <div class="spec-item">
                   <h5>내가 구현한 부분</h5>
-                  <p>장바구니, 주문·결제 흐름, 관리자 기능</p>
+                  <p>상품 탐색 흐름, 장바구니·주문 처리, 관리자 운영 기능, 옵션·주문 데이터 구조 설계</p>
                 </div>
                 <div class="spec-item">
                   <h5>GitHub 링크</h5>
@@ -170,7 +170,7 @@
               </div>
               <div class="step-content">
                 <h4>상품 조회 및 검색</h4>
-                <p>사용자가 상품 목록과 상세 페이지를 자연스럽게 탐색할 수 있도록 기본 조회 흐름과 검색 기능을 구현했습니다.</p>
+                <p>카테고리 분류, 검색, 정렬, 상세 페이지로 이어지는 상품 탐색 흐름을 구성했습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
@@ -179,7 +179,7 @@
               </div>
               <div class="step-content">
                 <h4>장바구니 및 주문서</h4>
-                <p>장바구니 담기, 수량 변경, 주문 정보 입력과 같은 흐름을 하나의 사용 시나리오로 연결했습니다.</p>
+                <p>옵션 조합을 반영한 장바구니를 쿠키 + JSON 기반으로 저장하고, 수량 변경, 합계 계산, 주문서 입력 흐름까지 연결했습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
@@ -188,7 +188,7 @@
               </div>
               <div class="step-content">
                 <h4>주문·결제 처리</h4>
-                <p>주문 데이터 저장과 상태 처리 흐름을 구현하며 쇼핑몰의 핵심 비즈니스 로직을 정리했습니다.</p>
+                <p>주문번호를 날짜+순번 형식으로 생성하고, 주문 정보를 주문 마스터와 상세 테이블로 나누어 저장했습니다. 카드 결제와 무통장 입금 흐름도 함께 처리했습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
@@ -197,7 +197,7 @@
               </div>
               <div class="step-content">
                 <h4>관리자 기능</h4>
-                <p>상품, 회원, 주문 데이터를 관리하는 관리자 화면을 구성해 운영 관점의 흐름도 함께 다뤘습니다.</p>
+                <p>관리자 페이지에서 회원, 상품, 주문, 옵션, FAQ를 관리하고 주문 상태 변경까지 처리할 수 있도록 구성했습니다.</p>
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@
           <div class="row align-items-center">
             <div class="col-lg-5">
               <h2>사용 기술</h2>
-              <p>PHP와 Bootstrap을 중심으로 화면과 기능을 연결했고, 쇼핑몰 프로젝트에 필요한 기본적인 사용자 흐름과 관리자 기능을 함께 구성했습니다.</p>
+              <p>PHP와 MySQL로 데이터 조회·입력·수정·삭제와 주문 처리를 구현하고, Bootstrap 기반 반응형 UI로 사용자 화면과 관리자 화면을 구성했습니다.</p>
             </div>
             <div class="col-lg-6 offset-lg-1">
               <div class="tools-grid">
@@ -215,8 +215,9 @@
                   <h5>백엔드</h5>
                   <div class="tool-list">
                     <span class="tool-item">PHP</span>
+                    <span class="tool-item">MySQL</span>
+                    <span class="tool-item">CRUD</span>
                     <span class="tool-item">주문 처리</span>
-                    <span class="tool-item">세션 관리</span>
                   </div>
                 </div>
                 <div class="tool-category" data-aos="fade-up" data-aos-delay="200">
@@ -226,15 +227,17 @@
                     <span class="tool-item">HTML</span>
                     <span class="tool-item">CSS</span>
                     <span class="tool-item">JavaScript</span>
+                    <span class="tool-item">jQuery</span>
                   </div>
                 </div>
                 <div class="tool-category" data-aos="fade-up" data-aos-delay="250">
                   <h5>구현 범위</h5>
                   <div class="tool-list">
-                    <span class="tool-item">상품 검색</span>
+                    <span class="tool-item">상품 탐색</span>
+                    <span class="tool-item">옵션 선택</span>
                     <span class="tool-item">장바구니</span>
                     <span class="tool-item">주문·결제</span>
-                    <span class="tool-item">관리자 페이지</span>
+                    <span class="tool-item">관리자 기능</span>
                   </div>
                 </div>
               </div>
@@ -246,24 +249,24 @@
           <div class="metrics-container">
             <div class="metrics-header">
               <h2>내가 구현한 부분</h2>
-              <p>쇼핑몰 프로젝트에서 직접 구현하고 연결한 핵심 영역을 기능 중심으로 정리했습니다.</p>
+              <p>사용자 구매 흐름과 관리자 운영 구조를 중심으로 직접 설계하고 구현한 영역입니다.</p>
             </div>
             <div class="metrics-grid">
               <div class="metric-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="metric-value">검색</div>
-                <div class="metric-label">상품 목록과 검색 흐름 구성</div>
+                <div class="metric-value">상품탐색</div>
+                <div class="metric-label">검색·정렬·상세 조회 흐름 구현</div>
               </div>
               <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="metric-value">주문</div>
-                <div class="metric-label">장바구니와 주문 처리 구현</div>
+                <div class="metric-value">장바구니</div>
+                <div class="metric-label">옵션 조합 기반 장바구니와 주문 연결</div>
               </div>
               <div class="metric-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="metric-value">관리</div>
-                <div class="metric-label">관리자 페이지에서 주요 데이터 관리</div>
+                <div class="metric-value">주문처리</div>
+                <div class="metric-label">주문번호 생성과 주문 데이터 분리 저장</div>
               </div>
               <div class="metric-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="metric-value">반응형</div>
-                <div class="metric-label">Bootstrap 기반 화면 구성 적용</div>
+                <div class="metric-value">관리기능</div>
+                <div class="metric-label">상품·회원·주문·옵션 관리 기능 구성</div>
               </div>
             </div>
           </div>
