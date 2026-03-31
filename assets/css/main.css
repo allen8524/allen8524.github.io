@@ -3044,7 +3044,8 @@ section,
   border-radius: 6px;
   width: 100%;
   height: 400px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
 }
 
 .portfolio-details .visual-showcase {
@@ -3074,7 +3075,8 @@ section,
 .portfolio-details .visual-showcase .showcase-gallery .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
   transition: transform 0.5s ease;
 }
 
@@ -3345,7 +3347,8 @@ section,
 .portfolio-details .additional-gallery .gallery-slider .swiper-slide img {
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
   border-radius: 6px;
   cursor: pointer;
   transition: transform 0.3s ease;
