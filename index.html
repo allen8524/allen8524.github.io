@@ -854,119 +854,50 @@
     </section><!-- /Services Section -->
 
     <!-- Troubleshooting Section -->
-    <section id="testimonials" class="testimonials section trouble-section light-background">
+    <section id="testimonials" class="testimonials section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>트러블슈팅</h2>
-        <p>기능 구현 과정에서 마주친 문제를 원인 분석과 해결 흐름 중심으로 정리했습니다.</p>
+        <p>프로젝트 구현 중 마주친 문제를 원인과 해결 결과 중심으로 정리했습니다.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="trouble-grid">
-          <article class="trouble-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="trouble-card-head">
-              <span class="trouble-case">CASE 01</span>
-              <h3 class="trouble-title">쇼핑몰 판매관리 프로젝트</h3>
-              <p class="trouble-meta">장바구니·주문 데이터 흐름 · PHP / Bootstrap / MySQL</p>
-            </div>
-            <p class="trouble-summary">장바구니에서 주문서로 이동할 때 상품 정보가 누락되던 구간을 주문 저장 흐름 기준으로 재정리했습니다.</p>
-            <div class="trouble-flow">
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">문제</span>
-                <span class="trouble-flow-value">주문 저장 값 불일치와 일부 상품 정보 누락</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">원인</span>
-                <span class="trouble-flow-value">장바구니 기준과 주문 저장 기준·순서가 페이지마다 달랐음</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">해결</span>
-                <span class="trouble-flow-value">주문번호 기준으로 마스터·상세 저장 순서를 통일</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">결과</span>
-                <span class="trouble-flow-value">사용자/관리자 화면의 주문번호 기준 조회가 일치</span>
-              </div>
-            </div>
-            <details class="trouble-evidence">
-              <summary>검증 정보 보기</summary>
-              <ul>
-                <li>재현 조건: 옵션 상품 포함 주문 후 사용자/관리자 주문 목록 비교</li>
-                <li>수정 위치: <code>order_ok.php</code>, <code>order_list.php</code>, <code>cart.php</code>, <code>order.php</code></li>
-                <li>검증 결과: 사용자 주문 내역과 관리자 주문 확인 화면의 상품 목록이 주문번호 기준으로 일치</li>
-              </ul>
-            </details>
+        <div class="trouble-simple-grid">
+          <article class="trouble-simple-card">
+            <h3>쇼핑몰 판매관리 프로젝트</h3>
+            <p class="trouble-simple-meta">장바구니·주문 데이터 흐름 · PHP / Bootstrap / MySQL</p>
+            <p class="trouble-simple-desc">장바구니에서 주문서로 이동할 때 상품 정보가 누락되던 문제를 주문번호 기준 저장 흐름으로 정리했습니다.</p>
+            <ul class="trouble-simple-points">
+              <li><span>원인</span> 장바구니 기준과 주문 저장 기준 불일치</li>
+              <li><span>해결</span> 주문번호 기준 저장 흐름 정리</li>
+              <li><span>결과</span> 사용자/관리자 주문 조회 기준 일치</li>
+            </ul>
+            <p class="trouble-simple-meta">관련 파일: <code>order_ok.php</code>, <code>cart.php</code></p>
           </article>
 
-          <article class="trouble-card" data-aos="fade-up" data-aos-delay="250">
-            <div class="trouble-card-head">
-              <span class="trouble-case">CASE 02</span>
-              <h3 class="trouble-title">e스포츠 포털 및 경기관리 프로젝트</h3>
-              <p class="trouble-meta">Ajax 응답 형식·데이터 갱신 · Laravel / MySQL</p>
-            </div>
-            <p class="trouble-summary">관리자 입력 직후 사용자 순위 화면이 지연되던 구간을 Ajax 응답 형식과 집계 기준 정렬로 맞췄습니다.</p>
-            <div class="trouble-flow">
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">문제</span>
-                <span class="trouble-flow-value">경기 결과 저장 후 순위표 반영이 지연되거나 누락됨</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">원인</span>
-                <span class="trouble-flow-value">화면별 Ajax 응답 형식과 집계 필드 매핑 기준이 달랐음</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">해결</span>
-                <span class="trouble-flow-value">응답 형식을 JSON으로 통일하고 갱신 조건을 정렬</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">결과</span>
-                <span class="trouble-flow-value">finished 기준으로 경기 목록·순위표가 같은 타이밍에 반영</span>
-              </div>
-            </div>
-            <details class="trouble-evidence">
-              <summary>검증 정보 보기</summary>
-              <ul>
-                <li>재현 조건: 경기 결과 저장 직후 Ajax 갱신 시 순위표 반영 여부 확인</li>
-                <li>수정 위치: <code>routes/web.php</code>, <code>MatchController</code>, <code>RankingController</code>, <code>resources/views/rankings</code>, <code>resources/views/admin/matches</code></li>
-                <li>검증 결과: 요청 성공 시 finished 경기만 반영된 기준으로 경기 목록과 순위표가 함께 갱신</li>
-              </ul>
-            </details>
+          <article class="trouble-simple-card">
+            <h3>e스포츠 포털 및 경기관리 프로젝트</h3>
+            <p class="trouble-simple-meta">Ajax 응답 형식·데이터 갱신 · Laravel / MySQL</p>
+            <p class="trouble-simple-desc">경기 결과 저장 후 순위 반영이 지연되던 문제를 응답 형식과 집계 기준 정렬로 맞췄습니다.</p>
+            <ul class="trouble-simple-points">
+              <li><span>원인</span> Ajax 응답 형식과 집계 기준 불일치</li>
+              <li><span>해결</span> JSON 응답과 finished 기준 정렬</li>
+              <li><span>결과</span> 경기 목록과 순위표 갱신 기준 일치</li>
+            </ul>
+            <p class="trouble-simple-meta">관련 파일: <code>MatchController</code>, <code>RankingController</code></p>
           </article>
 
-          <article class="trouble-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="trouble-card-head">
-              <span class="trouble-case">CASE 03</span>
-              <h3 class="trouble-title">베이커리 판매관리 프로젝트</h3>
-              <p class="trouble-meta">DB 예외·관리자 경로 처리 · Laravel / MySQL</p>
-            </div>
-            <p class="trouble-summary">관리자에서 재고·판매 데이터가 비거나 예외가 발생하던 구간을 조회 키와 배포 경로 관점으로 정리했습니다.</p>
-            <div class="trouble-flow">
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">문제</span>
-                <span class="trouble-flow-value">제품 관리 후 재고·판매 조회 시 빈 값 또는 DB 예외 발생</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">원인</span>
-                <span class="trouble-flow-value">제품·재고·판매 조인 키와 배포 경로 기준이 화면마다 달랐음</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">해결</span>
-                <span class="trouble-flow-value">제품 기준 키로 조회 조건을 통일하고 null 분기 추가</span>
-              </div>
-              <div class="trouble-flow-row">
-                <span class="trouble-flow-key">결과</span>
-                <span class="trouble-flow-value">조회 기준이 정렬되어 누락 데이터가 있어도 응답 흐름 유지</span>
-              </div>
-            </div>
-            <details class="trouble-evidence">
-              <summary>검증 정보 보기</summary>
-              <ul>
-                <li>재현 조건: 관리자 화면에서 제품 등록/수정 후 재고·판매 조회를 연속 수행</li>
-                <li>수정 위치: <code>routes/web.php</code>, Product/Stock/Sale 관련 컨트롤러, <code>resources/views/admin</code> 관련 뷰, <code>database/migrations</code></li>
-                <li>검증 결과: 판매 등록 후 재고·판매 내역이 같은 제품 기준으로 조회되고 누락 데이터가 있어도 화면 응답 유지</li>
-              </ul>
-            </details>
+          <article class="trouble-simple-card">
+            <h3>베이커리 판매관리 프로젝트</h3>
+            <p class="trouble-simple-meta">DB 예외·관리자 경로 처리 · Laravel / MySQL</p>
+            <p class="trouble-simple-desc">재고·판매 조회 시 빈 값 또는 예외가 발생하던 문제를 제품 기준 조회와 null 분기로 정리했습니다.</p>
+            <ul class="trouble-simple-points">
+              <li><span>원인</span> 제품·재고·판매 조회 키 불일치</li>
+              <li><span>해결</span> 제품 기준 조회 조건과 null 분기 정리</li>
+              <li><span>결과</span> 누락 데이터가 있어도 화면 응답 유지</li>
+            </ul>
+            <p class="trouble-simple-meta">관련 파일: <code>ProductController</code>, <code>StockController</code>, <code>SaleController</code></p>
           </article>
         </div>
       </div>
