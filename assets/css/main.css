@@ -1899,7 +1899,7 @@ section,
 
   .skills .skills-sidebar .expertise-highlight {
     padding: 32px 24px;
-  }
+}
 
   .skills .skills-sidebar .expertise-highlight .experience-number .purecounter {
     font-size: 48px;
@@ -1991,6 +1991,11 @@ section,
 
 .resume .professional-journey .section-intro .section-kicker {
   margin-top: 0;
+}
+
+.resume .professional-journey .section-intro .section-kicker {
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 .resume .section-intro h2 {
@@ -2281,6 +2286,10 @@ section,
 
   .resume .professional-journey .experience-timeline {
     margin-left: 0.25rem;
+  }
+
+  .resume .professional-journey .experience-timeline {
+    margin-left: 0.4rem;
   }
 }
 
