@@ -57,7 +57,6 @@
 
     <div class="social-links text-center">
       <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
       <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
       <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
     </div>
@@ -670,7 +669,7 @@
                     <span class="portfolio-year">2025.06</span>
                   </div>
                   <h3 class="portfolio-title">쇼핑몰 판매관리 사이트</h3>
-                  <p class="portfolio-description">PHP와 Bootstrap 기반으로 구축한 쇼핑몰 판매관리 프로젝트입니다. 상품 조회부터 장바구니, 주문 처리, 관리자 기능까지 한 흐름으로 구현했습니다.</p>
+                  <p class="portfolio-description">PHP와 Bootstrap 기반으로 구축한 쇼핑몰 판매관리 프로젝트입니다. 상품 조회, 장바구니, 주문 처리, 관리자 기능이 주문 데이터 기준으로 이어지도록 정리했습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -707,7 +706,7 @@
                     <span class="portfolio-year">2025.12</span>
                   </div>
                   <h3 class="portfolio-title">e스포츠 포털 및 경기관리 웹사이트</h3>
-                  <p class="portfolio-description">경기 결과가 <code>finished</code> 상태인 경우에만 순위에 반영되도록 집계 기준을 분리한 Laravel 기반 프로젝트입니다. 팀별 경기 데이터를 기준으로 승/패, 승률, 득실차를 계산해 순위표를 갱신하고, 관리자 인증·미들웨어 접근 제어와 slug 기반 뉴스 상세 라우팅을 연결했습니다. 뉴스/팀/경기 목록은 조회 부담을 줄이기 위한 캐시 적용 구간을 두어 반복 조회 흐름을 정리했습니다.</p>
+                  <p class="portfolio-description">경기 결과가 <code>finished</code> 상태인 경우에만 순위에 반영되도록 집계 기준을 분리한 Laravel 기반 프로젝트입니다. 팀별 경기 데이터로 승/패·승률·득실차를 계산해 순위표를 갱신하고, 관리자 인증·미들웨어 접근 제어와 slug 기반 뉴스 상세 라우팅이 같은 권한 기준으로 동작하게 했습니다. 뉴스/팀/경기 목록에는 캐시 적용 구간을 두어 반복 조회 부담을 줄였습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -744,7 +743,7 @@
                     <span class="portfolio-year">2025.12</span>
                   </div>
                   <h3 class="portfolio-title">베이커리 판매관리 웹사이트</h3>
-                  <p class="portfolio-description">Laravel 기반의 베이커리 판매관리 프로젝트입니다. 제품, 재고, 판매 데이터를 연결해 관리자 화면에서 매장 운영 흐름을 관리하도록 구성했습니다.</p>
+                  <p class="portfolio-description">Laravel 기반의 베이커리 판매관리 프로젝트입니다. 제품·재고·판매 데이터를 분리 저장하고 관리자 화면에서 같은 제품 기준으로 운영 흐름을 확인하도록 정리했습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -823,7 +822,7 @@
               </div>
               <div class="service-content">
                 <h3><a href="service-board.html">게시판 및 콘텐츠 관리</a></h3>
-                <p>e스포츠 포털 및 경기관리 프로젝트에서 뉴스·공지·패치노트와 팀·선수·경기 데이터를 관리자 화면에서 등록하고 사용자 화면에서 조회할 수 있게 구성했습니다.</p>
+                <p>e스포츠 포털 및 경기관리 프로젝트에서 뉴스·공지·패치노트와 팀·선수·경기 데이터를 관리자 화면 등록과 사용자 화면 조회 기준으로 나눠 처리했습니다.</p>
                 <a href="service-board.html" class="read-more">
                   <span>자세히 보기</span>
                   <i class="bi bi-arrow-right"></i>
@@ -929,7 +928,7 @@
                     </article>
                     <article class="trouble-item">
                       <span class="trouble-label">추적·검증 정보</span>
-                      <p>문제 위치: 장바구니 → 주문 저장 흐름<br>관련 로직: 주문 처리 로직, 주문 상세 저장 로직, 관리자 주문 조회 화면<br>원인 추적 방식 및 수정 방향: 주문 생성 전후의 데이터 구조와 저장 순서를 비교해 주문 마스터/상세 분리 저장 구조로 통일<br>확인 방법: 장바구니에 여러 상품·옵션을 담아 주문 완료 후 사용자 주문 내역과 관리자 주문 목록의 누락 여부를 교차 확인</p>
+                      <p>재현 조건: 옵션 상품 포함 주문 후 사용자 주문 내역과 관리자 주문 목록을 비교<br>수정 위치: 주문 저장 로직, 주문 상세 저장 로직, 관리자 주문 조회 쿼리<br>검증 결과: 동일 주문번호 기준으로 사용자 주문 내역과 관리자 주문 상세가 일치하는지 확인</p>
                     </article>
                   </div>
                 </div>
@@ -977,7 +976,7 @@
                     </article>
                     <article class="trouble-item">
                       <span class="trouble-label">추적·검증 정보</span>
-                      <p>문제 위치: 경기 결과 입력 후 순위표 갱신 화면<br>관련 로직: Ajax 응답 처리 구간, 순위 집계 조회 로직, 관리자 경기 저장 흐름<br>원인 추적 방식 및 수정 방향: 네트워크 응답 형식(HTML/JSON)과 필드 매핑을 비교해 JSON 응답과 집계 키를 단일 기준으로 정리<br>확인 방법: 관리자에서 상태와 스코어를 저장한 뒤 사용자 경기 목록·순위표를 새로고침 없이/새로고침 후 각각 확인해 동일 반영 여부 점검</p>
+                      <p>재현 조건: 경기 결과 저장 직후 Ajax 갱신 시 순위표 반영 여부를 확인<br>수정 위치: Ajax 응답 처리 로직, 순위 집계 조회 로직, 관리자 경기 저장 흐름<br>검증 결과: 요청 성공 시 경기 목록·순위표가 새로고침 없이 같은 집계 기준으로 갱신되는지 확인</p>
                     </article>
                   </div>
                 </div>
@@ -1025,7 +1024,7 @@
                     </article>
                     <article class="trouble-item">
                       <span class="trouble-label">추적·검증 정보</span>
-                      <p>문제 위치: 관리자 제품 관리 후 재고·판매 조회 화면<br>관련 로직: 제품·재고·판매 조회 쿼리, 관리자 라우트 처리 구간<br>원인 추적 방식 및 수정 방향: 화면별 조인 키와 null 데이터 응답을 점검해 제품 ID 기준으로 조회 규칙을 통일하고 예외 처리를 보강<br>확인 방법: 제품 등록/수정 후 재고 화면·판매 테이블을 순차 조회하고 배포 경로에서 동일 요청이 정상 응답하는지 확인</p>
+                      <p>재현 조건: 관리자 화면에서 제품 등록/수정 후 재고·판매 조회를 연속 수행<br>수정 위치: 제품·재고·판매 조회 쿼리, 관리자 라우트 처리 구간, null 예외 처리<br>검증 결과: 누락 데이터가 있어도 조회 화면이 깨지지 않고 배포 경로에서 동일 요청이 정상 응답하는지 확인</p>
                     </article>
                   </div>
                 </div>
@@ -1100,16 +1099,6 @@
                 </div>
               </div>
 
-              <div class="detail-item">
-                <div class="detail-icon">
-                  <i class="bi bi-discord"></i>
-                </div>
-                <div class="detail-content">
-                  <span class="detail-label">디스코드</span>
-                  <span class="detail-value">iwantgohome_</span>
-                </div>
-              </div>
-
             </div>
 
           </div>
@@ -1170,7 +1159,6 @@
       <p>회원, 주문, 게시판, 관리자 기능과 DB 연동 경험을 프로젝트 기준으로 정리했습니다.</p>
       <div class="social-links d-flex justify-content-center">
         <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
         <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
         <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
       </div>

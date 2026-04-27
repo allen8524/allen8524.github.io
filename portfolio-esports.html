@@ -90,7 +90,7 @@
                   <span class="year">2025.12</span>
                 </div>
                 <h2 class="project-title">프로젝트 개요</h2>
-                <p class="project-summary">Laravel 기반으로 팀·선수·경기·뉴스 데이터를 운영 화면과 사용자 화면에 분리해 연결한 e스포츠 포털 프로젝트입니다. 경기 결과는 <code>finished</code> 상태 경기만 순위에 반영되도록 분기하고, 팀별 승/패·승률·득실차 계산 로직을 통해 순위표를 갱신하도록 구성했습니다.</p>
+                <p class="project-summary">Laravel 기반으로 팀·선수·경기·뉴스 데이터를 운영 화면과 사용자 화면에서 분리 조회한 e스포츠 포털 프로젝트입니다. 경기 결과는 <code>finished</code> 상태만 순위 집계에 반영하고, 팀별 승/패·승률·득실차 계산으로 순위표를 갱신하도록 처리했습니다.</p>
                 <div class="project-tags">
                   <span class="tag">Laravel</span>
                   <span class="tag">Bootstrap</span>
@@ -146,7 +146,7 @@
         <div class="representative-preview" data-aos="fade-up" data-aos-delay="100">
           <div class="preview-header">
             <h2>대표 화면 미리보기</h2>
-            <p>메인 페이지에서는 예정 경기, 트렌딩 뉴스, 패치 노트, 순위, 영상 섹션을 한 화면에 배치해 포털형 서비스 흐름을 구성했습니다.</p>
+            <p>메인 페이지에서는 예정 경기, 트렌딩 뉴스, 패치 노트, 순위, 영상을 한 화면에 배치해 포털 탐색 동선을 정리했습니다.</p>
           </div>
           <figure class="preview-card" data-aos="zoom-in" data-aos-delay="150">
             <img src="assets/img/portfolio/esports_main.png" alt="e스포츠 포털 메인 홈 화면으로 대표 매치 하이라이트와 브랜드 영역이 배치된 화면" class="img-fluid glightbox" loading="lazy">
@@ -162,13 +162,13 @@
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
               <div class="step-content">
                 <h4>1) 경기 결과 기반 순위 집계 로직</h4>
-                <p><strong>구현 포인트:</strong> 경기 결과 입력값을 순위표 계산 데이터로 연결했습니다.<br><strong>처리 방식:</strong> 경기 상태가 <code>finished</code>인 데이터만 집계 대상으로 필터링하고, 팀별 경기 결과를 모아 승/패·승률·득실차를 계산하도록 구성했습니다.<br><strong>확인 가능한 결과:</strong> 관리자에서 경기 결과를 저장하면 순위표에서 팀별 누적 기록과 순위 변동을 같은 기준으로 확인할 수 있습니다.</p>
+                <p><strong>구현 포인트:</strong> 경기 결과 저장값이 순위표 집계 기준으로 바로 이어지게 했습니다.<br><strong>처리 방식:</strong> 경기 상태가 <code>finished</code>인 데이터만 집계하고, 팀별 결과를 모아 승/패·승률·득실차를 계산하도록 분리했습니다.<br><strong>확인 가능한 결과:</strong> 관리자에서 경기 결과를 저장하면 순위표에서 팀별 누적 기록과 순위 변동을 같은 기준으로 확인할 수 있습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
               <div class="step-content">
                 <h4>2) 관리자 인증/미들웨어 기반 접근 제어</h4>
-                <p><strong>구현 포인트:</strong> 공개 포털 화면과 관리자 운영 화면 접근 경로를 분리했습니다.<br><strong>처리 방식:</strong> 로그인 상태와 권한에 따라 관리자 라우트 접근을 제한하고, 미들웨어를 통해 선수·팀·경기·뉴스 관리 기능 진입을 제어했습니다.<br><strong>확인 가능한 결과:</strong> 비인증 사용자는 조회 화면만 접근하고, 관리자 계정 로그인 후에만 등록·수정·삭제 기능을 사용할 수 있도록 구성했습니다.</p>
+                <p><strong>구현 포인트:</strong> 공개 포털 화면과 관리자 운영 화면 접근 경로를 분리했습니다.<br><strong>처리 방식:</strong> 로그인 상태와 권한에 따라 관리자 라우트 접근을 제한하고, 미들웨어를 통해 선수·팀·경기·뉴스 관리 기능 진입을 제어했습니다.<br><strong>확인 가능한 결과:</strong> 비인증 사용자는 조회 화면만 접근하고, 관리자 로그인 후에만 등록·수정·삭제 메뉴가 열리도록 했습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
@@ -191,7 +191,7 @@
               </div>
               <div class="step-content">
                 <h4>팀·선수 정보 조회</h4>
-                <p>선수와 팀을 각각 독립된 도메인으로 분리하고, 검색·필터·페이지네이션·상세 조회 흐름을 연결했습니다. 팀 상세에서는 소속 선수 관계도 함께 확인할 수 있도록 구성했습니다.</p>
+                <p>선수와 팀을 독립 도메인으로 나누고, 검색·필터·페이지네이션 결과가 상세 조회 조건과 이어지게 처리했습니다. 팀 상세에서는 소속 선수 관계도 함께 확인되도록 했습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
@@ -200,7 +200,7 @@
               </div>
               <div class="step-content">
                 <h4>경기 정보 관리</h4>
-                <p>경기 일정, 상태, 스코어, 승리 팀, 리그, 스테이지 정보를 관리할 수 있도록 구성했습니다. 종료 경기 결과는 순위 집계에 활용되는 데이터 흐름까지 고려해 설계했습니다.</p>
+                <p>경기 일정, 상태, 스코어, 승리 팀, 리그, 스테이지를 기준으로 등록·수정·조회 흐름을 나눴습니다. 종료 경기 결과는 순위 집계 쿼리에서 바로 사용할 수 있게 정리했습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
@@ -209,7 +209,7 @@
               </div>
               <div class="step-content">
                 <h4>뉴스 및 콘텐츠 게시</h4>
-                <p>뉴스와 패치 노트를 별도 콘텐츠 영역으로 나누고, 검색·정렬·상세 조회가 가능한 구조로 설계했습니다. slug 기반 라우팅과 이미지 업로드를 적용해 콘텐츠 관리 흐름을 구성했습니다.</p>
+                <p>뉴스와 패치 노트를 별도 콘텐츠 영역으로 나누고, 검색·정렬·상세 조회 조건을 분리했습니다. slug 기반 라우팅과 이미지 업로드를 적용해 관리자 등록 데이터가 사용자 화면에 같은 기준으로 노출되게 했습니다.</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
@@ -218,7 +218,7 @@
               </div>
               <div class="step-content">
                 <h4>관리자 운영 화면</h4>
-                <p>관리자 대시보드에서 주요 데이터 현황을 확인하고, 선수·팀·경기·뉴스 데이터를 운영 관점에서 관리할 수 있도록 구성했습니다. DB 브라우저도 함께 두어 데이터 확인 흐름을 보강했습니다.</p>
+                <p>관리자 대시보드에서 주요 데이터 현황을 확인하고, 선수·팀·경기·뉴스 데이터를 운영 기준으로 관리하게 했습니다. DB 브라우저를 함께 배치해 저장값과 화면 노출값을 바로 대조할 수 있게 했습니다.</p>
               </div>
             </div>
           </div>
@@ -236,7 +236,7 @@
               </figure>
               <div class="feature-content">
                 <h3>선수 조회/관리</h3>
-                <p>이름, 닉네임, 포지션, 팀, 활동 여부 기준으로 선수를 탐색할 수 있도록 검색·필터 구조를 구성했습니다. 등록·수정·삭제와 slug 기반 상세 페이지까지 연결해 선수 도메인을 독립적으로 관리했습니다.</p>
+                <p>이름, 닉네임, 포지션, 팀, 활동 여부 기준으로 선수를 탐색하도록 검색·필터 조건을 분리했습니다. 등록·수정·삭제와 slug 상세 페이지를 같은 키로 묶어 선수 도메인을 독립 관리했습니다.</p>
               </div>
             </article>
 
@@ -246,7 +246,7 @@
               </figure>
               <div class="feature-content">
                 <h3>일정/매치 관리</h3>
-                <p>경기 일정, 상태, 스코어, 리그, 스테이지를 기준으로 조회·관리할 수 있도록 구성했습니다. 경기 결과는 단순 저장에 그치지 않고 순위 집계에 활용되는 데이터 구조로 연결했습니다.</p>
+                <p>경기 일정, 상태, 스코어, 리그, 스테이지 기준으로 조회·관리 조건을 나눴습니다. 경기 결과는 저장 후 순위 집계 로직에서 같은 경기 키로 참조되게 처리했습니다.</p>
               </div>
             </article>
 
@@ -256,7 +256,7 @@
               </figure>
               <div class="feature-content">
                 <h3>콘텐츠/뉴스 관리</h3>
-                <p>뉴스 페이지에서는 검색, 카테고리 필터, 최신순·인기순 정렬을 제공해 콘텐츠 탐색성을 높였습니다. 패치 노트와 뉴스를 분리 운영해 e스포츠 포털다운 콘텐츠 흐름을 구성했습니다.</p>
+                <p>뉴스 페이지에서는 검색, 카테고리 필터, 최신순·인기순 정렬을 제공해 탐색 기준을 명확히 했습니다. 패치 노트와 뉴스를 분리 운영해 콘텐츠 유형별 조회 흐름을 나눴습니다.</p>
               </div>
             </article>
           </div>
@@ -266,7 +266,7 @@
           <div class="row align-items-center">
             <div class="col-lg-5">
               <h2>사용 기술</h2>
-              <p>Laravel을 중심으로 선수·팀·경기·뉴스 데이터를 분리 관리하고, 인증, 관리자 기능, 순위 집계 흐름까지 하나의 서비스 구조로 연결했습니다. Bootstrap 기반 UI로 포털 화면과 운영 화면을 함께 구성했습니다.</p>
+              <p>Laravel을 중심으로 선수·팀·경기·뉴스 데이터를 분리 관리하고, 인증·관리자 기능·순위 집계를 같은 서비스 흐름으로 맞췄습니다. Bootstrap UI에는 포털 화면과 운영 화면을 역할별로 배치했습니다.</p>
             </div>
             <div class="col-lg-6 offset-lg-1">
               <div class="tools-grid">
@@ -434,7 +434,7 @@
   <footer id="footer" class="footer light-background">
     <div class="container">
       <h3 class="sitename">황민서</h3>
-      <p>도메인 데이터를 조회 화면과 관리자 운영 기능으로 연결해 포털 구조를 구현했습니다.</p>
+      <p>도메인 데이터를 조회 화면과 관리자 운영 화면에서 같은 기준으로 다루도록 정리했습니다.</p>
       <div class="social-links d-flex justify-content-center">
         <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
         <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
