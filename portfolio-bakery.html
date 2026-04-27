@@ -90,7 +90,7 @@
                   <span class="year">2025.12</span>
                 </div>
                 <h1 class="project-title">베이커리 판매관리 웹사이트</h1>
-                <p class="project-summary">제품 정보 등록, 재고 확인, 판매 현황과 매출 테이블을 관리자 화면에서 이어서 볼 수 있도록 구성한 베이커리 판매관리 웹 프로젝트입니다. 일부 영역은 Ajax로 갱신해 필요한 정보만 빠르게 확인할 수 있게 했습니다.</p>
+                <p class="project-summary">Laravel 기반으로 제품·재고·판매 데이터를 연결해 관리 화면에서 흐름을 확인할 수 있도록 구성한 웹 프로젝트입니다. 제품 등록/수정, 재고 확인, 판매 내역 조회를 분리해 처리하고 일부 화면은 Ajax 갱신으로 필요한 데이터만 다시 조회하도록 정리했습니다.</p>
                 <div class="project-tags">
                   <span class="tag">Laravel</span>
                   <span class="tag">Ajax</span>
@@ -125,9 +125,9 @@
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
               <div class="main-content">
                 <h2>개발 목적</h2>
-                <p>제품 등록, 재고 확인, 판매 현황 관리처럼 매장 운영에서 반복되는 흐름을 관리자 화면 기준으로 정리해본 프로젝트입니다.</p>
-                <p>제품 정보, 판매 내역, 재고 상태처럼 함께 봐야 하는 데이터를 한 화면 흐름 안에서 연결하고, 카드형 목록과 테이블 중심 UI를 직접 구성하는 데 목적을 두었습니다.</p>
-                <p>특히 일부 화면은 Ajax 갱신 구조를 적용해 페이지 전체를 새로고침하지 않아도 필요한 정보만 다시 확인할 수 있도록 구현했습니다.</p>
+                <p>이 프로젝트는 데이터 흐름을 이해하기 위해 구현한 관리형 웹 프로젝트로, 제품 데이터가 재고와 판매 조회에 어떻게 연결되는지 확인하는 데 목적을 두었습니다.</p>
+                <p>제품 등록/수정 화면, 재고 확인 화면, 판매 데이터 조회 화면을 구분해 구성하고, 관리자 기준에서 같은 제품 데이터가 화면별로 일관되게 보이도록 흐름을 정리했습니다.</p>
+                <p>일부 구간은 Ajax 비동기 요청으로 처리해 전체 새로고침 없이 변경된 값만 확인하도록 구성했고, 입력 검증 및 예외 응답 처리를 함께 점검했습니다.</p>
               </div>
             </div>
             <div class="col-lg-4 offset-lg-1" data-aos="fade-up" data-aos-delay="200">
@@ -152,6 +152,32 @@
                   <h5>GitHub 링크</h5>
                   <p><a href="https://github.com/allen8524/bakery-sales-management-laravel" target="_blank" rel="noopener noreferrer">GitHub</a></p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>핵심 구현 포인트</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+              <div class="step-content">
+                <h4>1) 제품·재고·판매 데이터 연결 구조</h4>
+                <p><strong>구현 포인트:</strong> 제품 중심 데이터를 재고와 판매 조회에 연결하는 구조를 정리했습니다.<br><strong>처리 방식:</strong> 제품 등록/수정 시점의 정보를 기준 데이터로 두고, 재고 상태와 판매 내역 조회 화면에서 같은 기준 키를 사용하도록 구성했습니다.<br><strong>확인 가능한 결과:</strong> 제품 정보를 갱신한 뒤 재고·판매 화면에서 연관 데이터가 같은 기준으로 이어지는 흐름을 확인할 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-content">
+                <h4>2) 관리자 판매/재고 흐름 확인 기능</h4>
+                <p><strong>구현 포인트:</strong> 관리자 화면에서 운영 데이터 확인 동선을 분리해 구성했습니다.<br><strong>처리 방식:</strong> 제품 관리, 재고 확인, 판매 데이터 조회 화면을 역할별로 나누고 테이블/목록 화면에서 필요한 항목을 확인 가능하도록 구성했습니다.<br><strong>확인 가능한 결과:</strong> 관리자 화면에서 제품 상태 변경 후 재고 현황과 판매 내역을 순차 확인하는 흐름을 재현할 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+              <div class="step-content">
+                <h4>3) Ajax 비동기 처리와 입력/예외 검증</h4>
+                <p><strong>구현 포인트:</strong> 일부 화면에서 비동기 갱신과 예외 처리를 적용했습니다.<br><strong>처리 방식:</strong> Ajax 요청으로 필요한 데이터 구간만 갱신하고, 입력값 검증 및 null/예외 응답을 화면에서 확인하도록 처리 흐름을 정리했습니다.<br><strong>확인 가능한 결과:</strong> 데이터 변경 후 전체 페이지 이동 없이 조회 값이 갱신되고, 잘못된 입력 또는 누락 데이터 상황에서 예외 응답을 확인할 수 있습니다.</p>
               </div>
             </div>
           </div>
