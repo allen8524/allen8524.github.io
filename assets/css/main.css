@@ -1917,8 +1917,26 @@ section,
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
+.resume .section-title {
+  padding-bottom: 38px;
+}
+
+.resume .resume-content-row {
+  --bs-gutter-x: 2.25rem;
+  --bs-gutter-y: 0;
+}
+
+.resume .resume-column {
+  display: flex;
+}
+
+.resume .professional-journey,
+.resume .education-skills {
+  width: 100%;
+}
+
 .resume .section-intro {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .resume .section-intro .icon-wrapper {
@@ -1950,6 +1968,11 @@ section,
   margin-bottom: 1rem;
 }
 
+.resume .professional-journey .section-intro .section-kicker {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
 .resume .section-intro h2 {
   font-size: 2rem;
   font-weight: 300;
@@ -1967,7 +1990,8 @@ section,
 
 .resume .professional-journey .experience-timeline {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 2.2rem;
+  margin-left: 0.85rem;
 }
 
 .resume .professional-journey .experience-timeline::before {
@@ -1982,7 +2006,11 @@ section,
 
 .resume .professional-journey .experience-timeline .timeline-item {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 1.25rem;
+  padding: 1.15rem 1.25rem 1.15rem 1.4rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 94%);
+  background: color-mix(in srgb, var(--surface-color), transparent 12%);
 }
 
 .resume .professional-journey .experience-timeline .timeline-item:last-child {
@@ -1991,8 +2019,8 @@ section,
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-dot {
   position: absolute;
-  left: -2.3rem;
-  top: 0.5rem;
+  left: -2.55rem;
+  top: 1.35rem;
   width: 12px;
   height: 12px;
   background: var(--accent-color);
@@ -2029,10 +2057,10 @@ section,
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements {
@@ -2195,8 +2223,12 @@ section,
 }
 
 @media (max-width: 992px) {
-  .resume .row {
+  .resume .resume-content-row {
     gap: 3rem 0;
+  }
+
+  .resume .resume-content-row {
+    --bs-gutter-x: 1.5rem;
   }
 
   .resume .section-intro {
@@ -2214,9 +2246,21 @@ section,
   .resume .professional-journey {
     margin-bottom: 2rem;
   }
+
+  .resume .professional-journey .experience-timeline {
+    margin-left: 0.4rem;
+  }
 }
 
 @media (max-width: 768px) {
+  .resume .section-title {
+    padding-bottom: 30px;
+  }
+
+  .resume .resume-content-row {
+    --bs-gutter-x: 0;
+  }
+
   .resume .section-intro .icon-wrapper {
     width: 50px;
     height: 50px;
@@ -2232,6 +2276,7 @@ section,
 
   .resume .professional-journey .experience-timeline {
     padding-left: 1.5rem;
+    margin-left: 0;
   }
 
   .resume .professional-journey .experience-timeline .timeline-item .timeline-dot {
