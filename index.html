@@ -863,41 +863,80 @@
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="trouble-simple-grid">
-          <article class="trouble-simple-card">
-            <h3>쇼핑몰 판매관리 프로젝트</h3>
-            <p class="trouble-simple-meta">장바구니·주문 데이터 흐름 · PHP / Bootstrap / MySQL</p>
-            <p class="trouble-simple-desc">장바구니에서 주문서로 이동할 때 상품 정보가 누락되던 문제를 주문번호 기준 저장 흐름으로 정리했습니다.</p>
-            <ul class="trouble-simple-points">
-              <li><span>원인</span> 장바구니 기준과 주문 저장 기준 불일치</li>
-              <li><span>해결</span> 주문번호 기준 저장 흐름 정리</li>
-              <li><span>결과</span> 사용자/관리자 주문 조회 기준 일치</li>
-            </ul>
-            <p class="trouble-simple-meta">관련 파일: <code>order_ok.php</code>, <code>cart.php</code></p>
+        <div class="trouble-tabs nav" role="tablist" aria-label="트러블슈팅 사례 탭">
+          <button class="trouble-tab active" id="trouble-tab-shopping" data-bs-toggle="tab" data-bs-target="#trouble-panel-shopping" type="button" role="tab" aria-controls="trouble-panel-shopping" aria-selected="true">쇼핑몰</button>
+          <button class="trouble-tab" id="trouble-tab-esports" data-bs-toggle="tab" data-bs-target="#trouble-panel-esports" type="button" role="tab" aria-controls="trouble-panel-esports" aria-selected="false">e스포츠</button>
+          <button class="trouble-tab" id="trouble-tab-bakery" data-bs-toggle="tab" data-bs-target="#trouble-panel-bakery" type="button" role="tab" aria-controls="trouble-panel-bakery" aria-selected="false">베이커리</button>
+        </div>
+
+        <div class="tab-content">
+          <article class="trouble-panel tab-pane fade show active" id="trouble-panel-shopping" role="tabpanel" aria-labelledby="trouble-tab-shopping" tabindex="0">
+            <div class="trouble-panel-head">
+              <h3>쇼핑몰 판매관리 프로젝트</h3>
+              <p>장바구니·주문 데이터 흐름 · PHP / Bootstrap / MySQL</p>
+            </div>
+            <p class="trouble-panel-summary">장바구니에서 주문서로 이동할 때 상품 정보가 누락되던 문제를 주문번호 기준 저장 흐름으로 정리했습니다.</p>
+            <div class="trouble-panel-grid">
+              <div>
+                <span>원인</span>
+                <p>장바구니 기준과 주문 저장 기준 불일치</p>
+              </div>
+              <div>
+                <span>해결</span>
+                <p>주문번호 기준 저장 흐름 정리</p>
+              </div>
+              <div>
+                <span>결과</span>
+                <p>사용자/관리자 주문 조회 기준 일치</p>
+              </div>
+            </div>
+            <p class="trouble-panel-proof">관련 파일: <code>cart.php</code>, <code>order.php</code>, <code>order_ok.php</code></p>
           </article>
 
-          <article class="trouble-simple-card">
-            <h3>e스포츠 포털 및 경기관리 프로젝트</h3>
-            <p class="trouble-simple-meta">Ajax 응답 형식·데이터 갱신 · Laravel / MySQL</p>
-            <p class="trouble-simple-desc">경기 결과 저장 후 순위 반영이 지연되던 문제를 응답 형식과 집계 기준 정렬로 맞췄습니다.</p>
-            <ul class="trouble-simple-points">
-              <li><span>원인</span> Ajax 응답 형식과 집계 기준 불일치</li>
-              <li><span>해결</span> JSON 응답과 finished 기준 정렬</li>
-              <li><span>결과</span> 경기 목록과 순위표 갱신 기준 일치</li>
-            </ul>
-            <p class="trouble-simple-meta">관련 파일: <code>MatchController</code>, <code>RankingController</code></p>
+          <article class="trouble-panel tab-pane fade" id="trouble-panel-esports" role="tabpanel" aria-labelledby="trouble-tab-esports" tabindex="0">
+            <div class="trouble-panel-head">
+              <h3>e스포츠 포털 및 경기관리 프로젝트</h3>
+              <p>경기 결과·순위 갱신 흐름 · Laravel / Blade / MySQL / Ajax</p>
+            </div>
+            <p class="trouble-panel-summary">경기 결과 저장 후 순위 반영이 지연되던 문제를 응답 형식과 집계 기준 정렬로 맞췄습니다.</p>
+            <div class="trouble-panel-grid">
+              <div>
+                <span>원인</span>
+                <p>Ajax 응답 형식과 집계 기준 불일치</p>
+              </div>
+              <div>
+                <span>해결</span>
+                <p>JSON 응답과 finished 기준 정렬</p>
+              </div>
+              <div>
+                <span>결과</span>
+                <p>경기 목록과 순위표 갱신 기준 일치</p>
+              </div>
+            </div>
+            <p class="trouble-panel-proof">관련 파일: <code>routes/web.php</code>, <code>resources/views/admin/matches</code></p>
           </article>
 
-          <article class="trouble-simple-card">
-            <h3>베이커리 판매관리 프로젝트</h3>
-            <p class="trouble-simple-meta">DB 예외·관리자 경로 처리 · Laravel / MySQL</p>
-            <p class="trouble-simple-desc">재고·판매 조회 시 빈 값 또는 예외가 발생하던 문제를 제품 기준 조회와 null 분기로 정리했습니다.</p>
-            <ul class="trouble-simple-points">
-              <li><span>원인</span> 제품·재고·판매 조회 키 불일치</li>
-              <li><span>해결</span> 제품 기준 조회 조건과 null 분기 정리</li>
-              <li><span>결과</span> 누락 데이터가 있어도 화면 응답 유지</li>
-            </ul>
-            <p class="trouble-simple-meta">관련 파일: <code>ProductController</code>, <code>StockController</code>, <code>SaleController</code></p>
+          <article class="trouble-panel tab-pane fade" id="trouble-panel-bakery" role="tabpanel" aria-labelledby="trouble-tab-bakery" tabindex="0">
+            <div class="trouble-panel-head">
+              <h3>베이커리 판매관리 프로젝트</h3>
+              <p>재고·판매 조회 흐름 · Laravel / Blade / MySQL</p>
+            </div>
+            <p class="trouble-panel-summary">재고·판매 조회 시 빈 값 또는 예외가 발생하던 문제를 제품 기준 조회와 null 분기로 정리했습니다.</p>
+            <div class="trouble-panel-grid">
+              <div>
+                <span>원인</span>
+                <p>제품·재고·판매 조회 키 불일치</p>
+              </div>
+              <div>
+                <span>해결</span>
+                <p>제품 기준 조회 조건과 null 분기 정리</p>
+              </div>
+              <div>
+                <span>결과</span>
+                <p>누락 데이터가 있어도 화면 응답 유지</p>
+              </div>
+            </div>
+            <p class="trouble-panel-proof">확인 포인트: 누락 데이터가 있는 상황에서도 제품 기준 조회와 null 분기로 화면 응답이 유지되는지 점검</p>
           </article>
         </div>
       </div>
