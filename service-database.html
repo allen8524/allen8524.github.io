@@ -178,7 +178,7 @@
                     <i class="bi bi-database-check"></i>
                     <div>
                       <h4>관련 코드/DB 근거</h4>
-                      <p>회원/상품/주문/주문상세, 팀/선수/경기/게시글, 제품/재고/판매 데이터를 분리 저장하고 조회 쿼리를 목적별로 나눴습니다. 화면 기능보다 저장 기준과 재조회 흐름을 우선해 관계를 정리했습니다.</p>
+                      <p>쇼핑몰 기준 테이블: <code>member</code>, <code>product</code>, <code>opts</code>, <code>jumun</code>(주문 마스터), <code>jumuns</code>(주문 상세)<br>주요 컬럼 예시: 주문 마스터(주문번호, 회원, 주문일, 총액, 주문상태), 주문 상세(주문번호, 상품, 옵션, 수량, 단가)<br>PK/FK 기준: 주문번호로 <code>jumun</code>과 <code>jumuns</code>를 연결하고, 관리자 주문 조회는 주문번호 기준 JOIN으로 처리<br>e스포츠 기준 테이블: <code>teams</code>, <code>players</code>, <code>matches</code>, <code>rankings</code>, <code>news</code> (finished 경기만 순위 집계 반영)<br>베이커리 기준 테이블: <code>products</code>, <code>stocks</code>, <code>sales</code>, <code>sale_items</code> (제품 키 기준으로 재고·판매 흐름 연결)</p>
                     </div>
                   </div>
                 </div>

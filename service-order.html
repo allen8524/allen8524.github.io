@@ -178,7 +178,7 @@
                     <i class="bi bi-database-check"></i>
                     <div>
                       <h4>관련 코드/DB 근거</h4>
-                      <p>옵션 선택값을 장바구니 데이터에 반영하고 주문 마스터/주문 상세를 분리 저장했습니다. 주문번호 기준으로 주문 상태와 상세 항목이 사용자/관리자 화면에서 같은 기준으로 조회됩니다.</p>
+                      <p>관련 파일: <code>cart.php</code>, <code>cart_edit.php</code>, <code>order.php</code>, <code>order_ok.php</code>, <code>order_list.php</code>, <code>admin/jumun.php</code>, <code>admin/jumun_info.php</code><br>저장 순서: 장바구니 선택 → 주문서 작성 → 주문번호 생성 → 주문 마스터 INSERT → 주문 상세 반복 INSERT → 사용자 주문 내역 조회 → 관리자 주문 관리 조회<br>상태 기준: 접수 · 처리 · 완료 단계 값을 사용자/관리자 화면에서 같은 주문번호 기준으로 조회<br>분리 이유: 장바구니는 임시 선택 데이터로 사용하고, 주문 완료 시 주문 단위 정보(마스터)와 상품 단위 정보(상세)를 분리 저장했습니다.</p>
                     </div>
                   </div>
                 </div>
