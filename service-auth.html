@@ -178,7 +178,7 @@
                     <i class="bi bi-shield-check"></i>
                     <div>
                       <h4>관련 코드/DB 근거</h4>
-                      <p>세션 저장값으로 로그인 상태를 확인하고, 권한값 검사로 관리자 페이지 접근을 분기했습니다. 페이지 진입 시 공통 인증 체크를 먼저 수행해 비정상 접근을 제한했습니다.</p>
+                      <p>쇼핑몰 기준 관련 파일: <code>member_login.php</code>, <code>member_logout.php</code>, <code>admin/login.php</code>, <code>admin/check.php</code><br>세션 키: <code>$_SESSION["member_id"]</code>, <code>$_SESSION["member_name"]</code>, <code>$_SESSION["admin_id"]</code><br>권한 기준: 사용자 기능은 회원 세션 기준으로 처리하고, 관리자 URL은 <code>admin/check.php</code>에서 관리자 세션 존재 여부를 먼저 확인했습니다.<br>Laravel 기준 관련 위치: <code>routes/web.php</code>, Auth 관련 컨트롤러, 관리자 미들웨어, 관리자 전용 라우트 그룹</p>
                     </div>
                   </div>
                 </div>

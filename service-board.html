@@ -178,7 +178,7 @@
                     <i class="bi bi-journal-check"></i>
                     <div>
                       <h4>관련 코드/DB 근거</h4>
-                      <p>게시글 CRUD, 목록 조회, 상세 조회 쿼리를 분리하고 관리자 콘텐츠 관리 로직과 사용자 노출 조건을 같은 필드 기준으로 맞췄습니다. 검색·정렬·페이징 조건도 목록 조회 로직에 함께 반영했습니다.</p>
+                      <p>Laravel 기준 관련 위치: <code>routes/web.php</code>, <code>NewsController</code>, <code>resources/views/news</code>, <code>resources/views/admin/news</code><br>조회 기준: 목록은 검색 조건과 페이지 번호를 함께 유지하고, 상세는 <code>slug</code> 기준으로 단건 조회<br>관리자 처리: 관리자 화면에서 뉴스/공지 등록·수정·삭제를 분리하고 사용자 화면은 공개된 콘텐츠만 노출<br>이미지 처리: 업로드 확장자와 저장 경로를 분리해 콘텐츠 데이터와 함께 관리했습니다.</p>
                     </div>
                   </div>
                 </div>
