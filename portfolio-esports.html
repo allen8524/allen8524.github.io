@@ -334,6 +334,32 @@
           </div>
         </div>
 
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>구현 확인 포인트</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+              <div class="step-content">
+                <h4>1) 화면 기준 확인</h4>
+                <p><strong>관련 화면:</strong> 경기 일정, 팀/선수 정보, 게시판(뉴스/콘텐츠), 관리자 관리 화면.<br><strong>확인 방법:</strong> 관리자에서 등록한 팀·선수·경기·게시글 데이터가 사용자 페이지의 목록/상세 화면에 반영되는지 순서대로 확인할 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-content">
+                <h4>2) 데이터 등록-노출 흐름</h4>
+                <p><strong>핵심 흐름:</strong> 관리자 데이터 등록 → 사용자 페이지 노출 → 게시판/콘텐츠 조회.<br><strong>확인 포인트:</strong> 경기 일정 수정, 팀/선수 정보 변경, 게시글 등록 후 공개 화면에서 같은 데이터가 조회되는지 점검할 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+              <div class="step-content">
+                <h4>3) 도메인 분리 구조</h4>
+                <p><strong>확인 포인트:</strong> 대회/팀/선수/게시글 데이터가 화면별로 분리되어 관리되는 구조입니다.<br><strong>검증 기준:</strong> 각 영역의 목록, 상세, 관리 화면이 섞이지 않고 도메인 단위로 유지되는지 확인할 수 있습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="additional-gallery" data-aos="fade-up" data-aos-delay="100">
           <div class="gallery-slider swiper init-swiper">
             <script type="application/json" class="swiper-config">
