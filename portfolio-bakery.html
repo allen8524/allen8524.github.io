@@ -36,7 +36,7 @@
       </div>
 
       <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-        <h1 class="sitename">황민서</h1>
+        <p class="sitename">황민서</p>
       </a>
 
     </div>
@@ -89,7 +89,7 @@
                   <span class="category">개인프로젝트 · Laravel</span>
                   <span class="year">2025.12</span>
                 </div>
-                <h1 class="project-title">베이커리 판매관리 웹사이트</h1>
+                <h2 class="project-title">프로젝트 개요</h2>
                 <p class="project-summary">Laravel 기반으로 제품·재고·판매 데이터를 연결해 관리 화면에서 흐름을 확인할 수 있도록 구성한 웹 프로젝트입니다. 제품 등록/수정, 재고 확인, 판매 내역 조회를 분리해 처리하고 일부 화면은 Ajax 갱신으로 필요한 데이터만 다시 조회하도록 정리했습니다.</p>
                 <div class="project-tags">
                   <span class="tag">Laravel</span>
@@ -288,6 +288,32 @@
               <div class="metric-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="metric-value">부분 갱신</div>
                 <div class="metric-label">필요한 영역만 다시 불러오는 Ajax 처리</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>구현 확인 포인트</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+              <div class="step-content">
+                <h4>1) 관리자 화면 기준 확인</h4>
+                <p><strong>관련 화면:</strong> 제품 관리, 재고 관리, 판매 관리, 관리자 대시보드.<br><strong>확인 방법:</strong> 제품 정보를 등록/수정한 뒤 재고/판매 화면에서 같은 제품 기준 데이터가 조회되는지 확인할 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-content">
+                <h4>2) 관리자 중심 운영 흐름</h4>
+                <p><strong>핵심 흐름:</strong> 제품 등록 → 재고 수량 관리 → 판매 데이터 입력 또는 조회 → 관리자 화면에서 상태 확인.<br><strong>확인 포인트:</strong> 특정 제품의 상태를 관리자 화면에서 순차적으로 추적할 수 있도록 구성했습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+              <div class="step-content">
+                <h4>3) 데이터 분리 관리</h4>
+                <p><strong>확인 포인트:</strong> 제품/재고/판매 데이터를 분리해 관리하고, 화면마다 필요한 데이터만 조회하도록 구성했습니다.<br><strong>검증 기준:</strong> 관리자 화면에서 영역별 데이터가 독립적으로 갱신되며 기본 연결 키를 통해 함께 확인되는 흐름입니다.</p>
               </div>
             </div>
           </div>
