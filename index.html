@@ -865,98 +865,101 @@
       <div class="container trouble-section" data-aos="fade-up" data-aos-delay="100">
         <div class="trouble-grid">
           <article class="trouble-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="trouble-card-head">
-              <h3 class="trouble-title">쇼핑몰 판매관리 프로젝트</h3>
-              <p class="trouble-meta">장바구니·주문 데이터 흐름 · PHP / Bootstrap / MySQL</p>
-            </div>
-            <p class="trouble-summary">장바구니에서 주문서로 이동할 때 일부 상품 정보가 빠지던 문제를 주문 저장 흐름 기준으로 다시 정리했습니다.</p>
-            <dl class="trouble-steps">
-              <div class="trouble-step">
-                <dt class="trouble-step-key">문제</dt>
-                <dd class="trouble-step-value">주문 저장 값이 달라지고 일부 상품 정보가 누락됨</dd>
+            <span class="trouble-case-label">CASE 01</span>
+            <h3 class="trouble-title">쇼핑몰 판매관리 프로젝트</h3>
+            <p class="trouble-meta">장바구니·주문 데이터 흐름 · PHP / Bootstrap / MySQL</p>
+            <p class="trouble-summary">장바구니에서 주문서로 넘어갈 때 상품 정보가 일부 누락되던 이슈를 주문 저장 기준과 순서 관점에서 정리했습니다.</p>
+            <dl class="trouble-flow">
+              <div>
+                <dt>문제</dt>
+                <dd>주문 저장 값 불일치와 일부 상품 정보 누락</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">원인</dt>
-                <dd class="trouble-step-value">장바구니 기준과 주문 저장 기준, 저장 순서가 페이지마다 달랐음</dd>
+              <div>
+                <dt>원인</dt>
+                <dd>장바구니 기준과 주문 저장 기준·순서가 페이지마다 달랐음</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">해결</dt>
-                <dd class="trouble-step-value"><code>cart.php</code>, <code>order.php</code>, <code>order_ok.php</code> 기준을 통일하고 주문번호 순서로 마스터·상세 저장을 정리</dd>
+              <div>
+                <dt>해결</dt>
+                <dd>주문번호 기준으로 마스터·상세 저장 순서를 통일</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">결과</dt>
-                <dd class="trouble-step-value">사용자/관리자 화면에서 주문번호 기준 조회가 일치하고 흐름 점검 기준을 확보</dd>
+              <div>
+                <dt>결과</dt>
+                <dd>사용자/관리자 화면의 주문번호 기준 조회가 일치</dd>
               </div>
             </dl>
             <details class="trouble-evidence">
               <summary>검증 정보 보기</summary>
-              <p><strong>재현 조건</strong> 옵션 상품 포함 주문 후 사용자 주문 내역과 관리자 주문 목록 비교</p>
-              <p><strong>수정 위치</strong> <code>order_ok.php</code>, <code>order_list.php</code>, <code>cart.php</code>, <code>order.php</code></p>
-              <p><strong>검증 결과</strong> 사용자 주문 내역과 관리자 주문 확인 화면에서 주문번호 기준 상품 목록이 일치함</p>
+              <ul>
+                <li>재현 조건: 옵션 상품 포함 주문 후 사용자/관리자 주문 목록 비교</li>
+                <li>수정 위치: <code>order_ok.php</code>, <code>order_list.php</code>, <code>cart.php</code>, <code>order.php</code></li>
+                <li>검증 결과: 사용자 주문 내역과 관리자 주문 확인 화면의 상품 목록이 주문번호 기준으로 일치</li>
+              </ul>
             </details>
           </article>
 
           <article class="trouble-card" data-aos="fade-up" data-aos-delay="250">
-            <div class="trouble-card-head">
-              <h3 class="trouble-title">e스포츠 포털 및 경기관리 프로젝트</h3>
-              <p class="trouble-meta">Ajax 응답 형식·데이터 갱신 · Laravel / MySQL</p>
-            </div>
-            <p class="trouble-summary">관리자 입력 직후 사용자 순위 화면이 갱신되지 않던 이슈를 Ajax 응답 형식과 집계 기준 관점에서 정리했습니다.</p>
-            <dl class="trouble-steps">
-              <div class="trouble-step">
-                <dt class="trouble-step-key">문제</dt>
-                <dd class="trouble-step-value">경기 결과 저장 후 순위표 반영이 지연되거나 누락됨</dd>
+            <span class="trouble-case-label">CASE 02</span>
+            <h3 class="trouble-title">e스포츠 포털 및 경기관리 프로젝트</h3>
+            <p class="trouble-meta">Ajax 응답 형식·데이터 갱신 · Laravel / MySQL</p>
+            <p class="trouble-summary">관리자 입력 직후 사용자 순위 화면이 즉시 갱신되지 않던 이슈를 Ajax 응답 형식과 집계 기준 정렬로 해결했습니다.</p>
+            <dl class="trouble-flow">
+              <div>
+                <dt>문제</dt>
+                <dd>경기 결과 저장 후 순위표 반영이 지연되거나 누락됨</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">원인</dt>
-                <dd class="trouble-step-value">화면별 Ajax 응답 형식과 순위 집계 필드 매핑 기준이 서로 달랐음</dd>
+              <div>
+                <dt>원인</dt>
+                <dd>화면별 Ajax 응답 형식과 집계 필드 매핑 기준이 달랐음</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">해결</dt>
-                <dd class="trouble-step-value"><code>routes/web.php</code>, <code>MatchController</code>, <code>RankingController</code> 응답을 JSON으로 통일하고 <code>resources/views/rankings</code> 갱신 조건 정렬</dd>
+              <div>
+                <dt>해결</dt>
+                <dd>응답 형식을 JSON으로 통일하고 갱신 조건을 정렬</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">결과</dt>
-                <dd class="trouble-step-value">finished 기준 집계로 경기 목록과 순위표가 같은 타이밍에 반영됨</dd>
+              <div>
+                <dt>결과</dt>
+                <dd>finished 기준으로 경기 목록·순위표가 같은 타이밍에 반영</dd>
               </div>
             </dl>
             <details class="trouble-evidence">
               <summary>검증 정보 보기</summary>
-              <p><strong>재현 조건</strong> 경기 결과 저장 직후 Ajax 갱신 시 순위표 반영 여부 확인</p>
-              <p><strong>수정 위치</strong> <code>routes/web.php</code>, <code>MatchController</code>, <code>RankingController</code>, <code>resources/views/rankings</code>, <code>resources/views/admin/matches</code></p>
-              <p><strong>검증 결과</strong> 요청 성공 시 finished 경기만 반영된 기준으로 경기 목록·순위표가 함께 갱신됨</p>
+              <ul>
+                <li>재현 조건: 경기 결과 저장 직후 Ajax 갱신 시 순위표 반영 여부 확인</li>
+                <li>수정 위치: <code>routes/web.php</code>, <code>MatchController</code>, <code>RankingController</code>, <code>resources/views/rankings</code>, <code>resources/views/admin/matches</code></li>
+                <li>검증 결과: 요청 성공 시 finished 경기만 반영된 기준으로 경기 목록과 순위표가 함께 갱신</li>
+              </ul>
             </details>
           </article>
 
           <article class="trouble-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="trouble-card-head">
-              <h3 class="trouble-title">베이커리 판매관리 프로젝트</h3>
-              <p class="trouble-meta">DB 예외·관리자 경로 처리 · Laravel / MySQL</p>
-            </div>
-            <p class="trouble-summary">관리자에서 재고·판매 데이터가 비거나 예외가 나던 구간을 조회 키와 배포 경로 기준으로 축약 정리했습니다.</p>
-            <dl class="trouble-steps">
-              <div class="trouble-step">
-                <dt class="trouble-step-key">문제</dt>
-                <dd class="trouble-step-value">제품 관리 후 재고·판매 조회 시 빈 값 또는 DB 예외 발생</dd>
+            <span class="trouble-case-label">CASE 03</span>
+            <h3 class="trouble-title">베이커리 판매관리 프로젝트</h3>
+            <p class="trouble-meta">DB 예외·관리자 경로 처리 · Laravel / MySQL</p>
+            <p class="trouble-summary">관리자에서 재고·판매 데이터가 비거나 예외가 발생하던 구간을 조회 키와 배포 경로 기준으로 정리했습니다.</p>
+            <dl class="trouble-flow">
+              <div>
+                <dt>문제</dt>
+                <dd>제품 관리 후 재고·판매 조회 시 빈 값 또는 DB 예외 발생</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">원인</dt>
-                <dd class="trouble-step-value">제품·재고·판매 조인 키와 배포 경로 기준이 화면/요청마다 달랐음</dd>
+              <div>
+                <dt>원인</dt>
+                <dd>제품·재고·판매 조인 키와 배포 경로 기준이 화면마다 달랐음</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">해결</dt>
-                <dd class="trouble-step-value"><code>routes/web.php</code>와 Product/Stock/Sale 조회 조건을 제품 기준 키로 통일하고 <code>resources/views/admin</code>에 null 분기 추가</dd>
+              <div>
+                <dt>해결</dt>
+                <dd>제품 기준 키로 조회 조건을 통일하고 null 분기 추가</dd>
               </div>
-              <div class="trouble-step">
-                <dt class="trouble-step-key">결과</dt>
-                <dd class="trouble-step-value">관리자 화면 조회 기준이 정렬되어 누락 데이터가 있어도 응답 흐름이 유지됨</dd>
+              <div>
+                <dt>결과</dt>
+                <dd>조회 기준이 정렬되어 누락 데이터가 있어도 응답 흐름 유지</dd>
               </div>
             </dl>
             <details class="trouble-evidence">
               <summary>검증 정보 보기</summary>
-              <p><strong>재현 조건</strong> 관리자 화면에서 제품 등록/수정 후 재고·판매 조회를 연속 수행</p>
-              <p><strong>수정 위치</strong> <code>routes/web.php</code>, Product/Stock/Sale 관련 컨트롤러, <code>resources/views/admin</code> 관련 뷰, <code>database/migrations</code> 테이블 정의 확인 구간</p>
-              <p><strong>검증 결과</strong> 판매 등록 후 재고·판매 내역이 같은 제품 기준으로 조회되고 누락 데이터가 있어도 화면 응답이 유지됨</p>
+              <ul>
+                <li>재현 조건: 관리자 화면에서 제품 등록/수정 후 재고·판매 조회를 연속 수행</li>
+                <li>수정 위치: <code>routes/web.php</code>, Product/Stock/Sale 관련 컨트롤러, <code>resources/views/admin</code> 관련 뷰, <code>database/migrations</code></li>
+                <li>검증 결과: 판매 등록 후 재고·판매 내역이 같은 제품 기준으로 조회되고 누락 데이터가 있어도 화면 응답 유지</li>
+              </ul>
             </details>
           </article>
         </div>
