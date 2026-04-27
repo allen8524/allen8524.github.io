@@ -1917,8 +1917,47 @@ section,
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
+.resume .section-title {
+  padding-bottom: 26px;
+}
+
+.resume .resume-content-row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+}
+
+.resume .resume-column {
+  display: flex;
+}
+
+.resume .professional-journey,
+.resume .education-skills {
+  width: 100%;
+}
+
+.resume .resume-panel {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  background: color-mix(in srgb, var(--surface-color), transparent 6%);
+  padding: 2rem;
+  box-shadow: 0 20px 48px color-mix(in srgb, var(--default-color), transparent 94%);
+}
+
+.resume .resume-panel-header {
+  margin-bottom: 1.5rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resume .resume-panel-body {
+  margin-top: 0.4rem;
+}
+
 .resume .section-intro {
-  margin-bottom: 3rem;
+  margin-bottom: 0;
 }
 
 .resume .section-intro .icon-wrapper {
@@ -1940,14 +1979,18 @@ section,
 .resume .section-intro .section-kicker {
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.85rem;
+  padding: 0.3rem 0.72rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent-color), transparent 92%);
   color: var(--accent-color);
-  font-size: 0.85rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.resume .professional-journey .section-intro .section-kicker {
+  margin-top: 0;
 }
 
 .resume .section-intro h2 {
@@ -1967,7 +2010,8 @@ section,
 
 .resume .professional-journey .experience-timeline {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1.75rem;
+  margin-left: 0.4rem;
 }
 
 .resume .professional-journey .experience-timeline::before {
@@ -1982,7 +2026,11 @@ section,
 
 .resume .professional-journey .experience-timeline .timeline-item {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  padding: 1.2rem 1.25rem 1.15rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  background: color-mix(in srgb, var(--surface-color), transparent 8%);
 }
 
 .resume .professional-journey .experience-timeline .timeline-item:last-child {
@@ -1991,8 +2039,8 @@ section,
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-dot {
   position: absolute;
-  left: -2.3rem;
-  top: 0.5rem;
+  left: -2.08rem;
+  top: 1.3rem;
   width: 12px;
   height: 12px;
   background: var(--accent-color);
@@ -2014,7 +2062,7 @@ section,
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h3 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--heading-color);
   margin-bottom: 0.25rem;
@@ -2022,17 +2070,17 @@ section,
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h4 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   font-weight: 500;
   margin-bottom: 1rem;
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements {
@@ -2054,8 +2102,8 @@ section,
 .resume .education-skills .education-grid .education-card {
   background: var(--surface-color);
   border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
   transition: all 0.3s ease;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
 }
@@ -2148,7 +2196,11 @@ section,
 }
 
 .resume .education-skills .education-grid .certification-section {
-  margin-top: 2rem;
+  margin-top: 1.35rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 94%);
+  background: color-mix(in srgb, var(--surface-color), transparent 10%);
 }
 
 .resume .education-skills .education-grid .certification-section h4 {
@@ -2195,12 +2247,24 @@ section,
 }
 
 @media (max-width: 992px) {
-  .resume .row {
+  .resume .resume-content-row {
     gap: 3rem 0;
   }
 
+  .resume .resume-content-row {
+    --bs-gutter-x: 0.9rem;
+  }
+
+  .resume .resume-panel {
+    padding: 1.6rem;
+  }
+
+  .resume .resume-panel-header {
+    min-height: auto;
+  }
+
   .resume .section-intro {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 
   .resume .section-intro h2 {
@@ -2212,11 +2276,27 @@ section,
   }
 
   .resume .professional-journey {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+  }
+
+  .resume .professional-journey .experience-timeline {
+    margin-left: 0.25rem;
   }
 }
 
 @media (max-width: 768px) {
+  .resume .section-title {
+    padding-bottom: 22px;
+  }
+
+  .resume .resume-content-row {
+    --bs-gutter-x: 0;
+  }
+
+  .resume .resume-panel {
+    padding: 1.35rem;
+  }
+
   .resume .section-intro .icon-wrapper {
     width: 50px;
     height: 50px;
@@ -2232,6 +2312,7 @@ section,
 
   .resume .professional-journey .experience-timeline {
     padding-left: 1.5rem;
+    margin-left: 0;
   }
 
   .resume .professional-journey .experience-timeline .timeline-item .timeline-dot {
@@ -2239,7 +2320,7 @@ section,
   }
 
   .resume .education-skills .education-grid .education-card {
-    padding: 1.5rem;
+    padding: 1.3rem;
   }
 
   .resume .education-skills .education-grid .education-card .education-header .degree-icon {
