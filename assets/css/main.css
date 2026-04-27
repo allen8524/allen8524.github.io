@@ -2906,7 +2906,9 @@ section,
   margin-bottom: 0.45rem;
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  font-family: var(--font-ui);
   color: var(--accent-color);
 }
 
@@ -4405,7 +4407,6 @@ section,
 }
 
 .about .philosophy-quote p,
-.testimonials .testimonial-body p,
 .service-details .service-sidebar .testimonial-block blockquote {
   font-family: var(--font-editorial);
 }
@@ -4452,6 +4453,7 @@ body,
 .about .content-area .story-block p,
 .about .bottom-section .collaboration-text p,
 .resume .section-intro p,
+.testimonials .testimonial-body p,
 .contact .info-item .info-content p,
 .portfolio-details .hero-section .project-header .project-summary,
 .portfolio-details .content-section .main-content p,
