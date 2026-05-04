@@ -2922,204 +2922,291 @@ section,
 # Testimonials Section
 --------------------------------------------------------------*/
 .testimonials {
-  padding-top: 94px;
-  padding-bottom: 94px;
+  position: relative;
+  padding: 102px 0 96px;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(78, 99, 255, 0.15), transparent 44%),
+    radial-gradient(circle at 85% 80%, rgba(25, 45, 80, 0.22), transparent 48%);
+  pointer-events: none;
 }
 
 .testimonials .section-title {
-  margin-bottom: 1.9rem;
+  position: relative;
+  margin-bottom: 2.2rem;
 }
 
 .testimonials .section-title p {
-  max-width: 620px;
-  margin: 0.7rem auto 0;
+  margin: 0.75rem auto 0;
+  max-width: 660px;
 }
 
-.testimonials .trouble-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-bottom: 1.35rem;
-}
-
-.testimonials .trouble-tab {
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  background: color-mix(in srgb, var(--surface-color), transparent 12%);
-  color: color-mix(in srgb, var(--default-color), transparent 16%);
-  border-radius: 999px;
-  padding: 0.48rem 1rem;
-  font-size: 0.84rem;
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: all 0.25s ease;
-}
-
-.testimonials .trouble-tab:hover {
-  border-color: color-mix(in srgb, var(--accent-color), transparent 42%);
-  color: var(--accent-color);
-  transform: translateY(-1px);
-}
-
-.testimonials .trouble-tab.active {
-  color: var(--accent-color);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 24%);
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  box-shadow: 0 8px 18px rgba(65, 84, 241, 0.15);
-}
-
-.testimonials .trouble-panel {
-  padding: 0;
-  border: 0;
-  background: transparent;
-}
-
-.testimonials .trouble-card {
+.testimonials .troubleshooting-lab {
   position: relative;
-  border-radius: 20px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%);
-  background: linear-gradient(152deg, color-mix(in srgb, var(--surface-color), #ffffff 2%) 0%, color-mix(in srgb, var(--surface-color), #0f172a 10%) 100%);
-  padding: 1.4rem;
-  box-shadow: 0 14px 34px rgba(9, 18, 37, 0.2);
-  overflow: hidden;
-  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 1.2rem;
 }
 
-.testimonials .trouble-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--accent-color), #ffffff 12%), color-mix(in srgb, var(--accent-color), transparent 65%));
+.testimonials .trouble-nav {
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
 }
 
-.testimonials .trouble-panel.active .trouble-card,
-.testimonials .trouble-panel.show .trouble-card,
-.testimonials .trouble-card:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
-  box-shadow: 0 18px 40px rgba(12, 24, 48, 0.24);
+.testimonials .trouble-nav-item {
+  text-align: left;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 83%);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-color), #fff 5%), color-mix(in srgb, var(--surface-color), #0b1326 20%));
+  border-radius: 14px;
+  padding: 0.85rem 0.9rem;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.testimonials .trouble-card-head h3 {
-  margin: 0.3rem 0 0;
-  font-size: 1.18rem;
-  line-height: 1.4;
+.testimonials .trouble-nav-item:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.testimonials .trouble-nav-item.active {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 38%);
+  box-shadow: 0 12px 24px rgba(16, 27, 54, 0.26);
+}
+
+.testimonials .trouble-nav-label,
+.testimonials .trouble-nav-keyword,
+.testimonials .trouble-nav-stack {
+  display: block;
+}
+
+.testimonials .trouble-nav-label {
+  font-size: 0.94rem;
+  font-weight: 700;
   color: var(--heading-color);
 }
 
-.testimonials .trouble-card-stack {
-  margin: 0;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--accent-color), #c7d2fe 30%);
+.testimonials .trouble-nav-keyword {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--accent-color), #dbeafe 30%);
 }
 
-.testimonials .trouble-card-desc {
-  margin: 0.6rem 0 0;
+.testimonials .trouble-nav-stack {
+  margin-top: 0.3rem;
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+}
+
+.testimonials .trouble-stage {
+  min-width: 0;
+}
+
+.testimonials .trouble-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--surface-color), #fff 2%), color-mix(in srgb, var(--surface-color), #091223 12%));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 14px 36px rgba(8, 18, 37, 0.24);
+}
+
+.testimonials .trouble-case {
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  background: color-mix(in srgb, var(--surface-color), #050a14 10%);
+  padding: 1rem;
+}
+
+.testimonials .trouble-case-stack {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent-color), #cbd5ff 26%);
+  font-weight: 700;
+}
+
+.testimonials .trouble-case h3 {
+  margin: 0.35rem 0 0;
+  font-size: 1.16rem;
+}
+
+.testimonials .trouble-case-head p {
+  margin: 0.48rem 0 0;
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+.testimonials .trouble-flow {
+  margin: 1.05rem 0 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+.testimonials .trouble-flow::before {
+  content: "";
+  position: absolute;
+  left: 0.43rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 1px;
+  background: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.testimonials .trouble-flow li {
+  position: relative;
+  padding: 0 0 0.95rem 1.55rem;
+}
+
+.testimonials .trouble-flow li:last-child {
+  padding-bottom: 0;
+}
+
+.testimonials .trouble-flow li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 0.86rem;
+  height: 0.86rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), #fff 20%) 0 35%, color-mix(in srgb, var(--accent-color), transparent 55%) 36% 100%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 35%);
+}
+
+.testimonials .trouble-flow span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--accent-color), var(--heading-color) 30%);
+  margin-bottom: 0.28rem;
+}
+
+.testimonials .trouble-flow p {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.62;
+}
+
+.testimonials .trouble-flow code {
+  font-size: 0.85em;
+  padding: 0.08rem 0.28rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--surface-color), #000 10%);
+}
+
+.testimonials .trouble-evidence {
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color), transparent 93%), color-mix(in srgb, var(--surface-color), #060d1b 12%));
+  padding: 0.95rem;
+}
+
+.testimonials .trouble-evidence h4 {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.testimonials .trouble-evidence-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.58;
+}
+
+.testimonials .trouble-pipeline {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+}
+
+.testimonials .trouble-pipeline span {
+  display: inline-flex;
+  padding: 0.26rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  background: color-mix(in srgb, var(--surface-color), #fff 4%);
+}
+
+.testimonials .trouble-pipeline code {
+  font-size: 0.74rem;
   color: color-mix(in srgb, var(--default-color), transparent 12%);
 }
 
-.testimonials .trouble-highlight {
-  margin-top: 1rem;
-  padding: 0.95rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+.testimonials .trouble-pipeline i {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--accent-color), transparent 24%);
 }
 
-.testimonials .trouble-highlight span {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--accent-color), #dbeafe 28%);
-}
-
-.testimonials .trouble-highlight p {
-  margin: 0.45rem 0 0;
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-
-.testimonials .trouble-steps {
-  margin-top: 1rem;
+.testimonials .trouble-tags {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 0.35rem;
 }
 
-.testimonials .trouble-step {
-  border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 87%);
-  background: color-mix(in srgb, var(--surface-color), #0b1220 14%);
-  padding: 0.9rem;
+.testimonials .trouble-tags li {
+  font-size: 0.78rem;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 8px;
+  padding: 0.36rem 0.5rem;
+  background: color-mix(in srgb, var(--surface-color), #091120 8%);
 }
 
-.testimonials .trouble-step span {
-  display: inline-block;
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--accent-color), var(--heading-color) 20%);
-  margin-bottom: 0.35rem;
-}
-
-.testimonials .trouble-step p {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.62;
-  color: color-mix(in srgb, var(--default-color), transparent 8%);
-}
-
-.testimonials .trouble-files {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.testimonials .trouble-files .file-chip {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 82%);
-  background: color-mix(in srgb, var(--surface-color), #ffffff 6%);
-  color: color-mix(in srgb, var(--default-color), transparent 15%);
-  border-radius: 999px;
-  padding: 0.26rem 0.68rem;
-  font-size: 0.77rem;
-  line-height: 1.35;
+@media (max-width: 1199.98px) {
+  .testimonials .trouble-panel {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 991.98px) {
-  .testimonials .trouble-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .testimonials .troubleshooting-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials .trouble-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767.98px) {
-  .testimonials .trouble-tabs {
+  .testimonials {
+    padding: 88px 0 82px;
+  }
+
+  .testimonials .trouble-nav {
+    display: flex;
     overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 0.32rem;
-    margin-bottom: 1rem;
+    gap: 0.55rem;
+    padding-bottom: 0.2rem;
   }
 
-  .testimonials .trouble-tab {
+  .testimonials .trouble-nav-item {
+    min-width: 210px;
     flex: 0 0 auto;
-    white-space: nowrap;
   }
 
-  .testimonials .trouble-card {
-    padding: 1.1rem;
+  .testimonials .trouble-panel {
+    padding: 0.8rem;
   }
 
-  .testimonials .trouble-steps {
-    grid-template-columns: 1fr;
+  .testimonials .trouble-case,
+  .testimonials .trouble-evidence {
+    padding: 0.85rem;
   }
 }
 
