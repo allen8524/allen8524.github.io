@@ -2952,6 +2952,7 @@ section,
   display: grid;
   grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
   gap: 1.2rem;
+  align-items: start;
 }
 
 .testimonials .trouble-nav {
@@ -3007,10 +3008,18 @@ section,
 
 .testimonials .trouble-stage {
   min-width: 0;
+  align-self: start;
+}
+
+.testimonials .trouble-stage > .tab-pane {
+  display: none;
+}
+
+.testimonials .trouble-stage > .tab-pane.active {
+  display: grid;
 }
 
 .testimonials .trouble-panel {
-  display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
   gap: 1rem;
   padding: 1rem;
