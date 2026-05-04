@@ -113,7 +113,7 @@
                 <h2>개발 목적</h2>
                 <p>e스포츠 도메인을 바탕으로 서로 연결된 데이터를 포털 형태의 서비스로 보여주고, 관리자 운영 구조까지 함께 구현해보기 위해 진행한 프로젝트입니다.</p>
                 <p>선수·팀·경기·뉴스·패치 노트를 도메인별로 분리하고, 사용자 영역과 관리자 영역을 나누어 라우팅, 인증, 권한 제어 흐름을 익히는 데 목적을 두었습니다.</p>
-                <p>특히 경기 결과 기반 순위 집계, Laravel 라우팅·미들웨어 기반 접근 제어, slug 기반 상세 라우팅, 썸네일 업로드 관리, 페이지네이션, 캐시 적용 흐름을 묶어 데이터 조회와 운영 기능을 함께 점검했습니다.</p>
+                <p>특히 finished 경기만 순위에 반영하는 집계 로직, Laravel 미들웨어 접근 제어, slug 기반 상세 라우팅, 썸네일 업로드, 페이지네이션, 캐시 구간을 구현해 운영 기능을 점검했습니다.</p>
               </div>
             </div>
             <div class="col-lg-4 offset-lg-1" data-aos="fade-up" data-aos-delay="200">
@@ -146,7 +146,7 @@
         <div class="representative-preview" data-aos="fade-up" data-aos-delay="100">
           <div class="preview-header">
             <h2>대표 화면 미리보기</h2>
-            <p>메인 페이지에서는 예정 경기, 트렌딩 뉴스, 패치 노트, 순위, 영상을 한 화면에 배치해 포털 탐색 동선을 정리했습니다.</p>
+            <p>메인 페이지에서는 예정 경기, 트렌딩 뉴스, 패치 노트, 순위, 영상을 한 화면에 배치해 주요 정보를 바로 탐색할 수 있게 구성했습니다.</p>
           </div>
           <figure class="preview-card" data-aos="zoom-in" data-aos-delay="150">
             <img src="assets/img/portfolio/esports_main.png" alt="e스포츠 포털 메인 홈 화면으로 대표 매치 하이라이트와 브랜드 영역이 배치된 화면" class="img-fluid glightbox" loading="lazy">
@@ -174,7 +174,7 @@
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
               <div class="step-content">
                 <h4>3) 뉴스/팀/경기 데이터 관리와 slug 상세 연결</h4>
-                <p><strong>구현 포인트:</strong> 콘텐츠와 경기 데이터를 도메인별로 관리하면서 상세 페이지 접근 규칙을 통일했습니다.<br><strong>처리 방식:</strong> 뉴스·팀·경기 목록과 상세 라우팅을 slug 기반으로 연결하고, 뉴스 썸네일 업로드/관리 흐름 및 반복 조회 부담을 줄이기 위한 캐시 적용 구간을 함께 정리했습니다.<br><strong>확인 가능한 결과:</strong> 목록에서 선택한 항목이 일관된 URL 규칙으로 상세 페이지에 연결되고, 운영 화면에서 등록한 콘텐츠가 사용자 화면에 반영되는 흐름을 확인할 수 있습니다.</p>
+                <p><strong>구현 포인트:</strong> 콘텐츠와 경기 데이터를 도메인별로 관리하면서 상세 페이지 접근 규칙을 통일했습니다.<br><strong>처리 방식:</strong> 뉴스·팀·경기 목록과 상세 라우팅을 slug 기반 URL로 연결하고, 뉴스 썸네일 업로드/관리와 반복 조회 구간 캐시를 함께 적용했습니다.<br><strong>확인 가능한 결과:</strong> 목록에서 선택한 항목이 일관된 URL 규칙으로 상세 페이지에 연결되고, 운영 화면에서 등록한 콘텐츠가 사용자 화면에 반영되는 흐름을 확인할 수 있습니다.</p>
               </div>
             </div>
           </div>
@@ -434,7 +434,7 @@
   <footer id="footer" class="footer light-background">
     <div class="container">
       <h3 class="sitename">황민서</h3>
-      <p>도메인 데이터를 조회 화면과 관리자 운영 화면에서 같은 기준으로 다루도록 정리했습니다.</p>
+      <p>도메인 데이터를 조회 화면과 관리자 운영 화면에서 동일한 키와 조건으로 조회하도록 구현했습니다.</p>
       <div class="social-links d-flex justify-content-center">
         <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
         <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
