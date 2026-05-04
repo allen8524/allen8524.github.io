@@ -4348,9 +4348,12 @@ section,
   font-family: var(--font-heading);
 }
 
-.about .philosophy-quote p,
 .service-details .service-sidebar .testimonial-block blockquote {
   font-family: var(--font-editorial);
+}
+
+.about .philosophy-quote p {
+  font-family: var(--default-font);
 }
 
 .about .expertise-grid .expertise-item .expertise-content h4,
