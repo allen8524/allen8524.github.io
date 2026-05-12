@@ -1899,7 +1899,7 @@ section,
 
   .skills .skills-sidebar .expertise-highlight {
     padding: 32px 24px;
-  }
+}
 
   .skills .skills-sidebar .expertise-highlight .experience-number .purecounter {
     font-size: 48px;
@@ -1917,8 +1917,47 @@ section,
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
+.resume .section-title {
+  padding-bottom: 26px;
+}
+
+.resume .resume-content-row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+}
+
+.resume .resume-column {
+  display: flex;
+}
+
+.resume .professional-journey,
+.resume .education-skills {
+  width: 100%;
+}
+
+.resume .resume-panel {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  background: color-mix(in srgb, var(--surface-color), transparent 6%);
+  padding: 2rem;
+  box-shadow: 0 20px 48px color-mix(in srgb, var(--default-color), transparent 94%);
+}
+
+.resume .resume-panel-header {
+  margin-bottom: 1.5rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resume .resume-panel-body {
+  margin-top: 0.4rem;
+}
+
 .resume .section-intro {
-  margin-bottom: 3rem;
+  margin-bottom: 0;
 }
 
 .resume .section-intro .icon-wrapper {
@@ -1940,14 +1979,23 @@ section,
 .resume .section-intro .section-kicker {
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.85rem;
+  padding: 0.3rem 0.72rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent-color), transparent 92%);
   color: var(--accent-color);
-  font-size: 0.85rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.resume .professional-journey .section-intro .section-kicker {
+  margin-top: 0;
+}
+
+.resume .professional-journey .section-intro .section-kicker {
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 .resume .section-intro h2 {
@@ -1967,7 +2015,8 @@ section,
 
 .resume .professional-journey .experience-timeline {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1.75rem;
+  margin-left: 0.4rem;
 }
 
 .resume .professional-journey .experience-timeline::before {
@@ -1982,7 +2031,11 @@ section,
 
 .resume .professional-journey .experience-timeline .timeline-item {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  padding: 1.2rem 1.25rem 1.15rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  background: color-mix(in srgb, var(--surface-color), transparent 8%);
 }
 
 .resume .professional-journey .experience-timeline .timeline-item:last-child {
@@ -1991,8 +2044,8 @@ section,
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-dot {
   position: absolute;
-  left: -2.3rem;
-  top: 0.5rem;
+  left: -2.08rem;
+  top: 1.3rem;
   width: 12px;
   height: 12px;
   background: var(--accent-color);
@@ -2014,7 +2067,7 @@ section,
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h3 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--heading-color);
   margin-bottom: 0.25rem;
@@ -2022,17 +2075,17 @@ section,
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h4 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   font-weight: 500;
   margin-bottom: 1rem;
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements {
@@ -2054,8 +2107,8 @@ section,
 .resume .education-skills .education-grid .education-card {
   background: var(--surface-color);
   border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
   transition: all 0.3s ease;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
 }
@@ -2148,7 +2201,11 @@ section,
 }
 
 .resume .education-skills .education-grid .certification-section {
-  margin-top: 2rem;
+  margin-top: 1.35rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 94%);
+  background: color-mix(in srgb, var(--surface-color), transparent 10%);
 }
 
 .resume .education-skills .education-grid .certification-section h4 {
@@ -2195,12 +2252,24 @@ section,
 }
 
 @media (max-width: 992px) {
-  .resume .row {
+  .resume .resume-content-row {
     gap: 3rem 0;
   }
 
+  .resume .resume-content-row {
+    --bs-gutter-x: 0.9rem;
+  }
+
+  .resume .resume-panel {
+    padding: 1.6rem;
+  }
+
+  .resume .resume-panel-header {
+    min-height: auto;
+  }
+
   .resume .section-intro {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 
   .resume .section-intro h2 {
@@ -2212,11 +2281,31 @@ section,
   }
 
   .resume .professional-journey {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+  }
+
+  .resume .professional-journey .experience-timeline {
+    margin-left: 0.25rem;
+  }
+
+  .resume .professional-journey .experience-timeline {
+    margin-left: 0.4rem;
   }
 }
 
 @media (max-width: 768px) {
+  .resume .section-title {
+    padding-bottom: 22px;
+  }
+
+  .resume .resume-content-row {
+    --bs-gutter-x: 0;
+  }
+
+  .resume .resume-panel {
+    padding: 1.35rem;
+  }
+
   .resume .section-intro .icon-wrapper {
     width: 50px;
     height: 50px;
@@ -2232,6 +2321,7 @@ section,
 
   .resume .professional-journey .experience-timeline {
     padding-left: 1.5rem;
+    margin-left: 0;
   }
 
   .resume .professional-journey .experience-timeline .timeline-item .timeline-dot {
@@ -2239,7 +2329,7 @@ section,
   }
 
   .resume .education-skills .education-grid .education-card {
-    padding: 1.5rem;
+    padding: 1.3rem;
   }
 
   .resume .education-skills .education-grid .education-card .education-header .degree-icon {
@@ -2831,291 +2921,301 @@ section,
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
-.testimonials .testimonials-slider {
-  max-width: 900px;
-  margin: 0 auto;
+.testimonials {
   position: relative;
+  padding: 102px 0 96px;
+  overflow: hidden;
 }
 
-.testimonials .swiper-wrapper {
-  height: auto !important;
+.testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(78, 99, 255, 0.15), transparent 44%),
+    radial-gradient(circle at 85% 80%, rgba(25, 45, 80, 0.22), transparent 48%);
+  pointer-events: none;
 }
 
-.testimonials .testimonial-slide {
-  padding: 3rem 2.75rem;
-  text-align: left;
+.testimonials .section-title {
   position: relative;
-  min-height: 360px;
-  border-radius: 25px;
-  background: linear-gradient(135deg, var(--surface-color), color-mix(in srgb, var(--accent-color), transparent 97%));
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  border-top: 4px solid var(--accent-color);
+  margin-bottom: 2.2rem;
 }
 
-.testimonials .testimonial-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+.testimonials .section-title p {
+  margin: 0.75rem auto 0;
+  max-width: 660px;
 }
 
-.testimonials .stars-rating {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.testimonials .stars-rating i {
-  color: #ffc107;
-  font-size: 1.25rem;
-}
-
-.testimonials .quote-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
-}
-
-.testimonials .quote-icon i {
-  color: var(--contrast-color);
-  font-size: 1.5rem;
-}
-
-.testimonials .testimonial-body {
-  margin: 0;
-}
-
-.testimonials .testimonial-body .trouble-stack {
+.testimonials .troubleshooting-lab {
+  position: relative;
   display: grid;
-  gap: 0.9rem;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
 }
 
-.testimonials .testimonial-body .trouble-item {
-  padding: 1rem 1.1rem;
-  border-radius: 16px;
-  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 3%);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+.testimonials .trouble-nav {
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
 }
 
-.testimonials .testimonial-body .trouble-label {
+.testimonials .trouble-nav-item {
+  text-align: left;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 83%);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-color), #fff 5%), color-mix(in srgb, var(--surface-color), #0b1326 20%));
+  border-radius: 14px;
+  padding: 0.85rem 0.9rem;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.testimonials .trouble-nav-item:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.testimonials .trouble-nav-item.active {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 38%);
+  box-shadow: 0 12px 24px rgba(16, 27, 54, 0.26);
+}
+
+.testimonials .trouble-nav-label,
+.testimonials .trouble-nav-keyword,
+.testimonials .trouble-nav-stack {
   display: block;
-  margin-bottom: 0.45rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--accent-color);
 }
 
-.testimonials .testimonial-body p {
-  font-size: 1rem;
-  line-height: 1.7;
+.testimonials .trouble-nav-label {
+  font-size: 0.94rem;
+  font-weight: 700;
   color: var(--heading-color);
+}
+
+.testimonials .trouble-nav-keyword {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--accent-color), #dbeafe 30%);
+}
+
+.testimonials .trouble-nav-stack {
+  margin-top: 0.3rem;
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+}
+
+.testimonials .trouble-stage {
+  min-width: 0;
+  align-self: start;
+}
+
+.testimonials .trouble-stage > .tab-pane {
+  display: none;
+}
+
+.testimonials .trouble-stage > .tab-pane.active {
+  display: grid;
+}
+
+.testimonials .trouble-panel {
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--surface-color), #fff 2%), color-mix(in srgb, var(--surface-color), #091223 12%));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 14px 36px rgba(8, 18, 37, 0.24);
+}
+
+.testimonials .trouble-case {
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  background: color-mix(in srgb, var(--surface-color), #050a14 10%);
+  padding: 1rem;
+}
+
+.testimonials .trouble-case-stack {
   margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent-color), #cbd5ff 26%);
+  font-weight: 700;
+}
+
+.testimonials .trouble-case h3 {
+  margin: 0.35rem 0 0;
+  font-size: 1.16rem;
+}
+
+.testimonials .trouble-case-head p {
+  margin: 0.48rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.testimonials .trouble-flow {
+  margin: 1.05rem 0 0;
+  padding: 0;
+  list-style: none;
   position: relative;
 }
 
-.testimonials .testimonial-footer {
-  margin-top: 1.75rem;
+.testimonials .trouble-flow::before {
+  content: "";
+  position: absolute;
+  left: 0.43rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 1px;
+  background: color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
-.testimonials .author-info {
+.testimonials .trouble-flow li {
+  position: relative;
+  padding: 0 0 0.95rem 1.55rem;
+}
+
+.testimonials .trouble-flow li:last-child {
+  padding-bottom: 0;
+}
+
+.testimonials .trouble-flow li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 0.86rem;
+  height: 0.86rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), #fff 20%) 0 35%, color-mix(in srgb, var(--accent-color), transparent 55%) 36% 100%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 35%);
+}
+
+.testimonials .trouble-flow span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--accent-color), var(--heading-color) 30%);
+  margin-bottom: 0.28rem;
+}
+
+.testimonials .trouble-flow p {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.62;
+}
+
+.testimonials .trouble-flow code {
+  font-size: 0.85em;
+  padding: 0.08rem 0.28rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--surface-color), #000 10%);
+}
+
+.testimonials .trouble-evidence {
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color), transparent 93%), color-mix(in srgb, var(--surface-color), #060d1b 12%));
+  padding: 0.95rem;
+}
+
+.testimonials .trouble-evidence h4 {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.testimonials .trouble-evidence-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.58;
+}
+
+.testimonials .trouble-pipeline {
+  margin-top: 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.28rem;
 }
 
-.testimonials .author-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--accent-color);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+.testimonials .trouble-pipeline span {
+  display: inline-flex;
+  padding: 0.26rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  background: color-mix(in srgb, var(--surface-color), #fff 4%);
 }
 
-.testimonials .author-details {
-  text-align: left;
+.testimonials .trouble-pipeline code {
+  font-size: 0.74rem;
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
 }
 
-.testimonials .author-details h4 {
-  font-size: 1.375rem;
-  margin-bottom: 0.5rem;
-  color: var(--heading-color);
+.testimonials .trouble-pipeline i {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--accent-color), transparent 24%);
 }
 
-.testimonials .author-details .role {
-  display: block;
-  font-size: 1rem;
-  color: var(--accent-color);
-  font-weight: 600;
-  margin-bottom: 0.25rem;
+.testimonials .trouble-tags {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
 }
 
-.testimonials .author-details .company {
-  display: block;
-  font-size: 0.9375rem;
-  color: color-mix(in srgb, var(--heading-color), transparent 40%);
+.testimonials .trouble-tags li {
+  font-size: 0.78rem;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 8px;
+  padding: 0.36rem 0.5rem;
+  background: color-mix(in srgb, var(--surface-color), #091120 8%);
 }
 
-.testimonials .swiper-navigation-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.testimonials .swiper-pagination {
-  position: static !important;
-  margin: 0;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: color-mix(in srgb, var(--default-color), transparent 70%);
-  opacity: 1;
-  transition: all 0.3s ease;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: var(--accent-color);
-  transform: scale(1.2);
-}
-
-.testimonials .swiper-button-prev,
-.testimonials .swiper-button-next {
-  position: static !important;
-  width: 50px;
-  height: 50px;
-  margin: 0;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--accent-color);
-  transition: all 0.3s ease;
-}
-
-.testimonials .swiper-button-prev:after,
-.testimonials .swiper-button-next:after {
-  font-size: 1.25rem;
-  color: var(--contrast-color);
-  font-weight: bold;
-}
-
-.testimonials .swiper-button-prev:hover,
-.testimonials .swiper-button-next:hover {
-  transform: translateY(-2px);
+@media (max-width: 1199.98px) {
+  .testimonials .trouble-panel {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 991.98px) {
-  .testimonials .testimonial-slide {
-    padding: 2.4rem 2rem;
-    min-height: 320px;
+  .testimonials .troubleshooting-lab {
+    grid-template-columns: 1fr;
   }
 
-  .testimonials .testimonial-body p {
-    font-size: 0.98rem;
-  }
-
-  .testimonials .author-avatar {
-    width: 70px;
-    height: 70px;
-  }
-
-  .testimonials .author-details h4 {
-    font-size: 1.25rem;
-  }
-
-  .testimonials .quote-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .testimonials .quote-icon i {
-    font-size: 1.25rem;
-  }
-
-  .testimonials .swiper-button-prev,
-  .testimonials .swiper-button-next {
-    width: 45px;
-    height: 45px;
-  }
-
-  .testimonials .swiper-button-prev:after,
-  .testimonials .swiper-button-next:after {
-    font-size: 1.125rem;
+  .testimonials .trouble-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767.98px) {
-  .testimonials .testimonial-slide {
-    padding: 2rem 1.5rem;
-    min-height: 0;
+  .testimonials {
+    padding: 88px 0 82px;
   }
 
-  .testimonials .testimonial-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+  .testimonials .trouble-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.55rem;
+    padding-bottom: 0.2rem;
   }
 
-  .testimonials .testimonial-body {
-    margin: 0;
+  .testimonials .trouble-nav-item {
+    min-width: 210px;
+    flex: 0 0 auto;
   }
 
-  .testimonials .testimonial-body p {
-    font-size: 1rem;
-    line-height: 1.6;
+  .testimonials .trouble-panel {
+    padding: 0.8rem;
   }
 
-  .testimonials .author-info {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .testimonials .author-details {
-    text-align: left;
-  }
-
-  .testimonials .author-details h4 {
-    font-size: 1.125rem;
-  }
-
-  .testimonials .author-details .role {
-    font-size: 0.9375rem;
-  }
-
-  .testimonials .author-details .company {
-    font-size: 0.875rem;
-  }
-
-  .testimonials .swiper-navigation-wrapper {
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .testimonials .swiper-pagination .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-  }
-
-  .testimonials .swiper-button-prev,
-  .testimonials .swiper-button-next {
-    width: 40px;
-    height: 40px;
-  }
-
-  .testimonials .swiper-button-prev:after,
-  .testimonials .swiper-button-next:after {
-    font-size: 1rem;
+  .testimonials .trouble-case,
+  .testimonials .trouble-evidence {
+    padding: 0.85rem;
   }
 }
 
@@ -4404,10 +4504,12 @@ section,
   font-family: var(--font-heading);
 }
 
-.about .philosophy-quote p,
-.testimonials .testimonial-body p,
 .service-details .service-sidebar .testimonial-block blockquote {
   font-family: var(--font-editorial);
+}
+
+.about .philosophy-quote p {
+  font-family: var(--default-font);
 }
 
 .about .expertise-grid .expertise-item .expertise-content h4,
@@ -4452,6 +4554,7 @@ body,
 .about .content-area .story-block p,
 .about .bottom-section .collaboration-text p,
 .resume .section-intro p,
+.testimonials .testimonial-body p,
 .contact .info-item .info-content p,
 .portfolio-details .hero-section .project-header .project-summary,
 .portfolio-details .content-section .main-content p,

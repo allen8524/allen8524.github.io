@@ -32,7 +32,7 @@
 
     <div class="header-top">
       <div class="profile-img">
-        <img src="assets/img/profile/profile-square-13.webp" alt="포트폴리오 프로필 이미지" class="img-fluid">
+        <img src="assets/img/profile/profile_face.png" alt="포트폴리오 프로필 이미지" class="img-fluid">
       </div>
 
       <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -87,8 +87,8 @@
             <div class="service-content">
 
               <div class="service-hero" data-aos="fade-up" data-aos-delay="200">
-                <h2>회원가입부터 관리자 접근 제어까지 인증/인가 흐름을 직접 구현했습니다</h2>
-                <p class="lead">쇼핑몰과 관리형 웹 프로젝트에서 회원가입, 로그인, 세션 유지, 권한 분기를 한 흐름으로 설계했습니다. 단순 로그인 화면이 아니라 사용자/관리자 경계를 분명히 두고 접근 제어를 구현한 경험을 정리했습니다.</p>
+                <h2>회원가입부터 관리자 접근 제어까지 인증/인가 흐름을 설계하고 적용했습니다</h2>
+                <p class="lead">쇼핑몰 판매관리 프로젝트에서 로그인·로그아웃, 회원 정보 조회/수정, 세션 유지 흐름을 단계별로 나눠 적용했습니다. 사용자/관리자 분기를 두어 관리자 페이지 접근 제어와 인증 상태별 화면 처리를 분리한 내용을 중심으로 정리했습니다.</p>
               </div>
 
               <div class="service-image" data-aos="zoom-in" data-aos-delay="300">
@@ -97,35 +97,35 @@
 
               <div class="service-description" data-aos="fade-up" data-aos-delay="400">
                 <h3>핵심 구현 내용</h3>
-                <p>기능 단위 설명이 아니라 실제 구현 기준으로 정리했습니다. 인증 상태 유지, 권한에 따른 메뉴/기능 노출, 관리자 페이지 접근 제한까지 운영 관점에서 필요한 항목을 함께 다뤘습니다.</p>
+                <p>쇼핑몰 프로젝트에서 실제로 사용한 인증 로직을 기준으로 작성했습니다. 로그인 세션 확인, 사용자/관리자 권한 분기, 관리자 URL 접근 제어를 공통 조건으로 처리했습니다.</p>
 
                 <div class="features-list">
                   <div class="feature-item" id="auth-signup-login">
                     <i class="bi bi-person-plus"></i>
                     <div>
                       <h4>회원가입/로그인 흐름</h4>
-                      <p>유효성 검증, 중복 계정 확인, 로그인 실패 처리까지 포함해 회원가입과 로그인 흐름을 구현했습니다. 입력값 누락이나 중복 데이터 같은 예외 케이스를 초기에 걸러 실제 사용 중 오류를 줄였습니다.</p>
+                      <p>쇼핑몰 판매관리 프로젝트에서 회원가입 입력 검증, 중복 계정 확인, 로그인 실패 메시지 처리를 적용했습니다. 로그인 성공 시 사용자 식별값을 세션에 저장해 이후 권한 분기와 화면 표시 기준으로 사용했습니다.</p>
                     </div>
                   </div>
                   <div class="feature-item" id="auth-session">
                     <i class="bi bi-shield-lock"></i>
                     <div>
                       <h4>세션 처리 및 상태 유지</h4>
-                      <p>로그인 성공 시 세션에 사용자 정보를 저장하고, 필요한 페이지에서 세션 존재 여부를 점검해 접근을 제어했습니다. 로그아웃 시 세션 정리까지 포함해 인증 상태가 일관되게 동작하도록 구성했습니다.</p>
+                      <p>로그인 상태에서는 마이페이지·주문·장바구니로 이동하고, 세션이 없으면 로그인 페이지로 이동하도록 분기했습니다. 로그아웃 시 세션을 정리해 인증 상태 변경이 메뉴와 접근 제어에 즉시 반영되게 했습니다.</p>
                     </div>
                   </div>
                   <div class="feature-item" id="auth-role">
                     <i class="bi bi-person-gear"></i>
                     <div>
                       <h4>권한 분기와 관리자 접근 제어</h4>
-                      <p>일반 사용자와 관리자 계정을 분리하고, 관리자 전용 기능은 권한 확인 로직을 통과한 경우에만 실행되도록 구현했습니다. URL 직접 접근 시에도 권한 검사를 적용해 우회 접근을 막았습니다.</p>
+                      <p>사용자/관리자 권한을 분리해 상품·주문 관리 메뉴는 관리자 계정에만 노출했습니다. 관리자 URL 직접 접근 시에도 세션과 권한 값을 함께 검사해 우회 접근을 막았습니다.</p>
                     </div>
                   </div>
                   <div class="feature-item" id="auth-troubleshooting">
                     <i class="bi bi-bug"></i>
                     <div>
                       <h4>문제 해결 경험</h4>
-                      <p>세션 만료 타이밍 차이로 발생하던 화면 오류를 재현해 확인하고, 공통 체크 로직을 정리해 페이지별 처리 편차를 줄였습니다. 로그인 상태와 화면 노출이 어긋나던 문제도 조건식 정리로 해결했습니다.</p>
+                      <p>세션 만료 직후 이전 화면이 잠깐 보이던 문제를 재현해, 페이지 진입 시 공통 인증 체크를 먼저 수행하도록 실행 순서를 변경했습니다. 권한 분기 조건을 통일해 사용자 화면과 관리자 화면이 뒤섞이는 경우도 줄였습니다.</p>
                     </div>
                   </div>
                 </div>
@@ -157,6 +157,33 @@
                 </div>
               </div>
 
+              <div class="process-section" data-aos="fade-up" data-aos-delay="550">
+                <h3>프로젝트 적용 근거</h3>
+                <div class="features-list">
+                  <div class="feature-item">
+                    <i class="bi bi-diagram-3"></i>
+                    <div>
+                      <h4>적용 프로젝트</h4>
+                      <p>쇼핑몰 판매관리 사이트를 중심으로 로그인/회원 세션 흐름을 연결했고, e스포츠 포털과 베이커리 프로젝트에서는 관리자 화면 접근 분기 기준을 같은 방식으로 적용했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-window"></i>
+                    <div>
+                      <h4>관련 기능 화면</h4>
+                      <p>로그인, 회원가입, 마이페이지, 관리자 로그인, 관리자 관리 화면을 기준으로 비로그인 접근 제한과 관리자 전용 메뉴 노출 조건을 분리했습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-shield-check"></i>
+                    <div>
+                      <h4>관련 코드/DB 근거</h4>
+                      <p>쇼핑몰 기준 관련 파일: <code>member_login.php</code>, <code>member_logout.php</code>, <code>admin/login.php</code>, <code>admin/check.php</code><br>세션 키: <code>$_SESSION["member_id"]</code>, <code>$_SESSION["member_name"]</code>, <code>$_SESSION["admin_id"]</code><br>권한 기준: 사용자 기능은 회원 세션 기준으로 처리하고, 관리자 URL은 <code>admin/check.php</code>에서 관리자 세션 존재 여부를 먼저 확인했습니다.<br>Laravel 기준 관련 위치: <code>routes/web.php</code>, Auth 관련 컨트롤러, 관리자 미들웨어, 관리자 전용 라우트 그룹</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -168,10 +195,10 @@
               <div class="service-info" data-aos="fade-up" data-aos-delay="600">
                 <h4>주 사용 기술</h4>
                 <ul class="info-list">
-                  <li><strong>백엔드:</strong> PHP, Laravel, Spring</li>
-                  <li><strong>프론트엔드:</strong> HTML, CSS, Bootstrap, JavaScript</li>
-                  <li><strong>데이터베이스:</strong> MySQL, Oracle, MS-SQL</li>
-                  <li><strong>도구:</strong> Git, GitHub, VS Code</li>
+                  <li><strong>인증 처리:</strong> PHP 세션 기반 로그인 상태 확인</li>
+                  <li><strong>권한 분기:</strong> 사용자/관리자 화면 분리와 메뉴 제어</li>
+                  <li><strong>접근 제어:</strong> 관리자 URL 진입 시 권한 검사</li>
+                  <li><strong>프레임워크 이해:</strong> Laravel 인증 흐름과 미들웨어 구조</li>
                 </ul>
               </div>
 
@@ -188,26 +215,26 @@
               <div class="service-info" data-aos="fade-up" data-aos-delay="800">
                 <h4>관련 프로젝트 연결</h4>
                 <ul class="info-list">
-                  <li><strong><a href="portfolio-details.html" class="text-decoration-none text-reset">쇼핑몰 프로젝트</a>:</strong> 회원가입, 로그인, 마이페이지 흐름 구현</li>
-                  <li><strong><a href="portfolio-bakery.html" class="text-decoration-none text-reset">베이커리 관리 웹</a>:</strong> 관리자 계정 기반 관리 메뉴 접근 제어</li>
-                  <li><strong><a href="portfolio-esports.html" class="text-decoration-none text-reset">e스포츠 정보 포털</a>:</strong> 사용자 중심 정보 화면과 권한별 기능 분리</li>
+                  <li><strong><a href="portfolio-details.html" class="text-decoration-none text-reset">쇼핑몰 판매관리 사이트</a>:</strong> 로그인/로그아웃, 세션 유지, 회원 정보 처리와 주문 화면 접근 제어를 연결해 구현한 근거입니다.</li>
+                  <li><strong><a href="portfolio-bakery.html" class="text-decoration-none text-reset">베이커리 판매관리 웹사이트</a>:</strong> 관리자 계정 기준으로 제품·재고 관리 메뉴 접근을 분리해 권한 제어 흐름을 확인할 수 있습니다.</li>
+                  <li><strong><a href="portfolio-esports.html" class="text-decoration-none text-reset">e스포츠 포털 및 경기관리 웹사이트</a>:</strong> 공개 조회 화면과 관리 기능 화면을 분리해 인증 상태별 화면 구성을 보완한 프로젝트입니다.</li>
                 </ul>
               </div>
 
               <div class="service-info" data-aos="fade-up" data-aos-delay="900">
                 <h4>사용 기술</h4>
                 <ul class="info-list">
-                  <li>PHP/Laravel 기반 인증 처리와 세션 관리</li>
-                  <li>Spring/JSP 구조에서 권한 분기 로직 구성</li>
-                  <li>HTML/CSS/Bootstrap/JavaScript로 로그인·마이페이지 UI 연동</li>
+                  <li>쇼핑몰 프로젝트 기준 세션 저장/만료/로그아웃 처리</li>
+                  <li>관리자 기능 진입 전 공통 권한 체크 로직 정리</li>
+                  <li>인증 상태에 따라 사용자 화면과 관리자 화면 분리</li>
                 </ul>
               </div>
 
               <div class="cta-block" data-aos="fade-up" data-aos-delay="1000">
                 <h4>바로 이동</h4>
-                <p>인증/인가 구현 흐름은 쇼핑몰과 e스포츠 프로젝트 상세에서 바로 확인할 수 있습니다.</p>
-                <a href="portfolio-details.html" class="btn btn-primary">쇼핑몰 프로젝트 보기</a>
-                <a href="portfolio-esports.html" class="btn btn-outline">e스포츠 프로젝트 보기</a>
+                <p>인증/인가 구현 흐름은 쇼핑몰과 e스포츠 포털 및 경기관리 웹사이트 상세에서 바로 확인할 수 있습니다.</p>
+                <a href="portfolio-details.html" class="btn btn-primary">쇼핑몰 판매관리 사이트 보기</a>
+                <a href="portfolio-esports.html" class="btn btn-outline">e스포츠 포털 및 경기관리 웹사이트 보기</a>
                 <a href="https://github.com/allen8524" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
 

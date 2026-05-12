@@ -32,7 +32,7 @@
 
     <div class="header-top">
       <div class="profile-img">
-        <img src="assets/img/profile/profile-square-13.webp" alt="포트폴리오 프로필 이미지" class="img-fluid">
+        <img src="assets/img/profile/profile_face.png" alt="포트폴리오 프로필 이미지" class="img-fluid">
       </div>
 
       <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -87,8 +87,8 @@
             <div class="service-content">
 
               <div class="service-hero" data-aos="fade-up" data-aos-delay="200">
-                <h2>사용자 중심 정보 구조를 고려한 게시판 기능을 구현했습니다</h2>
-                <p class="lead">e스포츠 정보 포털과 관리형 웹 기능을 만들면서 게시글 등록부터 상세 조회, 수정/삭제, 검색과 페이징까지 기본 게시판 흐름을 직접 구성했습니다. 운영 관점의 콘텐츠 관리 기능도 함께 구현했습니다.</p>
+                <h2>사용자 화면과 운영 화면을 함께 고려해 게시판 기능을 구현했습니다</h2>
+                <p class="lead">e스포츠 포털 및 경기관리 웹사이트에서 뉴스·공지·패치노트와 팀/선수/경기 데이터를 관리자 등록과 사용자 조회 흐름으로 나눠 적용했습니다. 검색·정렬·페이징·이미지 업로드를 포함해 콘텐츠 관리 기능을 화면별로 구현했습니다.</p>
               </div>
 
               <div class="service-image" data-aos="zoom-in" data-aos-delay="300">
@@ -97,35 +97,35 @@
 
               <div class="service-description" data-aos="fade-up" data-aos-delay="400">
                 <h3>핵심 구현 내용</h3>
-                <p>단순 CRUD 나열이 아니라 실제 사용 흐름에 맞춰 화면, 데이터, 운영 기능을 연결했습니다. 사용자에게 필요한 정보를 빠르게 보여주고, 관리자 입장에서 콘텐츠를 정리하기 쉬운 구조를 목표로 구현했습니다.</p>
+                <p>단순 게시판 CRUD를 넘어 콘텐츠 등록과 사용자 조회 기능을 분리 구현했습니다. 관리자 입력 데이터가 목록·상세·랭킹 화면에 어떤 조건으로 노출되는지 프로젝트 구조에 맞춰 맞췄습니다.</p>
 
                 <div class="features-list">
                   <div class="feature-item" id="board-crud">
                     <i class="bi bi-journal-text"></i>
                     <div>
                       <h4>게시판 CRUD</h4>
-                      <p>게시글 작성/수정/삭제/상세 조회 기능을 구현하고 작성자 기준 접근 제어를 적용했습니다. 입력값 검증과 오류 메시지 처리를 통해 기본 동작 안정성을 높였습니다.</p>
+                      <p>e스포츠 포털에서 뉴스·공지·패치노트 등록/수정/삭제와 상세 조회를 적용했습니다. 콘텐츠 유형별 입력값 검증을 두어 관리자 작성 데이터가 사용자 화면에 안정적으로 노출되게 했습니다.</p>
                     </div>
                   </div>
                   <div class="feature-item" id="board-list-view">
                     <i class="bi bi-list-ul"></i>
                     <div>
-                      <h4>목록, 검색, 페이징</h4>
-                      <p>목록 화면에서 검색 조건과 페이징을 적용해 데이터가 많아져도 탐색이 가능하도록 구현했습니다. 검색 결과가 없는 경우도 별도 안내를 제공해 사용자 경험을 보완했습니다.</p>
+                      <h4>목록, 검색, 정렬, 페이징</h4>
+                      <p>콘텐츠 목록과 팀/선수/경기 일정 화면에 검색·정렬·페이징 조건을 분리 적용했습니다. 최신순/조건별 정렬과 빈 결과 안내를 함께 처리해 탐색 흐름이 끊기지 않게 했습니다.</p>
                     </div>
                   </div>
                   <div class="feature-item" id="board-content-mgmt">
                     <i class="bi bi-folder-check"></i>
                     <div>
                       <h4>콘텐츠 관리 및 첨부 흐름</h4>
-                      <p>관리자 화면에서 게시글 상태를 관리하고 필요 시 이미지 첨부 처리까지 연결했습니다. 첨부 파일 누락이나 형식 오류 같은 케이스는 업로드 단계에서 검증했습니다.</p>
+                      <p>관리자 화면에서 콘텐츠 등록 시 대표 이미지와 본문 데이터를 함께 저장하도록 처리했습니다. 업로드 확장자와 필수 입력을 점검해 잘못된 파일이 사용자 화면에 노출되지 않게 했습니다.</p>
                     </div>
                   </div>
                   <div class="feature-item" id="board-troubleshooting">
                     <i class="bi bi-tools"></i>
                     <div>
                       <h4>문제 해결 경험</h4>
-                      <p>수정 화면에서 기존 데이터가 정확히 반영되지 않던 문제를 요청/응답 흐름으로 추적해 해결했습니다. 삭제 후 목록 갱신 지연 이슈도 쿼리와 리다이렉트 흐름 조정으로 개선했습니다.</p>
+                      <p>관리자에서 수정한 콘텐츠가 사용자 목록에 즉시 반영되지 않던 문제를 조회 조건과 정렬 쿼리를 점검해 해결했습니다. 경기 일정 페이지의 페이징/필터 동작도 분리해 검색 조건이 유지되도록 개선했습니다.</p>
                     </div>
                   </div>
                 </div>
@@ -142,17 +142,44 @@
                   <div class="step">
                     <div class="step-number">02</div>
                     <h4>CRUD 기능 구현</h4>
-                    <p>작성·수정·삭제·조회 기능을 권한 조건과 함께 구현했습니다.</p>
+                    <p>작성·수정·삭제·조회 기능을 권한 조건별로 나눠 적용했습니다.</p>
                   </div>
                   <div class="step">
                     <div class="step-number">03</div>
                     <h4>검색/페이징 최적화</h4>
-                    <p>목록 탐색 편의성을 위해 검색 조건과 페이지 이동 로직을 정리했습니다.</p>
+                    <p>목록 탐색 편의성을 위해 검색 조건과 페이지 이동 로직을 분리 구현했습니다.</p>
                   </div>
                   <div class="step">
                     <div class="step-number">04</div>
                     <h4>운영 기능 보완</h4>
                     <p>관리자 콘텐츠 관리와 첨부 처리 검증으로 운영 안정성을 높였습니다.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-section" data-aos="fade-up" data-aos-delay="550">
+                <h3>프로젝트 적용 근거</h3>
+                <div class="features-list">
+                  <div class="feature-item">
+                    <i class="bi bi-diagram-3"></i>
+                    <div>
+                      <h4>적용 프로젝트</h4>
+                      <p>e스포츠 포털에서는 뉴스/패치노트/공지 흐름을 중심으로 적용했고, 쇼핑몰에서는 FAQ·공지성 콘텐츠가 운영 화면과 사용자 조회 화면에서 같은 기준으로 보이게 맞췄습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-window"></i>
+                    <div>
+                      <h4>관련 기능 화면</h4>
+                      <p>게시글 목록, 게시글 상세, 작성/수정/삭제, FAQ/공지 관리 화면을 분리했습니다. 관리자 입력 데이터가 사용자 화면에서 어떤 형태로 노출되는지 화면 단위로 확인할 수 있습니다.</p>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-journal-check"></i>
+                    <div>
+                      <h4>관련 코드/DB 근거</h4>
+                      <p>Laravel 기준 관련 위치: <code>routes/web.php</code>, <code>NewsController</code>, <code>resources/views/news</code>, <code>resources/views/admin/news</code><br>조회 기준: 목록은 검색 조건과 페이지 번호를 함께 유지하고, 상세는 <code>slug</code> 기준으로 단건 조회<br>관리자 처리: 관리자 화면에서 뉴스/공지 등록·수정·삭제를 분리하고 사용자 화면은 공개된 콘텐츠만 노출<br>이미지 처리: 업로드 확장자와 저장 경로를 분리해 콘텐츠 데이터와 함께 관리했습니다.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -168,28 +195,28 @@
               <div class="service-info" data-aos="fade-up" data-aos-delay="600">
                 <h4>주 사용 기술</h4>
                 <ul class="info-list">
-                  <li><strong>백엔드:</strong> PHP, Laravel, Spring</li>
-                  <li><strong>프론트엔드:</strong> HTML, CSS, Bootstrap, JavaScript</li>
-                  <li><strong>데이터베이스:</strong> MySQL, Oracle, MS-SQL</li>
-                  <li><strong>도구:</strong> Git, GitHub, VS Code</li>
+                  <li><strong>백엔드:</strong> Laravel, Blade, MySQL</li>
+                  <li><strong>콘텐츠 처리:</strong> CRUD 기반 뉴스·공지·패치노트 관리</li>
+                  <li><strong>목록 기능:</strong> 검색·정렬·페이징 조건 분리</li>
+                  <li><strong>미디어:</strong> 이미지 업로드 검증 및 저장</li>
                 </ul>
               </div>
 
               <div class="service-info" data-aos="fade-up" data-aos-delay="700">
                 <h4>구현 포인트</h4>
                 <ul class="info-list">
-                  <li><strong>핵심 기능:</strong> 게시글 작성·조회·수정·삭제 전 과정 구현</li>
-                  <li><strong>목록 탐색:</strong> 검색 조건과 페이징 처리로 접근성 개선</li>
-                  <li><strong>첨부 처리:</strong> 이미지 업로드 및 기본 검증 흐름 적용</li>
-                  <li><strong>운영 관리:</strong> 관리자 기준 콘텐츠 노출/관리 기능 구성</li>
+                  <li><strong>콘텐츠 관리:</strong> 뉴스·공지·패치노트 등록/수정/삭제 및 노출 제어</li>
+                  <li><strong>정보 데이터:</strong> 팀/선수 데이터와 경기 일정·결과 화면 연동</li>
+                  <li><strong>탐색 기능:</strong> 검색·정렬·페이징 조합으로 목록 접근성 개선</li>
+                  <li><strong>첨부 처리:</strong> 이미지 업로드 검증 후 콘텐츠와 함께 저장</li>
                 </ul>
               </div>
 
               <div class="service-info" data-aos="fade-up" data-aos-delay="800">
                 <h4>관련 프로젝트 연결</h4>
                 <ul class="info-list">
-                  <li><strong><a href="portfolio-esports.html" class="text-decoration-none text-reset">e스포츠 포털</a>:</strong> 콘텐츠성 게시판과 정보 페이지 구성</li>
-                  <li><strong><a href="portfolio-details.html" class="text-decoration-none text-reset">쇼핑몰 프로젝트</a>:</strong> 공지/문의 성격 게시판 기능 구현</li>
+                  <li><strong><a href="portfolio-esports.html" class="text-decoration-none text-reset">e스포츠 포털 및 경기관리 웹사이트</a>:</strong> 관리자 콘텐츠 등록이 사용자 뉴스/공지/패치노트 및 경기 정보 화면으로 연결되는 핵심 근거입니다.</li>
+                  <li><strong><a href="portfolio-details.html" class="text-decoration-none text-reset">쇼핑몰 판매관리 사이트</a>:</strong> 공지성 게시판과 사용자 조회 흐름을 구현해 콘텐츠 노출 구조를 확장한 경험입니다.</li>
                   <li><strong>개발 블로그:</strong> 게시판 기능 구현 및 오류 해결 기록 정리</li>
                 </ul>
               </div>
@@ -197,17 +224,17 @@
               <div class="service-info" data-aos="fade-up" data-aos-delay="900">
                 <h4>사용 기술</h4>
                 <ul class="info-list">
-                  <li>PHP/Laravel 기반 게시판 CRUD 및 권한 처리</li>
-                  <li>MySQL 조회 쿼리와 페이징 로직 구성</li>
-                  <li>Bootstrap/JavaScript로 목록·상세·입력 화면 연결</li>
+                  <li>e스포츠 포털 및 경기관리 웹사이트에서 관리자 등록 콘텐츠를 사용자 화면 조회로 연결</li>
+                  <li>뉴스·패치노트·팀/선수·경기 일정 데이터를 화면별로 분리 조회</li>
+                  <li>검색·정렬·페이징을 조합해 목록 탐색 흐름 구성</li>
                 </ul>
               </div>
 
               <div class="cta-block" data-aos="fade-up" data-aos-delay="1000">
                 <h4>바로 이동</h4>
-                <p>게시판과 콘텐츠 관리 경험은 e스포츠 포털과 쇼핑몰 프로젝트 상세에서 바로 확인할 수 있습니다.</p>
-                <a href="portfolio-esports.html" class="btn btn-primary">e스포츠 프로젝트 보기</a>
-                <a href="portfolio-details.html" class="btn btn-outline">쇼핑몰 프로젝트 보기</a>
+                <p>게시판과 콘텐츠 관리 경험은 e스포츠 포털 및 경기관리 웹사이트와 쇼핑몰 판매관리 사이트 상세에서 바로 확인할 수 있습니다.</p>
+                <a href="portfolio-esports.html" class="btn btn-primary">e스포츠 포털 및 경기관리 웹사이트 보기</a>
+                <a href="portfolio-details.html" class="btn btn-outline">쇼핑몰 판매관리 사이트 보기</a>
                 <a href="https://github.com/allen8524" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
 
