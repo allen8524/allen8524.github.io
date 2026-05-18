@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>HealthyUp iOS 건강관리 앱 | 황민서 포트폴리오</title>
+  <meta name="description" content="UIKit과 Storyboard로 BMI 계산, 운동 정보, 영상, 계획 화면을 구성한 HealthyUp iOS 앱 상세 페이지입니다.">
+  <meta name="keywords" content="HealthyUp, iOS, Swift, UIKit, Storyboard, BMI">
+  <meta name="author" content="황민서">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column justify-content-between">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <div class="header-top">
+      <div class="profile-img">
+        <img src="assets/img/profile/profile_face.png" alt="" class="img-fluid">
+      </div>
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <p class="sitename">황민서</p>
+      </a>
+    </div>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>홈</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> 소개</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> 이력 및 활동</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> 프로젝트</a></li>
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> 개발 역량</a></li>
+        <li><a href="index.html#testimonials"><i class="bi bi-tools navicon"></i> 트러블슈팅</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> 연락처</a></li>
+      </ul>
+    </nav>
+    <div class="social-links text-center">
+      <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+      <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container">
+        <h1>HealthyUp iOS 건강관리 앱</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">홈</a></li>
+            <li class="current">HealthyUp iOS 건강관리 앱</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- 포트폴리오 상세 Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="hero-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+              <div class="project-header">
+                <div class="project-meta">
+                  <span class="category">기타 프로젝트 · iOS</span>
+                  <span class="year">2026</span>
+                </div>
+                <h2 class="project-title">프로젝트 개요</h2>
+                <p class="project-summary">UIKit과 Storyboard로 제작한 iOS 건강관리 앱입니다. BMI 계산 결과를 기준으로 상태 문구와 UI 피드백을 표시하고, 운동 정보 탐색·운동 영상·운동 계획 화면으로 이어지는 탭 구조를 구성했습니다.</p>
+                <div class="project-tags">
+                  <span class="tag">Swift</span>
+                  <span class="tag">UIKit</span>
+                  <span class="tag">Storyboard</span>
+                  <span class="tag">WebKit</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+              <div class="hero-image">
+                <img src="assets/img/portfolio/portfolio-9.webp" alt="HealthyUp iOS 건강관리 앱 대표 화면" class="img-fluid" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div class="row">
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+              <div class="main-content">
+                <h2>개발 목적</h2>
+                <p>BMI 계산 결과를 사용자에게 직관적으로 보여주고, 운동 정보 탐색과 영상 재생, 계획 설정 화면으로 자연스럽게 이동하는 건강관리 앱 흐름을 구성했습니다.</p>
+                <p>입력값 검증과 성별 기준 분기를 통해 결과 문구와 UI 피드백이 상황에 맞게 표시되도록 했습니다.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1" data-aos="fade-up" data-aos-delay="200">
+              <div class="project-specs">
+                <div class="spec-item">
+                  <h5>프로젝트명</h5>
+                  <p>HealthyUp iOS 건강관리 앱</p>
+                </div>
+                <div class="spec-item">
+                  <h5>제작 시기</h5>
+                  <p>2026년</p>
+                </div>
+                <div class="spec-item">
+                  <h5>사용 기술</h5>
+                  <p>Swift · UIKit · Storyboard · WebKit · AVKit</p>
+                </div>
+                <div class="spec-item">
+                  <h5>내가 구현한 부분</h5>
+                  <p>BMI 계산, 입력 검증, 성별 기준 분기, 운동 정보 WebView, 운동 영상 재생, 운동 계획 설정</p>
+                </div>
+                <div class="spec-item">
+                  <h5>GitHub 링크</h5>
+                  <p><a href="https://github.com/allen8524/healthyup-ios" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>핵심 구현 포인트</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+              <div class="step-content">
+                <h4>1) BMI 계산과 검증</h4>
+                <p><strong>처리 방식:</strong> 키와 몸무게 입력값을 검증하고 성별 기준에 따라 BMI 상태 문구와 화면 피드백을 다르게 표시했습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-content">
+                <h4>2) 운동 정보 탐색</h4>
+                <p><strong>처리 방식:</strong> WebKit 기반 운동 정보 화면을 구성해 앱 내부에서 관련 정보를 탐색할 수 있도록 했습니다.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+              <div class="step-content">
+                <h4>3) 영상과 계획 화면</h4>
+                <p><strong>처리 방식:</strong> AVKit 영상 재생 화면과 운동 계획 설정 화면을 탭 구조로 연결해 사용자가 결과 이후 행동을 이어갈 수 있게 했습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>구현 근거</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+              <div class="step-content">
+                <h4>관련 파일</h4>
+                <p>ViewController.swift, WebViewController.swift, VideoViewController.swift, PlanViewController.swift</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-content">
+                <h4>핵심 흐름</h4>
+                <p>BMI 입력 → 입력값 검증 → 성별 기준 BMI 판정 → 결과 UI 피드백 → 운동 정보/영상/계획 화면 이동</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+              <div class="step-content">
+                <h4>확인 포인트</h4>
+                <p>계산 화면과 WebView, 영상, 계획 화면 컨트롤러가 역할별로 분리되어 건강관리 앱 사용 흐름을 구성합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="additional-gallery" data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 4000
+                },
+                "slidesPerView": 1,
+                "spaceBetween": 30,
+                "breakpoints": {
+                  "768": {
+                    "slidesPerView": 2
+                  },
+                  "1200": {
+                    "slidesPerView": 3
+                  }
+                },
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/img/portfolio/portfolio-10.webp" alt="HealthyUp iOS 건강관리 앱 대표 이미지" class="img-fluid glightbox" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/portfolio/portfolio-11.webp" alt="HealthyUp iOS 건강관리 앱 구현 흐름 이미지" class="img-fluid glightbox" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/portfolio/portfolio-12.webp" alt="HealthyUp iOS 건강관리 앱 상세 기능 이미지" class="img-fluid glightbox" loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="project-nav" data-aos="fade-up" data-aos-delay="100">
+          <div class="nav-wrapper">
+            <a href="portfolio-undead-survivor.html" class="nav-link prev-project">
+              <div class="nav-content">
+                <span class="nav-direction">← 이전 프로젝트</span>
+                <span class="nav-title">Undead Survivor 모바일 생존 게임</span>
+              </div>
+            </a>
+            <a href="index.html#portfolio" class="nav-link all-projects">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>전체 프로젝트</span>
+            </a>
+            <a href="portfolio-cineflow.html" class="nav-link next-project">
+              <div class="nav-content">
+                <span class="nav-direction">다음 프로젝트 →</span>
+                <span class="nav-title">CineFlow 영화 예매 관리 시스템</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section><!-- /포트폴리오 상세 Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">황민서</h3>
+      <p>BMI 계산 결과와 건강관리 콘텐츠 이동 흐름을 iOS 화면으로 구성했습니다.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="discord social-copy-discord" title="Discord" aria-label="Discord ID 복사" role="button" data-discord-id="iwantgohome_"><i class="bi bi-discord"></i></a>
+        <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>저작권</span> <strong class="px-1 sitename">황민서</strong> <span>모든 권리 보유</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -86,7 +86,7 @@
               </div>
               <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
                 <div class="stat-item">
-                  <span class="stat-number">3</span>
+                  <span class="stat-number">7</span>
                   <span class="stat-label">주요 프로젝트</span>
                 </div>
                 <div class="stat-item">
@@ -246,9 +246,9 @@
             <div class="stats-grid">
               <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="stat-number">
-                  <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter">3</span>
+                  <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter">7</span>
                 </div>
-                <p class="stat-label">개인 웹 프로젝트</p>
+                <p class="stat-label">주요 프로젝트</p>
               </div>
 
               <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
@@ -632,7 +632,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>프로젝트</h2>
-        <p>실제 구현 기능, 사용 기술, 확인 가능한 링크를 중심으로 정리한 개인 프로젝트 3건입니다.</p>
+        <p>백엔드 웹 프로젝트를 중심으로, 데이터 분석·모바일·게임 프로젝트까지 구현 근거와 GitHub 링크를 함께 정리했습니다.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -642,15 +642,54 @@
           <div class="filters-wrapper" data-aos="fade-up" data-aos-delay="200">
             <ul class="portfolio-filters isotope-filters">
               <li data-filter="*" class="filter-active">전체</li>
-              <li data-filter=".filter-branding">PHP</li>
-              <li data-filter=".filter-web">Laravel</li>
-              <li data-filter=".filter-photography">관리</li>
+              <li data-filter=".filter-spring">Spring</li>
+              <li data-filter=".filter-laravel">Laravel</li>
+              <li data-filter=".filter-php">PHP</li>
+              <li data-filter=".filter-data">데이터분석</li>
+              <li data-filter=".filter-etc">기타</li>
             </ul>
           </div>
 
           <div class="row gy-5 portfolio-container isotope-container" data-aos="fade-up" data-aos-delay="300">
 
-            <div class="col-lg-6 portfolio-item isotope-item filter-web">
+            <div class="col-lg-6 portfolio-item isotope-item filter-spring">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/portfolio-10.webp" class="img-fluid" alt="CineFlow 영화 예매 관리 시스템" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/portfolio-10.webp" class="glightbox action-btn preview-btn" title="CineFlow 영화 예매 관리 시스템"><i class="bi bi-eye"></i></a>
+                      <a href="https://github.com/allen8524/cineflow-spring-boot" class="action-btn" title="CineFlow 영화 예매 관리 시스템 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+                      <a href="portfolio-cineflow.html" class="action-btn details-btn" title="CineFlow 영화 예매 관리 시스템 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <div class="portfolio-meta">
+                    <span class="portfolio-category">대표 프로젝트 · Spring Boot</span>
+                    <span class="portfolio-year">2026</span>
+                  </div>
+                  <h3 class="portfolio-title">CineFlow 영화 예매 관리 시스템</h3>
+                  <p class="portfolio-description">Spring Boot 기반 영화 예매 프로젝트로, 영화 목록 조회부터 상영 일정 선택, 좌석 예매, 결제, 예매 취소, 관리자 CRUD까지 이어지는 흐름을 구현했습니다.</p>
+                  <div class="portfolio-proof-list">
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">사용 기술</span>
+                      <p>Java · Spring Boot · Thymeleaf · JPA · Spring Security · Flyway · MySQL · H2</p>
+                    </div>
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">핵심 기능</span>
+                      <p>영화/상영일정 조회 / 좌석 선택 / 결제 및 예매 완료 / 예매 취소 / 회원·관리자 권한 분리 / Flyway 기반 DB 마이그레이션</p>
+                    </div>
+                  </div>
+                  <div class="portfolio-cta">
+                    <a href="portfolio-cineflow.html" class="portfolio-link primary">상세보기</a>
+                    <a href="https://github.com/allen8524/cineflow-spring-boot" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 portfolio-item isotope-item filter-laravel">
               <div class="portfolio-card">
                 <div class="portfolio-image">
                   <img src="assets/img/portfolio/esports_main.png" class="img-fluid" alt="e스포츠 포털 및 경기관리 웹사이트" loading="lazy">
@@ -668,7 +707,7 @@
                     <span class="portfolio-year">2025.12</span>
                   </div>
                   <h3 class="portfolio-title">e스포츠 포털 및 경기관리 웹사이트</h3>
-                  <p class="portfolio-description">경기 결과가 <code>finished</code> 상태인 경우에만 순위에 반영되도록 집계 기준을 분리한 Laravel 기반 프로젝트입니다. 팀별 경기 데이터로 승/패·승률·득실차를 계산해 순위표를 갱신하고, 관리자 인증·미들웨어 접근 제어와 slug 기반 뉴스 상세 라우팅이 같은 권한 기준으로 동작하게 했습니다. 뉴스/팀/경기 목록에는 캐시 적용 구간을 두어 반복 조회 부담을 줄였습니다.</p>
+                  <p class="portfolio-description">경기 결과가 <code>finished</code> 상태인 경우에만 순위에 반영되도록 집계 기준을 분리한 Laravel 기반 프로젝트입니다. 팀별 경기 데이터로 승/패·승률·득실차를 계산해 순위표를 갱신하고, 관리자 인증·미들웨어 접근 제어와 slug 기반 뉴스 상세 라우팅이 같은 권한 기준으로 동작하게 했습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -687,7 +726,7 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-6 portfolio-item isotope-item filter-branding">
+            <div class="col-lg-6 portfolio-item isotope-item filter-php">
               <div class="portfolio-card">
                 <div class="portfolio-image">
                   <img src="assets/img/portfolio/shopping_main.png" class="img-fluid" alt="쇼핑몰 판매관리 사이트" loading="lazy">
@@ -701,7 +740,7 @@
                 </div>
                 <div class="portfolio-content">
                   <div class="portfolio-meta">
-                    <span class="portfolio-category">개인프로젝트 · PHP</span>
+                    <span class="portfolio-category">대표 프로젝트 · PHP</span>
                     <span class="portfolio-year">2025.06</span>
                   </div>
                   <h3 class="portfolio-title">쇼핑몰 판매관리 사이트</h3>
@@ -724,7 +763,7 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-6 portfolio-item isotope-item filter-photography">
+            <div class="col-lg-6 portfolio-item isotope-item filter-laravel">
               <div class="portfolio-card">
                 <div class="portfolio-image">
                   <img src="assets/img/portfolio/portfolio-portrait-3.webp" class="img-fluid" alt="베이커리 판매관리 웹사이트" loading="lazy">
@@ -738,7 +777,7 @@
                 </div>
                 <div class="portfolio-content">
                   <div class="portfolio-meta">
-                    <span class="portfolio-category">개인프로젝트 · Laravel</span>
+                    <span class="portfolio-category">대표 프로젝트 · Laravel</span>
                     <span class="portfolio-year">2025.12</span>
                   </div>
                   <h3 class="portfolio-title">베이커리 판매관리 웹사이트</h3>
@@ -756,6 +795,117 @@
                   <div class="portfolio-cta">
                     <a href="portfolio-bakery.html" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/bakery-sales-management-laravel" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 portfolio-item isotope-item filter-data">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/portfolio-11.webp" class="img-fluid" alt="Cine21 영화 데이터 PCA·회귀 분석" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/portfolio-11.webp" class="glightbox action-btn preview-btn" title="Cine21 영화 데이터 PCA·회귀 분석"><i class="bi bi-eye"></i></a>
+                      <a href="https://github.com/allen8524/movie-pca-rating-analysis" class="action-btn" title="Cine21 영화 데이터 PCA·회귀 분석 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+                      <a href="portfolio-movie-analysis.html" class="action-btn details-btn" title="Cine21 영화 데이터 PCA·회귀 분석 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <div class="portfolio-meta">
+                    <span class="portfolio-category">데이터 분석 · Python</span>
+                    <span class="portfolio-year">2026</span>
+                  </div>
+                  <h3 class="portfolio-title">Cine21 영화 데이터 PCA·회귀 분석</h3>
+                  <p class="portfolio-description">Cine21 영화 데이터를 저장 CSV 기준으로 전처리하고, PCA·상관분석·선형회귀를 통해 영화 평점과 관객 수 등 수치형 지표의 관계를 분석한 프로젝트입니다.</p>
+                  <div class="portfolio-proof-list">
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">사용 기술</span>
+                      <p>Python · pandas · scikit-learn · statsmodels · matplotlib</p>
+                    </div>
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">핵심 기능</span>
+                      <p>결측값 처리 / 이상치 완화 / MinMax 정규화 / PCA 차원 축소 / 상관분석 / PC1 기반 선형회귀</p>
+                    </div>
+                  </div>
+                  <div class="portfolio-cta">
+                    <a href="portfolio-movie-analysis.html" class="portfolio-link primary">상세보기</a>
+                    <a href="https://github.com/allen8524/movie-pca-rating-analysis" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 portfolio-item isotope-item filter-etc">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/portfolio-12.webp" class="img-fluid" alt="Undead Survivor 모바일 생존 게임" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/portfolio-12.webp" class="glightbox action-btn preview-btn" title="Undead Survivor 모바일 생존 게임"><i class="bi bi-eye"></i></a>
+                      <a href="https://github.com/allen8524/undead-survivor-unity" class="action-btn" title="Undead Survivor 모바일 생존 게임 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+                      <a href="portfolio-undead-survivor.html" class="action-btn details-btn" title="Undead Survivor 모바일 생존 게임 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <div class="portfolio-meta">
+                    <span class="portfolio-category">기타 프로젝트 · Unity</span>
+                    <span class="portfolio-year">2026</span>
+                  </div>
+                  <h3 class="portfolio-title">Undead Survivor 모바일 생존 게임</h3>
+                  <p class="portfolio-description">Unity와 C#으로 제작한 Android 기반 생존형 액션 게임입니다. 플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 결과 화면까지 이어지는 게임 루프를 구현했습니다.</p>
+                  <div class="portfolio-proof-list">
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">사용 기술</span>
+                      <p>Unity · C# · Android · Object Pooling</p>
+                    </div>
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">핵심 기능</span>
+                      <p>플레이어 이동 / 자동 공격 / 적 스폰 / 오브젝트 풀링 / 레벨업 보상 / 생존·사망 결과 처리</p>
+                    </div>
+                  </div>
+                  <div class="portfolio-cta">
+                    <a href="portfolio-undead-survivor.html" class="portfolio-link primary">상세보기</a>
+                    <a href="https://github.com/allen8524/undead-survivor-unity" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 portfolio-item isotope-item filter-etc">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/portfolio-9.webp" class="img-fluid" alt="HealthyUp iOS 건강관리 앱" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/portfolio-9.webp" class="glightbox action-btn preview-btn" title="HealthyUp iOS 건강관리 앱"><i class="bi bi-eye"></i></a>
+                      <a href="https://github.com/allen8524/healthyup-ios" class="action-btn" title="HealthyUp iOS 건강관리 앱 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+                      <a href="portfolio-healthyup.html" class="action-btn details-btn" title="HealthyUp iOS 건강관리 앱 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <div class="portfolio-meta">
+                    <span class="portfolio-category">기타 프로젝트 · iOS</span>
+                    <span class="portfolio-year">2026</span>
+                  </div>
+                  <h3 class="portfolio-title">HealthyUp iOS 건강관리 앱</h3>
+                  <p class="portfolio-description">UIKit과 Storyboard로 제작한 iOS 건강관리 앱입니다. BMI 계산 결과를 기준으로 상태 문구와 UI 피드백을 표시하고, 운동 정보 탐색·운동 영상·운동 계획 화면으로 이어지는 탭 구조를 구성했습니다.</p>
+                  <div class="portfolio-proof-list">
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">사용 기술</span>
+                      <p>Swift · UIKit · Storyboard · WebKit · AVKit</p>
+                    </div>
+                    <div class="portfolio-proof-item">
+                      <span class="portfolio-proof-label">핵심 기능</span>
+                      <p>BMI 계산 / 입력 검증 / 성별 기준 분기 / 운동 정보 WebView / 운동 영상 재생 / 운동 계획 설정</p>
+                    </div>
+                  </div>
+                  <div class="portfolio-cta">
+                    <a href="portfolio-healthyup.html" class="portfolio-link primary">상세보기</a>
+                    <a href="https://github.com/allen8524/healthyup-ios" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>
               </div>
@@ -837,7 +987,7 @@
               </div>
               <div class="service-content">
                 <h3><a href="service-database.html">DB 설계 및 연동</a></h3>
-                <p>쇼핑몰·e스포츠·베이커리 프로젝트에서 회원·상품·주문, 팀·경기·순위, 제품·재고·판매 데이터를 관계형 구조로 나누고 화면 흐름에 맞춰 조회·저장했습니다.</p>
+                <p>Spring Boot·Laravel·PHP 프로젝트에서 영화·예매·결제, 팀·경기·순위, 주문·판매 데이터를 관계형 구조로 나누고 화면 흐름에 맞춰 조회·저장했습니다.</p>
                 <a href="service-database.html" class="read-more">
                   <span>자세히 보기</span>
                   <i class="bi bi-arrow-right"></i>
