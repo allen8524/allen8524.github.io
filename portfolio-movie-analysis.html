@@ -81,7 +81,7 @@
                   <span class="year">2026</span>
                 </div>
                 <h2 class="project-title">프로젝트 개요</h2>
-                <p class="project-summary">Cine21 영화 데이터를 저장 CSV 기준으로 전처리하고, PCA·상관분석·선형회귀를 통해 영화 평점과 관객 수 등 수치형 지표의 관계를 분석한 프로젝트입니다.</p>
+                <p class="project-summary">Cine21 영화 데이터를 저장 CSV 기준으로 전처리하고, PCA·상관분석·선형회귀를 통해 영화 평점과 관객 수 등 수치형 지표의 관계를 분석한 데이터 분석 프로젝트입니다. 사용자는 포스터와 시각화 이미지를 먼저 확인한 뒤, 전처리 기준, PCA 해석, 회귀 결과, 한계와 개선 방향 순서로 분석 흐름을 따라갈 수 있습니다. 구현 범위는 오프라인 CSV 로드부터 결측값·이상치 처리, 정규화, 분석 실행, 결과 이미지와 요약 파일 저장까지입니다.</p>
                 <div class="project-tags">
                   <span class="tag">Python</span>
                   <span class="tag">pandas</span>
@@ -103,8 +103,11 @@
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
               <div class="main-content">
                 <h2>개발 목적</h2>
-                <p>영화 데이터의 수치형 컬럼을 분석 가능한 형태로 정리하고, 주요 지표 간 관계를 통계 분석과 시각화 결과로 확인하는 데 목적을 두었습니다.</p>
-                <p>결측값과 이상치를 완화한 뒤 정규화, PCA, 상관분석, 선형회귀 순서로 처리 과정을 명확히 남겼습니다.</p>
+                <p>이 프로젝트의 목적은 Cine21에서 확보한 영화 데이터를 단순 목록이 아니라 분석 가능한 데이터셋으로 바꾸는 것이었습니다. 저장된 CSV를 기준으로 실행하도록 만들어 인터넷 연결 상태나 수집 페이지 변화에 영향을 덜 받게 했고, 같은 파일을 다시 실행했을 때 동일한 전처리와 분석 결과를 확인할 수 있는 흐름을 우선했습니다.</p>
+                <p>영화 데이터에는 제목, 장르, 국가처럼 문자열 중심의 정보와 상영 시간, 누적 관객 수, 전문가 평점, 네티즌 평점처럼 단위가 다른 수치형 정보가 함께 들어 있습니다. 문자열 결측값은 "정보없음"으로 대체하고, 수치형 결측값은 컬럼 성격에 따라 평균 또는 중앙값으로 보완해 분석 단계에서 누락된 값 때문에 흐름이 끊기지 않도록 처리했습니다.</p>
+                <p>관객 수처럼 분포가 크게 치우칠 수 있는 컬럼은 IQR 기준으로 이상치를 완화했습니다. 이후 runtime_min, audience_total, cine21_score_detail, netizen_score 등 단위가 서로 다른 변수를 MinMaxScaler로 정규화해 PCA 입력값의 범위를 맞췄습니다.</p>
+                <p>PCA는 여러 수치형 지표를 주성분으로 축약해 데이터 구조를 요약하기 위해 적용했습니다. PC1 설명분산비는 약 0.539531이며, PC1과 PC2를 함께 보면 약 81.58%를 설명할 수 있어 두 축만으로도 주요 수치형 변동을 어느 정도 확인할 수 있다는 해석을 남겼습니다.</p>
+                <p>마지막으로 Pearson, Spearman, Kendall 상관계수를 비교하고 PC1 기반 선형회귀를 수행했습니다. 회귀 결과는 R² 0.275227, MSE 0.057193으로 저장했으며, 단일 주성분만으로 평점을 완전히 설명하기는 어렵다는 한계까지 함께 기록했습니다.</p>
               </div>
             </div>
             <div class="col-lg-4 offset-lg-1" data-aos="fade-up" data-aos-delay="200">
@@ -119,11 +122,11 @@
                 </div>
                 <div class="spec-item">
                   <h5>사용 기술</h5>
-                  <p>Python · pandas · scikit-learn · statsmodels · matplotlib</p>
+                  <p>Python · pandas · numpy · scikit-learn · statsmodels · matplotlib · Jupyter Notebook</p>
                 </div>
                 <div class="spec-item">
                   <h5>내가 구현한 부분</h5>
-                  <p>결측값 처리, 이상치 완화, MinMax 정규화, PCA 차원 축소, 상관분석, PC1 기반 선형회귀</p>
+                  <p>오프라인 CSV 기준 분석 파이프라인, 결측값 처리, 이상치 완화, MinMax 정규화, PCA, 상관분석, 회귀분석, 결과 저장</p>
                 </div>
                 <div class="spec-item">
                   <h5>GitHub 링크</h5>
@@ -141,22 +144,81 @@
           <div class="timeline-steps">
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
               <div class="step-content">
-                <h4>1) 전처리 파이프라인</h4>
-                <p><strong>처리 방식:</strong> CSV 로드 후 결측값과 이상치를 처리하고 MinMax 정규화로 PCA 입력값 범위를 맞췄습니다.</p>
+                <h4>1) 저장 CSV 기준 오프라인 분석 흐름</h4>
+                <p><strong>처리 방식:</strong> data/hms202212004.csv를 기준 데이터로 로드하고, 수집 단계와 분석 실행 단계를 분리해 인터넷 연결 없이도 분석을 재현할 수 있게 했습니다.</p>
+                <p><strong>구현 이유:</strong> 외부 페이지 구조가 바뀌거나 네트워크가 불안정해도 동일한 입력 데이터로 전처리, PCA, 회귀 결과를 다시 확인하기 위해서입니다.</p>
+                <p><strong>확인 가능한 파일 또는 화면:</strong> data/hms202212004.csv, src/hms_project_202212004.py, notebooks/hms_project_202212004.ipynb</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
               <div class="step-content">
-                <h4>2) PCA와 상관분석</h4>
-                <p><strong>처리 방식:</strong> 수치형 지표를 주성분으로 축소하고, 주요 변수와 평점·관객 수 관계를 상관계수와 그래프로 확인했습니다.</p>
+                <h4>2) 결측값 처리 기준 분리</h4>
+                <p><strong>처리 방식:</strong> 문자열 컬럼은 "정보없음"처럼 의미를 남길 수 있는 값으로 대체하고, 수치형 컬럼은 평균 또는 중앙값으로 보완해 분석 입력값을 유지했습니다.</p>
+                <p><strong>구현 이유:</strong> 문자열 결측은 값이 없다는 사실 자체가 정보가 될 수 있고, 수치형 결측은 PCA와 회귀분석에서 계산 오류를 만들 수 있어 컬럼 유형별 처리가 필요했습니다.</p>
+                <p><strong>확인 가능한 파일 또는 화면:</strong> src/hms_project_202212004.py, outputs/analysis_summary.txt</p>
               </div>
             </div>
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
               <div class="step-content">
-                <h4>3) 선형회귀 결과 저장</h4>
-                <p><strong>처리 방식:</strong> PC1 기반 선형회귀를 수행하고 분석 결과 이미지를 저장해 재확인 가능한 산출물을 남겼습니다.</p>
+                <h4>3) IQR 기반 이상치 완화</h4>
+                <p><strong>처리 방식:</strong> audience_total처럼 일부 영화에 값이 크게 몰릴 수 있는 컬럼은 IQR 범위를 기준으로 극단값 영향을 줄였습니다.</p>
+                <p><strong>구현 이유:</strong> 관객 수는 평점보다 단위와 분산이 커서 그대로 사용하면 정규화 전후의 분석 축에 과도한 영향을 줄 수 있기 때문입니다.</p>
+                <p><strong>확인 가능한 파일 또는 화면:</strong> src/hms_project_202212004.py, docs/images/correlation_heatmap.png</p>
               </div>
             </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="step-content">
+                <h4>4) MinMaxScaler 정규화</h4>
+                <p><strong>처리 방식:</strong> runtime_min, audience_total, cine21_score_detail, netizen_score 등 단위가 다른 수치형 변수를 0과 1 사이 범위로 정규화했습니다.</p>
+                <p><strong>구현 이유:</strong> PCA는 입력 변수의 스케일 영향을 받기 때문에, 상영 시간과 관객 수처럼 단위가 다른 값이 같은 기준에서 비교되도록 맞춰야 했습니다.</p>
+                <p><strong>확인 가능한 파일 또는 화면:</strong> src/hms_project_202212004.py, docs/images/pca_explained_variance.png</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="350">
+              <div class="step-content">
+                <h4>5) PCA 설명분산비 해석</h4>
+                <p><strong>처리 방식:</strong> 여러 수치형 지표를 주성분으로 축약하고, PC1 설명분산비 약 0.539531과 PC1+PC2 기준 약 81.58% 설명 가능성을 결과에 남겼습니다.</p>
+                <p><strong>구현 이유:</strong> 변수 간 관계를 개별 컬럼으로만 보지 않고, 주요 변동 축으로 축약했을 때 데이터가 어느 정도 설명되는지 확인하기 위해서입니다.</p>
+                <p><strong>확인 가능한 파일 또는 화면:</strong> docs/images/pca_explained_variance.png, outputs/analysis_summary.txt</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="step-content">
+                <h4>6) 상관분석과 회귀분석 비교</h4>
+                <p><strong>처리 방식:</strong> Pearson, Spearman, Kendall 상관계수를 비교하고, PC1 기반 선형회귀로 예측 평점과 실제 평점의 차이를 그래프로 저장했습니다.</p>
+                <p><strong>구현 이유:</strong> 전문가 평점과 관객 평점 사이에는 양의 상관이 있으나 강한 수준으로 단정하기 어렵고, PC1만으로 평점을 설명하는 데 한계가 있음을 수치와 시각화로 검증하기 위해서입니다.</p>
+                <p><strong>확인 가능한 파일 또는 화면:</strong> docs/images/correlation_heatmap.png, docs/images/actual_vs_predicted.png, outputs/analysis_summary.txt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>구현 흐름 상세</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150"><div class="step-content"><h4>1) 데이터 로드</h4><p>저장된 CSV를 입력으로 삼아 분석 시작점을 고정했습니다. 이 방식은 수집 환경과 분석 환경을 분리해 결과 재현 가능성을 높입니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200"><div class="step-content"><h4>2) 결측값 처리</h4><p>문자열 컬럼과 수치형 컬럼을 나누어 대체 기준을 다르게 적용했습니다. 결측으로 인해 PCA와 회귀 단계가 중단되지 않도록 방어했습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250"><div class="step-content"><h4>3) 이상치 완화</h4><p>관객 수처럼 편차가 큰 값은 IQR 기준으로 완화해 특정 영화가 전체 분석 축을 과도하게 흔들지 않도록 했습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300"><div class="step-content"><h4>4) 정규화</h4><p>서로 다른 단위의 수치형 변수를 MinMaxScaler로 정규화해 PCA 입력값의 범위를 맞췄습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="350"><div class="step-content"><h4>5) PCA</h4><p>정규화된 수치형 지표를 주성분으로 축약하고 설명분산비를 저장했습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400"><div class="step-content"><h4>6) 상관분석</h4><p>Pearson, Spearman, Kendall을 함께 비교해 선형 관계와 순위 기반 관계를 나누어 확인했습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="450"><div class="step-content"><h4>7) 회귀분석</h4><p>PC1을 독립 변수로 사용한 선형회귀를 실행하고 R² 0.275227, MSE 0.057193을 요약 파일에 남겼습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="500"><div class="step-content"><h4>8) 결과 이미지 저장</h4><p>PCA 설명분산비 그래프, 상관관계 히트맵, 실제/예측 평점 그래프를 저장해 README와 상세 페이지에서 다시 확인할 수 있게 했습니다.</p></div></div>
+          </div>
+        </div>
+
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>파일별 역할</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150"><div class="step-content"><h4>hms_project_202212004.py</h4><p>오프라인 실행용 분석 파이프라인입니다. CSV 로드, 전처리, 정규화, PCA, 상관분석, 회귀분석, 결과 저장을 순서대로 연결합니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200"><div class="step-content"><h4>hms_project_202212004.ipynb</h4><p>원본 분석 과정과 수집 흐름을 확인하기 위한 Jupyter Notebook입니다. 실험 과정과 최종 스크립트의 근거를 함께 확인할 수 있습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250"><div class="step-content"><h4>hms202212004.csv</h4><p>분석 기준 데이터입니다. 실행 시점의 외부 페이지 상태와 분리된 입력 파일로 사용했습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300"><div class="step-content"><h4>analysis_summary.txt</h4><p>PCA 설명분산비, 회귀 지표, ARIMA 생략 여부 등 실행 결과를 텍스트로 확인할 수 있는 요약 산출물입니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="350"><div class="step-content"><h4>docs/images</h4><p>pca_explained_variance.png, correlation_heatmap.png, actual_vs_predicted.png를 저장하는 위치입니다. 분석 결과를 문서와 포트폴리오 페이지에서 연결합니다.</p></div></div>
           </div>
         </div>
 
@@ -165,24 +227,25 @@
             <h2>구현 근거</h2>
           </div>
           <div class="timeline-steps">
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
-              <div class="step-content">
-                <h4>관련 파일</h4>
-                <p>src/hms_project_202212004.py, data/hms202212004.csv, docs/images</p>
-              </div>
-            </div>
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="step-content">
-                <h4>핵심 흐름</h4>
-                <p>CSV 로드 → 결측값 처리 → 이상치 처리 → 정규화 → PCA → 상관분석 → 선형회귀 → 결과 이미지 저장</p>
-              </div>
-            </div>
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
-              <div class="step-content">
-                <h4>확인 포인트</h4>
-                <p>전처리부터 모델링, 시각화 저장까지 분석 재현 흐름이 하나의 스크립트와 데이터 기준으로 이어집니다.</p>
-              </div>
-            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150"><div class="step-content"><h4>관련 파일</h4><p>data/hms202212004.csv, src/hms_project_202212004.py, notebooks/hms_project_202212004.ipynb, outputs/analysis_summary.txt, docs/images/pca_explained_variance.png, docs/images/correlation_heatmap.png, docs/images/actual_vs_predicted.png, docs/poster_202212004_hwang_minseo.png</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200"><div class="step-content"><h4>입력 데이터 또는 사용자 입력</h4><p>입력 데이터는 약 150행 규모의 Cine21 영화 CSV입니다. 사용자가 별도 값을 입력하는 구조가 아니라, 저장 데이터 기준으로 분석 스크립트를 실행하는 방식입니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250"><div class="step-content"><h4>처리 흐름</h4><p>CSV 로드 → 문자열·수치형 결측값 처리 → IQR 이상치 완화 → MinMax 정규화 → PCA → 상관분석 → PC1 기반 회귀분석 → 결과 이미지와 요약 파일 저장 순서로 이어집니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300"><div class="step-content"><h4>결과 화면 또는 산출물</h4><p>포스터, PCA 설명분산비 그래프, 상관관계 히트맵, 실제/예측 평점 그래프, analysis_summary.txt를 결과물로 확인할 수 있습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="350"><div class="step-content"><h4>확인 포인트</h4><p>PC1 설명분산비 약 0.539531, PC1+PC2 설명 비율 약 81.58%, 회귀 R² 0.275227, MSE 0.057193을 통해 축약 결과와 예측 한계를 함께 확인합니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400"><div class="step-content"><h4>개선 여지</h4><p>월별 평점 데이터가 부족하면 ARIMA 분석은 건너뛰도록 방어 로직을 두었습니다. 이후 데이터가 충분해지면 시계열 분석을 별도 단계로 분리해 비교할 수 있습니다.</p></div></div>
+          </div>
+        </div>
+
+        <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-header">
+            <h2>구현 중 확인한 한계와 개선 방향</h2>
+          </div>
+          <div class="timeline-steps">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150"><div class="step-content"><h4>1) 데이터 규모 확장</h4><p>현재 데이터는 약 150행 규모이므로 특정 기간이나 특정 영화군의 특성이 결과에 반영될 수 있습니다. 표본을 확장하면 상관계수와 회귀 지표의 안정성을 다시 검증할 수 있습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200"><div class="step-content"><h4>2) 외부 데이터 결합</h4><p>영화 평점과 흥행은 장르, 배급, 마케팅, 개봉 시기 등 외부 요인의 영향을 받습니다. KOBIS 또는 TMDB 데이터를 결합하면 관객 수와 평점을 더 다양한 피처로 설명할 수 있습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250"><div class="step-content"><h4>3) 피처 확장</h4><p>장르, 국가, 개봉 시기, 배급 규모를 분석 피처로 추가하면 현재 수치형 변수 중심의 분석 한계를 줄일 수 있습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300"><div class="step-content"><h4>4) 모델 비교</h4><p>PC1 단일 회귀는 평점을 완전히 설명하기 어렵습니다. 다중 회귀, 규제 회귀, 비선형 모델을 비교하면 예측 성능과 해석 가능성의 차이를 확인할 수 있습니다.</p></div></div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="350"><div class="step-content"><h4>5) 수집 단계와 분석 단계 분리 강화</h4><p>현재도 저장 CSV를 기준으로 실행하지만, 향후 수집 스크립트와 분석 스크립트의 입출력 계약을 더 명확히 나누면 데이터 갱신과 분석 재실행을 더 안정적으로 관리할 수 있습니다.</p></div></div>
           </div>
         </div>
 
