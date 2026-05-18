@@ -801,10 +801,33 @@ section,
   max-width: 500px;
 }
 
+.portfolio-intro-text span {
+  display: block;
+}
+
 @media (max-width: 768px) {
   .hero .hero-content .hero-description {
     font-size: 1rem;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero .hero-content .hero-description.portfolio-intro-text {
+    width: calc(100vw - 30px);
+    max-width: calc(100vw - 30px);
+    white-space: normal;
+    word-break: normal;
+    line-break: anywhere;
+    overflow-wrap: anywhere;
+  }
+
+  .portfolio-intro-text span {
+    display: inline;
+  }
+
+  .portfolio-intro-text span::after {
+    content: " ";
   }
 }
 
@@ -908,7 +931,7 @@ section,
   position: relative;
   width: min(100%, 520px);
   min-height: 460px;
-  margin: 0 auto;
+  margin: 0 70px 0 auto;
   padding-left: 110px;
   display: flex;
   justify-content: flex-end;
@@ -961,7 +984,7 @@ section,
   z-index: 2;
   pointer-events: auto;
   background: var(--surface-color);
-  padding: 1rem 1.5rem;
+  padding: 0.9rem 1.2rem;
   border-radius: 8px;
   box-shadow: 0 10px 30px color-mix(in srgb, var(--heading-color), transparent 90%);
   display: flex;
@@ -971,8 +994,8 @@ section,
   font-weight: 500;
   color: var(--heading-color);
   transition: all 0.3s ease;
-  min-width: 190px;
-  max-width: 220px;
+  min-width: 180px;
+  max-width: 215px;
 }
 
 .hero .hero-image .hero-card-stack .floating-card:hover {
@@ -990,13 +1013,25 @@ section,
 }
 
 .hero .hero-image .hero-card-stack .floating-card.card-1 {
-  top: 15%;
+  top: 18%;
   left: 0;
 }
 
 .hero .hero-image .hero-card-stack .floating-card.card-2 {
   left: 5%;
-  bottom: 15%;
+  bottom: 18%;
+}
+
+.hero .hero-image .hero-card-stack .floating-card.card-3 {
+  right: -26%;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  min-width: 174px;
+}
+
+.hero .hero-image .hero-card-stack .floating-card.card-3:hover {
+  transform: translateY(calc(-50% - 5px));
 }
 
 @media (max-width: 1200px) and (min-width: 993px) {
@@ -1007,6 +1042,7 @@ section,
   .hero .hero-image .image-wrapper {
     width: min(100%, 420px);
     min-height: auto;
+    margin: 0 auto;
     padding-left: 0;
     display: grid;
     gap: 1.25rem;
@@ -1032,6 +1068,11 @@ section,
     width: 100%;
     min-width: 0;
     max-width: none;
+  }
+
+  .hero .hero-image .hero-card-stack .floating-card.card-3 {
+    grid-column: 1 / -1;
+    justify-content: center;
   }
 }
 
@@ -1070,6 +1111,7 @@ section,
   .hero .hero-image .image-wrapper {
     width: min(100%, 420px);
     min-height: auto;
+    margin: 0 auto;
     padding-left: 0;
     display: grid;
     gap: 1rem;
@@ -1096,6 +1138,11 @@ section,
     min-width: 0;
     max-width: none;
     justify-content: flex-start;
+  }
+
+  .hero .hero-image .hero-card-stack .floating-card.card-3 {
+    grid-column: 1 / -1;
+    justify-content: center;
   }
 }
 
