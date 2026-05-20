@@ -4066,6 +4066,27 @@ section,
   transform: scale(1.2);
 }
 
+.portfolio-details .cineflow-detail-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.portfolio-details .cineflow-detail-list li {
+  margin-bottom: 0.65rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.portfolio-details .cineflow-detail-list li:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio-details .cineflow-detail-list strong {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
 .portfolio-details .project-nav {
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
   padding-top: 3rem;
