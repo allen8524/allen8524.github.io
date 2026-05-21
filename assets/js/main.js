@@ -1,6 +1,89 @@
 (function() {
   'use strict';
 
+  function upsertMeta(selector, createOptions) {
+    let element = document.head.querySelector(selector);
+
+    if (!element) {
+      element = document.createElement(createOptions.tag || 'meta');
+
+      Object.entries(createOptions.attrs || {}).forEach(([key, value]) => {
+        element.setAttribute(key, value);
+      });
+
+      document.head.appendChild(element);
+    }
+
+    if (createOptions.content !== undefined) {
+      element.setAttribute('content', createOptions.content);
+    }
+
+    if (createOptions.href !== undefined) {
+      element.setAttribute('href', createOptions.href);
+    }
+
+    return element;
+  }
+
+  function applySeoMetadata() {
+    const canonicalUrl = 'https://allen8524.github.io/';
+    const title = '황민서 포트폴리오 | 신입 백엔드 개발자 · Spring Boot · Laravel';
+    const description = '신입 백엔드 개발자 황민서의 포트폴리오입니다. Spring Boot, Laravel, PHP, MySQL 기반 영화 예매, 주문 관리, 경기 관리, 베이커리 판매관리 프로젝트와 트러블슈팅 사례를 정리했습니다.';
+    const imageUrl = 'https://allen8524.github.io/assets/img/profile/profile_face.png';
+
+    if (document.body.classList.contains('index-page')) {
+      document.title = title;
+      upsertMeta('meta[name="description"]', { attrs: { name: 'description' }, content: description });
+      upsertMeta('meta[name="keywords"]', {
+        attrs: { name: 'keywords' },
+        content: '황민서, 황민서 포트폴리오, 신입 백엔드 개발자, 백엔드 개발자 포트폴리오, Spring Boot 포트폴리오, Laravel 프로젝트, PHP 쇼핑몰 프로젝트, MySQL, JPA, Spring Security'
+      });
+      upsertMeta('link[rel="canonical"]', { tag: 'link', attrs: { rel: 'canonical' }, href: canonicalUrl });
+      upsertMeta('meta[property="og:type"]', { attrs: { property: 'og:type' }, content: 'website' });
+      upsertMeta('meta[property="og:site_name"]', { attrs: { property: 'og:site_name' }, content: '황민서 포트폴리오' });
+      upsertMeta('meta[property="og:title"]', { attrs: { property: 'og:title' }, content: '황민서 포트폴리오 | 신입 백엔드 개발자' });
+      upsertMeta('meta[property="og:description"]', { attrs: { property: 'og:description' }, content: description });
+      upsertMeta('meta[property="og:url"]', { attrs: { property: 'og:url' }, content: canonicalUrl });
+      upsertMeta('meta[property="og:image"]', { attrs: { property: 'og:image' }, content: imageUrl });
+      upsertMeta('meta[name="twitter:card"]', { attrs: { name: 'twitter:card' }, content: 'summary_large_image' });
+      upsertMeta('meta[name="twitter:title"]', { attrs: { name: 'twitter:title' }, content: '황민서 포트폴리오 | 신입 백엔드 개발자' });
+      upsertMeta('meta[name="twitter:description"]', { attrs: { name: 'twitter:description' }, content: description });
+      upsertMeta('meta[name="twitter:image"]', { attrs: { name: 'twitter:image' }, content: imageUrl });
+
+      if (!document.head.querySelector('script[type="application/ld+json"][data-schema="person"]')) {
+        const schemaScript = document.createElement('script');
+        schemaScript.type = 'application/ld+json';
+        schemaScript.dataset.schema = 'person';
+        schemaScript.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: '황민서',
+          alternateName: 'Minseo Hwang',
+          url: canonicalUrl,
+          jobTitle: 'Backend Developer',
+          affiliation: {
+            '@type': 'CollegeOrUniversity',
+            name: '인덕대학교'
+          },
+          knowsAbout: [
+            'Spring Boot',
+            'Laravel',
+            'PHP',
+            'MySQL',
+            'JPA',
+            'Spring Security',
+            'Backend Development'
+          ],
+          sameAs: [
+            'https://github.com/allen8524',
+            'https://allen8524.tistory.com/'
+          ]
+        });
+        document.head.appendChild(schemaScript);
+      }
+    }
+  }
+
   function loadTroubleshootingCardStyles() {
     if (document.querySelector('link[href^="assets/css/troubleshooting-cards.css"]')) {
       return;
@@ -12,6 +95,7 @@
     document.head.appendChild(link);
   }
 
+  applySeoMetadata();
   loadTroubleshootingCardStyles();
 
   const BAKERY_SCREENSHOTS = {
