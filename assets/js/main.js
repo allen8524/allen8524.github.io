@@ -6,6 +6,81 @@
 (function() {
   "use strict";
 
+  const BAKERY_SCREENSHOTS = {
+    dashboard: 'https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png',
+    product: 'https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/product-index.png',
+    jangbu: 'https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/jangbu-index.png',
+    chart: 'https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/chart.png'
+  };
+
+  function setProjectImage(image, src, alt) {
+    if (!image || !src) {
+      return;
+    }
+
+    image.src = src;
+    image.alt = alt;
+
+    if (!image.getAttribute('loading')) {
+      image.setAttribute('loading', 'lazy');
+    }
+  }
+
+  function setProjectPreviewLink(link, href, title) {
+    if (!link || !href) {
+      return;
+    }
+
+    link.href = href;
+
+    if (title) {
+      link.title = title;
+    }
+  }
+
+  function applyBakeryScreenshots() {
+    const bakeryCard = document.querySelector('a[href="portfolio-bakery.html"]')?.closest('.portfolio-card');
+
+    if (bakeryCard) {
+      setProjectImage(
+        bakeryCard.querySelector('.portfolio-image img'),
+        BAKERY_SCREENSHOTS.dashboard,
+        '베이커리 판매관리 대시보드 화면'
+      );
+      setProjectPreviewLink(
+        bakeryCard.querySelector('.preview-btn'),
+        BAKERY_SCREENSHOTS.dashboard,
+        '베이커리 판매관리 대시보드 화면'
+      );
+    }
+
+    const isBakeryDetailPage = document.body.classList.contains('portfolio-details-page') &&
+      window.location.pathname.endsWith('portfolio-bakery.html');
+
+    if (!isBakeryDetailPage) {
+      return;
+    }
+
+    setProjectImage(
+      document.querySelector('.hero-image img[alt*="베이커리"]'),
+      BAKERY_SCREENSHOTS.dashboard,
+      '베이커리 판매관리 대시보드 화면'
+    );
+
+    const showcaseImages = document.querySelectorAll('.visual-showcase .gallery-item img');
+    setProjectImage(showcaseImages[0], BAKERY_SCREENSHOTS.product, '베이커리 상품 관리 화면');
+    setProjectImage(showcaseImages[1], BAKERY_SCREENSHOTS.jangbu, '베이커리 매입 매출 장부 화면');
+    setProjectImage(showcaseImages[2], BAKERY_SCREENSHOTS.chart, '베이커리 통계 차트 화면');
+
+    const sliderImages = document.querySelectorAll('.additional-gallery .swiper-slide img');
+    setProjectImage(sliderImages[0], BAKERY_SCREENSHOTS.dashboard, '베이커리 판매관리 대시보드 화면');
+    setProjectImage(sliderImages[1], BAKERY_SCREENSHOTS.product, '베이커리 상품 관리 화면');
+    setProjectImage(sliderImages[2], BAKERY_SCREENSHOTS.jangbu, '베이커리 매입 매출 장부 화면');
+    setProjectImage(sliderImages[3], BAKERY_SCREENSHOTS.chart, '베이커리 통계 차트 화면');
+  }
+
+  applyBakeryScreenshots();
+
   /**
    * Header toggle
    */
