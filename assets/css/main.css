@@ -2006,7 +2006,6 @@ section,
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
   background: color-mix(in srgb, var(--surface-color), transparent 6%);
   padding: 2rem;
-  box-shadow: 0 20px 48px color-mix(in srgb, var(--default-color), transparent 94%);
 }
 
 .resume .resume-panel-header {
@@ -2858,7 +2857,6 @@ section,
 
 .services .service-item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 @media (max-width: 768px) {
