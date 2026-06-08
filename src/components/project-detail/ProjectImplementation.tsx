@@ -15,7 +15,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
         {detail.implementationPoints.map((point, index) => (
           <article className="project-detail-step" key={point.title}>
             <span className="project-detail-step__number" aria-hidden="true">
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span className="project-detail-step__number-text">{String(index + 1).padStart(2, "0")}</span>
             </span>
             <div>
               <h3>{point.title}</h3>
