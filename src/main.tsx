@@ -7,6 +7,7 @@ import "./styles/portfolio.css";
 import "./styles/project-detail.css";
 import "./styles/project-detail-fixes.css";
 import "./styles/project-detail-last-fix.css";
+import "./styles/service-detail.css";
 
 const rootElement = document.getElementById("root");
 
