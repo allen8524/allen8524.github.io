@@ -1,3 +1,7 @@
+.portfolio-details .project-detail-step {
+  padding-bottom: 34px !important;
+}
+
 .portfolio-details .project-detail-step__number {
   position: relative !important;
   display: block !important;
@@ -144,6 +148,7 @@
   .portfolio-details .project-detail-step {
     grid-template-columns: 48px minmax(0, 1fr);
     gap: 16px;
+    padding-bottom: 30px !important;
   }
 
   .portfolio-details .project-detail-step__number {
