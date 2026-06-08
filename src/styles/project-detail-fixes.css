@@ -170,7 +170,7 @@
 }
 
 .portfolio-details .project-nav .nav-wrapper {
-  grid-template-columns: minmax(0, 1fr) 168px minmax(0, 1fr) !important;
+  grid-template-columns: minmax(0, 1fr) 190px minmax(0, 1fr) !important;
   gap: 12px;
 }
 
@@ -203,9 +203,17 @@
 }
 
 .portfolio-details .project-nav .all-projects {
-  width: 168px !important;
-  min-width: 0 !important;
+  width: 190px !important;
+  min-width: 190px !important;
   justify-content: center !important;
+  gap: 8px;
+  white-space: nowrap !important;
+}
+
+.portfolio-details .project-nav .all-projects span {
+  display: inline-block;
+  white-space: nowrap !important;
+  word-break: keep-all;
 }
 
 @media (max-width: 991px) {
@@ -229,7 +237,8 @@
   }
 
   .portfolio-details .project-nav .all-projects {
-    width: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
   .portfolio-details .project-nav .prev-project,
