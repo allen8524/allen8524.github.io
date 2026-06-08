@@ -22,10 +22,7 @@ function Portfolio() {
     <section id="portfolio" className="portfolio section">
       <div className="container section-title">
         <h2>프로젝트</h2>
-        <p>
-          백엔드 프로젝트를 중심으로, 데이터 분석·모바일·게임 프로젝트까지 구현 흐름과 GitHub 근거를 함께
-          정리했습니다.
-        </p>
+        <p>백엔드 중심 구현 흐름과 GitHub 근거 정리</p>
       </div>
 
       <div className="container">
