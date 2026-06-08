@@ -1,5 +1,23 @@
 import { Link } from "react-router-dom";
 import { services } from "../../data/services";
+import type { ServiceIconKey } from "../../types/service";
+
+const serviceBootstrapIcons: Record<ServiceIconKey, string> = {
+  shield: "bi-shield-check",
+  user: "bi-person-check",
+  bug: "bi-bug",
+  cart: "bi-cart3",
+  film: "bi-film",
+  database: "bi-database-check",
+  chart: "bi-bar-chart-line",
+  trophy: "bi-trophy",
+  document: "bi-layout-text-window-reverse",
+  ticket: "bi-ticket-perforated",
+  box: "bi-box-seam",
+  search: "bi-search",
+  controller: "bi-controller",
+  shop: "bi-shop",
+};
 
 function Services() {
   return (
@@ -20,7 +38,7 @@ function Services() {
             >
               <div className="service-item">
                 <div className="service-icon">
-                  <i className={`bi ${service.icon}`} />
+                  <i className={`bi ${serviceBootstrapIcons[service.icon]}`} />
                 </div>
                 <div className="service-content">
                   <h3>

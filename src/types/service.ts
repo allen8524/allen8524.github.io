@@ -1,5 +1,21 @@
+export type ServiceIconKey =
+  | "shield"
+  | "user"
+  | "bug"
+  | "cart"
+  | "film"
+  | "database"
+  | "chart"
+  | "trophy"
+  | "document"
+  | "ticket"
+  | "box"
+  | "search"
+  | "controller"
+  | "shop";
+
 export type ServiceFeature = {
-  icon: string;
+  icon: ServiceIconKey;
   title: string;
   description: string;
 };
@@ -19,7 +35,7 @@ export type ServiceDetail = {
   id: string;
   title: string;
   summary: string;
-  icon: string;
+  icon: ServiceIconKey;
   heroTitle: string;
   lead: string;
   introTitle: string;
