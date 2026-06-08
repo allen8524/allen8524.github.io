@@ -1,0 +1,151 @@
+:root {
+  color: #272829;
+  background: #f4fafd;
+  font-family:
+    "Roboto",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.react-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 32px;
+  align-items: start;
+  width: min(1120px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 72px 0;
+}
+
+.react-shell__intro,
+.react-shell__panel {
+  background: #ffffff;
+  border: 1px solid rgba(20, 157, 221, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 16px 45px rgba(5, 13, 24, 0.08);
+}
+
+.react-shell__intro {
+  padding: 40px;
+}
+
+.react-shell__panel {
+  padding: 28px;
+}
+
+.react-shell__eyebrow {
+  margin: 0 0 12px;
+  color: #149ddd;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.react-shell h1 {
+  margin: 0;
+  color: #173b6c;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.react-shell h2 {
+  margin: 0 0 18px;
+  color: #173b6c;
+  font-size: 1.2rem;
+}
+
+.react-shell__copy {
+  max-width: 680px;
+  margin: 24px 0 0;
+  color: #3d4d5f;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.react-shell__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.react-shell__button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #149ddd;
+  border-radius: 6px;
+  background: #149ddd;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.react-shell__button:hover {
+  color: #ffffff;
+  background: #0d83b9;
+}
+
+.react-shell__button--ghost {
+  background: #ffffff;
+  color: #149ddd;
+}
+
+.react-shell__button--ghost:hover {
+  color: #ffffff;
+}
+
+.react-shell__section-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.react-shell__section-list li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #e4edf4;
+  border-radius: 6px;
+  color: #272829;
+  background: #f9fcfe;
+}
+
+.react-shell__section-list code {
+  color: #149ddd;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 840px) {
+  .react-shell {
+    grid-template-columns: 1fr;
+    width: min(100% - 28px, 640px);
+    padding: 32px 0;
+  }
+
+  .react-shell__intro,
+  .react-shell__panel {
+    padding: 24px;
+  }
+}
