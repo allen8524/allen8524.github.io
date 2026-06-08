@@ -5,6 +5,7 @@ import "./styles/global.css";
 import "./styles/app.css";
 import "./styles/portfolio.css";
 import "./styles/project-detail.css";
+import "./styles/project-detail-fixes.css";
 
 const rootElement = document.getElementById("root");
 
