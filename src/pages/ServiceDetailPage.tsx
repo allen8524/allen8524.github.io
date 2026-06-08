@@ -96,7 +96,7 @@ function renderServiceIcon(icon: string) {
 
 function ServiceFeatureIcon({ icon }: { icon: string }) {
   return (
-    <span className="service-feature-icon" aria-hidden="true">
+    <span className="service-detail-marker" aria-hidden="true">
       <svg className="service-feature-svg" viewBox="0 0 24 24" focusable="false">
         {renderServiceIcon(icon)}
       </svg>
@@ -180,7 +180,9 @@ function ServiceDetailPage() {
                     <div className="process-steps">
                       {service.processSteps.map((step, index) => (
                         <div className="step" key={step.title}>
-                          <div className="step-number">{String(index + 1).padStart(2, "0")}</div>
+                          <div className="service-detail-marker">
+                            <span className="service-step-number-text">{String(index + 1).padStart(2, "0")}</span>
+                          </div>
                           <h4>{step.title}</h4>
                           <p>{step.description}</p>
                         </div>
