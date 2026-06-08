@@ -24,7 +24,7 @@ function Services() {
     <section id="services" className="services section">
       <div className="container section-title" data-aos="fade-up">
         <h2>개발 역량</h2>
-        <p>프로젝트에서 직접 구현한 백엔드 중심 기능 범위를 정리했습니다.</p>
+        <p>프로젝트에서 직접 구현한 백엔드 중심 기능 범위</p>
       </div>
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
