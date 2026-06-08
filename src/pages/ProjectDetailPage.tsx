@@ -13,12 +13,15 @@ import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
 import { getProjectDetail } from "../data/projectDetails";
 import { projects } from "../data/projects";
+import { useGsapAnimations } from "../hooks/useGsapAnimations";
 import NotFoundPage from "./NotFoundPage";
 
 function ProjectDetailPage() {
   const { projectId } = useParams();
   const project = projects.find((item) => item.id === projectId);
   const detail = projectId ? getProjectDetail(projectId) : undefined;
+
+  useGsapAnimations({ scope: "project", deps: [projectId] });
 
   useEffect(() => {
     document.body.classList.remove("index-page");
