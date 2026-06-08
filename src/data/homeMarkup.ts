@@ -448,7 +448,7 @@ export const homeMarkup = {
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>이력 및 활동</h2>
-        <p>학습 과정, 활동 기간, 자격·수상 이력과 프로젝트 확장 경험을 한눈에 볼 수 있게 정리했습니다.</p>
+        <p>학습 과정, 활동 기간, 자격·수상</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -461,7 +461,7 @@ export const homeMarkup = {
                   <i class="bi bi-briefcase-fill"></i>
                 </div>
                 <h2>활동 및 경험</h2>
-                <p>스터디, 학내 활동, 프로젝트를 통해 CS 기초와 백엔드 중심 구현 경험을 함께 쌓았습니다.</p>
+                <p>스터디, 학내 활동, 프로젝트를 통한 CS 기초와 백엔드 중심 구현</p>
                 <span class="section-kicker">주요 경험 요약</span>
               </div>
               <div class="resume-panel-body">
@@ -474,7 +474,7 @@ export const homeMarkup = {
                     </div>
                     <h3>국가근로</h3>
                     <h4>인덕대학교 도서관</h4>
-                    <p>인덕대학교 도서관에서 국가근로로 근무하며 맡은 업무를 성실하게 수행하고 있습니다.</p>
+                    <p>인덕대학교 도서관에서 국가근로로 근무</p>
                     <div class="key-achievements">
                       <span class="achievement-tag">책임감</span>
                       <span class="achievement-tag">성실함</span>
@@ -491,7 +491,7 @@ export const homeMarkup = {
                     </div>
                     <h3>인덕대학교 코드어택 스터디 동아리</h3>
                     <h4>CS 및 자격증 스터디</h4>
-                    <p>정보처리산업기사 준비와 함께 자료구조, 운영체제, 네트워크 학습 및 알고리즘 문제 풀이를 이어가고 있습니다.</p>
+                    <p>정보처리산업기사 준비와 함께 자료구조, 운영체제, 네트워크 학습 및 알고리즘 문제 풀이</p>
                   </div>
                 </div>
 
@@ -503,7 +503,7 @@ export const homeMarkup = {
                     </div>
                     <h3>인덕대학교 INDEV 프로젝트 동아리</h3>
                     <h4>팀 프로젝트 및 CS</h4>
-                    <p>AI 기반 소상공인 직원 채용 및 스케줄 관리 플랫폼을 팀 프로젝트 주제로 진행하며, 매출 패턴과 직원 선호도를 반영한 스케줄 자동 생성, 구인 공고 자동 작성, 인건비 시뮬레이션 기능을 기획·구현합니다.</p>
+                    <p>AI 기반 소상공인 직원 채용 및 스케줄 관리 플랫폼을 팀 프로젝트 주제로 진행하며, 매출 패턴과 직원 선호도를 반영한 스케줄 자동 생성, 구인 공고 자동 작성, 인건비 시뮬레이션 기능을 기획·구현</p>
                   </div>
                 </div>
 
@@ -515,7 +515,7 @@ export const homeMarkup = {
                     </div>
                     <h3>인덕대학교 IFP 스터디 동아리</h3>
                     <h4>알고리즘 · 기초 프로그래밍</h4>
-                    <p>Notion 기반 자료 정리와 코드 리뷰, 문제 풀이 공유를 통해 협업 및 문제 해결 역량을 강화했습니다.</p>
+                    <p>Notion 기반 자료 정리와 코드 리뷰, 문제 풀이 공유를 통해 협업 및 문제 해결 역량을 강화</p>
                   </div>
                 </div>
               </div>
@@ -530,7 +530,7 @@ export const homeMarkup = {
                   <i class="bi bi-mortarboard-fill"></i>
                 </div>
                 <h2>학력 및 자격</h2>
-                <p>학력과 자격, 수상 이력을 중심으로 학습 과정을 정리했습니다.</p>
+                <p>학력과 자격, 수상 이력 중심의 학습</p>
               </div>
               <div class="resume-panel-body">
                 <div class="education-grid resume-education-list">
