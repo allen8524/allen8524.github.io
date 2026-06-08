@@ -1,4 +1,5 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
+import RouteScrollManager from "./components/common/RouteScrollManager";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
@@ -7,6 +8,7 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 function App() {
   return (
     <HashRouter>
+      <RouteScrollManager />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
