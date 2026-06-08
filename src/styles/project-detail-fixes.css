@@ -1,5 +1,23 @@
 .portfolio-details .project-detail-step {
-  padding-bottom: 34px !important;
+  align-items: center !important;
+  min-height: auto !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.portfolio-details .project-detail-step > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.portfolio-details .project-detail-step > div h3 {
+  margin-top: 0 !important;
+}
+
+.portfolio-details .project-detail-step > div p {
+  margin-bottom: 0 !important;
 }
 
 .portfolio-details .project-detail-step__number {
@@ -148,7 +166,8 @@
   .portfolio-details .project-detail-step {
     grid-template-columns: 48px minmax(0, 1fr);
     gap: 16px;
-    padding-bottom: 30px !important;
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
   }
 
   .portfolio-details .project-detail-step__number {
