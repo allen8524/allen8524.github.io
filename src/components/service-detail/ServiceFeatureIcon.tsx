@@ -121,7 +121,7 @@ function renderServiceIcon(icon: ServiceIconKey) {
 
 function ServiceFeatureIcon({ icon }: { icon: ServiceIconKey }) {
   return (
-    <span className="service-detail-marker" aria-hidden="true">
+    <span className="service-detail-marker service-animate-marker" aria-hidden="true">
       <span className="service-detail-marker-content">
         <svg className="service-feature-svg" viewBox="0 0 24 24" focusable="false">
           {renderServiceIcon(icon)}
