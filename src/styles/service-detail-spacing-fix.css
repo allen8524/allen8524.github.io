@@ -74,10 +74,10 @@
   line-height: 1.72 !important;
 }
 
-.service-details-page .service-details .service-content .process-section .process-steps .step .step-number {
+.service-details-page .service-details .service-content .process-section .process-steps .step .step-number,
+.service-details-page .service-details .service-content .features-list .feature-item i {
   display: grid !important;
   place-items: center !important;
-  grid-row: auto !important;
   align-self: center !important;
   justify-self: center !important;
   width: 48px !important;
@@ -94,14 +94,22 @@
   font-weight: 700 !important;
   line-height: 1 !important;
   text-align: center !important;
+}
+
+.service-details-page .service-details .service-content .process-section .process-steps .step .step-number {
+  grid-row: auto !important;
   font-variant-numeric: tabular-nums;
 }
 
-.service-details-page .service-details .service-content .features-list .feature-item i {
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
-  min-height: 48px !important;
+.service-details-page .service-details .service-content .features-list .feature-item i::before {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transform: none !important;
 }
 
 .service-details-page .service-details .service-sidebar > div {
