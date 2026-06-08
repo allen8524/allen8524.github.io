@@ -1,0 +1,57 @@
+.portfolio-details .project-detail-step__number {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0 !important;
+  line-height: 1 !important;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.portfolio-details .project-nav {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.portfolio-details .project-nav .nav-wrapper {
+  grid-template-columns: minmax(0, 1fr) 180px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.portfolio-details .project-nav .prev-project {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.portfolio-details .project-nav .next-project {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.portfolio-details .project-nav .all-projects {
+  width: 180px;
+  min-width: 0;
+}
+
+@media (max-width: 991px) {
+  .portfolio-details .project-nav .nav-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-details .project-nav .all-projects {
+    width: auto;
+  }
+
+  .portfolio-details .project-nav .prev-project,
+  .portfolio-details .project-nav .next-project {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
