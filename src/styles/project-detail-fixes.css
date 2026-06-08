@@ -1,3 +1,79 @@
+.portfolio-details .project-detail-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr) !important;
+  gap: 34px !important;
+  align-items: center !important;
+  padding: 34px !important;
+}
+
+.portfolio-details .project-detail-hero__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.portfolio-details .project-detail-hero .project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  color: color-mix(in srgb, var(--default-color), transparent 26%);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.portfolio-details .project-detail-hero .project-meta .year::before {
+  content: "·";
+  margin-right: 12px;
+  color: color-mix(in srgb, var(--default-color), transparent 48%);
+}
+
+.portfolio-details .project-detail-hero h2 {
+  max-width: 760px;
+  margin: 0 0 18px !important;
+  color: var(--heading-color);
+  font-size: clamp(2.35rem, 4.4vw, 4.15rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.04em;
+  word-break: keep-all;
+}
+
+.portfolio-details .project-detail-hero p {
+  max-width: 760px;
+  margin: 0 0 22px !important;
+  color: color-mix(in srgb, var(--default-color), transparent 8%);
+  font-size: 1.08rem !important;
+  line-height: 1.78 !important;
+  word-break: keep-all;
+}
+
+.portfolio-details .project-detail-hero .project-tags {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 0;
+}
+
+.portfolio-details .project-detail-hero .project-tags .tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 72%);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 7%);
+  color: color-mix(in srgb, var(--default-color), transparent 4%);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.portfolio-details .project-detail-hero__image {
+  max-width: 460px;
+  justify-self: end;
+}
+
 .portfolio-details .project-detail-step {
   align-items: center !important;
   min-height: 0 !important;
@@ -133,6 +209,21 @@
 }
 
 @media (max-width: 991px) {
+  .portfolio-details .project-detail-hero {
+    grid-template-columns: 1fr !important;
+    padding: 28px !important;
+  }
+
+  .portfolio-details .project-detail-hero h2 {
+    font-size: clamp(2rem, 7vw, 3.2rem) !important;
+  }
+
+  .portfolio-details .project-detail-hero__image {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+  }
+
   .portfolio-details .project-nav .nav-wrapper {
     grid-template-columns: 1fr !important;
   }
@@ -159,6 +250,14 @@
 }
 
 @media (max-width: 575px) {
+  .portfolio-details .project-detail-hero {
+    padding: 22px !important;
+  }
+
+  .portfolio-details .project-detail-hero h2 {
+    font-size: 2rem !important;
+  }
+
   .portfolio-details .project-detail-list-block,
   .portfolio-details .project-detail-list-block + .project-detail-list-block {
     margin-top: 30px;
