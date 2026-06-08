@@ -126,11 +126,9 @@ function ServiceDetailPage() {
                     <ul className="info-list">
                       {service.relatedProjects.map((project) => (
                         <li key={project.projectId}>
-                          <strong>
-                            <Link to={`/projects/${project.projectId}`} className="text-decoration-none text-reset">
-                              {project.label}
-                            </Link>
-                          </strong>
+                          <Link to={`/projects/${project.projectId}`} className="service-related-link">
+                            {project.label}
+                          </Link>
                           : {project.description}
                         </li>
                       ))}
