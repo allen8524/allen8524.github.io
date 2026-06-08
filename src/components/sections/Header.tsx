@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
-  { id: "hero", label: "Home", icon: "bi-house" },
-  { id: "about", label: "About", icon: "bi-person" },
-  { id: "resume", label: "Resume", icon: "bi-file-earmark-text" },
-  { id: "portfolio", label: "Projects", icon: "bi-images" },
-  { id: "services", label: "Skills", icon: "bi-hdd-stack" },
-  { id: "testimonials", label: "Troubleshooting", icon: "bi-tools" },
-  { id: "contact", label: "Contact", icon: "bi-envelope" },
+  { id: "hero", label: "홈", icon: "bi-house" },
+  { id: "about", label: "소개", icon: "bi-person" },
+  { id: "resume", label: "이력 및 활동", icon: "bi-file-earmark-text" },
+  { id: "portfolio", label: "프로젝트", icon: "bi-images" },
+  { id: "services", label: "개발 역량", icon: "bi-hdd-stack" },
+  { id: "testimonials", label: "트러블슈팅", icon: "bi-tools" },
+  { id: "contact", label: "연락처", icon: "bi-envelope" },
 ];
 
 function Header() {
@@ -68,7 +68,7 @@ function Header() {
       <button
         type="button"
         className={`header-toggle d-xl-none bi ${isOpen ? "bi-x" : "bi-list"}`}
-        aria-label="Toggle navigation"
+        aria-label="사이드 메뉴 열기/닫기"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((current) => !current)}
       />
@@ -79,7 +79,7 @@ function Header() {
         </div>
 
         <Link to="/" className="logo d-flex align-items-center justify-content-center">
-          <h1 className="sitename">Minseo Hwang</h1>
+          <h1 className="sitename">황민서</h1>
         </Link>
       </div>
 

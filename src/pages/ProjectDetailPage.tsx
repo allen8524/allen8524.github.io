@@ -39,7 +39,7 @@ function ProjectDetailPage() {
             <nav className="breadcrumbs">
               <ol>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">홈</Link>
                 </li>
                 <li className="current">{project.title}</li>
               </ol>
