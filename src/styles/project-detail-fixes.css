@@ -1,6 +1,6 @@
 .portfolio-details .project-detail-step__number {
-  display: grid !important;
-  place-items: center !important;
+  position: relative !important;
+  display: block !important;
   flex: 0 0 48px !important;
   width: 48px !important;
   height: 48px !important;
@@ -12,12 +12,16 @@
   white-space: nowrap;
 }
 
-.portfolio-details .project-detail-step__number > span {
-  display: block;
-  width: max-content;
+.portfolio-details .project-detail-step__number-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
   margin: 0;
   padding: 0;
-  transform: translateY(1px);
   font-variant-numeric: tabular-nums;
   line-height: 1;
   text-align: center;
@@ -148,5 +152,10 @@
     height: 44px !important;
     min-width: 44px !important;
     min-height: 44px !important;
+  }
+
+  .portfolio-details .project-detail-step__number-text {
+    width: 44px;
+    height: 44px;
   }
 }
