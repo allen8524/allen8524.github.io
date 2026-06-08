@@ -1,26 +1,26 @@
 .testimonials .troubleshooting-lab {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 22px;
   align-items: start;
-  max-width: 1180px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
 .testimonials .trouble-nav {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .testimonials .trouble-nav-item {
   display: grid;
-  gap: 6px;
+  gap: 4px;
   width: 100%;
-  min-height: 88px;
-  padding: 16px 18px;
+  min-height: 72px;
+  padding: 13px 15px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 84%);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--surface-color), var(--background-color) 14%);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--surface-color), var(--background-color) 18%);
   color: var(--default-color);
   text-align: left;
   box-shadow: none;
@@ -29,32 +29,32 @@
 
 .testimonials .trouble-nav-item:hover,
 .testimonials .trouble-nav-item.active {
-  border-color: color-mix(in srgb, var(--accent-color), transparent 32%);
-  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 10%);
-  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 36%);
+  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 8%);
+  transform: translateY(-1px);
 }
 
 .testimonials .trouble-nav-label {
   color: var(--heading-color);
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 800;
-  line-height: 1.35;
+  line-height: 1.3;
   word-break: keep-all;
 }
 
 .testimonials .trouble-nav-keyword {
   color: var(--accent-color);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.3;
   word-break: keep-all;
 }
 
 .testimonials .trouble-nav-stack {
-  color: color-mix(in srgb, var(--default-color), transparent 22%);
-  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--default-color), transparent 24%);
+  font-size: 0.72rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.28;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -69,59 +69,59 @@
 
 .testimonials .trouble-panel.show.active {
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) 285px;
+  gap: 16px;
   align-items: stretch;
-  padding: 20px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 84%);
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--surface-color), var(--background-color) 12%);
-  box-shadow: 0 12px 28px color-mix(in srgb, #000, transparent 94%);
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
   opacity: 1 !important;
 }
 
 .testimonials .trouble-case,
 .testimonials .trouble-evidence {
   min-height: 0 !important;
-  padding: 20px !important;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%) !important;
-  border-radius: 12px !important;
-  background: color-mix(in srgb, var(--background-color), var(--surface-color) 78%) !important;
-  box-shadow: none !important;
+  padding: 18px !important;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%) !important;
+  border-radius: 10px !important;
+  background: color-mix(in srgb, var(--surface-color), var(--background-color) 16%) !important;
+  box-shadow: 0 8px 18px color-mix(in srgb, #000, transparent 95%) !important;
 }
 
 .testimonials .trouble-case-stack {
   display: inline-flex;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--accent-color);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  line-height: 1.35;
+  line-height: 1.32;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .testimonials .trouble-case h3 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--heading-color);
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-size: clamp(1.12rem, 1.55vw, 1.36rem);
   line-height: 1.35;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 
 .testimonials .trouble-case-head p:not(.trouble-case-stack),
 .testimonials .trouble-evidence-note {
   margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
-  font-size: 0.95rem;
-  line-height: 1.72;
+  color: color-mix(in srgb, var(--default-color), transparent 11%);
+  font-size: 0.9rem;
+  line-height: 1.68;
   word-break: keep-all;
 }
 
 .testimonials .trouble-flow {
   display: grid;
-  gap: 16px;
-  margin: 22px 0 0;
+  gap: 13px;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -133,8 +133,8 @@
 
 .testimonials .trouble-flow li {
   display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
   margin: 0;
   padding: 0 !important;
@@ -144,7 +144,7 @@
 
 .testimonials .trouble-flow span {
   color: var(--accent-color);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 800;
   line-height: 1.55;
   word-break: keep-all;
@@ -153,15 +153,15 @@
 .testimonials .trouble-flow p {
   margin: 0;
   color: var(--heading-color);
-  font-size: 0.95rem;
-  line-height: 1.72;
+  font-size: 0.9rem;
+  line-height: 1.68;
   word-break: keep-all;
 }
 
 .testimonials .trouble-evidence h4 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--heading-color);
-  font-size: 1.08rem;
+  font-size: 1rem;
   line-height: 1.35;
 }
 
@@ -169,8 +169,8 @@
 .testimonials .trouble-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 18px 0 0;
+  gap: 7px;
+  margin: 14px 0 0;
   padding: 0;
 }
 
@@ -178,13 +178,13 @@
 .testimonials .trouble-tags li {
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 7px 11px;
+  min-height: 28px;
+  padding: 6px 9px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 82%);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--surface-color), var(--background-color) 12%);
+  background: color-mix(in srgb, var(--background-color), var(--surface-color) 72%);
   color: var(--heading-color);
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   font-weight: 700;
   line-height: 1.2;
   word-break: keep-all;
@@ -207,7 +207,7 @@
 
 @media (max-width: 1199px) {
   .testimonials .troubleshooting-lab {
-    grid-template-columns: 250px minmax(0, 1fr);
+    grid-template-columns: 230px minmax(0, 1fr);
   }
 
   .testimonials .trouble-panel.show.active {
@@ -230,10 +230,9 @@
     grid-template-columns: 1fr;
   }
 
-  .testimonials .trouble-panel.show.active,
   .testimonials .trouble-case,
   .testimonials .trouble-evidence {
-    padding: 18px !important;
+    padding: 16px !important;
   }
 
   .testimonials .trouble-flow li {
