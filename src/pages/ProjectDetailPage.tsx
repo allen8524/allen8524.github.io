@@ -13,7 +13,7 @@ import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
 import { getProjectDetail } from "../data/projectDetails";
 import { projects } from "../data/projects";
-import { useGsapAnimations } from "../hooks/useGsapAnimations";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import NotFoundPage from "./NotFoundPage";
 
 function ProjectDetailPage() {
@@ -21,7 +21,7 @@ function ProjectDetailPage() {
   const project = projects.find((item) => item.id === projectId);
   const detail = projectId ? getProjectDetail(projectId) : undefined;
 
-  useGsapAnimations({ scope: "project", deps: [projectId] });
+  useScrollReveal({ scope: "project", deps: [projectId] });
 
   useEffect(() => {
     document.body.classList.remove("index-page");

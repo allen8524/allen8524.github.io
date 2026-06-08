@@ -5,14 +5,14 @@ import Footer from "../components/sections/Footer";
 import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
 import { getServiceDetail, services } from "../data/services";
-import { useGsapAnimations } from "../hooks/useGsapAnimations";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import NotFoundPage from "./NotFoundPage";
 
 function ServiceDetailPage() {
   const { serviceId } = useParams();
   const service = serviceId ? getServiceDetail(serviceId) : undefined;
 
-  useGsapAnimations({ scope: "service", deps: [serviceId] });
+  useScrollReveal({ scope: "service", deps: [serviceId] });
 
   useEffect(() => {
     document.body.classList.remove("index-page");

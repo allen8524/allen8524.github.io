@@ -12,10 +12,10 @@ import Services from "../components/sections/Services";
 import Skills from "../components/sections/Skills";
 import Stats from "../components/sections/Stats";
 import Troubleshooting from "../components/sections/Troubleshooting";
-import { useGsapAnimations } from "../hooks/useGsapAnimations";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 function HomePage() {
-  useGsapAnimations({ scope: "home" });
+  useScrollReveal({ scope: "home" });
 
   useEffect(() => {
     document.body.classList.add("index-page");
