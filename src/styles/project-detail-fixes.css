@@ -1,8 +1,8 @@
 .portfolio-details .project-detail-step {
   align-items: center !important;
-  min-height: auto !important;
-  padding-top: 24px !important;
-  padding-bottom: 24px !important;
+  min-height: 0 !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
 }
 
 .portfolio-details .project-detail-step > div {
@@ -14,6 +14,7 @@
 
 .portfolio-details .project-detail-step > div h3 {
   margin-top: 0 !important;
+  margin-bottom: 8px !important;
 }
 
 .portfolio-details .project-detail-step > div p {
@@ -166,8 +167,8 @@
   .portfolio-details .project-detail-step {
     grid-template-columns: 48px minmax(0, 1fr);
     gap: 16px;
-    padding-top: 22px !important;
-    padding-bottom: 22px !important;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
   }
 
   .portfolio-details .project-detail-step__number {
