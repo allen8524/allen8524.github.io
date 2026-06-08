@@ -8,7 +8,6 @@ function ProjectTechStack({ project }: ProjectTechStackProps) {
   return (
     <section className="project-detail-section project-tech-feature-grid">
       <div>
-        <p className="project-detail-eyebrow">사용 기술</p>
         <h2>기술 스택</h2>
         <div className="project-detail-chip-list">
           {project.techStack.map((tech) => (
@@ -20,7 +19,6 @@ function ProjectTechStack({ project }: ProjectTechStackProps) {
       </div>
 
       <div>
-        <p className="project-detail-eyebrow">핵심 기능</p>
         <h2>주요 기능</h2>
         <p>{project.summary}</p>
         <div className="project-detail-chip-list">

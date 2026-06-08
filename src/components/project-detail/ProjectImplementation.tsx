@@ -8,7 +8,6 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
   return (
     <section className="project-detail-section">
       <div className="project-detail-section__header">
-        <p className="project-detail-eyebrow">핵심 구현 포인트</p>
         <h2>구현 방식</h2>
       </div>
 

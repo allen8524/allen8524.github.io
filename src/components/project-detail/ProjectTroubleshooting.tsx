@@ -12,7 +12,6 @@ function ProjectTroubleshooting({ detail }: ProjectTroubleshootingProps) {
   return (
     <section className="project-detail-section">
       <div className="project-detail-section__header">
-        <p className="project-detail-eyebrow">문제 해결</p>
         <h2>트러블슈팅</h2>
       </div>
       <div className="project-detail-note-grid">

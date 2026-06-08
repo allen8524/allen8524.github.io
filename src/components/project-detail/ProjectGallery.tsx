@@ -12,7 +12,6 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
   return (
     <section className="project-detail-section">
       <div className="project-detail-section__header">
-        <p className="project-detail-eyebrow">화면 미리보기</p>
         <h2>대표 화면</h2>
         <p>기존 상세 페이지에서 사용하던 대표 화면 자료를 공통 상세 페이지 안에 정리했습니다.</p>
       </div>

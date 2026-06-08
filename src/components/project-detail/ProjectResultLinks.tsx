@@ -15,7 +15,6 @@ function ProjectResultLinks({ detail, project }: ProjectResultLinksProps) {
   return (
     <section className="project-detail-section">
       <div className="project-detail-section__header">
-        <p className="project-detail-eyebrow">결과물</p>
         <h2>확인 가능한 결과물</h2>
       </div>
       <div className="project-detail-links">
