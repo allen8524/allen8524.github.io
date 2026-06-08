@@ -18,3 +18,28 @@ export type Project = {
   filter: ProjectFilter;
   type: ProjectType;
 };
+
+export type ProjectDetail = {
+  projectId: Project["id"];
+  period: string;
+  role: string;
+  heroImage: string;
+  purpose: string[];
+  implementationPoints: Array<{
+    title: string;
+    description: string;
+  }>;
+  troubleshooting: Array<{
+    title: string;
+    description: string;
+  }>;
+  resultLinks?: Array<{
+    label: string;
+    url: string;
+  }>;
+  gallery?: Array<{
+    src: string;
+    alt: string;
+  }>;
+  deploymentUrl?: string;
+};

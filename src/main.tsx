@@ -4,6 +4,7 @@ import App from "./App";
 import "./styles/global.css";
 import "./styles/app.css";
 import "./styles/portfolio.css";
+import "./styles/project-detail.css";
 
 const rootElement = document.getElementById("root");
 

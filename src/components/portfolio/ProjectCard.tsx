@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Project } from "../../types/project";
 
 type ProjectCardProps = {
@@ -24,9 +25,9 @@ function ProjectCard({ project }: ProjectCardProps) {
               >
                 <i className="bi bi-github" />
               </a>
-              <a href={project.detailUrl} className="action-btn details-btn" title={`${project.title} 상세 보기`}>
+              <Link to={project.detailUrl} className="action-btn details-btn" title={`${project.title} 상세 보기`}>
                 <i className="bi bi-arrow-up-right" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -49,9 +50,9 @@ function ProjectCard({ project }: ProjectCardProps) {
             </div>
           </div>
           <div className="portfolio-cta">
-            <a href={project.detailUrl} className="portfolio-link primary">
+            <Link to={project.detailUrl} className="portfolio-link primary">
               상세보기
-            </a>
+            </Link>
             <a href={project.githubUrl} className="portfolio-link secondary" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
