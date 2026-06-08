@@ -1,0 +1,103 @@
+.service-details-page .service-details .service-content {
+  gap: var(--service-space-lg) !important;
+}
+
+.service-details-page .service-details .service-content .service-image,
+.service-details-page .service-details .service-content .service-description,
+.service-details-page .service-details .service-content .process-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.service-details-page .service-details .service-content .service-description > p,
+.service-details-page .service-details .service-content .process-section > p {
+  margin-bottom: var(--service-space-md) !important;
+}
+
+.service-details-page .service-details .service-content .process-section h3 {
+  margin-bottom: 18px !important;
+}
+
+.service-details-page .service-details .service-content .process-section .process-steps {
+  display: grid !important;
+  gap: 18px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.service-details-page .service-details .service-content .process-section .process-steps .step {
+  display: grid !important;
+  grid-template-columns: 48px minmax(130px, 0.28fr) minmax(0, 1fr) !important;
+  gap: 18px !important;
+  align-items: center !important;
+  min-height: 84px !important;
+  padding: 22px 24px !important;
+}
+
+.service-details-page .service-details .service-content .process-section .process-steps .step .step-number {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  grid-row: auto !important;
+  align-self: center !important;
+  justify-self: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+.service-details-page .service-details .service-content .process-section .process-steps .step h4 {
+  margin: 0 !important;
+  font-size: 1.06rem !important;
+  font-weight: 800 !important;
+  line-height: 1.38 !important;
+}
+
+.service-details-page .service-details .service-content .process-section .process-steps .step p {
+  margin: 0 !important;
+  line-height: 1.72 !important;
+}
+
+.service-details-page .service-details .service-sidebar > div {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 991px) {
+  .service-details-page .service-details .service-content .process-section .process-steps .step {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+  }
+
+  .service-details-page .service-details .service-content .process-section .process-steps .step p {
+    grid-column: 2 !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .service-details-page .service-details .service-content .process-section h3 {
+    margin-bottom: 16px !important;
+  }
+
+  .service-details-page .service-details .service-content .process-section .process-steps {
+    gap: 16px !important;
+  }
+
+  .service-details-page .service-details .service-content .process-section .process-steps .step {
+    grid-template-columns: 1fr !important;
+    padding: 20px !important;
+  }
+
+  .service-details-page .service-details .service-content .process-section .process-steps .step p {
+    grid-column: auto !important;
+  }
+
+  .service-details-page .service-details .service-content .process-section .process-steps .step .step-number {
+    justify-self: start !important;
+  }
+}
