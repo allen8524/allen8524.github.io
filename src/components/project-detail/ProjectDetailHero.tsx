@@ -11,6 +11,7 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
       <div className="project-detail-hero__content">
         <div className="project-meta">
           <span className="category">{project.category}</span>
+          <span className="project-meta__separator" aria-hidden="true">·</span>
           <span className="year">{detail.period || project.year}</span>
         </div>
         <h2>{project.title}</h2>
