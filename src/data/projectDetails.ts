@@ -138,7 +138,8 @@ export const projectDetails: ProjectDetail[] = [
     projectId: "bakery",
     period: "2025년 12월",
     role: "제품 등록, 재고 관리, 판매 내역 확인, 관리자 화면 기능",
-    heroImage: "assets/img/portfolio/portfolio-portrait-3.webp",
+    heroImage:
+      "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
     purpose: [
       "Laravel 기반으로 베이커리 제품, 재고, 판매 내역을 관리자 화면에서 확인하는 판매관리 프로젝트를 구현했습니다.",
       "제품 ID를 기준으로 재고 수량과 판매 내역을 연결해 제품별 운영 상태를 확인하도록 구성했습니다.",
@@ -164,8 +165,20 @@ export const projectDetails: ProjectDetail[] = [
     ],
     resultLinks: [
       {
-        label: "Dashboard screenshot",
+        label: "대시보드 화면",
         url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
+      },
+      {
+        label: "상품 관리 화면",
+        url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/product-index.png",
+      },
+      {
+        label: "매입 매출 장부 화면",
+        url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/jangbu-index.png",
+      },
+      {
+        label: "통계 차트 화면",
+        url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/chart.png",
       },
     ],
   },

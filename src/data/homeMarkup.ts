@@ -65,8 +65,8 @@ export const homeMarkup = {
                   <span class="stat-label">수상 경험</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">2</span>
-                  <span class="stat-label">학내 스터디 활동</span>
+                  <span class="stat-number">3</span>
+                  <span class="stat-label">학내 활동</span>
                 </div>
               </div>
             </div>
@@ -487,11 +487,23 @@ export const homeMarkup = {
                   <div class="timeline-dot"></div>
                   <div class="timeline-content">
                     <div class="position-meta">
-                      <span class="timeline-year">2025.03 - 진행 중</span>
+                      <span class="timeline-year">2025.03 - 2026.09</span>
                     </div>
-                    <h3>인덕대학교 스터디 동아리</h3>
+                    <h3>인덕대학교 코드어택 스터디 동아리</h3>
                     <h4>CS 및 자격증 스터디</h4>
                     <p>정보처리산업기사 준비와 함께 자료구조, 운영체제, 네트워크 학습 및 알고리즘 문제 풀이를 이어가고 있습니다.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="375">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="position-meta">
+                      <span class="timeline-year">2026.05 - 진행 중</span>
+                    </div>
+                    <h3>인덕대학교 INDEV 프로젝트 동아리</h3>
+                    <h4>팀 프로젝트 및 CS</h4>
+                    <p>AI 기반 소상공인 직원 채용 및 스케줄 관리 플랫폼을 팀 프로젝트 주제로 진행하며, 매출 패턴과 직원 선호도를 반영한 스케줄 자동 생성, 구인 공고 자동 작성, 인건비 시뮬레이션 기능을 기획·구현합니다.</p>
                   </div>
                 </div>
 
@@ -990,10 +1002,10 @@ export const homeMarkup = {
               <span class="trouble-nav-keyword">누락 데이터 예외 대응</span>
               <span class="trouble-nav-stack">Laravel · Blade · MySQL</span>
             </button>
-            <button class="trouble-nav-item" id="trouble-tab-movie" data-bs-toggle="tab" data-bs-target="#trouble-panel-movie" type="button" role="tab" aria-controls="trouble-panel-movie" aria-selected="false">
-              <span class="trouble-nav-label">Movie PCA 분석</span>
-              <span class="trouble-nav-keyword">결측값·이상치 처리</span>
-              <span class="trouble-nav-stack">Python · pandas · scikit-learn</span>
+            <button class="trouble-nav-item" id="trouble-tab-cineflow" data-bs-toggle="tab" data-bs-target="#trouble-panel-cineflow" type="button" role="tab" aria-controls="trouble-panel-cineflow" aria-selected="false">
+              <span class="trouble-nav-label">CineFlow</span>
+              <span class="trouble-nav-keyword">예매 상태 정합성</span>
+              <span class="trouble-nav-stack">Spring Boot · JPA · Security · MySQL</span>
             </button>
           </div>
 
@@ -1076,30 +1088,30 @@ export const homeMarkup = {
               </aside>
             </article>
 
-            <article class="trouble-panel tab-pane fade" id="trouble-panel-movie" role="tabpanel" aria-labelledby="trouble-tab-movie" tabindex="0">
+            <article class="trouble-panel tab-pane fade" id="trouble-panel-cineflow" role="tabpanel" aria-labelledby="trouble-tab-cineflow" tabindex="0">
               <div class="trouble-case">
                 <header class="trouble-case-head">
-                  <p class="trouble-case-stack">Python · pandas · scikit-learn</p>
-                  <h3>Movie PCA 분석 프로젝트</h3>
-                  <p>결측값과 이상치가 섞인 영화 데이터를 전처리해 PCA와 회귀분석을 같은 CSV 기준으로 재실행할 수 있게 만든 사례입니다.</p>
+                  <p class="trouble-case-stack">Java · Spring Boot · Thymeleaf · JPA · Security</p>
+                  <h3>CineFlow 영화 예매 관리 시스템</h3>
+                  <p>상영 일정, 좌석 선택, 결제, 예매 조회가 같은 예매 상태 기준으로 이어지도록 조정한 사례입니다.</p>
                 </header>
                 <ol class="trouble-flow">
-                  <li><span>문제 상황</span><p>영화 데이터에는 문자열 결측값과 수치형 결측값이 섞여 있었고, 관객 수처럼 분포가 크게 치우친 컬럼이 분석 결과에 영향을 줄 수 있었습니다.</p></li>
-                  <li><span>원인 분석</span><p>PCA와 회귀분석은 입력 데이터의 결측값, 이상치, 스케일 차이에 민감하므로 원본 데이터를 그대로 넣으면 분석이 중단되거나 특정 컬럼 영향이 과도해질 수 있었습니다.</p></li>
-                  <li><span>수정 방향</span><p>문자열 결측값은 <code>정보없음</code>으로 대체하고, 수치형 결측값은 평균 또는 중앙값으로 보완했습니다. 관객 수 등 극단값은 IQR 기준으로 완화하고, MinMaxScaler로 입력 범위를 맞췄습니다.</p></li>
-                  <li><span>결과</span><p>PCA, 상관분석, 선형회귀, 시각화 이미지 저장까지 같은 CSV 기준으로 재실행 가능한 분석 흐름을 만들었습니다.</p></li>
+                  <li><span>문제 상황</span><p>상영 일정 선택 후 좌석·결제 단계로 이동할 때 선택값이 분리되어 예매 완료와 조회 화면의 상태 기준이 흔들리는 문제가 있었습니다.</p></li>
+                  <li><span>원인 분석</span><p>영화, 상영 일정, 좌석, 결제 정보가 단계별 파라미터로 전달되어 저장 이후 기준 데이터가 명확히 묶이지 않았습니다.</p></li>
+                  <li><span>수정 방향</span><p><code>BookingController</code>와 <code>BookingService</code>에서 상영 일정과 좌석 정보를 예매 엔티티 기준으로 묶고, 완료·조회·취소 흐름이 같은 <code>bookingId</code> 상태를 참조하도록 정리했습니다.</p></li>
+                  <li><span>결과</span><p>사용자 예매 완료, 회원·비회원 조회, 관리자 예매 관리가 같은 예매 상태를 기준으로 확인되도록 개선했습니다.</p></li>
                 </ol>
               </div>
               <aside class="trouble-evidence" aria-label="근거와 처리 흐름">
                 <h4>근거 & 처리 흐름</h4>
-                <p class="trouble-evidence-note">전처리 단계와 스케일링 기준을 고정해 분석 결과를 다시 확인할 수 있게 관리했습니다.</p>
+                <p class="trouble-evidence-note">예매 생성 이후 조회와 취소가 같은 예약 식별자와 상태값을 참조하도록 흐름을 맞췄습니다.</p>
                 <div class="trouble-pipeline">
-                  <span><code>data/hms202212004.csv</code></span><i class="bi bi-arrow-right-short" aria-hidden="true"></i>
-                  <span><code>preprocess</code></span><i class="bi bi-arrow-right-short" aria-hidden="true"></i>
-                  <span><code>MinMaxScaler</code></span><i class="bi bi-arrow-right-short" aria-hidden="true"></i>
-                  <span><code>PCA/Regression</code></span>
+                  <span><code>BookingController</code></span><i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                  <span><code>BookingService</code></span><i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                  <span><code>Booking</code></span><i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                  <span><code>bookingId</code></span>
                 </div>
-                <ul class="trouble-tags"><li>결측값 처리</li><li>IQR 이상치 완화</li><li>분석 재현성</li></ul>
+                <ul class="trouble-tags"><li>예매 상태 연결</li><li>좌석 선택 기준 유지</li><li>조회·취소 흐름 일치</li></ul>
               </aside>
             </article>
           </div>

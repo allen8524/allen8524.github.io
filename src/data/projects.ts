@@ -87,8 +87,10 @@ export const projects: Project[] = [
     summary: "Laravel 기반의 베이커리 판매관리 프로젝트입니다.",
     description:
       "Laravel 기반의 베이커리 판매관리 프로젝트입니다. 제품 ID를 기준으로 재고 수량과 판매 내역을 조회하고, 관리자 화면에서 제품별 재고·판매 상태를 함께 확인하도록 구성했습니다.",
-    image: "assets/img/portfolio/portfolio-portrait-3.webp",
-    previewImage: "assets/img/portfolio/portfolio-portrait-3.webp",
+    image:
+      "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
+    previewImage:
+      "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
     techStack: ["Laravel", "Bootstrap", "MySQL"],
     features: ["제품 등록", "재고 관리", "판매 내역 확인", "관리자 화면 기능"],
     githubUrl: "https://github.com/allen8524/bakery-sales-management-laravel",
