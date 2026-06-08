@@ -72,10 +72,12 @@
   .service-details-page .service-details .service-content .features-list .feature-item,
   .service-details-page .service-details .service-content .process-section .process-steps .step {
     grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    text-align: center !important;
   }
 
   .service-details-page .service-detail-marker {
-    justify-self: start !important;
+    justify-self: center !important;
   }
 
   .service-details-page .service-details .service-content .process-section .process-steps .step p {
