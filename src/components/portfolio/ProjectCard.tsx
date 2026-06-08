@@ -3,9 +3,10 @@ import type { Project } from "../../types/project";
 
 type ProjectCardProps = {
   project: Project;
+  onPreview: (project: Project) => void;
 };
 
-function ProjectCard({ project }: ProjectCardProps) {
+function ProjectCard({ onPreview, project }: ProjectCardProps) {
   return (
     <div className={`col-lg-6 portfolio-item filter-${project.filter}`}>
       <div className="portfolio-card">
@@ -13,9 +14,14 @@ function ProjectCard({ project }: ProjectCardProps) {
           <img src={project.image} className="img-fluid" alt={project.title} loading="lazy" />
           <div className="portfolio-overlay">
             <div className="portfolio-actions">
-              <a href={project.previewImage} className="glightbox action-btn preview-btn" title={project.title}>
+              <button
+                type="button"
+                className="action-btn preview-btn"
+                title={project.title}
+                onClick={() => onPreview(project)}
+              >
                 <i className="bi bi-eye" />
-              </a>
+              </button>
               <a
                 href={project.githubUrl}
                 className="action-btn"

@@ -20,6 +20,39 @@ a {
   color: inherit;
 }
 
+.header-toggle {
+  border: 0;
+}
+
+.navmenu button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--nav-color);
+  font: inherit;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.navmenu button .navicon {
+  margin-right: 8px;
+  color: inherit;
+  font-size: 20px;
+}
+
+.navmenu button:hover,
+.navmenu button.active,
+.navmenu button.active:focus {
+  color: var(--nav-hover-color);
+}
+
+.scroll-top {
+  border: 0;
+}
+
 .react-shell {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);

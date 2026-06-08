@@ -14,9 +14,10 @@ function ProjectFilter({ activeFilter, filters, onChange }: ProjectFilterProps) 
           <li
             key={filter.value}
             className={activeFilter === filter.value ? "filter-active" : undefined}
-            onClick={() => onChange(filter.value)}
           >
-            {filter.label}
+            <button type="button" onClick={() => onChange(filter.value)}>
+              {filter.label}
+            </button>
           </li>
         ))}
       </ul>
