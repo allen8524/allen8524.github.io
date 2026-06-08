@@ -9,6 +9,11 @@
   margin-bottom: 0 !important;
 }
 
+.service-details-page .service-details .service-content .service-description,
+.service-details-page .service-details .service-content .process-section {
+  padding: 28px 28px 34px !important;
+}
+
 .service-details-page .service-details .service-content .service-description > p,
 .service-details-page .service-details .service-content .process-section > p {
   margin-bottom: var(--service-space-md) !important;
@@ -16,6 +21,32 @@
 
 .service-details-page .service-details .service-content .process-section h3 {
   margin-bottom: 18px !important;
+  font-weight: 500 !important;
+}
+
+.service-details-page .service-details .service-content .features-list {
+  display: grid !important;
+  gap: 18px !important;
+  margin-top: 18px !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 8px !important;
+}
+
+.service-details-page .service-details .service-content .features-list .feature-item {
+  padding: 22px 24px !important;
+}
+
+.service-details-page .service-details .service-content .features-list .feature-item h4,
+.service-details-page .service-details .service-content .process-section .process-steps .step h4 {
+  margin: 0 0 6px !important;
+  font-size: 1.04rem !important;
+  font-weight: 600 !important;
+  line-height: 1.38 !important;
+}
+
+.service-details-page .service-details .service-content .features-list .feature-item p {
+  margin: 0 !important;
+  line-height: 1.72 !important;
 }
 
 .service-details-page .service-details .service-content .process-section .process-steps {
@@ -23,6 +54,7 @@
   gap: 18px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  padding-bottom: 8px !important;
 }
 
 .service-details-page .service-details .service-content .process-section .process-steps .step {
@@ -48,16 +80,9 @@
   margin: 0 !important;
   padding: 0 !important;
   font-size: 1.25rem !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
   line-height: 1 !important;
   text-align: center !important;
-}
-
-.service-details-page .service-details .service-content .process-section .process-steps .step h4 {
-  margin: 0 !important;
-  font-size: 1.06rem !important;
-  font-weight: 800 !important;
-  line-height: 1.38 !important;
 }
 
 .service-details-page .service-details .service-content .process-section .process-steps .step p {
@@ -67,6 +92,16 @@
 
 .service-details-page .service-details .service-sidebar > div {
   margin-bottom: 0 !important;
+}
+
+.service-details-page .service-related-link {
+  color: var(--heading-color) !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+}
+
+.service-details-page .service-related-link:hover {
+  color: var(--accent-color) !important;
 }
 
 @media (max-width: 991px) {
@@ -80,12 +115,19 @@
 }
 
 @media (max-width: 575px) {
+  .service-details-page .service-details .service-content .service-description,
+  .service-details-page .service-details .service-content .process-section {
+    padding: 22px 22px 28px !important;
+  }
+
   .service-details-page .service-details .service-content .process-section h3 {
     margin-bottom: 16px !important;
   }
 
+  .service-details-page .service-details .service-content .features-list,
   .service-details-page .service-details .service-content .process-section .process-steps {
     gap: 16px !important;
+    padding-bottom: 6px !important;
   }
 
   .service-details-page .service-details .service-content .process-section .process-steps .step {
