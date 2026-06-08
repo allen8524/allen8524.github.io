@@ -52,6 +52,8 @@ export const projectDetails: ProjectDetail[] = [
       { src: "assets/img/portfolio/cineflow-main.png", alt: "CineFlow 메인 화면" },
       { src: "assets/img/portfolio/cineflow-booking.png", alt: "CineFlow 예매 화면" },
       { src: "assets/img/portfolio/cineflow-admin.png", alt: "CineFlow 관리자 화면" },
+      { src: "assets/img/portfolio/cineflow-booking-gallery.png", alt: "CineFlow 빠른예매 진행 화면" },
+      { src: "assets/img/portfolio/cineflow-admin-gallery.png", alt: "CineFlow 관리자 상영일정 관리 화면" },
     ],
   },
   {
@@ -181,13 +183,31 @@ export const projectDetails: ProjectDetail[] = [
         url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/chart.png",
       },
     ],
+    gallery: [
+      {
+        src: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
+        alt: "베이커리 판매관리 대시보드 화면",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/product-index.png",
+        alt: "베이커리 상품 관리 화면",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/jangbu-index.png",
+        alt: "베이커리 매입 매출 장부 화면",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/chart.png",
+        alt: "베이커리 통계 차트 화면",
+      },
+    ],
   },
   {
     projectId: "movie-analysis",
     period: "2026년",
     role: "결측값 처리, 이상치 완화, 정규화, PCA 차원 축소, 상관분석, PC1 기반 선형회귀",
     heroImage:
-      "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
+      "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/poster_202212004_hwang_minseo.png",
     purpose: [
       "Cine21 영화 CSV 데이터를 전처리한 뒤 PCA·상관분석·선형회귀로 평점과 관객 수 지표의 관계를 분석했습니다.",
       "분석 결과를 PC1 설명분산비, R², MSE와 시각화 이미지로 남겨 수치와 그래프를 함께 확인할 수 있게 했습니다.",
@@ -213,8 +233,38 @@ export const projectDetails: ProjectDetail[] = [
     ],
     resultLinks: [
       {
-        label: "Analysis README",
+        label: "분석 README",
         url: "https://github.com/allen8524/movie-pca-rating-analysis",
+      },
+      {
+        label: "분석 스크립트",
+        url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/src/hms_project_202212004.py",
+      },
+      {
+        label: "분석 노트북",
+        url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/notebooks/hms_project_202212004.ipynb",
+      },
+      {
+        label: "분석 요약",
+        url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/outputs/analysis_summary.txt",
+      },
+      {
+        label: "발표 포스터",
+        url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/docs/poster_202212004_hwang_minseo.png",
+      },
+    ],
+    gallery: [
+      {
+        src: "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/pca_explained_variance.png",
+        alt: "Cine21 영화 데이터 PCA 설명분산비 그래프",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
+        alt: "Cine21 영화 데이터 상관관계 히트맵",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/actual_vs_predicted.png",
+        alt: "Cine21 영화 데이터 실제 평점과 예측 평점 비교 그래프",
       },
     ],
   },
@@ -253,8 +303,20 @@ export const projectDetails: ProjectDetail[] = [
     ],
     gallery: [
       {
+        src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-character-select.png",
+        alt: "Undead Survivor 캐릭터 선택 화면",
+      },
+      {
         src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
         alt: "Undead Survivor 플레이 화면",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-combat.png",
+        alt: "Undead Survivor 전투 화면",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-levelup.png",
+        alt: "Undead Survivor 레벨업 보상 선택 화면",
       },
       {
         src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-survived.png",
@@ -263,6 +325,10 @@ export const projectDetails: ProjectDetail[] = [
       {
         src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-dead.png",
         alt: "Undead Survivor 사망 결과 화면",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-characters.png",
+        alt: "Undead Survivor 캐릭터 목록 화면",
       },
     ],
   },
@@ -320,6 +386,14 @@ export const projectDetails: ProjectDetail[] = [
       {
         src: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/workout-plan.png",
         alt: "HealthyUp 운동 계획 화면",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/app-icon.png",
+        alt: "HealthyUp iOS 앱 아이콘",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/launch-screen.png",
+        alt: "HealthyUp iOS Launch Screen 화면",
       },
     ],
   },

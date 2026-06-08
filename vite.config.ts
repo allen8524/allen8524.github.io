@@ -7,9 +7,9 @@ export default defineConfig({
     react(),
     viteStaticCopy({
       targets: [
-        { src: "assets/img", dest: "." },
-        { src: "assets/css", dest: "." },
-        { src: "assets/files", dest: "." },
+        { src: "assets", dest: "." },
+        { src: "portfolio-*.html", dest: "." },
+        { src: "service-*.html", dest: "." },
       ],
     }),
   ],
