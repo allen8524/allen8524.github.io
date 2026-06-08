@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { Fragment, useState, type ReactNode } from "react";
 
 type TroubleFlow = {
   label: string;
-  description: React.ReactNode;
+  description: ReactNode;
 };
 
 type TroubleCase = {
@@ -224,10 +224,12 @@ function Troubleshooting() {
                     <p className="trouble-evidence-note">{item.evidenceNote}</p>
                     <div className="trouble-pipeline">
                       {item.pipeline.map((node, index) => (
-                        <span key={node}>
-                          <code>{node}</code>
+                        <Fragment key={node}>
+                          <span>
+                            <code>{node}</code>
+                          </span>
                           {index < item.pipeline.length - 1 && <i className="bi bi-arrow-right-short" aria-hidden="true" />}
-                        </span>
+                        </Fragment>
                       ))}
                     </div>
                     <ul className="trouble-tags">
