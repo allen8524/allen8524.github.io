@@ -30,12 +30,12 @@
 }
 
 .portfolio-details .project-detail-hero h2 {
-  max-width: 760px;
+  max-width: 700px;
   margin: 0 0 18px !important;
   color: var(--heading-color);
-  font-size: clamp(2.35rem, 4.4vw, 4.15rem) !important;
-  line-height: 1.08 !important;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.25rem, 3.35vw, 3.3rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.035em;
   word-break: keep-all;
 }
 
@@ -223,7 +223,7 @@
   }
 
   .portfolio-details .project-detail-hero h2 {
-    font-size: clamp(2rem, 7vw, 3.2rem) !important;
+    font-size: clamp(2rem, 5.6vw, 2.8rem) !important;
   }
 
   .portfolio-details .project-detail-hero__image {
@@ -264,7 +264,7 @@
   }
 
   .portfolio-details .project-detail-hero h2 {
-    font-size: 2rem !important;
+    font-size: 1.9rem !important;
   }
 
   .portfolio-details .project-detail-list-block,
