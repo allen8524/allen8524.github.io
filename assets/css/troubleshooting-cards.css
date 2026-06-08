@@ -223,6 +223,17 @@
 }
 
 /* Portfolio thumbnails: keep project cards visually aligned. */
+.portfolio .portfolio-container {
+  height: auto !important;
+}
+
+.portfolio .portfolio-container .portfolio-item {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+}
+
 .portfolio .portfolio-image {
   position: relative;
   overflow: hidden;
