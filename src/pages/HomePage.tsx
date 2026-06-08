@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import About from "../components/sections/About";
 import Contact from "../components/sections/Contact";
 import Footer from "../components/sections/Footer";
@@ -16,8 +15,6 @@ import Troubleshooting from "../components/sections/Troubleshooting";
 import { useGsapAnimations } from "../hooks/useGsapAnimations";
 
 function HomePage() {
-  const location = useLocation();
-
   useGsapAnimations({ scope: "home" });
 
   useEffect(() => {
@@ -28,16 +25,6 @@ function HomePage() {
       document.body.classList.remove("index-page");
     };
   }, []);
-
-  useEffect(() => {
-    if (!location.hash) {
-      return;
-    }
-
-    window.setTimeout(() => {
-      document.querySelector(location.hash)?.scrollIntoView({ behavior: "smooth" });
-    }, 0);
-  }, [location.hash]);
 
   return (
     <>
