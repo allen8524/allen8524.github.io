@@ -637,7 +637,7 @@ export const homeMarkup = {
                     <div class="portfolio-actions">
                       <a href="assets/img/portfolio/cineflow-main-hero.png" class="glightbox action-btn preview-btn" title="CineFlow 영화 예매 메인 화면 썸네일"><i class="bi bi-eye"></i></a>
                       <a href="https://github.com/allen8524/cineflow-spring-boot" class="action-btn" title="CineFlow 영화 예매 관리 시스템 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="portfolio-cineflow.html" class="action-btn details-btn" title="CineFlow 영화 예매 관리 시스템 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#/projects/cineflow" class="action-btn details-btn" title="CineFlow 영화 예매 관리 시스템 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -659,7 +659,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="portfolio-cta">
-                    <a href="portfolio-cineflow.html" class="portfolio-link primary">상세보기</a>
+                    <a href="#/projects/cineflow" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/cineflow-spring-boot" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>
@@ -674,7 +674,7 @@ export const homeMarkup = {
                     <div class="portfolio-actions">
                       <a href="assets/img/portfolio/esports_main.png" class="glightbox action-btn preview-btn" title="e스포츠 포털 및 경기관리 웹사이트"><i class="bi bi-eye"></i></a>
                       <a href="https://github.com/allen8524/esports-portal-management" class="action-btn" title="e스포츠 포털 및 경기관리 웹사이트 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="portfolio-esports.html" class="action-btn details-btn" title="e스포츠 포털 및 경기관리 웹사이트 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#/projects/esports" class="action-btn details-btn" title="e스포츠 포털 및 경기관리 웹사이트 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -696,7 +696,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="portfolio-cta">
-                    <a href="portfolio-esports.html" class="portfolio-link primary">상세보기</a>
+                    <a href="#/projects/esports" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/esports-portal-management" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>
@@ -711,7 +711,7 @@ export const homeMarkup = {
                     <div class="portfolio-actions">
                       <a href="assets/img/portfolio/shopping_main.png" class="glightbox action-btn preview-btn" title="쇼핑몰 판매관리 사이트"><i class="bi bi-eye"></i></a>
                       <a href="https://github.com/allen8524/shopping-mall-management-php" class="action-btn" title="쇼핑몰 판매관리 사이트 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="portfolio-details.html" class="action-btn details-btn" title="쇼핑몰 판매관리 사이트 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#/projects/shopping" class="action-btn details-btn" title="쇼핑몰 판매관리 사이트 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -733,7 +733,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="portfolio-cta">
-                    <a href="portfolio-details.html" class="portfolio-link primary">상세보기</a>
+                    <a href="#/projects/shopping" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/shopping-mall-management-php" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>
@@ -748,7 +748,7 @@ export const homeMarkup = {
                     <div class="portfolio-actions">
                       <a href="assets/img/portfolio/portfolio-portrait-3.webp" class="glightbox action-btn preview-btn" title="베이커리 판매관리 웹사이트"><i class="bi bi-eye"></i></a>
                       <a href="https://github.com/allen8524/bakery-sales-management-laravel" class="action-btn" title="베이커리 판매관리 웹사이트 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="portfolio-bakery.html" class="action-btn details-btn" title="베이커리 판매관리 웹사이트 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#/projects/bakery" class="action-btn details-btn" title="베이커리 판매관리 웹사이트 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -770,7 +770,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="portfolio-cta">
-                    <a href="portfolio-bakery.html" class="portfolio-link primary">상세보기</a>
+                    <a href="#/projects/bakery" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/bakery-sales-management-laravel" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>
@@ -785,7 +785,7 @@ export const homeMarkup = {
                     <div class="portfolio-actions">
                       <a href="https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png" class="glightbox action-btn preview-btn" title="Cine21 영화 데이터 상관관계 히트맵"><i class="bi bi-eye"></i></a>
                       <a href="https://github.com/allen8524/movie-pca-rating-analysis" class="action-btn" title="Cine21 영화 데이터 PCA·회귀 분석 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="portfolio-movie-analysis.html" class="action-btn details-btn" title="Cine21 영화 데이터 PCA·회귀 분석 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#/projects/movie-analysis" class="action-btn details-btn" title="Cine21 영화 데이터 PCA·회귀 분석 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -807,7 +807,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="portfolio-cta">
-                    <a href="portfolio-movie-analysis.html" class="portfolio-link primary">상세보기</a>
+                    <a href="#/projects/movie-analysis" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/movie-pca-rating-analysis" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>
@@ -822,7 +822,7 @@ export const homeMarkup = {
                     <div class="portfolio-actions">
                       <a href="https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png" class="glightbox action-btn preview-btn" title="Undead Survivor 게임 플레이 화면"><i class="bi bi-eye"></i></a>
                       <a href="https://github.com/allen8524/undead-survivor-unity" class="action-btn" title="Undead Survivor 모바일 생존 게임 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="portfolio-undead-survivor.html" class="action-btn details-btn" title="Undead Survivor 모바일 생존 게임 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#/projects/undead-survivor" class="action-btn details-btn" title="Undead Survivor 모바일 생존 게임 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -844,7 +844,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="portfolio-cta">
-                    <a href="portfolio-undead-survivor.html" class="portfolio-link primary">상세보기</a>
+                    <a href="#/projects/undead-survivor" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/undead-survivor-unity" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>
@@ -859,7 +859,7 @@ export const homeMarkup = {
                     <div class="portfolio-actions">
                       <a href="https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png" class="glightbox action-btn preview-btn" title="HealthyUp BMI 계산 결과 화면"><i class="bi bi-eye"></i></a>
                       <a href="https://github.com/allen8524/healthyup-ios" class="action-btn" title="HealthyUp iOS 건강관리 앱 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="portfolio-healthyup.html" class="action-btn details-btn" title="HealthyUp iOS 건강관리 앱 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#/projects/healthyup" class="action-btn details-btn" title="HealthyUp iOS 건강관리 앱 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -881,7 +881,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="portfolio-cta">
-                    <a href="portfolio-healthyup.html" class="portfolio-link primary">상세보기</a>
+                    <a href="#/projects/healthyup" class="portfolio-link primary">상세보기</a>
                     <a href="https://github.com/allen8524/healthyup-ios" class="portfolio-link secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                 </div>

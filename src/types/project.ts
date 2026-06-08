@@ -25,6 +25,7 @@ export type ProjectDetail = {
   role: string;
   heroImage: string;
   purpose: string[];
+  responsibilities?: string[];
   implementationPoints: Array<{
     title: string;
     description: string;
@@ -42,4 +43,20 @@ export type ProjectDetail = {
     alt: string;
   }>;
   deploymentUrl?: string;
+  architecture?: Array<{
+    title: string;
+    description: string;
+  }>;
+  dataFlow?: string[];
+  analysisResults?: Array<{
+    label: string;
+    value: string;
+    description?: string;
+  }>;
+  metrics?: Array<{
+    label: string;
+    value: string;
+  }>;
+  learned?: string[];
+  limitations?: string[];
 };
