@@ -5,8 +5,6 @@ import "./styles/global.css";
 import "./styles/app.css";
 import "./styles/portfolio.css";
 import "./styles/project-detail.css";
-import "./styles/project-detail-fixes.css";
-import "./styles/project-detail-last-fix.css";
 import "./styles/service-detail.css";
 import "./styles/troubleshooting.css";
 
