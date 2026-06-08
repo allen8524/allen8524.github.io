@@ -1,7 +1,6 @@
 .portfolio-details .project-detail-step__number {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: grid !important;
+  place-items: center !important;
   flex: 0 0 48px !important;
   width: 48px !important;
   height: 48px !important;
@@ -15,7 +14,11 @@
 
 .portfolio-details .project-detail-step__number > span {
   display: block;
-  width: 100%;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  transform: translateY(1px);
+  font-variant-numeric: tabular-nums;
   line-height: 1;
   text-align: center;
 }
