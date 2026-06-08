@@ -13,9 +13,12 @@ import Services from "../components/sections/Services";
 import Skills from "../components/sections/Skills";
 import Stats from "../components/sections/Stats";
 import Troubleshooting from "../components/sections/Troubleshooting";
+import { useGsapAnimations } from "../hooks/useGsapAnimations";
 
 function HomePage() {
   const location = useLocation();
+
+  useGsapAnimations({ scope: "home" });
 
   useEffect(() => {
     document.body.classList.add("index-page");
