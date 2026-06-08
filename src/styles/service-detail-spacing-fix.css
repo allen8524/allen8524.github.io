@@ -163,6 +163,8 @@
   .service-details-page .service-details .service-content .features-list .feature-item,
   .service-details-page .service-details .service-content .process-section .process-steps .step {
     grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    text-align: center !important;
     padding: 20px !important;
   }
 
@@ -171,6 +173,6 @@
   }
 
   .service-details-page .service-details .service-content .service-detail-marker {
-    justify-self: start !important;
+    justify-self: center !important;
   }
 }
