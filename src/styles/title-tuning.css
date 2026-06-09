@@ -1,0 +1,46 @@
+:root {
+  --hero-title-size: 3.5rem;
+  --hero-title-size-lg: 2.65rem;
+  --hero-title-size-md: 2.6rem;
+  --hero-title-size-sm: 2.15rem;
+}
+
+.section-title h2,
+.about .intro-header h1,
+.project-detail-hero h2,
+.service-details .service-hero-title h2 {
+  font-size: var(--hero-title-size);
+  font-weight: 300;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+  line-break: strict;
+  text-wrap: balance;
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+  .section-title h2,
+  .about .intro-header h1,
+  .project-detail-hero h2,
+  .service-details .service-hero-title h2 {
+    font-size: var(--hero-title-size-lg);
+  }
+}
+
+@media (max-width: 992px) {
+  .section-title h2,
+  .about .intro-header h1,
+  .project-detail-hero h2,
+  .service-details .service-hero-title h2 {
+    font-size: var(--hero-title-size-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title h2,
+  .about .intro-header h1,
+  .project-detail-hero h2,
+  .service-details .service-hero-title h2 {
+    font-size: var(--hero-title-size-sm);
+  }
+}
