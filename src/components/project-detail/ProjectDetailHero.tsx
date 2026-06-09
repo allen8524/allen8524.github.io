@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ImagePreview from "../portfolio/ImagePreview";
 import type { Project, ProjectDetail } from "../../types/project";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectDetailHeroProps = {
   project: Project;
@@ -11,19 +12,20 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const period = detail.period || project.year;
   const heroImage = detail.heroImage || project.previewImage;
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const projectTitle = formatMiddleDotSpacing(project.title);
 
   return (
     <section className="project-detail-hero">
       <div className="project-detail-hero__content">
         <p className="project-meta-text">
-          {project.category} · {period}
+          {formatMiddleDotSpacing(project.category)} · {period}
         </p>
-        <h2>{project.title}</h2>
-        <p>{project.description}</p>
+        <h2>{projectTitle}</h2>
+        <p>{formatMiddleDotSpacing(project.description)}</p>
         <div className="project-tags">
           {project.techStack.map((tech) => (
             <span className="tag" key={tech}>
-              {tech}
+              {formatMiddleDotSpacing(tech)}
             </span>
           ))}
         </div>
@@ -32,13 +34,13 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
         <button
           type="button"
           className="project-detail-image-button"
-          aria-label={`${project.title} 이미지 확대`}
+          aria-label={`${projectTitle} 이미지 확대`}
           onClick={() => setPreviewImage(heroImage)}
         >
-          <img src={heroImage} alt={project.title} className="img-fluid" />
+          <img src={heroImage} alt={projectTitle} className="img-fluid" />
         </button>
       </figure>
-      {previewImage && <ImagePreview alt={project.title} image={previewImage} onClose={() => setPreviewImage(null)} />}
+      {previewImage && <ImagePreview alt={projectTitle} image={previewImage} onClose={() => setPreviewImage(null)} />}
     </section>
   );
 }
