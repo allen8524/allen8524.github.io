@@ -44,7 +44,15 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
             <span className="portfolio-year">{project.year}</span>
           </div>
           <h3 className="portfolio-title">{project.title}</h3>
-          <p className="portfolio-description">{project.description}</p>
+          {project.descriptionItems && project.descriptionItems.length > 0 ? (
+            <ul className="portfolio-description-list">
+              {project.descriptionItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="portfolio-description">{project.description}</p>
+          )}
           <div className="portfolio-proof-list">
             <div className="portfolio-proof-item">
               <span className="portfolio-proof-label">사용 기술</span>
