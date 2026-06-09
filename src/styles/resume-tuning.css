@@ -1,0 +1,26 @@
+.resume .professional-journey .experience-timeline .timeline-summary-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume .professional-journey .experience-timeline .timeline-summary-list li {
+  position: relative;
+  padding-left: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.resume .professional-journey .experience-timeline .timeline-summary-list li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 5px;
+  height: 1px;
+  background: var(--accent-color);
+  content: "";
+}
