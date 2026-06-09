@@ -101,32 +101,7 @@ function ServiceDetailPage() {
 
               <div className="col-lg-4">
                 <div className="service-sidebar">
-                  {service.sideInfo.map((info) => (
-                    <div className="service-info service-animate-sidebar" key={info.title} data-aos="fade-up" data-aos-delay="600">
-                      <h4>{info.title}</h4>
-                      <ul className="info-list">
-                        {info.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-
-                  <div className="service-info service-animate-sidebar" data-aos="fade-up" data-aos-delay="700">
-                    <h4>관련 프로젝트 연결</h4>
-                    <ul className="info-list">
-                      {service.relatedProjects.map((project) => (
-                        <li key={project.projectId}>
-                          <Link to={`/projects/${project.projectId}`} className="service-related-link">
-                            {project.label}
-                          </Link>
-                          : {project.description}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="cta-block service-animate-sidebar" data-aos="fade-up" data-aos-delay="800">
+                  <div className="cta-block service-animate-sidebar" data-aos="fade-up" data-aos-delay="600">
                     <h4>다른 역량 보기</h4>
                     <p>프로젝트에서 반복적으로 다룬 구현 범위를 다른 관점에서도 확인할 수 있습니다.</p>
                     {services
@@ -140,6 +115,36 @@ function ServiceDetailPage() {
                     <Link to="/#services" className="btn btn-primary">
                       개발 역량 전체 보기
                     </Link>
+                  </div>
+
+                  {service.sideInfo.map((info, index) => (
+                    <div
+                      className="service-info service-animate-sidebar"
+                      key={info.title}
+                      data-aos="fade-up"
+                      data-aos-delay={650 + index * 50}
+                    >
+                      <h4>{info.title}</h4>
+                      <ul className="info-list">
+                        {info.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+
+                  <div className="service-info service-animate-sidebar" data-aos="fade-up" data-aos-delay="750">
+                    <h4>관련 프로젝트 연결</h4>
+                    <ul className="info-list">
+                      {service.relatedProjects.map((project) => (
+                        <li key={project.projectId}>
+                          <Link to={`/projects/${project.projectId}`} className="service-related-link">
+                            {project.label}
+                          </Link>
+                          : {project.description}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
