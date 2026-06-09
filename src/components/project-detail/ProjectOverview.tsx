@@ -9,7 +9,7 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
   return (
     <section className="project-detail-section project-overview">
       <div className="project-detail-section__main">
-        <h2>개발 목적과 역할</h2>
+        <h2>개발 목적</h2>
         {detail.purpose.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
@@ -45,10 +45,6 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
         <div className="spec-item">
           <h5>개발 기간</h5>
           <p>{detail.period}</p>
-        </div>
-        <div className="spec-item">
-          <h5>주요 역할</h5>
-          <p>{detail.role}</p>
         </div>
         <div className="spec-item">
           <h5>GitHub</h5>
