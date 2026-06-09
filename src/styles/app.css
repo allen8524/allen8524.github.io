@@ -211,27 +211,44 @@ a {
   .about .bottom-section .collaboration-text h3 {
     white-space: nowrap;
   }
+
+  .services .service-content h3,
+  .services .service-content h3 a,
+  .services .service-content p {
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  .services .service-content h3 {
+    font-size: clamp(1.32rem, 1.8vw, 1.62rem);
+    letter-spacing: -0.035em;
+  }
+
+  .services .service-content p {
+    font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+    letter-spacing: -0.025em;
+  }
 }
 
 @media (min-width: 1200px) {
   .services > .container {
-    max-width: min(1080px, calc(100% - 120px));
+    max-width: min(1160px, calc(100% - 80px));
   }
 
   .services .row {
     justify-content: center;
-    --bs-gutter-x: 2.5rem;
+    --bs-gutter-x: 2rem;
   }
 
   .services .col-lg-6 {
     display: flex;
-    flex: 0 0 46%;
-    max-width: 46%;
+    flex: 0 0 50%;
+    max-width: 50%;
     justify-content: center;
   }
 
   .services .service-item {
-    width: min(100%, 440px);
+    width: 100%;
     padding-right: 20px;
     padding-left: 20px;
   }
