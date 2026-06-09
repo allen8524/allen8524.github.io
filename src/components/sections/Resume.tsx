@@ -107,7 +107,12 @@ function updateActivitySummaries(doc: Document) {
 
   timelineItems.forEach((timelineItem) => {
     const titleElement = timelineItem.querySelector("h3");
-    const title = titleElement?.textContent?.trim();
+
+    if (!titleElement) {
+      return;
+    }
+
+    const title = titleElement.textContent?.trim();
 
     if (!title || !activitySummaries[title]) {
       return;
