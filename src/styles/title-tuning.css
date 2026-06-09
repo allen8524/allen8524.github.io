@@ -1,15 +1,44 @@
 :root {
-  --hero-title-size: 3.5rem;
-  --hero-title-size-lg: 2.65rem;
-  --hero-title-size-md: 2.6rem;
-  --hero-title-size-sm: 2.15rem;
+  --section-title-size: 2.55rem;
+  --detail-title-size: 3rem;
+  --about-title-size: 2.85rem;
+
+  --section-title-size-lg: 2.3rem;
+  --detail-title-size-lg: 2.55rem;
+  --about-title-size-lg: 2.45rem;
+
+  --section-title-size-md: 2.1rem;
+  --detail-title-size-md: 2.3rem;
+  --about-title-size-md: 2.25rem;
+
+  --section-title-size-sm: 1.95rem;
+  --detail-title-size-sm: 2.05rem;
+  --about-title-size-sm: 2rem;
 }
 
-.section-title h2,
-.about .intro-header h1,
-.project-detail-hero h2,
+.section-title h2 {
+  font-size: var(--section-title-size);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+  line-break: strict;
+  text-wrap: balance;
+}
+
+.about .intro-header h1 {
+  font-size: var(--about-title-size);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+  line-break: strict;
+  text-wrap: balance;
+}
+
+.portfolio-details .project-detail-hero h2,
 .service-details .service-hero-title h2 {
-  font-size: var(--hero-title-size);
+  font-size: var(--detail-title-size);
   font-weight: 300;
   line-height: 1.16;
   letter-spacing: -0.03em;
@@ -19,28 +48,46 @@
 }
 
 @media (max-width: 1200px) and (min-width: 993px) {
-  .section-title h2,
-  .about .intro-header h1,
-  .project-detail-hero h2,
+  .section-title h2 {
+    font-size: var(--section-title-size-lg);
+  }
+
+  .about .intro-header h1 {
+    font-size: var(--about-title-size-lg);
+  }
+
+  .portfolio-details .project-detail-hero h2,
   .service-details .service-hero-title h2 {
-    font-size: var(--hero-title-size-lg);
+    font-size: var(--detail-title-size-lg);
   }
 }
 
 @media (max-width: 992px) {
-  .section-title h2,
-  .about .intro-header h1,
-  .project-detail-hero h2,
+  .section-title h2 {
+    font-size: var(--section-title-size-md);
+  }
+
+  .about .intro-header h1 {
+    font-size: var(--about-title-size-md);
+  }
+
+  .portfolio-details .project-detail-hero h2,
   .service-details .service-hero-title h2 {
-    font-size: var(--hero-title-size-md);
+    font-size: var(--detail-title-size-md);
   }
 }
 
 @media (max-width: 768px) {
-  .section-title h2,
-  .about .intro-header h1,
-  .project-detail-hero h2,
+  .section-title h2 {
+    font-size: var(--section-title-size-sm);
+  }
+
+  .about .intro-header h1 {
+    font-size: var(--about-title-size-sm);
+  }
+
+  .portfolio-details .project-detail-hero h2,
   .service-details .service-hero-title h2 {
-    font-size: var(--hero-title-size-sm);
+    font-size: var(--detail-title-size-sm);
   }
 }
