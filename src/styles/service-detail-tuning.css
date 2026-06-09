@@ -1,0 +1,12 @@
+.service-details-page .service-hero h2 {
+  font-family: var(--default-font);
+  font-size: clamp(1.45rem, 2.75vw, 2.42rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+@media (max-width: 575px) {
+  .service-details-page .service-hero h2 {
+    font-size: 1.5rem;
+  }
+}
