@@ -7,7 +7,7 @@ function About() {
         <div className="row justify-content-center">
           <div className="col-lg-10">
             <div className="intro-header text-center" data-aos="fade-up" data-aos-delay="150">
-              <h1>화면 뒤의 처리 구조 설계 지향</h1>
+              <h1>화면 뒤의 처리 구조 설계 지향합니다.</h1>
               <p className="subtitle">요청 처리 · 상태 관리 · 데이터 연동</p>
             </div>
 
@@ -33,14 +33,7 @@ function About() {
 
                 <div className="col-lg-8" data-aos="fade-left" data-aos-delay="250">
                   <div className="content-area">
-                    <div className="story-block">
-                      <p className="lead-text">
-                        회원가입, 주문, 예매, 게시판처럼 화면 뒤에서 상태와 데이터를 연결하는 흐름에 관심을 두고 백엔드 개발 지향
-                      </p>
-                      <p>
-                        웹 프로젝트에서는 DB 설계·연동과 관리자 기능 중심 구현. CineFlow에서는 예매 흐름과 권한 분리 경험. Movie PCA, HealthyUp, Undead Survivor는 데이터 처리·모바일 화면 흐름·게임 루프 확장 프로젝트로 정리
-                      </p>
-                    </div>
+
 
                     <div className="expertise-grid">
                       <div className="expertise-item" data-aos="zoom-in" data-aos-delay="300">
@@ -74,9 +67,7 @@ function About() {
                       </div>
                     </div>
 
-                    <div className="philosophy-quote" data-aos="fade-up" data-aos-delay="450">
-                      <p>기능 확장 전 요청 순서와 데이터 구조 우선 정리</p>
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -86,7 +77,7 @@ function About() {
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <div className="collaboration-text">
-                    <h3>구현 전 데이터 구조 우선 확인</h3>
+                    <h3>구현 전 데이터 구조 우선 확인합니다.</h3>
                     <p>화면에 필요한 값의 저장 위치와 조회 흐름부터 확인하며 개발</p>
                   </div>
                 </div>

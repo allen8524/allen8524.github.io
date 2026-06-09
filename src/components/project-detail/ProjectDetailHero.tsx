@@ -1,3 +1,5 @@
+import { useState } from "react";
+import ImagePreview from "../portfolio/ImagePreview";
 import type { Project, ProjectDetail } from "../../types/project";
 
 type ProjectDetailHeroProps = {
@@ -7,6 +9,8 @@ type ProjectDetailHeroProps = {
 
 function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const period = detail.period || project.year;
+  const heroImage = detail.heroImage || project.previewImage;
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   return (
     <section className="project-detail-hero">
@@ -25,8 +29,16 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
         </div>
       </div>
       <figure className="project-detail-hero__image">
-        <img src={detail.heroImage || project.previewImage} alt={project.title} className="img-fluid" />
+        <button
+          type="button"
+          className="project-detail-image-button"
+          aria-label={`${project.title} 이미지 확대`}
+          onClick={() => setPreviewImage(heroImage)}
+        >
+          <img src={heroImage} alt={project.title} className="img-fluid" />
+        </button>
       </figure>
+      {previewImage && <ImagePreview alt={project.title} image={previewImage} onClose={() => setPreviewImage(null)} />}
     </section>
   );
 }

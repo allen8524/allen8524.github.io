@@ -1,10 +1,16 @@
+import { useState } from "react";
+import ImagePreview from "../portfolio/ImagePreview";
 import type { ProjectDetail } from "../../types/project";
 
 type ProjectGalleryProps = {
   detail: ProjectDetail;
 };
 
+type GalleryImage = NonNullable<ProjectDetail["gallery"]>[number];
+
 function ProjectGallery({ detail }: ProjectGalleryProps) {
+  const [previewImage, setPreviewImage] = useState<GalleryImage | null>(null);
+
   if (!detail.gallery || detail.gallery.length === 0) {
     return null;
   }
@@ -18,11 +24,21 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
       <div className="project-gallery-grid">
         {detail.gallery.map((image) => (
           <figure className="project-gallery-item" key={image.src}>
-            <img src={image.src} alt={image.alt} className="img-fluid" loading="lazy" />
+            <button
+              type="button"
+              className="project-detail-image-button"
+              aria-label={`${image.alt} 이미지 확대`}
+              onClick={() => setPreviewImage(image)}
+            >
+              <img src={image.src} alt={image.alt} className="img-fluid" loading="lazy" />
+            </button>
             <figcaption>{image.alt}</figcaption>
           </figure>
         ))}
       </div>
+      {previewImage && (
+        <ImagePreview alt={previewImage.alt} image={previewImage.src} onClose={() => setPreviewImage(null)} />
+      )}
     </section>
   );
 }
