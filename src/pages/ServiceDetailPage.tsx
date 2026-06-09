@@ -32,23 +32,6 @@ function ServiceDetailPage() {
     <>
       <Header />
       <main className="main service-detail-animation-scope" ref={serviceRootRef}>
-        <div className="page-title dark-background">
-          <div className="container d-lg-flex justify-content-between align-items-center">
-            <h1>{service.title}</h1>
-            <nav className="breadcrumbs">
-              <ol>
-                <li>
-                  <Link to="/">홈</Link>
-                </li>
-                <li>
-                  <Link to="/#services">개발 역량</Link>
-                </li>
-                <li className="current">{service.title}</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-
         <section id="service-details" className="service-details section">
           <div className="container" data-aos="fade-up" data-aos-delay="100">
             <div className="row gy-5">
