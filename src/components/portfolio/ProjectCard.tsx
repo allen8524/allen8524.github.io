@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Project } from "../../types/project";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectCardProps = {
   project: Project;
@@ -7,17 +8,19 @@ type ProjectCardProps = {
 };
 
 function ProjectCard({ onPreview, project }: ProjectCardProps) {
+  const projectTitle = formatMiddleDotSpacing(project.title);
+
   return (
     <div className={`col-lg-6 portfolio-item filter-${project.filter}`}>
       <div className="portfolio-card">
         <div className="portfolio-image">
-          <img src={project.image} className="img-fluid" alt={project.title} loading="lazy" />
+          <img src={project.image} className="img-fluid" alt={projectTitle} loading="lazy" />
           <div className="portfolio-overlay">
             <div className="portfolio-actions">
               <button
                 type="button"
                 className="action-btn preview-btn"
-                title={project.title}
+                title={projectTitle}
                 onClick={() => onPreview(project)}
               >
                 <i className="bi bi-eye" />
@@ -25,13 +28,13 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
               <a
                 href={project.githubUrl}
                 className="action-btn"
-                title={`${project.title} GitHub`}
+                title={`${projectTitle} GitHub`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="bi bi-github" />
               </a>
-              <Link to={project.detailUrl} className="action-btn details-btn" title={`${project.title} 상세 보기`}>
+              <Link to={project.detailUrl} className="action-btn details-btn" title={`${projectTitle} 상세 보기`}>
                 <i className="bi bi-arrow-up-right" />
               </Link>
             </div>
@@ -40,23 +43,23 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
 
         <div className="portfolio-content">
           <div className="portfolio-meta">
-            <span className="portfolio-category">{project.category}</span>
+            <span className="portfolio-category">{formatMiddleDotSpacing(project.category)}</span>
             <span className="portfolio-year">{project.year}</span>
           </div>
-          <h3 className="portfolio-title">{project.title}</h3>
+          <h3 className="portfolio-title">{projectTitle}</h3>
           {project.descriptionItems && project.descriptionItems.length > 0 ? (
             <ul className="portfolio-description-list">
               {project.descriptionItems.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>{formatMiddleDotSpacing(item)}</li>
               ))}
             </ul>
           ) : (
-            <p className="portfolio-description">{project.description}</p>
+            <p className="portfolio-description">{formatMiddleDotSpacing(project.description)}</p>
           )}
           <div className="portfolio-proof-list">
             <div className="portfolio-proof-item">
               <span className="portfolio-proof-label">사용 기술</span>
-              <p>{project.techStack.join(" · ")}</p>
+              <p>{project.techStack.map(formatMiddleDotSpacing).join(" · ")}</p>
             </div>
           </div>
           <div className="portfolio-cta">
