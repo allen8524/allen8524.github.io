@@ -28,6 +28,13 @@ const awardItems = [
   },
 ];
 
+const activityTitles: Record<string, string> = {
+  "인덕대학교 INDEV 프로젝트 동아리": "인덕대학교 전공동아리 - INDEV",
+  국가근로: "국가근로장학생",
+  "인덕대학교 코드어택 스터디 동아리": "인덕대학교 스터디 - CodeAttack",
+  "인덕대학교 IFP 스터디 동아리": "인덕대학교 전공동아리 - IFP",
+};
+
 const activitySummaries: Record<string, string[]> = {
   "인덕대학교 INDEV 프로젝트 동아리": [
     "AI 기반 소상공인 직원·스케줄 관리 플랫폼",
@@ -99,7 +106,8 @@ function updateActivitySummaries(doc: Document) {
   const timelineItems = Array.from(doc.querySelectorAll(".experience-timeline.resume-timeline .timeline-item"));
 
   timelineItems.forEach((timelineItem) => {
-    const title = timelineItem.querySelector("h3")?.textContent?.trim();
+    const titleElement = timelineItem.querySelector("h3");
+    const title = titleElement?.textContent?.trim();
 
     if (!title || !activitySummaries[title]) {
       return;
@@ -113,6 +121,7 @@ function updateActivitySummaries(doc: Document) {
       return;
     }
 
+    titleElement.textContent = activityTitles[title] ?? title;
     currentSummary.replaceWith(createTimelineSummaryList(doc, activitySummaries[title]));
     keyAchievements?.remove();
   });
