@@ -160,7 +160,7 @@ function Troubleshooting() {
   return (
     <section id="testimonials" className="testimonials section light-background">
       <div className="container section-title" data-aos="fade-up">
-        <h2>트러블슈팅</h2>
+        <h1>트러블슈팅</h1>
         <p>문제 상황, 원인, 수정 방향, 결과 중심 정리</p>
       </div>
 

@@ -1,22 +1,18 @@
 :root {
   --section-title-size: 3.5rem;
-  --detail-title-size: 3.5rem;
   --about-title-size: 3.5rem;
 
-  --section-title-size-lg: 3.5rem;
-  --detail-title-size-lg: 3.5rem;
-  --about-title-size-lg: 3.5rem;
+  --section-title-size-lg: 2.65rem;
+  --about-title-size-lg: 2.65rem;
 
-  --section-title-size-md: 3.5rem;
-  --detail-title-size-md: 3.5rem;
-  --about-title-size-md: 3.5rem;
+  --section-title-size-md: 2.6rem;
+  --about-title-size-md: 2.6rem;
 
-  --section-title-size-sm: 3.5rem;
-  --detail-title-size-sm: 3.5rem;
-  --about-title-size-sm: 3.5rem;
+  --section-title-size-sm: 2.15rem;
+  --about-title-size-sm: 2.15rem;
 }
 
-.section-title h2 {
+.section-title h1 {
   font-size: var(--section-title-size);
   font-weight: 300;
   line-height: 1.18;
@@ -36,19 +32,8 @@
   text-wrap: balance;
 }
 
-.portfolio-details .project-detail-hero h2,
-.service-details .service-hero-title h2 {
-  font-size: var(--detail-title-size);
-  font-weight: 300;
-  line-height: 1.16;
-  letter-spacing: -0.03em;
-  word-break: keep-all;
-  line-break: strict;
-  text-wrap: balance;
-}
-
 @media (max-width: 1200px) and (min-width: 993px) {
-  .section-title h2 {
+  .section-title h1 {
     font-size: var(--section-title-size-lg);
   }
 
@@ -56,14 +41,10 @@
     font-size: var(--about-title-size-lg);
   }
 
-  .portfolio-details .project-detail-hero h2,
-  .service-details .service-hero-title h2 {
-    font-size: var(--detail-title-size-lg);
-  }
 }
 
 @media (max-width: 992px) {
-  .section-title h2 {
+  .section-title h1 {
     font-size: var(--section-title-size-md);
   }
 
@@ -71,14 +52,10 @@
     font-size: var(--about-title-size-md);
   }
 
-  .portfolio-details .project-detail-hero h2,
-  .service-details .service-hero-title h2 {
-    font-size: var(--detail-title-size-md);
-  }
 }
 
 @media (max-width: 768px) {
-  .section-title h2 {
+  .section-title h1 {
     font-size: var(--section-title-size-sm);
   }
 
@@ -86,8 +63,4 @@
     font-size: var(--about-title-size-sm);
   }
 
-  .portfolio-details .project-detail-hero h2,
-  .service-details .service-hero-title h2 {
-    font-size: var(--detail-title-size-sm);
-  }
 }

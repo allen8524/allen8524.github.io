@@ -279,7 +279,7 @@ export const homeMarkup = {
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>사용 기술 및 경험</h2>
+        <h1>사용 기술 및 경험</h1>
         <p>백엔드 기능을 중심으로 데이터 분석, 모바일, 게임 프로젝트에서 사용한 기술을 함께 정리했습니다.</p>
       </div><!-- End Section Title -->
 
@@ -447,7 +447,7 @@ export const homeMarkup = {
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>이력 및 활동</h2>
+        <h1>이력 및 활동</h1>
         <p>학습 과정, 활동 기간, 자격 · 수상</p>
       </div><!-- End Section Title -->
 
@@ -608,7 +608,7 @@ export const homeMarkup = {
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>프로젝트</h2>
+        <h1>프로젝트</h1>
         <p>백엔드 웹 프로젝트를 중심으로, 데이터 분석 · 모바일 · 게임 프로젝트까지 구현 흐름과 GitHub 근거를 함께 정리했습니다.</p>
       </div><!-- End Section Title -->
 
@@ -899,7 +899,7 @@ export const homeMarkup = {
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>개발 역량</h2>
+        <h1>개발 역량</h1>
         <p>프로젝트에서 직접 구현한 백엔드 중심 기능 범위를 정리했습니다.</p>
       </div><!-- End Section Title -->
 
@@ -980,7 +980,7 @@ export const homeMarkup = {
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>트러블슈팅</h2>
+        <h1>트러블슈팅</h1>
         <p>프로젝트 구현 중 마주친 문제를 원인과 해결 결과 중심으로 정리했습니다.</p>
       </div><!-- End Section Title -->
 
@@ -1122,7 +1122,7 @@ export const homeMarkup = {
   contact: `<section id="contact" class="contact section">
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>연락처</h2>
+        <h1>연락처</h1>
         <p>채용 · 협업 문의는 이메일로 가장 빠르게 확인하며, GitHub와 블로그에서 작업 내용을 이어서 보실 수 있습니다.</p>
       </div><!-- End Section Title -->
 

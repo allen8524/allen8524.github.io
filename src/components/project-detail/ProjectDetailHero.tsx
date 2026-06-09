@@ -20,7 +20,7 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
         <p className="project-meta-text">
           {formatMiddleDotSpacing(project.category)} · {period}
         </p>
-        <h2>{projectTitle}</h2>
+        <h1>{projectTitle}</h1>
         <p>{formatMiddleDotSpacing(project.description)}</p>
         <div className="project-tags">
           {project.techStack.map((tech) => (

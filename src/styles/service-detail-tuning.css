@@ -1,12 +1,5 @@
-.service-details-page .service-details .service-content .service-hero-title h2 {
+.service-details-page .service-details .service-content .service-hero-title h1 {
   font-family: var(--default-font);
-  font-size: 3.5rem;
   font-weight: 400;
   letter-spacing: -0.025em;
-}
-
-@media (max-width: 575px) {
-  .service-details-page .service-details .service-content .service-hero-title h2 {
-    font-size: 3.5rem;
-  }
 }

@@ -95,7 +95,7 @@
   word-break: keep-all;
 }
 
-.portfolio-details .project-detail-hero h2 {
+.portfolio-details .project-detail-hero h1 {
   max-width: 700px;
   margin: 0 0 var(--detail-space-3);
   color: var(--heading-color);
@@ -700,8 +700,8 @@
     padding: var(--detail-space-4);
   }
 
-  .portfolio-details .project-detail-hero h2 {
-    font-size: clamp(2rem, 5.6vw, 2.8rem);
+  .portfolio-details .project-detail-hero h1 {
+    font-size: 2.6rem;
   }
 
   .portfolio-details .project-detail-hero__image {
@@ -774,8 +774,8 @@
     padding: var(--detail-space-4);
   }
 
-  .portfolio-details .project-detail-hero h2 {
-    font-size: 1.9rem;
+  .portfolio-details .project-detail-hero h1 {
+    font-size: 2.15rem;
   }
 
   .portfolio-details .project-detail-section {

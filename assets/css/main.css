@@ -662,14 +662,16 @@ section,
   position: relative;
 }
 
+.section-title h1,
 .section-title h2 {
-  font-size: 3.5rem;
+  font-size: 32px;
   font-weight: 300;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
 }
 
+.section-title h1:before,
 .section-title h2:before {
   content: "";
   position: absolute;
@@ -683,6 +685,7 @@ section,
   margin: auto;
 }
 
+.section-title h1::after,
 .section-title h2::after {
   content: "";
   position: absolute;
@@ -764,7 +767,7 @@ section,
 
 @media (max-width: 1200px) and (min-width: 993px) {
   .hero .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 2.65rem;
     max-width: 420px;
   }
 }
@@ -775,7 +778,7 @@ section,
   }
 
   .hero .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 2.6rem;
     margin-left: auto;
     margin-right: auto;
   }
@@ -788,7 +791,7 @@ section,
 
 @media (max-width: 768px) {
   .hero .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 2.15rem;
     max-width: 360px;
   }
 }
@@ -1156,7 +1159,7 @@ section,
   }
 
   .hero .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 1.95rem;
     max-width: 320px;
   }
 
@@ -2063,7 +2066,7 @@ section,
 }
 
 .resume .section-intro h2 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 300;
   color: var(--heading-color);
   margin-bottom: 1rem;
@@ -2337,7 +2340,7 @@ section,
   }
 
   .resume .section-intro h2 {
-    font-size: 3.5rem;
+    font-size: 1.8rem;
   }
 
   .resume .section-intro p {
@@ -2380,7 +2383,7 @@ section,
   }
 
   .resume .section-intro h2 {
-    font-size: 3.5rem;
+    font-size: 1.6rem;
   }
 
   .resume .professional-journey .experience-timeline {
@@ -2418,7 +2421,7 @@ section,
   }
 
   .resume .section-intro h2 {
-    font-size: 3.5rem;
+    font-size: 1.4rem;
   }
 
   .resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements .achievement-tag {
@@ -3670,7 +3673,7 @@ section,
 }
 
 .portfolio-details .preview-header h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   margin-bottom: 1rem;
   color: var(--heading-color);
@@ -3770,7 +3773,7 @@ section,
 }
 
 .portfolio-details .content-section .main-content h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   margin-bottom: 2rem;
   color: var(--heading-color);
@@ -3823,7 +3826,7 @@ section,
 }
 
 .portfolio-details .process-timeline .timeline-header h2 {
-  font-size: 3.5rem;
+  font-size: 2.75rem;
   font-weight: 300;
   color: var(--heading-color);
   font-family: var(--heading-font);
@@ -3904,7 +3907,7 @@ section,
 }
 
 .portfolio-details .tools-section h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
   color: var(--heading-color);
@@ -3972,7 +3975,7 @@ section,
 }
 
 .portfolio-details .impact-metrics .metrics-container .metrics-header h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   color: var(--heading-color);
   font-family: var(--heading-font);
@@ -4217,7 +4220,7 @@ section,
   }
 
   .portfolio-details .preview-header h2 {
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
 
   .portfolio-details .hero-section .hero-image img {
@@ -4287,7 +4290,7 @@ section,
 }
 
 .service-details .service-content .service-hero h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -4295,7 +4298,7 @@ section,
 
 @media (max-width: 768px) {
   .service-details .service-content .service-hero h2 {
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -4320,7 +4323,7 @@ section,
 }
 
 .service-details .service-content .service-description h3 {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
 }
@@ -4367,7 +4370,7 @@ section,
 }
 
 .service-details .service-content .process-section h3 {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   font-weight: 300;
   margin-bottom: 3rem;
 }

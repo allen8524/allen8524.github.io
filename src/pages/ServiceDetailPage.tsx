@@ -40,7 +40,7 @@ function ServiceDetailPage() {
                 <div className="service-content">
                   <div className="service-hero-title service-animate-hero" data-aos="fade-up" data-aos-delay="200">
                     <span>{formatMiddleDotSpacing(service.title)}</span>
-                    <h2>{formatMiddleDotSpacing(service.heroTitle)}</h2>
+                    <h1>{formatMiddleDotSpacing(service.heroTitle)}</h1>
                   </div>
 
                   <div className="service-hero service-animate-card" data-aos="fade-up" data-aos-delay="250">
