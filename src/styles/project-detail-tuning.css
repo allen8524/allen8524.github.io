@@ -1,15 +1,15 @@
 .portfolio-details .project-detail-hero h2 {
-  font-size: clamp(1.85rem, 2.85vw, 2.9rem);
+  font-size: 3.5rem;
 }
 
 @media (max-width: 991px) {
   .portfolio-details .project-detail-hero h2 {
-    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-size: 3.5rem;
   }
 }
 
 @media (max-width: 575px) {
   .portfolio-details .project-detail-hero h2 {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
   }
 }

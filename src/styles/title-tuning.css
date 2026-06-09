@@ -1,19 +1,19 @@
 :root {
-  --section-title-size: 2.55rem;
-  --detail-title-size: 3rem;
-  --about-title-size: 2.85rem;
+  --section-title-size: 3.5rem;
+  --detail-title-size: 3.5rem;
+  --about-title-size: 3.5rem;
 
-  --section-title-size-lg: 2.3rem;
-  --detail-title-size-lg: 2.55rem;
-  --about-title-size-lg: 2.45rem;
+  --section-title-size-lg: 3.5rem;
+  --detail-title-size-lg: 3.5rem;
+  --about-title-size-lg: 3.5rem;
 
-  --section-title-size-md: 2.1rem;
-  --detail-title-size-md: 2.3rem;
-  --about-title-size-md: 2.25rem;
+  --section-title-size-md: 3.5rem;
+  --detail-title-size-md: 3.5rem;
+  --about-title-size-md: 3.5rem;
 
-  --section-title-size-sm: 1.95rem;
-  --detail-title-size-sm: 2.05rem;
-  --about-title-size-sm: 2rem;
+  --section-title-size-sm: 3.5rem;
+  --detail-title-size-sm: 3.5rem;
+  --about-title-size-sm: 3.5rem;
 }
 
 .section-title h2 {
