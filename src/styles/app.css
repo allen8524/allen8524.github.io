@@ -247,41 +247,73 @@ a {
   .services .service-content h3,
   .services .service-content h3 a,
   .services .service-content p {
-    max-width: none;
-    white-space: nowrap;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    white-space: normal;
+    word-break: keep-all;
   }
 
   .services .service-content h3 {
     font-size: clamp(1.32rem, 1.8vw, 1.62rem);
     letter-spacing: -0.035em;
+    line-height: 1.35;
   }
 
   .services .service-content p {
     font-size: clamp(0.88rem, 1.05vw, 0.98rem);
     letter-spacing: -0.025em;
+    line-height: 1.65;
+  }
+
+  .services .col-lg-6 {
+    display: flex;
+  }
+
+  .services .service-item {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 210px;
+    gap: 20px;
+    padding: 28px;
+  }
+
+  .services .service-icon {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+  }
+
+  .services .service-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .services .read-more {
+    align-self: flex-start;
+    margin-top: auto;
   }
 }
 
 @media (min-width: 1200px) {
   .services > .container {
-    max-width: min(1160px, calc(100% - 80px));
+    max-width: min(1040px, calc(100% - 64px));
   }
 
   .services .row {
     justify-content: center;
-    --bs-gutter-x: 2rem;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
   }
 
   .services .col-lg-6 {
-    display: flex;
     flex: 0 0 50%;
     max-width: 50%;
-    justify-content: center;
   }
 
   .services .service-item {
-    width: 100%;
-    padding-right: 20px;
-    padding-left: 20px;
+    min-height: 216px;
+    padding: 28px;
   }
 }
