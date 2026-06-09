@@ -9,6 +9,7 @@ export type Project = {
   year: string;
   summary: string;
   description: string;
+  descriptionItems?: string[];
   image: string;
   previewImage: string;
   techStack: string[];
