@@ -9,6 +9,8 @@ type UseServiceGsapAnimationsOptions = {
   deps?: unknown[];
 };
 
+type ScrollTriggerInstance = ReturnType<typeof ScrollTrigger.getAll>[number];
+
 const reduceMotionQuery = "(prefers-reduced-motion: reduce)";
 const pointerFineQuery = "(hover: hover) and (pointer: fine)";
 const desktopMotionQuery = "(min-width: 992px) and (hover: hover) and (pointer: fine)";
@@ -561,7 +563,7 @@ export function useServiceGsapAnimations({ rootRef, deps = [] }: UseServiceGsapA
       cleanupMagnetic();
       cleanupHeroGlow();
       context?.revert();
-      ScrollTrigger.getAll().forEach((trigger) => {
+      ScrollTrigger.getAll().forEach((trigger: ScrollTriggerInstance) => {
         const triggerElement = trigger.trigger;
 
         if (triggerElement && root.contains(triggerElement)) {
