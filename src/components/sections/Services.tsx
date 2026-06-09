@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { services } from "../../data/services";
 import type { ServiceIconKey } from "../../types/service";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 const serviceBootstrapIcons: Record<ServiceIconKey, string> = {
   shield: "bi-shield-check",
@@ -42,9 +43,9 @@ function Services() {
                 </div>
                 <div className="service-content">
                   <h3>
-                    <Link to={`/services/${service.id}`}>{service.title}</Link>
+                    <Link to={`/services/${service.id}`}>{formatMiddleDotSpacing(service.title)}</Link>
                   </h3>
-                  <p>{service.summary}</p>
+                  <p>{formatMiddleDotSpacing(service.summary)}</p>
                   <Link to={`/services/${service.id}`} className="read-more">
                     <span>자세히 보기</span>
                     <i className="bi bi-arrow-right" />
