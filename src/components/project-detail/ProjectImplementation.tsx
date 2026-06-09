@@ -1,4 +1,5 @@
 import type { ProjectDetail } from "../../types/project";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectImplementationProps = {
   detail: ProjectDetail;
@@ -18,8 +19,8 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
               <span className="project-detail-step__number-text">{String(index + 1).padStart(2, "0")}</span>
             </span>
             <div>
-              <h3>{point.title}</h3>
-              <p>{point.description}</p>
+              <h3>{formatMiddleDotSpacing(point.title)}</h3>
+              <p>{formatMiddleDotSpacing(point.description)}</p>
             </div>
           </article>
         ))}
@@ -29,9 +30,9 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
         <div className="project-detail-metric-grid">
           {detail.analysisResults.map((result) => (
             <article className="project-detail-metric" key={result.label}>
-              <span>{result.label}</span>
-              <strong>{result.value}</strong>
-              {result.description && <p>{result.description}</p>}
+              <span>{formatMiddleDotSpacing(result.label)}</span>
+              <strong>{formatMiddleDotSpacing(result.value)}</strong>
+              {result.description && <p>{formatMiddleDotSpacing(result.description)}</p>}
             </article>
           ))}
         </div>
@@ -42,7 +43,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
           <h3>배운 점</h3>
           <ul className="project-detail-check-list">
             {detail.learned.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item}>{formatMiddleDotSpacing(item)}</li>
             ))}
           </ul>
         </div>
@@ -53,7 +54,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
           <h3>한계와 개선 방향</h3>
           <ul className="project-detail-check-list">
             {detail.limitations.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item}>{formatMiddleDotSpacing(item)}</li>
             ))}
           </ul>
         </div>
