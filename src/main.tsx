@@ -8,6 +8,7 @@ import "./styles/project-detail.css";
 import "./styles/project-detail-tuning.css";
 import "./styles/service-detail.css";
 import "./styles/service-detail-tuning.css";
+import "./styles/resume-tuning.css";
 import "./styles/troubleshooting.css";
 
 const rootElement = document.getElementById("root");
