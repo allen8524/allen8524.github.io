@@ -206,3 +206,27 @@ a {
     padding: 24px;
   }
 }
+
+@media (min-width: 1200px) {
+  .services > .container {
+    max-width: min(1080px, calc(100% - 120px));
+  }
+
+  .services .row {
+    justify-content: center;
+    --bs-gutter-x: 2.5rem;
+  }
+
+  .services .col-lg-6 {
+    display: flex;
+    flex: 0 0 46%;
+    max-width: 46%;
+    justify-content: center;
+  }
+
+  .services .service-item {
+    width: min(100%, 440px);
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
