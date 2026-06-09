@@ -7,7 +7,7 @@ function About() {
         <div className="row justify-content-center">
           <div className="col-lg-10">
             <div className="intro-header text-center" data-aos="fade-up" data-aos-delay="150">
-              <h1>화면 뒤의 처리 구조 설계 지향합니다.</h1>
+              <h1>화면 뒤의 처리 구조 설계를 지향합니다.</h1>
               <p className="subtitle">요청 처리 · 상태 관리 · 데이터 연동</p>
             </div>
 
