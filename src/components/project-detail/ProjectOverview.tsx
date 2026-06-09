@@ -1,4 +1,5 @@
 import type { Project, ProjectDetail } from "../../types/project";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectOverviewProps = {
   project: Project;
@@ -11,7 +12,7 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
       <div className="project-detail-section__main">
         <h2>개발 목적</h2>
         {detail.purpose.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
+          <p key={paragraph}>{formatMiddleDotSpacing(paragraph)}</p>
         ))}
 
         {detail.responsibilities && detail.responsibilities.length > 0 && (
@@ -19,7 +20,7 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
             <h3>내가 구현한 부분</h3>
             <ul className="project-detail-check-list">
               {detail.responsibilities.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>{formatMiddleDotSpacing(item)}</li>
               ))}
             </ul>
           </div>
@@ -30,7 +31,7 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
             <h3>데이터 흐름</h3>
             <ul className="project-detail-flow-list">
               {detail.dataFlow.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>{formatMiddleDotSpacing(item)}</li>
               ))}
             </ul>
           </div>
@@ -40,7 +41,7 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
       <aside className="project-specs">
         <div className="spec-item">
           <h5>프로젝트명</h5>
-          <p>{project.title}</p>
+          <p>{formatMiddleDotSpacing(project.title)}</p>
         </div>
         <div className="spec-item">
           <h5>개발 기간</h5>
@@ -65,7 +66,6 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
           </div>
         )}
       </aside>
-
     </section>
   );
 }

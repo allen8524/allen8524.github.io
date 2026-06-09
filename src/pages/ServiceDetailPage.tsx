@@ -6,6 +6,7 @@ import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
 import { getServiceDetail, services } from "../data/services";
 import { useServiceGsapAnimations } from "../hooks/useServiceGsapAnimations";
+import { formatMiddleDotSpacing } from "../utils/typography";
 import NotFoundPage from "./NotFoundPage";
 
 function ServiceDetailPage() {
@@ -38,8 +39,8 @@ function ServiceDetailPage() {
               <div className="col-lg-8">
                 <div className="service-content">
                   <div className="service-hero-title service-animate-hero" data-aos="fade-up" data-aos-delay="200">
-                    <span>{service.title}</span>
-                    <h2>{service.heroTitle}</h2>
+                    <span>{formatMiddleDotSpacing(service.title)}</span>
+                    <h2>{formatMiddleDotSpacing(service.heroTitle)}</h2>
                   </div>
 
                   <div className="service-hero service-animate-card" data-aos="fade-up" data-aos-delay="250">
@@ -48,8 +49,8 @@ function ServiceDetailPage() {
                         <div className="feature-item service-animate-card" key={feature.title}>
                           <ServiceFeatureIcon icon={feature.icon} />
                           <div>
-                            <h4>{feature.title}</h4>
-                            {feature.description && <p>{feature.description}</p>}
+                            <h4>{formatMiddleDotSpacing(feature.title)}</h4>
+                            {feature.description && <p>{formatMiddleDotSpacing(feature.description)}</p>}
                           </div>
                         </div>
                       ))}
@@ -61,7 +62,7 @@ function ServiceDetailPage() {
                   </div>
 
                   <div className="process-section service-animate-card" data-aos="fade-up" data-aos-delay="500">
-                    <h3>{service.processTitle}</h3>
+                    <h3>{formatMiddleDotSpacing(service.processTitle)}</h3>
                     <div className="process-steps">
                       {service.processSteps.map((step, index) => (
                         <div className="step service-animate-step" key={step.title}>
@@ -71,8 +72,8 @@ function ServiceDetailPage() {
                             </span>
                           </div>
                           <div>
-                            <h4>{step.title}</h4>
-                            <p>{step.description}</p>
+                            <h4>{formatMiddleDotSpacing(step.title)}</h4>
+                            <p>{formatMiddleDotSpacing(step.description)}</p>
                           </div>
                         </div>
                       ))}
@@ -80,14 +81,14 @@ function ServiceDetailPage() {
                   </div>
 
                   <div className="process-section service-animate-card" data-aos="fade-up" data-aos-delay="550">
-                    <h3>{service.evidenceTitle}</h3>
+                    <h3>{formatMiddleDotSpacing(service.evidenceTitle)}</h3>
                     <div className="features-list">
                       {service.evidence.map((item) => (
                         <div className="feature-item service-animate-card" key={item.title}>
                           <ServiceFeatureIcon icon={item.icon} />
                           <div>
-                            <h4>{item.title}</h4>
-                            {item.description && <p>{item.description}</p>}
+                            <h4>{formatMiddleDotSpacing(item.title)}</h4>
+                            {item.description && <p>{formatMiddleDotSpacing(item.description)}</p>}
                           </div>
                         </div>
                       ))}
@@ -106,7 +107,7 @@ function ServiceDetailPage() {
                       .slice(0, 3)
                       .map((item) => (
                         <Link to={`/services/${item.id}`} className="btn btn-outline" key={item.id}>
-                          {item.title}
+                          {formatMiddleDotSpacing(item.title)}
                         </Link>
                       ))}
                     <Link to="/#services" className="btn btn-primary">
@@ -121,10 +122,10 @@ function ServiceDetailPage() {
                       data-aos="fade-up"
                       data-aos-delay={650 + index * 50}
                     >
-                      <h4>{info.title}</h4>
+                      <h4>{formatMiddleDotSpacing(info.title)}</h4>
                       <ul className="info-list">
                         {info.items.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li key={item}>{formatMiddleDotSpacing(item)}</li>
                         ))}
                       </ul>
                     </div>
@@ -136,9 +137,9 @@ function ServiceDetailPage() {
                       {service.relatedProjects.map((project) => (
                         <li key={project.projectId}>
                           <Link to={`/projects/${project.projectId}`} className="service-related-link">
-                            {project.label}
+                            {formatMiddleDotSpacing(project.label)}
                           </Link>
-                          : {project.description}
+                          : {formatMiddleDotSpacing(project.description)}
                         </li>
                       ))}
                     </ul>

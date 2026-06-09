@@ -1,4 +1,5 @@
 import type { ProjectDetail } from "../../types/project";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectTroubleshootingProps = {
   detail: ProjectDetail;
@@ -17,8 +18,8 @@ function ProjectTroubleshooting({ detail }: ProjectTroubleshootingProps) {
       <div className="project-detail-note-grid">
         {detail.troubleshooting.map((item) => (
           <article className="detail-note" key={item.title}>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+            <h3>{formatMiddleDotSpacing(item.title)}</h3>
+            <p>{formatMiddleDotSpacing(item.description)}</p>
           </article>
         ))}
       </div>

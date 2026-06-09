@@ -1,4 +1,5 @@
 import type { Project } from "../../types/project";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectTechStackProps = {
   project: Project;
@@ -12,7 +13,7 @@ function ProjectTechStack({ project }: ProjectTechStackProps) {
         <div className="project-detail-chip-list">
           {project.techStack.map((tech) => (
             <span className="project-detail-chip" key={tech}>
-              {tech}
+              {formatMiddleDotSpacing(tech)}
             </span>
           ))}
         </div>
@@ -20,11 +21,11 @@ function ProjectTechStack({ project }: ProjectTechStackProps) {
 
       <div>
         <h2>주요 기능</h2>
-        <p>{project.summary}</p>
+        <p>{formatMiddleDotSpacing(project.summary)}</p>
         <div className="project-detail-chip-list">
           {project.features.map((feature) => (
             <span className="project-detail-chip project-detail-chip--muted" key={feature}>
-              {feature}
+              {formatMiddleDotSpacing(feature)}
             </span>
           ))}
         </div>
