@@ -58,10 +58,6 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
               <span className="portfolio-proof-label">사용 기술</span>
               <p>{project.techStack.join(" · ")}</p>
             </div>
-            <div className="portfolio-proof-item">
-              <span className="portfolio-proof-label">핵심 기능</span>
-              <p>{project.features.join(" / ")}</p>
-            </div>
           </div>
           <div className="portfolio-cta">
             <Link to={project.detailUrl} className="portfolio-link primary">
