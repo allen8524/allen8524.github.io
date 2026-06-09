@@ -1,5 +1,6 @@
 import type { Project } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import ProjectTechGroups from "./ProjectTechGroups";
 
 type ProjectTechStackProps = {
   project: Project;
@@ -10,13 +11,7 @@ function ProjectTechStack({ project }: ProjectTechStackProps) {
     <section className="project-detail-section project-tech-feature-grid">
       <div>
         <h2>기술 스택</h2>
-        <div className="project-detail-chip-list">
-          {project.techStack.map((tech) => (
-            <span className="project-detail-chip" key={tech}>
-              {formatMiddleDotSpacing(tech)}
-            </span>
-          ))}
-        </div>
+        <ProjectTechGroups className="project-detail-tech-groups--section" project={project} />
       </div>
 
       <div>

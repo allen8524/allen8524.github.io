@@ -65,16 +65,33 @@
 }
 
 .portfolio-details .project-detail-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
-  gap: var(--detail-space-5);
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  gap: clamp(28px, 4vw, 52px);
   align-items: center;
   margin-bottom: var(--detail-space-5);
-  padding: var(--detail-space-5);
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 86%);
-  border-radius: 8px;
-  background: var(--surface-color);
-  box-shadow: 0 10px 24px color-mix(in srgb, #000, transparent 88%);
+  padding: clamp(28px, 4vw, 44px);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--accent-color), transparent 78%) 0, transparent 30%),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface-color), #fff 5%) 0%, color-mix(in srgb, var(--background-color), #000 8%) 64%, var(--surface-color) 100%);
+  box-shadow: 0 18px 44px color-mix(in srgb, #000, transparent 84%);
+}
+
+.portfolio-details .project-detail-hero::before {
+  position: absolute;
+  right: -12%;
+  bottom: -28%;
+  z-index: -1;
+  width: 48%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  content: "";
 }
 
 .portfolio-details .project-detail-hero__content {
@@ -96,46 +113,15 @@
 }
 
 .portfolio-details .project-detail-hero h1 {
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 0 var(--detail-space-3);
   color: var(--heading-color);
   font-size: 3.5rem;
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   word-break: keep-all;
 }
 
-.portfolio-details .project-detail-hero p {
-  max-width: 760px;
-  margin: 0 0 var(--detail-space-4);
-  color: color-mix(in srgb, var(--default-color), transparent 8%);
-  font-size: 1.08rem;
-  line-height: 1.78;
-  word-break: keep-all;
-}
-
-.portfolio-details .project-detail-hero .project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--detail-space-1);
-  margin-top: 0;
-}
-
-.portfolio-details .project-detail-hero .project-tags .tag {
-  display: inline-flex;
-  align-items: center;
-  min-height: 30px;
-  padding: 5px 10px;
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 72%);
-  border-radius: 6px;
-  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 7%);
-  color: color-mix(in srgb, var(--default-color), transparent 4%);
-  font-size: 0.82rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.portfolio-details .project-detail-hero__image,
 .portfolio-details .hero-section .hero-image {
   overflow: hidden;
   aspect-ratio: 16 / 10;
@@ -146,26 +132,123 @@
 }
 
 .portfolio-details .project-detail-hero__image {
-  max-width: 460px;
-  justify-self: end;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+  justify-self: stretch;
+}
+
+.portfolio-details .project-detail-hero__image::before {
+  position: absolute;
+  inset: 7% -3% -8% 10%;
+  z-index: -1;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 88%);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  content: "";
+}
+
+.portfolio-details .project-detail-browser-frame {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 82%);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--background-color), var(--surface-color) 68%);
+  box-shadow:
+    0 22px 46px color-mix(in srgb, #000, transparent 78%),
+    inset 0 1px 0 color-mix(in srgb, #fff, transparent 92%);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.portfolio-details .project-detail-browser-frame:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 62%);
+  box-shadow:
+    0 26px 52px color-mix(in srgb, #000, transparent 76%),
+    inset 0 1px 0 color-mix(in srgb, #fff, transparent 90%);
+  transform: translateY(-2px);
+}
+
+.portfolio-details .project-detail-browser-bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 14px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  background: color-mix(in srgb, var(--surface-color), #000 8%);
+}
+
+.portfolio-details .project-detail-browser-dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.portfolio-details .project-detail-browser-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.portfolio-details .project-detail-browser-dots span:nth-child(1) {
+  background: #ff6b6b;
+}
+
+.portfolio-details .project-detail-browser-dots span:nth-child(2) {
+  background: #f5c542;
+}
+
+.portfolio-details .project-detail-browser-dots span:nth-child(3) {
+  background: #35d07f;
+}
+
+.portfolio-details .project-detail-browser-address {
+  overflow: hidden;
+  max-width: 260px;
+  padding: 7px 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--background-color), transparent 12%);
+  color: color-mix(in srgb, var(--default-color), transparent 42%);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .portfolio-details .project-detail-image-button {
   display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 10;
   padding: 0;
   border: 0;
   background: transparent;
   cursor: zoom-in;
+  overflow: hidden;
 }
 
-.portfolio-details .project-detail-hero__image img,
 .portfolio-details .hero-section .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
+}
+
+.portfolio-details .project-detail-image-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 220ms ease;
+}
+
+.portfolio-details .project-detail-browser-frame:hover .project-detail-image-button img {
+  transform: scale(1.02);
 }
 
 .portfolio-details .project-detail-section {
@@ -339,6 +422,76 @@
   background: color-mix(in srgb, var(--background-color), var(--surface-color) 82%);
   color: color-mix(in srgb, var(--default-color), transparent 6%);
   font-weight: 500;
+}
+
+.portfolio-details .project-detail-tech-groups {
+  display: grid;
+  gap: 10px;
+  max-width: 680px;
+  margin: 0;
+}
+
+.portfolio-details .project-detail-tech-groups--section {
+  max-width: none;
+  margin-top: var(--detail-space-2);
+}
+
+.portfolio-details .project-detail-tech-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.portfolio-details .project-detail-tech-label {
+  display: inline-flex;
+  flex: 0 0 48px;
+  align-items: center;
+  min-height: 32px;
+  color: color-mix(in srgb, var(--accent-color), transparent 8%);
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.portfolio-details .project-detail-tech-chip-list {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.portfolio-details .project-detail-tech-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 84%);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.portfolio-details .project-detail-tech-chip--core {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 58%);
+  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 13%);
+  color: var(--heading-color);
+}
+
+.portfolio-details .project-detail-tech-chip--sub {
+  border-color: color-mix(in srgb, var(--default-color), transparent 84%);
+  background: color-mix(in srgb, var(--background-color), var(--surface-color) 74%);
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+}
+
+.portfolio-details .project-detail-tech-chip:last-child {
+  min-width: 42px;
 }
 
 .portfolio-details .project-detail-timeline {
@@ -706,13 +859,16 @@
 
   .portfolio-details .project-detail-hero__image {
     width: 100%;
-    max-width: none;
+    max-width: 760px;
     justify-self: stretch;
   }
 
-  .portfolio-details .project-detail-hero__image,
   .portfolio-details .hero-section .hero-image {
     max-height: 460px;
+  }
+
+  .portfolio-details .project-detail-browser-frame {
+    max-width: 760px;
   }
 
   .portfolio-details .project-detail-metric-grid,
@@ -776,6 +932,34 @@
 
   .portfolio-details .project-detail-hero h1 {
     font-size: 2.15rem;
+  }
+
+  .portfolio-details .project-detail-hero .project-tags {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .portfolio-details .project-detail-hero .project-tags .tag {
+    justify-content: center;
+    padding-right: 8px;
+    padding-left: 8px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .portfolio-details .project-detail-browser-bar {
+    min-height: 38px;
+    padding: 0 10px;
+  }
+
+  .portfolio-details .project-detail-browser-address {
+    max-width: none;
+    padding: 6px 10px;
+  }
+
+  .portfolio-details .project-detail-image-button {
+    aspect-ratio: 4 / 3;
   }
 
   .portfolio-details .project-detail-section {
