@@ -10,6 +10,7 @@ import Resume from "../components/sections/Resume";
 import ScrollTop from "../components/sections/ScrollTop";
 import Services from "../components/sections/Services";
 import Skills from "../components/sections/Skills";
+import Stats from "../components/sections/Stats";
 import Troubleshooting from "../components/sections/Troubleshooting";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -31,6 +32,7 @@ function HomePage() {
       <main className="main">
         <Hero />
         <About />
+        <Stats />
         <Skills />
         <Resume />
         <Portfolio />
