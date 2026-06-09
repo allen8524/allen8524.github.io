@@ -77,7 +77,7 @@ function About() {
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <div className="collaboration-text">
-                    <h3>구현 전 데이터 구조 우선 확인합니다.</h3>
+                    <h3>구현 전 데이터 구조를 우선적으로 확인합니다.</h3>
                     <p>화면에 필요한 값의 저장 위치와 조회 흐름부터 확인하며 개발</p>
                   </div>
                 </div>
