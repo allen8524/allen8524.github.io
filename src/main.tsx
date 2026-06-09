@@ -11,6 +11,7 @@ import "./styles/service-detail-tuning.css";
 import "./styles/resume-tuning.css";
 import "./styles/footer-tuning.css";
 import "./styles/troubleshooting.css";
+import "./styles/title-tuning.css";
 
 const rootElement = document.getElementById("root");
 
