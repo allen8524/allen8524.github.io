@@ -4,40 +4,32 @@ export const services: ServiceDetail[] = [
   {
     id: "auth",
     title: "인증·권한 관리",
-    summary: "로그인, 세션, 사용자/관리자 접근 분리를 구현합니다.",
+    summary: "로그인·세션·관리자 접근 분리",
     icon: "shield",
-    heroTitle: "접근 권한을 명확히 분리",
-    lead:
-      "로그인 이후 사용자가 갈 수 있는 화면과 관리자만 다루는 기능을 분리합니다. 세션 만료와 직접 URL 접근도 함께 점검합니다.",
-    introTitle: "할 수 있는 일",
-    intro:
-      "서비스 역할에 맞춰 인증 방식과 접근 범위를 정리합니다. 구현보다 운영 중 막아야 할 경로를 먼저 확인합니다.",
+    heroTitle: "접근 권한을 분리하는 구조",
     features: [
       {
         icon: "shield",
-        title: "로그인 흐름 구성",
-        description: "성공, 실패, 로그아웃, 세션 만료 후 이동을 정리합니다.",
+        title: "로그인·로그아웃·세션 만료 기준 정리",
       },
       {
         icon: "user",
-        title: "역할별 접근 분리",
-        description: "사용자와 관리자 메뉴, 라우트, 기능 접근을 구분합니다.",
+        title: "사용자·관리자 라우트와 메뉴 분리",
       },
       {
         icon: "bug",
-        title: "예외 경로 점검",
-        description: "비로그인, 권한 없음, 직접 URL 접근을 차단합니다.",
+        title: "비로그인·권한 없음·직접 URL 접근 제한",
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "역할 정의", description: "회원, 비회원, 관리자의 접근 범위를 먼저 나눕니다." },
-      { title: "라우트 보호", description: "권한이 필요한 화면에 인증 조건을 적용합니다." },
-      { title: "접근 확인", description: "정상 이동과 차단 케이스를 함께 점검합니다." },
+      { title: "역할 나누기", description: "회원, 비회원, 관리자 범위 분리." },
+      { title: "라우트 보호", description: "권한이 필요한 화면에 인증 조건 적용." },
+      { title: "차단 확인", description: "정상 이동과 예외 접근 함께 점검." },
     ],
     evidenceTitle: "대표 근거",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "Spring Security 권한 분리" },
+      { icon: "film", title: "CineFlow", description: "예매 권한·관리자 접근 분리" },
       { icon: "controller", title: "e스포츠 포털", description: "Laravel 관리자 미들웨어" },
       { icon: "cart", title: "쇼핑몰", description: "PHP 세션 로그인" },
     ],
@@ -60,36 +52,28 @@ export const services: ServiceDetail[] = [
   {
     id: "order",
     title: "예매·주문 흐름 관리",
-    summary: "예매번호·주문번호 기준으로 좌석, 결제, 상세 저장을 연결합니다.",
+    summary: "예매번호·주문번호 기준 저장 흐름 연결",
     icon: "ticket",
-    heroTitle: "예매와 주문 기준 정리",
-    lead:
-      "좌석, 결제, 주문 상세처럼 단계마다 생기는 값을 하나의 기준 식별자로 묶습니다. 완료 후 조회와 취소까지 같은 기준으로 확인합니다.",
-    introTitle: "할 수 있는 일",
-    intro:
-      "중간 화면의 선택값이 저장 단계에서 어긋나지 않도록 필요한 키를 유지합니다. 여러 건이 연결되는 상세 항목은 기준 데이터와 분리합니다.",
+    heroTitle: "상태값으로 이어지는 예매·주문 흐름",
     features: [
       {
         icon: "ticket",
-        title: "기준 번호 설계",
-        description: "예매번호와 주문번호를 생성, 전달, 조회 기준으로 사용합니다.",
+        title: "예매번호·주문번호 기준 저장·조회",
       },
       {
         icon: "cart",
-        title: "다건 상세 저장",
-        description: "주문 마스터와 상세 항목, 좌석 목록처럼 묶이는 데이터를 분리합니다.",
+        title: "주문 마스터·상세 항목 분리 저장",
       },
       {
         icon: "bug",
-        title: "완료 후 검증",
-        description: "결제 완료, 조회, 취소에 필요한 값이 남는지 확인합니다.",
+        title: "결제 완료·조회·취소 값 유지",
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "기준값 선택", description: "예매번호, 주문번호, 제품 ID 중 중심 키를 정합니다." },
-      { title: "단계값 유지", description: "선택한 좌석, 결제수단, 주문 항목을 저장 단계까지 전달합니다." },
-      { title: "조회 점검", description: "완료 이후 사용자와 관리자가 같은 기준으로 찾는지 확인합니다." },
+      { title: "기준값 선택", description: "예매번호, 주문번호, 제품 ID 중 중심 키 지정." },
+      { title: "단계값 전달", description: "좌석, 결제수단, 주문 항목을 저장 단계까지 유지." },
+      { title: "조회 기준 통일", description: "사용자와 관리자 조회 기준 일치." },
     ],
     evidenceTitle: "대표 근거",
     evidence: [
@@ -116,36 +100,28 @@ export const services: ServiceDetail[] = [
   {
     id: "board",
     title: "관리자 데이터 운영",
-    summary: "영화, 경기, 뉴스, 제품, 재고 데이터를 CRUD로 운영합니다.",
+    summary: "영화·경기·뉴스·제품·재고 CRUD 운영",
     icon: "document",
-    heroTitle: "운영 데이터를 다루는 방식",
-    lead:
-      "관리자가 입력한 데이터가 목록, 상세, 통계 화면에서 쓰이도록 기준을 맞춥니다. 등록, 수정, 삭제, 공개 여부를 짧은 단위로 점검합니다.",
-    introTitle: "할 수 있는 일",
-    intro:
-      "관리 대상별 필수 입력값과 노출 조건을 정리합니다. 사용자 화면 설명은 줄이고 운영 작업 범위만 다룹니다.",
+    heroTitle: "운영 데이터를 관리하는 기준",
     features: [
       {
         icon: "document",
-        title: "CRUD 구성",
-        description: "등록, 목록, 수정, 삭제 동작을 관리 대상별로 분리합니다.",
+        title: "등록·목록·수정·삭제 동작 분리",
       },
       {
         icon: "search",
-        title: "입력값 검증",
-        description: "필수값, 날짜, 상태값, 이미지 입력 조건을 확인합니다.",
+        title: "필수값·날짜·상태값·이미지 조건 확인",
       },
       {
         icon: "trophy",
-        title: "노출 기준 정리",
-        description: "공개 여부, 종료 경기, 재고 표시처럼 보여줄 조건을 정합니다.",
+        title: "공개 여부·종료 경기·재고 표시 조건 정리",
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "관리 대상 정의", description: "영화, 경기, 뉴스, 제품처럼 다룰 단위를 나눕니다." },
-      { title: "입력 규칙 적용", description: "필수 필드와 수정 가능한 값을 제한합니다." },
-      { title: "노출 조건 확인", description: "저장한 값이 필요한 화면에만 보이는지 확인합니다." },
+      { title: "대상 정의", description: "영화, 경기, 뉴스, 제품 단위 분리." },
+      { title: "입력 규칙", description: "필수 필드와 수정 가능 값 제한." },
+      { title: "노출 확인", description: "필요한 화면에만 저장값 표시." },
     ],
     evidenceTitle: "대표 근거",
     evidence: [
@@ -172,36 +148,28 @@ export const services: ServiceDetail[] = [
   {
     id: "database",
     title: "DB 설계 및 데이터 처리",
-    summary: "JPA, Flyway, MySQL, CSV 전처리와 분석 데이터를 정리합니다.",
+    summary: "JPA·Flyway·MySQL·CSV 분석 데이터 정리",
     icon: "database",
-    heroTitle: "저장 구조와 분석 입력 정리",
-    lead:
-      "서비스 기능은 테이블과 관계로, 분석 작업은 정리된 입력 데이터로 구체화합니다. 변경 이력과 조회 조건을 함께 확인합니다.",
-    introTitle: "할 수 있는 일",
-    intro:
-      "웹 프로젝트에서는 관계와 키를 먼저 정하고, 분석 프로젝트에서는 결측값과 스케일을 먼저 정리합니다. 필요한 만큼만 모델링하고 조회 기준을 명확히 둡니다.",
+    heroTitle: "기능 요구사항을 데이터 구조로 정리",
     features: [
       {
         icon: "database",
-        title: "엔티티·테이블 설계",
-        description: "기능 기준으로 PK, FK, 상태값, 조회 조건을 나눕니다.",
+        title: "PK·FK·상태값·조회 조건 분리",
       },
       {
         icon: "database",
-        title: "마이그레이션 관리",
-        description: "Flyway로 테이블 변경 이력과 초기 데이터를 정리합니다.",
+        title: "Flyway 변경 이력·초기 데이터 관리",
       },
       {
         icon: "chart",
-        title: "분석 전처리",
-        description: "CSV 결측값, 이상치, 정규화 후 PCA와 회귀분석을 수행합니다.",
+        title: "CSV 정제 후 PCA·회귀분석 수행",
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "키·관계 정의", description: "기능에서 필요한 기준 키와 테이블 관계를 먼저 정합니다." },
-      { title: "변경 이력 관리", description: "스키마 변경과 seed 데이터를 재현 가능하게 유지합니다." },
-      { title: "분석 입력 정제", description: "결측값, 이상치, 스케일 차이를 처리한 뒤 분석합니다." },
+      { title: "키 정의", description: "기능에 필요한 기준 키 선정." },
+      { title: "관계 설계", description: "조회와 저장 기준에 맞춰 테이블 연결." },
+      { title: "입력 정제", description: "결측값, 이상치, 스케일 차이 처리." },
     ],
     evidenceTitle: "대표 근거",
     evidence: [

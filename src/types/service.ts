@@ -17,7 +17,7 @@ export type ServiceIconKey =
 export type ServiceFeature = {
   icon: ServiceIconKey;
   title: string;
-  description: string;
+  description?: string;
 };
 
 export type ServiceStep = {
@@ -37,9 +37,6 @@ export type ServiceDetail = {
   summary: string;
   icon: ServiceIconKey;
   heroTitle: string;
-  lead: string;
-  introTitle: string;
-  intro: string;
   features: ServiceFeature[];
   processTitle: string;
   processSteps: ServiceStep[];

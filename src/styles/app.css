@@ -207,6 +207,38 @@ a {
   }
 }
 
+.services {
+  padding: 84px 0;
+}
+
+.services .row {
+  --bs-gutter-y: 2rem;
+}
+
+.services .service-item {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+
+.services .service-content h3,
+.services .service-content h3 a {
+  font-family: var(--font-body);
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 64px 0;
+  }
+
+  .services .row {
+    --bs-gutter-y: 1.5rem;
+  }
+
+  .services .service-item {
+    padding: 34px 28px;
+  }
+}
+
 @media (min-width: 992px) {
   .about .bottom-section .collaboration-text h3 {
     white-space: nowrap;

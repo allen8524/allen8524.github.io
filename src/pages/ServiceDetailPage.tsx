@@ -39,28 +39,21 @@ function ServiceDetailPage() {
                 <div className="service-content">
                   <div className="service-hero service-animate-hero" data-aos="fade-up" data-aos-delay="200">
                     <h2>{service.heroTitle}</h2>
-                    <p className="lead">{service.lead}</p>
-                  </div>
-
-                  <div className="service-image service-animate-image" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="assets/img/services/services-3.webp" alt="웹 서비스 구현 역량을 설명하는 이미지" className="img-fluid" />
-                  </div>
-
-                  <div className="service-description service-animate-card" data-aos="fade-up" data-aos-delay="400">
-                    <h3>{service.introTitle}</h3>
-                    <p>{service.intro}</p>
-
-                    <div className="features-list">
+                    <div className="features-list service-hero-features">
                       {service.features.map((feature) => (
                         <div className="feature-item service-animate-card" key={feature.title}>
                           <ServiceFeatureIcon icon={feature.icon} />
                           <div>
                             <h4>{feature.title}</h4>
-                            <p>{feature.description}</p>
+                            {feature.description && <p>{feature.description}</p>}
                           </div>
                         </div>
                       ))}
                     </div>
+                  </div>
+
+                  <div className="service-image service-animate-image" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/img/services/services-3.webp" alt="웹 서비스 구현 역량을 설명하는 이미지" className="img-fluid" />
                   </div>
 
                   <div className="process-section service-animate-card" data-aos="fade-up" data-aos-delay="500">
@@ -90,7 +83,7 @@ function ServiceDetailPage() {
                           <ServiceFeatureIcon icon={item.icon} />
                           <div>
                             <h4>{item.title}</h4>
-                            <p>{item.description}</p>
+                            {item.description && <p>{item.description}</p>}
                           </div>
                         </div>
                       ))}
