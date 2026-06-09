@@ -46,9 +46,9 @@ export const homeMarkup = {
               </h1>
               <p class="hero-description portfolio-intro-text" data-aos="fade-up" data-aos-delay="300">
                 <span>Spring Boot · Laravel · PHP 기반 프로젝트에서</span>
-                <span>예매·주문·게시판·관리자 기능을 구현했습니다.</span>
+                <span>예매 · 주문 · 게시판 · 관리자 기능을 구현했습니다.</span>
                 <span>DB 연동부터 서비스 로직까지 데이터 흐름을 정리했고,</span>
-                <span>데이터 분석·iOS·Unity 프로젝트도 확장 경험으로 함께 담았습니다.</span>
+                <span>데이터 분석 · iOS · Unity 프로젝트도 확장 경험으로 함께 담았습니다.</span>
               </p>
               <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
                 <a href="#portfolio" class="btn-primary">프로젝트</a>
@@ -139,7 +139,7 @@ export const homeMarkup = {
                     <div class="story-block">
                       <p class="lead-text">회원가입, 주문, 예매, 게시판처럼 화면 뒤에서 상태와 데이터를 연결하는 과정에 흥미를 느껴 백엔드 개발을 지향하게 됐습니다.</p>
 
-                      <p>웹 프로젝트에서는 DB 설계·연동과 관리자 기능을 중심으로 개발했고, CineFlow에서는 예매 흐름과 권한 분리를 다뤘습니다. Movie PCA, HealthyUp, Undead Survivor는 데이터 처리와 모바일 화면 흐름, 게임 루프를 경험한 확장 프로젝트로 정리했습니다.</p>
+                      <p>웹 프로젝트에서는 DB 설계 · 연동과 관리자 기능을 중심으로 개발했고, CineFlow에서는 예매 흐름과 권한 분리를 다뤘습니다. Movie PCA, HealthyUp, Undead Survivor는 데이터 처리와 모바일 화면 흐름, 게임 루프를 경험한 확장 프로젝트로 정리했습니다.</p>
                     </div>
 
                     <div class="expertise-grid">
@@ -149,7 +149,7 @@ export const homeMarkup = {
                         </div>
                         <div class="expertise-content">
                           <h4>백엔드 개발</h4>
-                          <p>Spring Boot, Laravel, PHP 기반 예매·주문·관리자 기능 구현</p>
+                          <p>Spring Boot, Laravel, PHP 기반 예매 · 주문 · 관리자 기능 구현</p>
                         </div>
                       </div>
 
@@ -159,7 +159,7 @@ export const homeMarkup = {
                         </div>
                         <div class="expertise-content">
                           <h4>데이터 처리</h4>
-                          <p>MySQL 중심 DB 설계와 Python 기반 CSV 전처리·분석 경험</p>
+                          <p>MySQL 중심 DB 설계와 Python 기반 CSV 전처리 · 분석 경험</p>
                         </div>
                       </div>
 
@@ -304,7 +304,7 @@ export const homeMarkup = {
                   <div class="skill-row">
                     <div class="skill-info">
                       <span class="skill-name">PHP · Laravel</span>
-                      <span class="skill-percentage">CRUD, 관리자 기능, 주문·콘텐츠 관리 구현</span>
+                      <span class="skill-percentage">CRUD, 관리자 기능, 주문 · 콘텐츠 관리 구현</span>
                     </div>
                   </div>
                   <div class="skill-row">
@@ -346,7 +346,7 @@ export const homeMarkup = {
               <div class="skill-category skills-animation" data-aos="fade-up" data-aos-delay="300">
                 <div class="category-header">
                   <h3 class="category-title">프론트엔드 · 모바일 · 도구</h3>
-                  <p class="category-subtitle">화면 구성과 모바일·게임 구현에 사용한 기술</p>
+                  <p class="category-subtitle">화면 구성과 모바일 · 게임 구현에 사용한 기술</p>
                 </div>
                 <div class="skills-list">
                   <div class="skill-row">
@@ -448,7 +448,7 @@ export const homeMarkup = {
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>이력 및 활동</h2>
-        <p>학습 과정, 활동 기간, 자격·수상</p>
+        <p>학습 과정, 활동 기간, 자격 · 수상</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -503,7 +503,7 @@ export const homeMarkup = {
                     </div>
                     <h3>인덕대학교 INDEV 프로젝트 동아리</h3>
                     <h4>팀 프로젝트 및 CS</h4>
-                    <p>AI 기반 소상공인 직원 채용 및 스케줄 관리 플랫폼을 팀 프로젝트 주제로 진행하며, 매출 패턴과 직원 선호도를 반영한 스케줄 자동 생성, 구인 공고 자동 작성, 인건비 시뮬레이션 기능을 기획·구현</p>
+                    <p>AI 기반 소상공인 직원 채용 및 스케줄 관리 플랫폼을 팀 프로젝트 주제로 진행하며, 매출 패턴과 직원 선호도를 반영한 스케줄 자동 생성, 구인 공고 자동 작성, 인건비 시뮬레이션 기능을 기획 · 구현</p>
                   </div>
                 </div>
 
@@ -546,7 +546,7 @@ export const homeMarkup = {
                     </div>
                   </div>
                   <div class="education-details">
-                    <p>백엔드 웹 프로젝트를 중심으로 예매·주문·콘텐츠 관리 기능을 구현하고, 데이터 분석·모바일·게임 프로젝트로 구현 범위를 확장했습니다.</p>
+                    <p>백엔드 웹 프로젝트를 중심으로 예매 · 주문 · 콘텐츠 관리 기능을 구현하고, 데이터 분석 · 모바일 · 게임 프로젝트로 구현 범위를 확장했습니다.</p>
                     <div class="honors">
                       <span class="honor-badge">학점 4.0</span>
                     </div>
@@ -609,7 +609,7 @@ export const homeMarkup = {
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>프로젝트</h2>
-        <p>백엔드 웹 프로젝트를 중심으로, 데이터 분석·모바일·게임 프로젝트까지 구현 흐름과 GitHub 근거를 함께 정리했습니다.</p>
+        <p>백엔드 웹 프로젝트를 중심으로, 데이터 분석 · 모바일 · 게임 프로젝트까지 구현 흐름과 GitHub 근거를 함께 정리했습니다.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -623,7 +623,7 @@ export const homeMarkup = {
               <li data-filter=".filter-laravel">Laravel</li>
               <li data-filter=".filter-php">PHP</li>
               <li data-filter=".filter-data">데이터분석</li>
-              <li data-filter=".filter-etc">모바일·게임</li>
+              <li data-filter=".filter-etc">모바일 · 게임</li>
             </ul>
           </div>
 
@@ -647,7 +647,7 @@ export const homeMarkup = {
                     <span class="portfolio-year">2026</span>
                   </div>
                   <h3 class="portfolio-title">CineFlow 영화 예매 관리 시스템</h3>
-                  <p class="portfolio-description">CineFlow는 Spring Boot와 Thymeleaf로 구현한 영화 예매 웹 애플리케이션입니다. 영화 탐색, 빠른예매, 좌석 선택, 결제 흐름, 예매 조회·취소를 DB 상태 기준으로 연결하고, 관리자 화면에서 영화·극장·상영관·상영일정·예매 데이터를 운영하도록 구성했습니다.</p>
+                  <p class="portfolio-description">CineFlow는 Spring Boot와 Thymeleaf로 구현한 영화 예매 웹 애플리케이션입니다. 영화 탐색, 빠른예매, 좌석 선택, 결제 흐름, 예매 조회 · 취소를 DB 상태 기준으로 연결하고, 관리자 화면에서 영화 · 극장 · 상영관 · 상영일정 · 예매 데이터를 운영하도록 구성했습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -655,7 +655,7 @@ export const homeMarkup = {
                     </div>
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">핵심 기능</span>
-                      <p>영화 탐색·빠른예매 / 좌석·상영일정·예매 상태 연결 / 결제 상태 저장 / 회원·비회원 조회 분기 / 관리자 운영 / Security 권한 분리 / Flyway</p>
+                      <p>영화 탐색 · 빠른예매 / 좌석 · 상영일정 · 예매 상태 연결 / 결제 상태 저장 / 회원 · 비회원 조회 분기 / 관리자 운영 / Security 권한 분리 / Flyway</p>
                     </div>
                   </div>
                   <div class="portfolio-cta">
@@ -684,7 +684,7 @@ export const homeMarkup = {
                     <span class="portfolio-year">2025.12</span>
                   </div>
                   <h3 class="portfolio-title">e스포츠 포털 및 경기관리 웹사이트</h3>
-                  <p class="portfolio-description">경기 결과가 <code>finished</code> 상태인 경우에만 순위에 반영되도록 집계 기준을 분리한 Laravel 기반 프로젝트입니다. 팀별 경기 데이터로 승/패·승률·득실차를 계산해 순위표를 갱신하고, 관리자 인증·미들웨어 접근 제어와 slug 기반 뉴스 상세 라우팅이 같은 권한 기준으로 동작하게 했습니다.</p>
+                  <p class="portfolio-description">경기 결과가 <code>finished</code> 상태인 경우에만 순위에 반영되도록 집계 기준을 분리한 Laravel 기반 프로젝트입니다. 팀별 경기 데이터로 승/패 · 승률 · 득실차를 계산해 순위표를 갱신하고, 관리자 인증 · 미들웨어 접근 제어와 slug 기반 뉴스 상세 라우팅이 같은 권한 기준으로 동작하게 했습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -692,7 +692,7 @@ export const homeMarkup = {
                     </div>
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">핵심 기능</span>
-                      <p>finished 경기만 반영하는 순위 집계 / 팀별 승·패·승률·득실차 계산 / 관리자 인증·미들웨어 / slug·썸네일 기반 뉴스 관리</p>
+                      <p>finished 경기만 반영하는 순위 집계 / 팀별 승 · 패 · 승률 · 득실차 계산 / 관리자 인증 · 미들웨어 / slug · 썸네일 기반 뉴스 관리</p>
                     </div>
                   </div>
                   <div class="portfolio-cta">
@@ -729,7 +729,7 @@ export const homeMarkup = {
                     </div>
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">핵심 기능</span>
-                      <p>상품 조회 / 장바구니 / 주문·결제 처리 / 관리자 페이지</p>
+                      <p>상품 조회 / 장바구니 / 주문 · 결제 처리 / 관리자 페이지</p>
                     </div>
                   </div>
                   <div class="portfolio-cta">
@@ -758,7 +758,7 @@ export const homeMarkup = {
                     <span class="portfolio-year">2025.12</span>
                   </div>
                   <h3 class="portfolio-title">베이커리 판매관리 웹사이트</h3>
-                  <p class="portfolio-description">Laravel 기반의 베이커리 판매관리 프로젝트입니다. 제품 ID를 기준으로 재고 수량과 판매 내역을 조회하고, 관리자 화면에서 제품별 재고·판매 상태를 함께 확인하도록 구성했습니다.</p>
+                  <p class="portfolio-description">Laravel 기반의 베이커리 판매관리 프로젝트입니다. 제품 ID를 기준으로 재고 수량과 판매 내역을 조회하고, 관리자 화면에서 제품별 재고 · 판매 상태를 함께 확인하도록 구성했습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -784,8 +784,8 @@ export const homeMarkup = {
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
                       <a href="https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png" class="glightbox action-btn preview-btn" title="Cine21 영화 데이터 상관관계 히트맵"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/allen8524/movie-pca-rating-analysis" class="action-btn" title="Cine21 영화 데이터 PCA·회귀 분석 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-                      <a href="#/projects/movie-analysis" class="action-btn details-btn" title="Cine21 영화 데이터 PCA·회귀 분석 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="https://github.com/allen8524/movie-pca-rating-analysis" class="action-btn" title="Cine21 영화 데이터 PCA · 회귀 분석 GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+                      <a href="#/projects/movie-analysis" class="action-btn details-btn" title="Cine21 영화 데이터 PCA · 회귀 분석 상세 보기"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -794,8 +794,8 @@ export const homeMarkup = {
                     <span class="portfolio-category">데이터 분석 · Python</span>
                     <span class="portfolio-year">2026</span>
                   </div>
-                  <h3 class="portfolio-title">Cine21 영화 데이터 PCA·회귀 분석</h3>
-                  <p class="portfolio-description">Cine21 영화 CSV 데이터를 결측값·이상치 처리 후 정규화하고, PCA·상관분석·선형회귀로 평점과 관객 수 지표의 관계를 분석했습니다. PC1 설명분산비, R², MSE와 시각화 이미지를 남겨 분석 결과를 수치와 그래프로 확인할 수 있게 했습니다.</p>
+                  <h3 class="portfolio-title">Cine21 영화 데이터 PCA · 회귀 분석</h3>
+                  <p class="portfolio-description">Cine21 영화 CSV 데이터를 결측값 · 이상치 처리 후 정규화하고, PCA · 상관분석 · 선형회귀로 평점과 관객 수 지표의 관계를 분석했습니다. PC1 설명분산비, R², MSE와 시각화 이미지를 남겨 분석 결과를 수치와 그래프로 확인할 수 있게 했습니다.</p>
                   <div class="portfolio-proof-list">
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">사용 기술</span>
@@ -840,7 +840,7 @@ export const homeMarkup = {
                     </div>
                     <div class="portfolio-proof-item">
                       <span class="portfolio-proof-label">핵심 기능</span>
-                      <p>플레이어 이동 / 자동 공격 / 적 스폰 / 오브젝트 풀링 / 레벨업 보상 / 생존·사망 결과 처리</p>
+                      <p>플레이어 이동 / 자동 공격 / 적 스폰 / 오브젝트 풀링 / 레벨업 보상 / 생존 · 사망 결과 처리</p>
                     </div>
                   </div>
                   <div class="portfolio-cta">
@@ -929,8 +929,8 @@ export const homeMarkup = {
                 <i class="bi bi-code-slash"></i>
               </div>
               <div class="service-content">
-                <h3><a href="service-order.html">주문·예매 상태 관리</a></h3>
-                <p>쇼핑몰에서는 장바구니와 주문 저장 흐름을, CineFlow에서는 상영 일정 선택부터 좌석 선택, 결제수단 선택, 예매 완료·취소 흐름을 상태 기준으로 연결했습니다.</p>
+                <h3><a href="service-order.html">주문 · 예매 상태 관리</a></h3>
+                <p>쇼핑몰에서는 장바구니와 주문 저장 흐름을, CineFlow에서는 상영 일정 선택부터 좌석 선택, 결제수단 선택, 예매 완료 · 취소 흐름을 상태 기준으로 연결했습니다.</p>
                 <a href="service-order.html" class="read-more">
                   <span>자세히 보기</span>
                   <i class="bi bi-arrow-right"></i>
@@ -946,7 +946,7 @@ export const homeMarkup = {
               </div>
               <div class="service-content">
                 <h3><a href="service-board.html">게시판 및 콘텐츠 관리</a></h3>
-                <p>e스포츠 포털에서 뉴스·공지·패치노트와 팀·선수·경기 데이터를 관리자 등록과 사용자 조회 기준으로 분리했습니다.</p>
+                <p>e스포츠 포털에서 뉴스 · 공지 · 패치노트와 팀 · 선수 · 경기 데이터를 관리자 등록과 사용자 조회 기준으로 분리했습니다.</p>
                 <a href="service-board.html" class="read-more">
                   <span>자세히 보기</span>
                   <i class="bi bi-arrow-right"></i>
@@ -962,7 +962,7 @@ export const homeMarkup = {
               </div>
               <div class="service-content">
                 <h3><a href="service-database.html">DB 설계 및 연동</a></h3>
-                <p>Spring Boot·Laravel·PHP 프로젝트에서 예매·경기·주문 데이터를 관계형 구조로 나누고, Movie PCA에서는 CSV 데이터를 전처리해 분석 가능한 형태로 변환했습니다.</p>
+                <p>Spring Boot · Laravel · PHP 프로젝트에서 예매 · 경기 · 주문 데이터를 관계형 구조로 나누고, Movie PCA에서는 CSV 데이터를 전처리해 분석 가능한 형태로 변환했습니다.</p>
                 <a href="service-database.html" class="read-more">
                   <span>자세히 보기</span>
                   <i class="bi bi-arrow-right"></i>
@@ -1015,7 +1015,7 @@ export const homeMarkup = {
                 <header class="trouble-case-head">
                   <p class="trouble-case-stack">PHP · Bootstrap · MySQL</p>
                   <h3>쇼핑몰 판매관리 프로젝트</h3>
-                  <p>장바구니·주문 데이터 흐름을 기준으로 사용자 주문과 관리자 주문 조회 기준을 일치시킨 사례입니다.</p>
+                  <p>장바구니 · 주문 데이터 흐름을 기준으로 사용자 주문과 관리자 주문 조회 기준을 일치시킨 사례입니다.</p>
                 </header>
                 <ol class="trouble-flow">
                   <li><span>문제 상황</span><p>장바구니에서 주문서로 이동할 때 상품 정보가 누락되어 주문 저장 기준이 화면 흐름과 맞지 않았습니다.</p></li>
@@ -1070,8 +1070,8 @@ export const homeMarkup = {
                   <p>누락 데이터가 있는 상황에서도 조회 화면을 안정적으로 유지하도록 조회 키와 예외 분기를 정리한 사례입니다.</p>
                 </header>
                 <ol class="trouble-flow">
-                  <li><span>문제 상황</span><p>재고·판매 조회 시 제품 기준 키가 맞지 않아 빈 값 또는 예외가 발생했고 화면 신뢰도가 떨어졌습니다.</p></li>
-                  <li><span>원인 분석</span><p>제품·재고·판매 데이터를 연결하는 조회 키가 화면별로 다르게 사용되었습니다.</p></li>
+                  <li><span>문제 상황</span><p>재고 · 판매 조회 시 제품 기준 키가 맞지 않아 빈 값 또는 예외가 발생했고 화면 신뢰도가 떨어졌습니다.</p></li>
+                  <li><span>원인 분석</span><p>제품 · 재고 · 판매 데이터를 연결하는 조회 키가 화면별로 다르게 사용되었습니다.</p></li>
                   <li><span>수정 방향</span><p>제품 중심 조회 조건으로 통일하고 null 분기 처리로 누락 데이터 시에도 응답을 보장했습니다.</p></li>
                   <li><span>결과</span><p>데이터 누락 구간에서도 관리자 화면이 끊기지 않고 동일한 UI 흐름을 유지했습니다.</p></li>
                 </ol>
@@ -1096,10 +1096,10 @@ export const homeMarkup = {
                   <p>상영 일정, 좌석 선택, 결제, 예매 조회가 같은 예매 상태 기준으로 이어지도록 조정한 사례입니다.</p>
                 </header>
                 <ol class="trouble-flow">
-                  <li><span>문제 상황</span><p>상영 일정 선택 후 좌석·결제 단계로 이동할 때 선택값이 분리되어 예매 완료와 조회 화면의 상태 기준이 흔들리는 문제가 있었습니다.</p></li>
+                  <li><span>문제 상황</span><p>상영 일정 선택 후 좌석 · 결제 단계로 이동할 때 선택값이 분리되어 예매 완료와 조회 화면의 상태 기준이 흔들리는 문제가 있었습니다.</p></li>
                   <li><span>원인 분석</span><p>영화, 상영 일정, 좌석, 결제 정보가 단계별 파라미터로 전달되어 저장 이후 기준 데이터가 명확히 묶이지 않았습니다.</p></li>
-                  <li><span>수정 방향</span><p><code>BookingController</code>와 <code>BookingService</code>에서 상영 일정과 좌석 정보를 예매 엔티티 기준으로 묶고, 완료·조회·취소 흐름이 같은 <code>bookingId</code> 상태를 참조하도록 정리했습니다.</p></li>
-                  <li><span>결과</span><p>사용자 예매 완료, 회원·비회원 조회, 관리자 예매 관리가 같은 예매 상태를 기준으로 확인되도록 개선했습니다.</p></li>
+                  <li><span>수정 방향</span><p><code>BookingController</code>와 <code>BookingService</code>에서 상영 일정과 좌석 정보를 예매 엔티티 기준으로 묶고, 완료 · 조회 · 취소 흐름이 같은 <code>bookingId</code> 상태를 참조하도록 정리했습니다.</p></li>
+                  <li><span>결과</span><p>사용자 예매 완료, 회원 · 비회원 조회, 관리자 예매 관리가 같은 예매 상태를 기준으로 확인되도록 개선했습니다.</p></li>
                 </ol>
               </div>
               <aside class="trouble-evidence" aria-label="근거와 처리 흐름">
@@ -1111,7 +1111,7 @@ export const homeMarkup = {
                   <span><code>Booking</code></span><i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                   <span><code>bookingId</code></span>
                 </div>
-                <ul class="trouble-tags"><li>예매 상태 연결</li><li>좌석 선택 기준 유지</li><li>조회·취소 흐름 일치</li></ul>
+                <ul class="trouble-tags"><li>예매 상태 연결</li><li>좌석 선택 기준 유지</li><li>조회 · 취소 흐름 일치</li></ul>
               </aside>
             </article>
           </div>
@@ -1123,7 +1123,7 @@ export const homeMarkup = {
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>연락처</h2>
-        <p>채용·협업 문의는 이메일로 가장 빠르게 확인하며, GitHub와 블로그에서 작업 내용을 이어서 보실 수 있습니다.</p>
+        <p>채용 · 협업 문의는 이메일로 가장 빠르게 확인하며, GitHub와 블로그에서 작업 내용을 이어서 보실 수 있습니다.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -1180,7 +1180,7 @@ export const homeMarkup = {
             <div class="form-wrapper">
               <div class="form-header">
                 <h3>바로 연락하기</h3>
-                <p>이메일 복사와 메일 보내기, GitHub·블로그 바로가기를 한 번에 사용할 수 있습니다.</p>
+                <p>이메일 복사와 메일 보내기, GitHub · 블로그 바로가기를 한 번에 사용할 수 있습니다.</p>
               </div>
 
               <div class="form-group">
@@ -1226,7 +1226,7 @@ export const homeMarkup = {
   footer: `<footer id="footer" class="footer light-background">
     <div class="container">
       <h3 class="sitename">황민서</h3>
-      <p>예매, 주문, 콘텐츠 관리, DB 연동을 중심으로 데이터 분석·모바일·게임 프로젝트까지 구현 흐름을 정리했습니다.</p>
+      <p>예매, 주문, 콘텐츠 관리, DB 연동을 중심으로 데이터 분석 · 모바일 · 게임 프로젝트까지 구현 흐름을 정리했습니다.</p>
       <div class="social-links d-flex justify-content-center">
         <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
         <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>

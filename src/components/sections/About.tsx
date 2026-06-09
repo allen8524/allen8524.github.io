@@ -42,7 +42,7 @@ function About() {
                         </div>
                         <div className="expertise-content">
                           <h4>백엔드 개발</h4>
-                          <p>Spring Boot, Laravel, PHP 기반 예매·주문·관리자 기능 구현</p>
+                          <p>Spring Boot, Laravel, PHP 기반 예매 · 주문 · 관리자 기능 구현</p>
                         </div>
                       </div>
 
@@ -52,7 +52,7 @@ function About() {
                         </div>
                         <div className="expertise-content">
                           <h4>데이터 처리</h4>
-                          <p>MySQL 중심 DB 설계와 Python 기반 CSV 전처리·분석</p>
+                          <p>MySQL 중심 DB 설계와 Python 기반 CSV 전처리 · 분석</p>
                         </div>
                       </div>
 
@@ -62,7 +62,7 @@ function About() {
                         </div>
                         <div className="expertise-content">
                           <h4>구현 확장</h4>
-                          <p>iOS 화면 흐름, Unity 게임 루프, 스터디·문제 풀이 경험</p>
+                          <p>iOS 화면 흐름, Unity 게임 루프, 스터디 · 문제 풀이 경험</p>
                         </div>
                       </div>
                     </div>

@@ -3,22 +3,22 @@ import type { ServiceDetail } from "../types/service";
 export const services: ServiceDetail[] = [
   {
     id: "auth",
-    title: "인증·권한 관리",
-    summary: "로그인·세션·관리자 접근 분리",
+    title: "인증 · 권한 관리",
+    summary: "로그인 · 세션 · 관리자 접근 분리",
     icon: "shield",
     heroTitle: "접근 권한을 분리하는 구조",
     features: [
       {
         icon: "shield",
-        title: "로그인·로그아웃·세션 만료 기준 정리",
+        title: "로그인 · 로그아웃 · 세션 만료 기준 정리",
       },
       {
         icon: "user",
-        title: "사용자·관리자 라우트와 메뉴 분리",
+        title: "사용자 · 관리자 라우트와 메뉴 분리",
       },
       {
         icon: "bug",
-        title: "비로그인·권한 없음·직접 URL 접근 제한",
+        title: "비로그인 · 권한 없음 · 직접 URL 접근 제한",
       },
     ],
     processTitle: "구현 기준",
@@ -29,7 +29,7 @@ export const services: ServiceDetail[] = [
     ],
     evidenceTitle: "대표 근거",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "예매 권한·관리자 접근 분리" },
+      { icon: "film", title: "CineFlow", description: "예매 권한 · 관리자 접근 분리" },
       { icon: "controller", title: "e스포츠 포털", description: "Laravel 관리자 미들웨어" },
       { icon: "cart", title: "쇼핑몰", description: "PHP 세션 로그인" },
     ],
@@ -51,22 +51,22 @@ export const services: ServiceDetail[] = [
   },
   {
     id: "order",
-    title: "예매·주문 흐름 관리",
-    summary: "예매번호·주문번호 기준 저장 흐름 연결",
+    title: "예매 · 주문 흐름 관리",
+    summary: "예매번호 · 주문번호 기준 저장 흐름 연결",
     icon: "ticket",
-    heroTitle: "상태값으로 이어지는 예매·주문 흐름",
+    heroTitle: "상태값으로 이어지는 예매 · 주문 흐름",
     features: [
       {
         icon: "ticket",
-        title: "예매번호·주문번호 기준 저장·조회",
+        title: "예매번호 · 주문번호 기준 저장 · 조회",
       },
       {
         icon: "cart",
-        title: "주문 마스터·상세 항목 분리 저장",
+        title: "주문 마스터 · 상세 항목 분리 저장",
       },
       {
         icon: "bug",
-        title: "결제 완료·조회·취소 값 유지",
+        title: "결제 완료 · 조회 · 취소 값 유지",
       },
     ],
     processTitle: "구현 기준",
@@ -77,9 +77,9 @@ export const services: ServiceDetail[] = [
     ],
     evidenceTitle: "대표 근거",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "예매번호·좌석·결제 연결" },
-      { icon: "cart", title: "쇼핑몰", description: "주문번호·주문 상세 저장" },
-      { icon: "shop", title: "베이커리", description: "제품 ID·재고·판매 확인" },
+      { icon: "film", title: "CineFlow", description: "예매번호 · 좌석 · 결제 연결" },
+      { icon: "cart", title: "쇼핑몰", description: "주문번호 · 주문 상세 저장" },
+      { icon: "shop", title: "베이커리", description: "제품 ID · 재고 · 판매 확인" },
     ],
     sideInfo: [
       {
@@ -100,21 +100,21 @@ export const services: ServiceDetail[] = [
   {
     id: "board",
     title: "관리자 데이터 운영",
-    summary: "영화·경기·뉴스·제품·재고 CRUD 운영",
+    summary: "영화 · 경기 · 뉴스 · 제품 · 재고 CRUD 운영",
     icon: "document",
     heroTitle: "운영 데이터를 관리하는 기준",
     features: [
       {
         icon: "document",
-        title: "등록·목록·수정·삭제 동작 분리",
+        title: "등록 · 목록 · 수정 · 삭제 동작 분리",
       },
       {
         icon: "search",
-        title: "필수값·날짜·상태값·이미지 조건 확인",
+        title: "필수값 · 날짜 · 상태값 · 이미지 조건 확인",
       },
       {
         icon: "trophy",
-        title: "공개 여부·종료 경기·재고 표시 조건 정리",
+        title: "공개 여부 · 종료 경기 · 재고 표시 조건 정리",
       },
     ],
     processTitle: "구현 기준",
@@ -125,9 +125,9 @@ export const services: ServiceDetail[] = [
     ],
     evidenceTitle: "대표 근거",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "영화·극장·상영일정 운영" },
-      { icon: "controller", title: "e스포츠 포털", description: "뉴스·팀·선수·경기 운영" },
-      { icon: "shop", title: "베이커리", description: "제품·재고·판매 운영" },
+      { icon: "film", title: "CineFlow", description: "영화 · 극장 · 상영일정 운영" },
+      { icon: "controller", title: "e스포츠 포털", description: "뉴스 · 팀 · 선수 · 경기 운영" },
+      { icon: "shop", title: "베이커리", description: "제품 · 재고 · 판매 운영" },
     ],
     sideInfo: [
       {
@@ -148,21 +148,21 @@ export const services: ServiceDetail[] = [
   {
     id: "database",
     title: "DB 설계 및 데이터 처리",
-    summary: "JPA·Flyway·MySQL·CSV 분석 데이터 정리",
+    summary: "JPA · Flyway · MySQL · CSV 분석 데이터 정리",
     icon: "database",
     heroTitle: "기능 요구사항을 데이터 구조로 정리",
     features: [
       {
         icon: "database",
-        title: "PK·FK·상태값·조회 조건 분리",
+        title: "PK · FK · 상태값 · 조회 조건 분리",
       },
       {
         icon: "database",
-        title: "Flyway 변경 이력·초기 데이터 관리",
+        title: "Flyway 변경 이력 · 초기 데이터 관리",
       },
       {
         icon: "chart",
-        title: "CSV 정제 후 PCA·회귀분석 수행",
+        title: "CSV 정제 후 PCA · 회귀분석 수행",
       },
     ],
     processTitle: "구현 기준",
@@ -173,9 +173,9 @@ export const services: ServiceDetail[] = [
     ],
     evidenceTitle: "대표 근거",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "JPA·Flyway" },
-      { icon: "controller", title: "e스포츠 포털", description: "MySQL JOIN·집계" },
-      { icon: "chart", title: "Movie PCA", description: "CSV 전처리·PCA·회귀분석" },
+      { icon: "film", title: "CineFlow", description: "JPA · Flyway" },
+      { icon: "controller", title: "e스포츠 포털", description: "MySQL JOIN · 집계" },
+      { icon: "chart", title: "Movie PCA", description: "CSV 전처리 · PCA · 회귀분석" },
     ],
     sideInfo: [
       {
@@ -189,8 +189,8 @@ export const services: ServiceDetail[] = [
     ],
     relatedProjects: [
       { label: "CineFlow 영화 예매 관리 시스템", description: "JPA/Flyway", projectId: "cineflow" },
-      { label: "e스포츠 포털 및 경기관리 웹사이트", description: "JOIN·집계", projectId: "esports" },
-      { label: "Cine21 영화 데이터 PCA·회귀 분석", description: "CSV 분석", projectId: "movie-analysis" },
+      { label: "e스포츠 포털 및 경기관리 웹사이트", description: "JOIN · 집계", projectId: "esports" },
+      { label: "Cine21 영화 데이터 PCA · 회귀 분석", description: "CSV 분석", projectId: "movie-analysis" },
     ],
   },
 ];

@@ -14,9 +14,9 @@ function Hero() {
 
               <p className="hero-description portfolio-intro-text" data-aos="fade-up" data-aos-delay="300">
                 <span>Spring Boot · Laravel · PHP 기반 프로젝트</span>
-                <span>예매·주문·게시판·관리자 기능 구현</span>
+                <span>예매 · 주문 · 게시판 · 관리자 기능 구현</span>
                 <span>DB 연동과 서비스 로직 중심 데이터 흐름 정리</span>
-                <span>데이터 분석·iOS·Unity 프로젝트 확장 경험 보유</span>
+                <span>데이터 분석 · iOS · Unity 프로젝트 확장 경험 보유</span>
               </p>
 
               <div className="hero-actions" data-aos="fade-up" data-aos-delay="400">

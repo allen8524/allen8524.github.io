@@ -4,24 +4,24 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "cineflow",
     period: "2026년",
-    role: "예매 상태 처리, 좌석·상영일정·결제 연결, 회원·비회원 조회 분기, 관리자 운영, Flyway 마이그레이션",
+    role: "예매 상태 처리, 좌석 · 상영일정 · 결제 연결, 회원 · 비회원 조회 분기, 관리자 운영, Flyway 마이그레이션",
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
     purpose: [
-      "영화 선택부터 예매 완료·조회·취소까지 상태 흐름 연결",
+      "영화 선택부터 예매 완료 · 조회 · 취소까지 상태 흐름 연결",
       "사용자, 비회원, 관리자 영역을 Spring Security 기준으로 분리",
-      "영화·극장·상영관·좌석·예매·결제·회원 테이블 변경 이력 관리",
+      "영화 · 극장 · 상영관 · 좌석 · 예매 · 결제 · 회원 테이블 변경 이력 관리",
     ],
     responsibilities: [
       "빠른예매, 좌석 선택, 결제, 예매 완료 흐름 구현",
-      "회원·비회원 예매 조회 분기와 취소 상태 처리",
-      "관리자 영화·극장·상영관·상영일정 운영 기능 구성",
+      "회원 · 비회원 예매 조회 분기와 취소 상태 처리",
+      "관리자 영화 · 극장 · 상영관 · 상영일정 운영 기능 구성",
       "Spring Security 기반 접근 권한 분리",
       "Flyway 기반 DB 변경 이력과 seed 데이터 관리",
     ],
     dataFlow: [
-      "영화 선택 → 극장·날짜·상영회차 선택 → 좌석 선택 → 결제수단 저장 → 예매 완료",
+      "영화 선택 → 극장 · 날짜 · 상영회차 선택 → 좌석 선택 → 결제수단 저장 → 예매 완료",
       "회원은 계정 기준, 비회원은 예매번호와 연락처 기준 조회",
-      "관리자 화면은 영화·극장·상영일정·예매 상태 운영",
+      "관리자 화면은 영화 · 극장 · 상영일정 · 예매 상태 운영",
     ],
     implementationPoints: [
       {
@@ -29,12 +29,12 @@ export const projectDetails: ProjectDetail[] = [
         description: "상영일정 ID, 좌석 상태, 예매번호, 결제 상태를 하나의 서비스 흐름으로 연결",
       },
       {
-        title: "회원·비회원 조회 분기",
+        title: "회원 · 비회원 조회 분기",
         description: "회원은 계정 기준, 비회원은 예매번호와 연락처 기준 조회",
       },
       {
         title: "관리자 운영 기능",
-        description: "영화·극장·상영관·상영일정 생성·수정·비활성화와 예매 현황 관리",
+        description: "영화 · 극장 · 상영관 · 상영일정 생성 · 수정 · 비활성화와 예매 현황 관리",
       },
       {
         title: "TMDB fallback/cache",
@@ -48,11 +48,11 @@ export const projectDetails: ProjectDetail[] = [
     troubleshooting: [
       {
         title: "좌석과 예매 상태 불일치 방지",
-        description: "결제와 예매 완료 단계에서 같은 상영일정·좌석 상태 참조",
+        description: "결제와 예매 완료 단계에서 같은 상영일정 · 좌석 상태 참조",
       },
       {
         title: "운영 데이터 보호",
-        description: "예매가 연결된 상영일정·상영관 수정 범위 제한",
+        description: "예매가 연결된 상영일정 · 상영관 수정 범위 제한",
       },
     ],
     resultLinks: [
@@ -72,23 +72,23 @@ export const projectDetails: ProjectDetail[] = [
     role: "포털 화면 구성, 도메인별 CRUD, 경기 결과 기반 순위 집계, 관리자 대시보드 연결",
     heroImage: "assets/img/portfolio/esports_main.png",
     purpose: [
-      "선수·팀·경기·뉴스·패치노트 데이터를 포털 화면과 관리자 화면으로 분리",
+      "선수 · 팀 · 경기 · 뉴스 · 패치노트 데이터를 포털 화면과 관리자 화면으로 분리",
       "라우팅, 인증, 권한 제어 흐름 학습 목적의 Laravel 프로젝트",
     ],
     responsibilities: [
-      "팀·선수·경기·뉴스 데이터 사용자/관리자 화면 분리",
+      "팀 · 선수 · 경기 · 뉴스 데이터 사용자/관리자 화면 분리",
       "finished 경기만 순위표 집계에 반영",
       "관리자 인증과 미들웨어 접근 제어 구성",
-      "slug와 썸네일 기반 뉴스 목록·상세 라우팅 구현",
+      "slug와 썸네일 기반 뉴스 목록 · 상세 라우팅 구현",
     ],
     dataFlow: [
-      "경기 결과 입력 → finished 확인 → 승·패·승률·득실차 계산 → 순위표 갱신",
-      "뉴스 등록 → slug 생성 → 사용자 목록·상세 화면 노출",
+      "경기 결과 입력 → finished 확인 → 승 · 패 · 승률 · 득실차 계산 → 순위표 갱신",
+      "뉴스 등록 → slug 생성 → 사용자 목록 · 상세 화면 노출",
     ],
     implementationPoints: [
       {
         title: "finished 경기 기준 순위 집계",
-        description: "종료 경기만 순위 반영, 팀별 승·패·승률·득실차 계산",
+        description: "종료 경기만 순위 반영, 팀별 승 · 패 · 승률 · 득실차 계산",
       },
       {
         title: "관리자 인증과 미들웨어",
@@ -106,7 +106,7 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         title: "관리자 접근 범위 분리",
-        description: "인증·미들웨어 기준으로 사용자 화면과 관리자 화면 책임 분리",
+        description: "인증 · 미들웨어 기준으로 사용자 화면과 관리자 화면 책임 분리",
       },
     ],
     gallery: [
@@ -119,14 +119,14 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "shopping",
     period: "2025년 6월",
-    role: "상품 조회, 장바구니, 주문·결제, 사용자 주문 조회, 관리자 주문 관리",
+    role: "상품 조회, 장바구니, 주문 · 결제, 사용자 주문 조회, 관리자 주문 관리",
     heroImage: "assets/img/portfolio/shopping_main.png",
     purpose: [
       "상품 조회부터 장바구니, 주문, 관리자 주문 관리까지 판매관리 흐름 구현",
       "주문번호 기준으로 사용자 주문 조회와 관리자 주문 관리 연결",
     ],
     responsibilities: [
-      "상품 목록·상세 조회와 옵션 선택 구현",
+      "상품 목록 · 상세 조회와 옵션 선택 구현",
       "장바구니 데이터를 주문서 작성 단계로 전달",
       "주문번호 기준 주문 마스터 1건과 주문 상세 N건 저장",
       "사용자 주문 조회와 관리자 주문 관리 화면 연결",
@@ -141,14 +141,14 @@ export const projectDetails: ProjectDetail[] = [
         description: "주문번호 기준 주문 단위와 상품 단위 저장 구조 분리",
       },
       {
-        title: "사용자·관리자 주문 조회 연결",
+        title: "사용자 · 관리자 주문 조회 연결",
         description: "사용자 주문 조회와 관리자 주문 관리 기준 일치",
       },
     ],
     troubleshooting: [
       {
         title: "주문 데이터 기준 통일",
-        description: "주문번호 기준으로 마스터·상세 데이터를 함께 저장해 조회 기준 유지",
+        description: "주문번호 기준으로 마스터 · 상세 데이터를 함께 저장해 조회 기준 유지",
       },
     ],
     gallery: [
@@ -171,8 +171,8 @@ export const projectDetails: ProjectDetail[] = [
     responsibilities: [
       "제품 등록과 수정 화면 구성",
       "제품 기준 재고 수량 조회",
-      "판매 내역과 매입·매출 장부 확인 화면 구성",
-      "제품별 재고·판매 상태 확인 흐름 정리",
+      "판매 내역과 매입 · 매출 장부 확인 화면 구성",
+      "제품별 재고 · 판매 상태 확인 흐름 정리",
     ],
     dataFlow: [
       "제품 등록 → 제품 ID 기준 재고 연결 → 판매 내역 조회 → 통계 화면 확인",
@@ -180,7 +180,7 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "제품 기준 재고·판매 연결",
+        title: "제품 기준 재고 · 판매 연결",
         description: "제품 ID 중심으로 재고 수량과 판매 내역 조회",
       },
       {
@@ -238,12 +238,12 @@ export const projectDetails: ProjectDetail[] = [
     heroImage:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/poster_202212004_hwang_minseo.png",
     purpose: [
-      "Cine21 영화 CSV 데이터 전처리 후 PCA·상관분석·선형회귀 수행",
+      "Cine21 영화 CSV 데이터 전처리 후 PCA · 상관분석 · 선형회귀 수행",
       "PC1 설명분산비, R², MSE와 시각화 이미지로 분석 결과 정리",
     ],
     responsibilities: [
       "오프라인 CSV 기준 분석 파이프라인 구성",
-      "문자열·수치형 결측값 처리",
+      "문자열 · 수치형 결측값 처리",
       "IQR 기반 이상치 완화와 MinMax 정규화",
       "PCA, 상관분석, PC1 기반 선형회귀 실행",
       "분석 결과 이미지와 요약 파일 저장",
@@ -255,7 +255,7 @@ export const projectDetails: ProjectDetail[] = [
       {
         label: "PCA",
         value: "PC1 설명분산비 확인",
-        description: "수치형 지표 축약 후 평점·관객 수 관계 검토",
+        description: "수치형 지표 축약 후 평점 · 관객 수 관계 검토",
       },
       {
         label: "상관분석",
@@ -271,7 +271,7 @@ export const projectDetails: ProjectDetail[] = [
     implementationPoints: [
       {
         title: "전처리 파이프라인",
-        description: "결측값·이상치 처리 후 MinMax 정규화 적용",
+        description: "결측값 · 이상치 처리 후 MinMax 정규화 적용",
       },
       {
         title: "PCA와 회귀분석",
@@ -324,18 +324,18 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "undead-survivor",
     period: "2026년",
-    role: "플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 생존·사망 결과 처리",
+    role: "플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 생존 · 사망 결과 처리",
     heroImage: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
     purpose: [
       "Unity와 C# 기반 Android 생존형 액션 게임 핵심 루프 구현",
-      "PoolManager 기반 적·투사체 재사용으로 반복 생성 비용 절감",
+      "PoolManager 기반 적 · 투사체 재사용으로 반복 생성 비용 절감",
     ],
     responsibilities: [
       "플레이어 이동과 캐릭터 선택 흐름 구현",
       "주변 적 탐지 기반 자동 공격 처리",
       "진행 시간 기반 적 스폰과 난이도 흐름 구성",
       "Object Pooling으로 적과 투사체 재사용",
-      "레벨업 보상과 생존·사망 결과 화면 연결",
+      "레벨업 보상과 생존 · 사망 결과 화면 연결",
     ],
     dataFlow: [
       "캐릭터 선택 → 게임 시작 → 이동 → 자동 공격 → 적 스폰 → 경험치 획득 → 레벨업 → 결과 화면",
@@ -358,7 +358,7 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         title: "레벨업과 결과 화면",
-        description: "생존 시간, 레벨업 보상, 생존·사망 결과 화면 연결",
+        description: "생존 시간, 레벨업 보상, 생존 · 사망 결과 화면 연결",
       },
     ],
     troubleshooting: [
@@ -405,7 +405,7 @@ export const projectDetails: ProjectDetail[] = [
     heroImage: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
     purpose: [
       "BMI 계산, 운동 정보 탐색, 영상 재생, 운동 계획 설정을 탭 구조로 연결",
-      "BMI 결과 이후 운동 정보·영상·계획 화면으로 이어지는 흐름 구성",
+      "BMI 결과 이후 운동 정보 · 영상 · 계획 화면으로 이어지는 흐름 구성",
     ],
     responsibilities: [
       "BMI 입력값 검증과 계산 결과 화면 구성",
@@ -415,7 +415,7 @@ export const projectDetails: ProjectDetail[] = [
       "운동 강도, 시간, 세트 수 입력 화면 구성",
     ],
     dataFlow: [
-      "키·체중 입력 → 입력값 검증 → 성별 기준 BMI 판정 → 결과 표시 → 운동 정보·영상·계획 탭 이동",
+      "키 · 체중 입력 → 입력값 검증 → 성별 기준 BMI 판정 → 결과 표시 → 운동 정보 · 영상 · 계획 탭 이동",
     ],
     learned: [
       "입력 검증을 계산 로직 앞에 두어 잘못된 값 전파 방지",
@@ -424,7 +424,7 @@ export const projectDetails: ProjectDetail[] = [
     implementationPoints: [
       {
         title: "BMI 입력 검증과 결과 UI",
-        description: "키·체중 입력값 검증, 성별 기준 BMI 판정, 결과 문구와 UI 피드백 표시",
+        description: "키 · 체중 입력값 검증, 성별 기준 BMI 판정, 결과 문구와 UI 피드백 표시",
       },
       {
         title: "WebKit과 AVKit 화면",
@@ -432,7 +432,7 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         title: "운동 계획 설정",
-        description: "UISlider, UIStepper, UISegmentedControl로 운동 강도·시간·세트 수 조정",
+        description: "UISlider, UIStepper, UISegmentedControl로 운동 강도 · 시간 · 세트 수 조정",
       },
     ],
     troubleshooting: [

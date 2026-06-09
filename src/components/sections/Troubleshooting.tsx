@@ -26,7 +26,7 @@ const troubleCases: TroubleCase[] = [
     keyword: "주문 흐름 정합성",
     stack: "PHP · Bootstrap · MySQL",
     heading: "쇼핑몰 판매관리 프로젝트",
-    summary: "장바구니·주문 데이터 기준 통일 사례",
+    summary: "장바구니 · 주문 데이터 기준 통일 사례",
     evidenceTitle: "근거 & 저장 흐름",
     evidenceNote: "주문번호 기준으로 화면 흐름과 저장 기준 일치",
     pipeline: ["cart.php", "order.php", "order_ok.php"],
@@ -102,11 +102,11 @@ const troubleCases: TroubleCase[] = [
     flow: [
       {
         label: "문제 상황",
-        description: "재고·판매 조회 시 빈 값 또는 예외 발생",
+        description: "재고 · 판매 조회 시 빈 값 또는 예외 발생",
       },
       {
         label: "원인 분석",
-        description: "제품·재고·판매 조회 키가 화면별로 분리",
+        description: "제품 · 재고 · 판매 조회 키가 화면별로 분리",
       },
       {
         label: "수정 방향",
@@ -124,15 +124,15 @@ const troubleCases: TroubleCase[] = [
     keyword: "예매 상태 정합성",
     stack: "Spring Boot · JPA · Security · MySQL",
     heading: "CineFlow 영화 예매 관리 시스템",
-    summary: "상영일정·좌석·결제·예매 조회 상태 연결 사례",
+    summary: "상영일정 · 좌석 · 결제 · 예매 조회 상태 연결 사례",
     evidenceTitle: "근거 & 처리 흐름",
     evidenceNote: "예약 식별자와 상태값 기준 통일",
     pipeline: ["BookingController", "BookingService", "Booking", "bookingId"],
-    tags: ["예매 상태 연결", "좌석 선택 기준 유지", "조회·취소 흐름 일치"],
+    tags: ["예매 상태 연결", "좌석 선택 기준 유지", "조회 · 취소 흐름 일치"],
     flow: [
       {
         label: "문제 상황",
-        description: "상영일정 선택 후 좌석·결제 단계에서 선택값 기준 분리",
+        description: "상영일정 선택 후 좌석 · 결제 단계에서 선택값 기준 분리",
       },
       {
         label: "원인 분석",
@@ -148,7 +148,7 @@ const troubleCases: TroubleCase[] = [
       },
       {
         label: "결과",
-        description: "예매 완료, 회원·비회원 조회, 관리자 예매 관리 기준 일치",
+        description: "예매 완료, 회원 · 비회원 조회, 관리자 예매 관리 기준 일치",
       },
     ],
   },
