@@ -32,6 +32,33 @@
   flex-direction: column;
 }
 
+.portfolio .portfolio-description-list {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio .portfolio-description-list li {
+  position: relative;
+  padding-left: 0.95rem;
+  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  font-size: 15px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.portfolio .portfolio-description-list li::before {
+  position: absolute;
+  top: 0.78em;
+  left: 0;
+  width: 5px;
+  height: 1px;
+  background: var(--accent-color);
+  content: "";
+}
+
 .portfolio .portfolio-proof-list {
   flex: 1;
 }
