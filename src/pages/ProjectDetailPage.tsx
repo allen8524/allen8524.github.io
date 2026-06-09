@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ProjectDetailHero from "../components/project-detail/ProjectDetailHero";
 import ProjectGallery from "../components/project-detail/ProjectGallery";
 import ProjectImplementation from "../components/project-detail/ProjectImplementation";
@@ -44,20 +44,6 @@ function ProjectDetailPage() {
     <>
       <Header />
       <main className="main">
-        <div className="page-title dark-background">
-          <div className="container d-lg-flex justify-content-between align-items-center">
-            <h1>{project.title}</h1>
-            <nav className="breadcrumbs">
-              <ol>
-                <li>
-                  <Link to="/">홈</Link>
-                </li>
-                <li className="current">{project.title}</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-
         <section id="portfolio-details" className="portfolio-details section">
           <div className="container">
             <ProjectDetailHero detail={detail} project={project} />
