@@ -1,4 +1,5 @@
 import type { Project, ProjectDetail } from "../../types/project";
+import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectResultLinksProps = {
   project: Project;
@@ -20,7 +21,7 @@ function ProjectResultLinks({ detail, project }: ProjectResultLinksProps) {
       <div className="project-detail-links">
         {links.map((link) => (
           <a href={link.url} target="_blank" rel="noopener noreferrer" key={`${link.label}-${link.url}`}>
-            {link.label}
+            {formatMiddleDotSpacing(link.label)}
           </a>
         ))}
       </div>
