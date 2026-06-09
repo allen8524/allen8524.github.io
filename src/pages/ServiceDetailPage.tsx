@@ -37,8 +37,12 @@ function ServiceDetailPage() {
             <div className="row gy-5">
               <div className="col-lg-8">
                 <div className="service-content">
-                  <div className="service-hero service-animate-hero" data-aos="fade-up" data-aos-delay="200">
+                  <div className="service-hero-title service-animate-hero" data-aos="fade-up" data-aos-delay="200">
+                    <span>{service.title}</span>
                     <h2>{service.heroTitle}</h2>
+                  </div>
+
+                  <div className="service-hero service-animate-card" data-aos="fade-up" data-aos-delay="250">
                     <div className="features-list service-hero-features">
                       {service.features.map((feature) => (
                         <div className="feature-item service-animate-card" key={feature.title}>

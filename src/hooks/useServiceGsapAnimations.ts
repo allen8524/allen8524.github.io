@@ -76,7 +76,7 @@ function animateHero(root: HTMLElement) {
     return;
   }
 
-  const heroItems = getAll<HTMLElement>(hero as HTMLElement, "h2, .lead");
+  const heroItems = getAll<HTMLElement>(hero as HTMLElement, "span, h2, .lead");
   const timeline = gsap.timeline({ defaults: { ease: timing.ease } });
 
   timeline
