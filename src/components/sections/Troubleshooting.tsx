@@ -154,23 +154,15 @@ function Troubleshooting() {
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="troubleshooting-showcase">
-          <div className="trouble-summary-panel">
-            <span className="trouble-summary-eyebrow">Problem Solving</span>
-            <h2>문제를 기능 단위가 아니라 데이터 흐름 기준으로 다시 정리했습니다.</h2>
-            <p>
-              화면에서 보이는 오류를 바로 수정하기보다 저장 기준, 조회 조건, 상태값이 어디서 어긋났는지 먼저 확인했습니다.
-            </p>
-          </div>
-
           <div className="trouble-card-grid">
-            {troubleCases.map((item, index) => (
-              <article className={`trouble-card${index === 0 ? " trouble-card--featured" : ""}`} key={item.id}>
+            {troubleCases.map((item) => (
+              <article className="trouble-card" key={item.id}>
                 <header className="trouble-card-head">
-                  <div>
-                    <p className="trouble-card-stack">{item.stack}</p>
+                  <p className="trouble-card-stack">{item.stack}</p>
+                  <div className="trouble-card-title-row">
                     <h3>{item.label}</h3>
+                    <span>{item.keyword}</span>
                   </div>
-                  <span className="trouble-card-badge">{item.keyword}</span>
                 </header>
 
                 <p className="trouble-card-title">{item.heading}</p>
