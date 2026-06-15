@@ -149,7 +149,7 @@
   }
 
   function applyBakeryScreenshots() {
-    const bakeryCard = findLinkByHrefPart('portfolio-bakery.html')?.closest('.portfolio-card');
+    const bakeryCard = findLinkByHrefPart('#/projects/bakery')?.closest('.portfolio-card');
 
     if (bakeryCard) {
       setProjectImage(
@@ -165,7 +165,7 @@
     }
 
     const isBakeryDetailPage = document.body.classList.contains('portfolio-details-page') &&
-      window.location.pathname.endsWith('portfolio-bakery.html');
+      window.location.hash === '#/projects/bakery';
 
     if (!isBakeryDetailPage) {
       return;
