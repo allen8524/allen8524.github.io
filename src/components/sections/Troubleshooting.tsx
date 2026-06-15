@@ -11,7 +11,6 @@ type TroubleCase = {
   keyword: string;
   stack: string;
   heading: string;
-  summary: string;
   pipeline: string[];
   tags: string[];
   flow: TroubleFlow[];
@@ -24,7 +23,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "주문 흐름 정합성",
     stack: "PHP · Bootstrap · MySQL",
     heading: "장바구니 → 주문 저장 기준 통일",
-    summary: "주문번호 기준의 화면 이동 · 저장 흐름 정리",
     pipeline: ["cart.php", "order.php", "order_ok.php"],
     tags: ["장바구니 기준 정렬", "주문번호 중심 저장", "관리자 조회 일치"],
     flow: [
@@ -56,7 +54,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "순위 반영 지연 개선",
     stack: "Laravel · Blade · MySQL · Ajax",
     heading: "경기 결과 → 순위표 갱신 기준 정리",
-    summary: "경기 상태와 Ajax 응답 규격 통일",
     pipeline: ["routes/web.php", "admin/matches", "rank update"],
     tags: ["JSON 응답 통일", "finished 정렬", "순위표 동기화"],
     flow: [
@@ -88,7 +85,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "누락 데이터 예외 대응",
     stack: "Laravel · Blade · MySQL",
     heading: "제품 조회 키와 null 분기 정리",
-    summary: "재고 · 판매 화면 흐름 안정화",
     pipeline: ["Controllers", "Views", "Migrations"],
     tags: ["조회 키 통일", "null 분기 처리", "화면 응답 유지"],
     flow: [
@@ -116,7 +112,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "예매 상태 정합성",
     stack: "Spring Boot · JPA · Security · MySQL",
     heading: "상영일정 · 좌석 · 결제 · 조회 흐름 연결",
-    summary: "예매 엔티티와 식별자 기준으로 상태값 정리",
     pipeline: ["BookingController", "BookingService", "Booking", "bookingId"],
     tags: ["예매 상태 연결", "좌석 선택 기준 유지", "조회 · 취소 흐름 일치"],
     flow: [
@@ -166,7 +161,6 @@ function Troubleshooting() {
                 </header>
 
                 <p className="trouble-card-title">{item.heading}</p>
-                <p className="trouble-card-summary">{item.summary}</p>
 
                 <ol className="trouble-card-flow">
                   {item.flow.map((flow) => (
