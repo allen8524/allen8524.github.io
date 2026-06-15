@@ -146,7 +146,7 @@ const troubleCases: TroubleCase[] = [
 
 function Troubleshooting() {
   return (
-    <section id="testimonials" className="testimonials section light-background">
+    <section id="testimonials" className="testimonials section">
       <div className="container section-title" data-aos="fade-up">
         <h1>트러블슈팅</h1>
         <p>구현 중 발생한 문제를 원인, 수정 방향, 결과 중심으로 정리했습니다.</p>
