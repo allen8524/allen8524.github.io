@@ -7,6 +7,8 @@ export const services: ServiceDetail[] = [
     summary: "로그인 · 세션 · 관리자 접근 분리",
     icon: "shield",
     heroTitle: "접근 권한을 분리하는 구조",
+    image: "assets/img/portfolio/cineflow-admin.png",
+    imageAlt: "CineFlow 관리자 접근 권한 분리 화면",
     features: [
       {
         icon: "shield",
@@ -55,6 +57,8 @@ export const services: ServiceDetail[] = [
     summary: "예매번호 · 주문번호 기준 저장 흐름 연결",
     icon: "ticket",
     heroTitle: "상태값으로 이어지는 예매 · 주문 흐름",
+    image: "assets/img/portfolio/cineflow-booking-gallery.png",
+    imageAlt: "CineFlow 빠른예매와 좌석 선택 진행 화면",
     features: [
       {
         icon: "ticket",
@@ -103,6 +107,8 @@ export const services: ServiceDetail[] = [
     summary: "영화 · 경기 · 뉴스 · 제품 · 재고 CRUD 운영",
     icon: "document",
     heroTitle: "운영 데이터를 관리하는 기준",
+    image: "assets/img/portfolio/cineflow-admin-gallery.png",
+    imageAlt: "CineFlow 관리자 상영일정 데이터 운영 화면",
     features: [
       {
         icon: "document",
@@ -151,6 +157,8 @@ export const services: ServiceDetail[] = [
     summary: "JPA · Flyway · MySQL · CSV 분석 데이터 정리",
     icon: "database",
     heroTitle: "기능 요구사항을 데이터 구조로 정리",
+    image: "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
+    imageAlt: "Cine21 영화 데이터 상관관계 분석 결과 화면",
     features: [
       {
         icon: "database",
@@ -168,7 +176,7 @@ export const services: ServiceDetail[] = [
     processTitle: "구현 기준",
     processSteps: [
       { title: "키 정의", description: "기능에 필요한 기준 키 선정." },
-      { title: "관계 설계", description: "조회와 저장 기준에 맞춰 테이블 연결." },
+      { title: "관계 설계", description: "조회와 저장 기준에 맞춰테이블 연결." },
       { title: "입력 정제", description: "결측값, 이상치, 스케일 차이 처리." },
     ],
     evidenceTitle: "대표 근거",
