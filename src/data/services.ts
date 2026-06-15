@@ -176,7 +176,7 @@ export const services: ServiceDetail[] = [
     processTitle: "구현 기준",
     processSteps: [
       { title: "키 정의", description: "기능에 필요한 기준 키 선정." },
-      { title: "관계 설계", description: "조회와 저장 기준에 맞춰테이블 연결." },
+      { title: "관계 설계", description: "조회와 저장 기준에 맞춰 테이블 연결." },
       { title: "입력 정제", description: "결측값, 이상치, 스케일 차이 처리." },
     ],
     evidenceTitle: "대표 근거",
