@@ -6,35 +6,36 @@
 .testimonials .trouble-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  gap: 34px 42px;
 }
 
 .testimonials .trouble-card {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: 26px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-  border-radius: 8px;
-  background: transparent;
-  box-shadow: none;
+  padding: 0 0 28px;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .testimonials .trouble-card:hover {
   transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 66%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 72%);
 }
 
 .testimonials .trouble-card-head {
-  padding-bottom: 18px;
+  padding-bottom: 14px;
   margin-bottom: 18px;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 91%);
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
 }
 
 .testimonials .trouble-card-stack {
   margin: 0 0 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  color: color-mix(in srgb, var(--default-color), transparent 38%);
   font-family: var(--font-label);
   font-size: 0.78rem;
   font-weight: 500;
@@ -113,7 +114,7 @@
   align-items: start;
   margin: 0;
   padding: 11px 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
 }
 
 .testimonials .trouble-card-flow li:first-child {
@@ -153,7 +154,7 @@
   gap: 0;
   margin: auto 0 0;
   padding-top: 20px;
-  color: color-mix(in srgb, var(--default-color), transparent 32%);
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
   font-family: var(--font-label);
   font-size: 0.78rem;
   font-weight: 400;
@@ -169,7 +170,7 @@
 
 .testimonials .trouble-card-pipeline i {
   margin: 0 5px;
-  color: color-mix(in srgb, var(--accent-color), transparent 18%);
+  color: color-mix(in srgb, var(--accent-color), transparent 22%);
   font-size: 0.9rem;
   line-height: 1;
 }
@@ -180,12 +181,12 @@
   gap: 8px 10px;
   margin: 12px 0 0;
   padding: 14px 0 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
   list-style: none;
 }
 
 .testimonials .trouble-card-tags li {
-  color: color-mix(in srgb, var(--default-color), transparent 38%);
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
   font-family: var(--font-label);
   font-size: 0.76rem;
   font-weight: 400;
@@ -206,7 +207,7 @@
 
 @media (max-width: 575px) {
   .testimonials .trouble-card {
-    padding: 20px;
+    padding-bottom: 24px;
   }
 
   .testimonials .trouble-card-title-row {
