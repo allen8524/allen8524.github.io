@@ -32,17 +32,25 @@ src/
   App.tsx
   main.tsx
   components/
+    common/
     portfolio/
+    project-detail/
+    service-detail/
     sections/
   data/
+    homeMarkup.ts
     projectDetails.ts
     projects.ts
+    services.ts
   pages/
     HomePage.tsx
     NotFoundPage.tsx
     ProjectDetailPage.tsx
+    ServiceDetailPage.tsx
   styles/
   types/
+    project.ts
+    service.ts
 ```
 
 ## Main Features
@@ -50,7 +58,9 @@ src/
 - React component-based home page
 - TypeScript-driven project cards
 - React state-based project filtering
-- React Router project detail pages at `/projects/:projectId`
+- React Router project detail pages at `/#/projects/:projectId`
+- React Router service detail pages at `/#/services/:serviceId`
+- TypeScript data modules for project and service detail content
 - HashRouter-based routing for GitHub Pages refresh compatibility
 - React state-based mobile sidebar, ScrollTop button, current-section highlighting, and image preview modal
 - Preserved legacy visual assets under `assets/`
