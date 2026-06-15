@@ -85,6 +85,8 @@ npm run deploy
 
 GitHub repository settings에서 Pages source를 GitHub Actions로 설정하면 workflow가 `npm ci`, `npm run build`, artifact upload, Pages deploy 순서로 실행됩니다.
 
-## Legacy Files
+## Legacy Cleanup
 
-기존 정적 HTML 파일과 `assets/`는 전환 과정에서 참고 및 호환을 위해 남겨두었습니다. React 앱의 메인 흐름은 `src/` 아래 컴포넌트와 TypeScript 데이터 파일을 기준으로 동작합니다.
+기존 정적 HTML 기반 페이지는 React 전환 이후 제거했습니다.
+
+현재 포트폴리오의 메인 흐름은 `src/` 아래 React 컴포넌트와 TypeScript 데이터 파일을 기준으로 동작합니다. `assets/`는 프로젝트 이미지, 아이콘, 이력서 PDF 등 정적 리소스 보관 용도로 유지합니다.
