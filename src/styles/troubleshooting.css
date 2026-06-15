@@ -1,3 +1,14 @@
+.testimonials {
+  background: var(--background-color) !important;
+}
+
+.testimonials::before {
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+  content: none !important;
+}
+
 .testimonials .troubleshooting-showcase {
   max-width: 1080px;
   margin: 0 auto;
