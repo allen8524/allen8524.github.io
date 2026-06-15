@@ -14,17 +14,16 @@
   flex-direction: column;
   min-height: 100%;
   padding: 26px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--background-color), var(--surface-color) 18%);
+  background: transparent;
   box-shadow: none;
-  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .testimonials .trouble-card:hover {
   transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 64%);
-  background: color-mix(in srgb, var(--background-color), var(--surface-color) 24%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 66%);
 }
 
 .testimonials .trouble-card-head {
