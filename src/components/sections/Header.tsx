@@ -102,16 +102,6 @@ function Header() {
 
       <div className="social-links text-center">
         <a
-          href="https://www.instagram.com/min._.seo_o/"
-          className="instagram"
-          title="Instagram"
-          aria-label="Instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="bi bi-instagram" />
-        </a>
-        <a
           href="https://github.com/allen8524"
           className="github"
           title="GitHub"

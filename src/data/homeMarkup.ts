@@ -28,7 +28,6 @@ export const homeMarkup = {
     </nav>
 
     <div class="social-links text-center">
-      <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
       <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
       <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
     </div>
@@ -1147,7 +1146,6 @@ export const homeMarkup = {
       <h3 class="sitename">황민서</h3>
       <p>예매, 주문, 콘텐츠 관리, DB 연동을 중심으로 데이터 분석 · 모바일 · 게임 프로젝트까지 구현 흐름을 정리했습니다.</p>
       <div class="social-links d-flex justify-content-center">
-        <a href="https://www.instagram.com/min._.seo_o/" class="instagram" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
         <a href="https://github.com/allen8524" class="github" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
         <a href="https://allen8524.tistory.com/" class="tistory" title="Tistory" aria-label="Tistory" target="_blank" rel="noopener noreferrer"><i class="bi bi-journal-text"></i></a>
       </div>
