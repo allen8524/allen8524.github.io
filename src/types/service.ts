@@ -37,6 +37,8 @@ export type ServiceDetail = {
   summary: string;
   icon: ServiceIconKey;
   heroTitle: string;
+  image: string;
+  imageAlt: string;
   features: ServiceFeature[];
   processTitle: string;
   processSteps: ServiceStep[];
