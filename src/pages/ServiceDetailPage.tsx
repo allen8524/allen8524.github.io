@@ -58,7 +58,7 @@ function ServiceDetailPage() {
                   </div>
 
                   <div className="service-image service-animate-image" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="assets/img/services/services-3.webp" alt="웹 서비스 구현 역량을 설명하는 이미지" className="img-fluid" />
+                    <img src={service.image} alt={service.imageAlt} className="img-fluid" />
                   </div>
 
                   <div className="process-section service-animate-card" data-aos="fade-up" data-aos-delay="500">
@@ -101,7 +101,6 @@ function ServiceDetailPage() {
                 <div className="service-sidebar">
                   <div className="cta-block service-animate-sidebar" data-aos="fade-up" data-aos-delay="600">
                     <h4>다른 역량 보기</h4>
-                    <p>프로젝트에서 반복적으로 다룬 구현 범위를 다른 관점에서도 확인할 수 있습니다.</p>
                     {services
                       .filter((item) => item.id !== service.id)
                       .slice(0, 3)
