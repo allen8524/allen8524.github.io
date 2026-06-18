@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 function Hero() {
   return (
     <section id="hero" className="hero section">
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
+      <div className="container">
         <div className="row hero-layout align-items-center">
           <div className="col-lg-6">
             <div className="hero-content">
-              <h1 data-aos="fade-up" data-aos-delay="200">
+              <h1>
                 <span className="headline-line">기능과 데이터를 잇는</span>
                 <span className="accent-text">백엔드 개발자</span>
               </h1>
 
-              <p className="hero-description portfolio-intro-text" data-aos="fade-up" data-aos-delay="300">
+              <p className="hero-description portfolio-intro-text">
                 <span>Spring Boot · Laravel · PHP 기반 프로젝트</span>
                 <span>예매 · 주문 · 게시판 · 관리자 기능 구현</span>
                 <span>DB 연동과 서비스 로직 중심 데이터 흐름 정리</span>
                 <span>데이터 분석 · iOS · Unity 프로젝트 확장 경험 보유</span>
               </p>
 
-              <div className="hero-actions" data-aos="fade-up" data-aos-delay="400">
+              <div className="hero-actions">
                 <Link to="/#portfolio" className="btn-primary">
                   프로젝트
                 </Link>
@@ -37,7 +37,7 @@ function Hero() {
                 </Link>
               </div>
 
-              <div className="hero-stats" data-aos="fade-up" data-aos-delay="500">
+              <div className="hero-stats">
                 <div className="stat-item">
                   <span className="stat-number">7</span>
                   <span className="stat-label">주요 프로젝트</span>
@@ -55,7 +55,7 @@ function Hero() {
           </div>
 
           <div className="col-lg-6">
-            <div className="hero-image" data-aos="fade-up" data-aos-delay="300">
+            <div className="hero-image">
               <div className="image-wrapper">
                 <div className="hero-profile-shell">
                   <img

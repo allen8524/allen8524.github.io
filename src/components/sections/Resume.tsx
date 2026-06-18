@@ -2,20 +2,17 @@ import { resumeAwards } from "../../data/awards";
 import { resumeActivities, resumeEducation, resumeJourney, resumeSection } from "../../data/resume";
 import { formatMiddleDotSpacing } from "../../utils/typography";
 
-const activityDelayStart = 300;
-const activityDelayStep = 50;
-
 function Resume() {
   return (
     <section id="resume" className="resume section">
-      <div className="container section-title" data-aos="fade-up">
+      <div className="container section-title">
         <h1>{formatMiddleDotSpacing(resumeSection.title)}</h1>
         <p>{formatMiddleDotSpacing(resumeSection.description)}</p>
       </div>
 
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
+      <div className="container">
         <div className="row align-items-start justify-content-center resume-content-row">
-          <div className="col-lg-5 resume-column" data-aos="fade-right" data-aos-delay="200">
+          <div className="col-lg-5 resume-column">
             <div className="professional-journey resume-panel">
               <div className="section-intro resume-panel-header">
                 <div className="icon-wrapper resume-panel-icon">
@@ -28,12 +25,7 @@ function Resume() {
               <div className="resume-panel-body">
                 <div className="experience-timeline resume-timeline">
                   {resumeActivities.map((activity, index) => (
-                    <div
-                      className="timeline-item"
-                      data-aos="fade-up"
-                      data-aos-delay={activityDelayStart + index * activityDelayStep}
-                      key={activity.id}
-                    >
+                    <div className="timeline-item" key={activity.id}>
                       <div className="timeline-dot"></div>
                       <div className="timeline-content">
                         <div className="position-meta">
@@ -54,7 +46,7 @@ function Resume() {
             </div>
           </div>
 
-          <div className="col-lg-7 resume-column" data-aos="fade-left" data-aos-delay="200">
+          <div className="col-lg-7 resume-column">
             <div className="education-skills resume-panel">
               <div className="section-intro resume-panel-header">
                 <div className="icon-wrapper resume-panel-icon">
@@ -66,12 +58,7 @@ function Resume() {
               <div className="resume-panel-body">
                 <div className="education-grid resume-education-list">
                   {resumeEducation.schools.map((school) => (
-                    <div
-                      className={school.primary ? "education-card primary" : "education-card"}
-                      data-aos="zoom-in"
-                      data-aos-delay={school.delay}
-                      key={school.id}
-                    >
+                    <div className={school.primary ? "education-card primary" : "education-card"} key={school.id}>
                       <div className="education-header">
                         <div className="degree-icon">
                           <i className={school.icon}></i>
@@ -97,7 +84,7 @@ function Resume() {
                     </div>
                   ))}
 
-                  <div className="certification-section" data-aos="fade-up" data-aos-delay="400">
+                  <div className="certification-section">
                     <h4>자격증 및 수상</h4>
                     <div className="certifications">
                       {resumeAwards.map((award) => (

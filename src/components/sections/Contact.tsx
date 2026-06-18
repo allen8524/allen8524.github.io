@@ -1,7 +1,7 @@
 function Contact() {
   return (
     <section id="contact" className="contact section">
-      <div className="container section-title" data-aos="fade-up">
+      <div className="container section-title">
         <h1>연락처</h1>
         <p>채용 · 협업 문의는 이메일로 가장 빠르게 확인하며, GitHub와 블로그에서 작업 내용을 이어서 보실 수 있습니다.</p>
       </div>
