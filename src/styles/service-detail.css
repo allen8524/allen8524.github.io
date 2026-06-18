@@ -213,6 +213,8 @@
 
 .service-details-page .service-details .service-content .service-hero-title h1 {
   font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
 .service-details-page .service-hero-features {

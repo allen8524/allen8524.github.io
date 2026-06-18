@@ -317,3 +317,114 @@ a {
     padding: 28px;
   }
 }
+
+:root {
+  --section-title-size: 3.5rem;
+  --about-title-size: 3.5rem;
+
+  --section-title-size-lg: 2.65rem;
+  --about-title-size-lg: 2.65rem;
+
+  --section-title-size-md: 2.6rem;
+  --about-title-size-md: 2.6rem;
+
+  --section-title-size-sm: 2.15rem;
+  --about-title-size-sm: 2.15rem;
+}
+
+.section-title h1 {
+  font-size: var(--section-title-size);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+  line-break: strict;
+  text-wrap: balance;
+}
+
+.about .intro-header h1 {
+  font-size: var(--about-title-size);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+  line-break: strict;
+  text-wrap: balance;
+}
+
+.resume .professional-journey .experience-timeline .timeline-summary-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume .professional-journey .experience-timeline .timeline-summary-list li {
+  position: relative;
+  padding-left: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.resume .professional-journey .experience-timeline .timeline-summary-list li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 5px;
+  height: 1px;
+  background: var(--accent-color);
+  content: "";
+}
+
+.footer.footer-minimal {
+  padding: 12px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  background: var(--background-color);
+  text-align: center;
+}
+
+.footer.footer-minimal .container {
+  max-width: 1080px;
+  padding-inline: 24px;
+}
+
+.footer.footer-minimal .footer-minimal__copyright {
+  margin: 0;
+  padding: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+  .section-title h1 {
+    font-size: var(--section-title-size-lg);
+  }
+
+  .about .intro-header h1 {
+    font-size: var(--about-title-size-lg);
+  }
+}
+
+@media (max-width: 992px) {
+  .section-title h1 {
+    font-size: var(--section-title-size-md);
+  }
+
+  .about .intro-header h1 {
+    font-size: var(--about-title-size-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title h1 {
+    font-size: var(--section-title-size-sm);
+  }
+
+  .about .intro-header h1 {
+    font-size: var(--about-title-size-sm);
+  }
+}
