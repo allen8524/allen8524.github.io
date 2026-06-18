@@ -1,9 +1,18 @@
+export type ProjectId =
+  | "cineflow"
+  | "esports"
+  | "shopping"
+  | "bakery"
+  | "movie-analysis"
+  | "undead-survivor"
+  | "healthyup";
+
 export type ProjectFilter = "spring" | "laravel" | "php" | "data" | "etc";
 
 export type ProjectType = "web" | "data-analysis" | "mobile-app" | "game";
 
 export type Project = {
-  id: string;
+  id: ProjectId;
   title: string;
   category: string;
   year: string;
@@ -21,7 +30,7 @@ export type Project = {
 };
 
 export type ProjectDetail = {
-  projectId: Project["id"];
+  projectId: ProjectId;
   period: string;
   role: string;
   heroImage: string;
