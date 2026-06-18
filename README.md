@@ -60,7 +60,6 @@ src/
     sections/
   data/
     awards.ts
-    legacySections.ts
     projectDetails.ts
     projects.ts
     resume.ts
@@ -83,7 +82,6 @@ src/
     service-detail.css
     troubleshooting.css
   types/
-    legacy.ts
     project.ts
     service.ts
   utils/
