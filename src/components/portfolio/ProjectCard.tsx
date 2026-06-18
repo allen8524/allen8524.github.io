@@ -21,21 +21,28 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
                 type="button"
                 className="action-btn preview-btn"
                 title={projectTitle}
+                aria-label={`${projectTitle} 이미지 미리보기`}
                 onClick={() => onPreview(project)}
               >
-                <i className="bi bi-eye" />
+                <i className="bi bi-eye" aria-hidden="true" />
               </button>
               <a
                 href={project.githubUrl}
                 className="action-btn"
                 title={`${projectTitle} GitHub`}
+                aria-label={`${projectTitle} GitHub 저장소 열기`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="bi bi-github" />
+                <i className="bi bi-github" aria-hidden="true" />
               </a>
-              <Link to={project.detailUrl} className="action-btn details-btn" title={`${projectTitle} 상세 보기`}>
-                <i className="bi bi-arrow-up-right" />
+              <Link
+                to={project.detailUrl}
+                className="action-btn details-btn"
+                title={`${projectTitle} 상세 보기`}
+                aria-label={`${projectTitle} 상세 페이지 보기`}
+              >
+                <i className="bi bi-arrow-up-right" aria-hidden="true" />
               </Link>
             </div>
           </div>
