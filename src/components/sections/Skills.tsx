@@ -43,7 +43,7 @@ function Skills() {
                 </div>
                 <h4 className="highlight-title">{formatMiddleDotSpacing(skillsHighlight.title)}</h4>
                 <div className="experience-number">
-                  <span className="purecounter">{skillsHighlight.years}</span>
+                  <span>{skillsHighlight.years}</span>
                   <span className="experience-label">{formatMiddleDotSpacing(skillsHighlight.label)}</span>
                 </div>
                 <p className="highlight-description">{formatMiddleDotSpacing(skillsHighlight.description)}</p>
