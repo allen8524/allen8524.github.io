@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { homeMarkup } from "../../data/homeMarkup";
-import RawMarkup from "./RawMarkup";
 
 function Preloader() {
   const [isLoading, setIsLoading] = useState(() => document.readyState !== "complete");
@@ -26,7 +24,7 @@ function Preloader() {
     return null;
   }
 
-  return <RawMarkup html={homeMarkup.preloader} />;
+  return <div id="preloader"></div>;
 }
 
 export default Preloader;
