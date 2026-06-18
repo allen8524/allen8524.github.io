@@ -34,16 +34,16 @@ function ServiceDetailPage() {
       <Header />
       <main className="main service-detail-animation-scope" ref={serviceRootRef}>
         <section id="service-details" className="service-details section">
-          <div className="container" data-aos="fade-up" data-aos-delay="100">
+          <div className="container">
             <div className="row gy-5">
               <div className="col-lg-8">
                 <div className="service-content">
-                  <div className="service-hero-title service-animate-hero" data-aos="fade-up" data-aos-delay="200">
+                  <div className="service-hero-title service-animate-hero">
                     <span>{formatMiddleDotSpacing(service.title)}</span>
                     <h1>{formatMiddleDotSpacing(service.heroTitle)}</h1>
                   </div>
 
-                  <div className="service-hero service-animate-card" data-aos="fade-up" data-aos-delay="250">
+                  <div className="service-hero service-animate-card">
                     <div className="features-list service-hero-features">
                       {service.features.map((feature) => (
                         <div className="feature-item service-animate-card" key={feature.title}>
@@ -57,11 +57,11 @@ function ServiceDetailPage() {
                     </div>
                   </div>
 
-                  <div className="service-image service-animate-image" data-aos="zoom-in" data-aos-delay="300">
+                  <div className="service-image service-animate-image">
                     <img src={service.image} alt={service.imageAlt} className="img-fluid" />
                   </div>
 
-                  <div className="process-section service-animate-card" data-aos="fade-up" data-aos-delay="500">
+                  <div className="process-section service-animate-card">
                     <h3>{formatMiddleDotSpacing(service.processTitle)}</h3>
                     <div className="process-steps">
                       {service.processSteps.map((step, index) => (
@@ -80,7 +80,7 @@ function ServiceDetailPage() {
                     </div>
                   </div>
 
-                  <div className="process-section service-animate-card" data-aos="fade-up" data-aos-delay="550">
+                  <div className="process-section service-animate-card">
                     <h3>{formatMiddleDotSpacing(service.evidenceTitle)}</h3>
                     <div className="features-list">
                       {service.evidence.map((item) => (
@@ -99,7 +99,7 @@ function ServiceDetailPage() {
 
               <div className="col-lg-4">
                 <div className="service-sidebar">
-                  <div className="cta-block service-animate-sidebar" data-aos="fade-up" data-aos-delay="600">
+                  <div className="cta-block service-animate-sidebar">
                     <h4>다른 역량 보기</h4>
                     {services
                       .filter((item) => item.id !== service.id)
@@ -114,13 +114,8 @@ function ServiceDetailPage() {
                     </Link>
                   </div>
 
-                  {service.sideInfo.map((info, index) => (
-                    <div
-                      className="service-info service-animate-sidebar"
-                      key={info.title}
-                      data-aos="fade-up"
-                      data-aos-delay={650 + index * 50}
-                    >
+                  {service.sideInfo.map((info) => (
+                    <div className="service-info service-animate-sidebar" key={info.title}>
                       <h4>{formatMiddleDotSpacing(info.title)}</h4>
                       <ul className="info-list">
                         {info.items.map((item) => (
@@ -130,7 +125,7 @@ function ServiceDetailPage() {
                     </div>
                   ))}
 
-                  <div className="service-info service-animate-sidebar" data-aos="fade-up" data-aos-delay="750">
+                  <div className="service-info service-animate-sidebar">
                     <h4>관련 프로젝트 연결</h4>
                     <ul className="info-list">
                       {service.relatedProjects.map((project) => (

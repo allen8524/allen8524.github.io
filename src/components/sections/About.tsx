@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 function About() {
   return (
     <section id="about" className="about section">
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
+      <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-10">
-            <div className="intro-header text-center" data-aos="fade-up" data-aos-delay="150">
+            <div className="intro-header text-center">
               <h1>화면 뒤의 처리 구조를 설계합니다.</h1>
               <p className="subtitle">요청 처리 · 상태 관리 · 데이터 연동</p>
             </div>
 
             <div className="main-content-wrapper">
               <div className="row align-items-start">
-                <div className="col-lg-4" data-aos="fade-right" data-aos-delay="200">
+                <div className="col-lg-4">
                   <div className="profile-section">
                     <div className="profile-image-container">
                       <img src="assets/img/profile/profile_face.png" className="img-fluid" alt="황민서" />
@@ -31,12 +31,12 @@ function About() {
                   </div>
                 </div>
 
-                <div className="col-lg-8" data-aos="fade-left" data-aos-delay="250">
+                <div className="col-lg-8">
                   <div className="content-area">
 
 
                     <div className="expertise-grid">
-                      <div className="expertise-item" data-aos="zoom-in" data-aos-delay="300">
+                      <div className="expertise-item">
                         <div className="expertise-icon">
                           <i className="bi bi-lightbulb" />
                         </div>
@@ -46,7 +46,7 @@ function About() {
                         </div>
                       </div>
 
-                      <div className="expertise-item" data-aos="zoom-in" data-aos-delay="350">
+                      <div className="expertise-item">
                         <div className="expertise-icon">
                           <i className="bi bi-phone" />
                         </div>
@@ -56,7 +56,7 @@ function About() {
                         </div>
                       </div>
 
-                      <div className="expertise-item" data-aos="zoom-in" data-aos-delay="400">
+                      <div className="expertise-item">
                         <div className="expertise-icon">
                           <i className="bi bi-graph-up" />
                         </div>
@@ -73,7 +73,7 @@ function About() {
               </div>
             </div>
 
-            <div className="bottom-section" data-aos="fade-up" data-aos-delay="500">
+            <div className="bottom-section">
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <div className="collaboration-text">

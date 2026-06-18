@@ -142,12 +142,12 @@ const troubleCases: TroubleCase[] = [
 function Troubleshooting() {
   return (
     <section id="testimonials" className="testimonials section">
-      <div className="container section-title" data-aos="fade-up">
+      <div className="container section-title">
         <h1>트러블슈팅</h1>
         <p>문제 · 원인 · 해결 · 결과 중심 정리</p>
       </div>
 
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
+      <div className="container">
         <div className="troubleshooting-showcase">
           <div className="trouble-card-grid">
             {troubleCases.map((item) => (

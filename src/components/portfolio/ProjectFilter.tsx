@@ -8,7 +8,7 @@ type ProjectFilterProps = {
 
 function ProjectFilter({ activeFilter, filters, onChange }: ProjectFilterProps) {
   return (
-    <div className="filters-wrapper" data-aos="fade-up" data-aos-delay="200">
+    <div className="filters-wrapper">
       <ul className="portfolio-filters">
         {filters.map((filter) => (
           <li
