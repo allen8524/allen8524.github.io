@@ -5,17 +5,16 @@ import "./styles/global.css";
 import "./styles/app.css";
 import "./styles/portfolio.css";
 import "./styles/project-detail.css";
+import "./styles/project-detail-title-adjustment.css";
 import "./styles/service-detail.css";
 import "./styles/troubleshooting.css";
 
 const rootElement = document.getElementById("root");
 
-if (!rootElement) {
-  throw new Error("Root element #root was not found.");
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  );
 }
-
-createRoot(rootElement).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
