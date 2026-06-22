@@ -11,7 +11,7 @@ function ProjectTroubleshooting({ detail }: ProjectTroubleshootingProps) {
   }
 
   return (
-    <section className="project-detail-section">
+    <section className="project-detail-section project-troubleshooting-section">
       <div className="project-detail-section__header">
         <h2>트러블슈팅</h2>
       </div>

@@ -14,16 +14,13 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const heroImage = detail.heroImage || project.previewImage;
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const projectTitle = formatMiddleDotSpacing(project.title);
+  const projectMeta = formatMiddleDotSpacing(`${project.category} · ${period}`);
   const previewAddress = `${project.id}.portfolio/detail`;
 
   return (
     <section className="project-detail-hero">
       <div className="project-detail-hero__content">
-        <p className="project-meta-text">
-          {formatMiddleDotSpacing(project.category)}
-          <span aria-hidden="true"> · </span>
-          {period}
-        </p>
+        <p className="project-meta-text">{projectMeta}</p>
         <h1>{projectTitle}</h1>
 
         <ProjectTechGroups className="project-detail-tech-groups--hero" project={project} />

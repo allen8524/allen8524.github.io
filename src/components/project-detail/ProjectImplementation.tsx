@@ -7,7 +7,7 @@ type ProjectImplementationProps = {
 
 function ProjectImplementation({ detail }: ProjectImplementationProps) {
   return (
-    <section className="project-detail-section">
+    <section className="project-detail-section project-implementation-section">
       <div className="project-detail-section__header">
         <h2>구현 방식</h2>
       </div>
