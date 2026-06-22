@@ -26,8 +26,8 @@ function Contact() {
                 </div>
                 <div className="detail-content">
                   <span className="detail-label">이메일</span>
-                  <a href="mailto:minseo8524@naver.com" className="detail-value text-decoration-none">
-                    minseo8524@naver.com
+                  <a href="mailto:minseo8524@gmail.com" className="detail-value text-decoration-none">
+                    minseo8524@gmail.com
                   </a>
                 </div>
               </div>
@@ -80,7 +80,7 @@ function Contact() {
                 <input
                   type="text"
                   id="contactEmailAddress"
-                  value="minseo8524@naver.com"
+                  value="minseo8524@gmail.com"
                   readOnly
                   aria-label="이메일 주소"
                 />
@@ -91,7 +91,7 @@ function Contact() {
                   <button
                     type="button"
                     className="submit-btn w-100 justify-content-center copy-trigger"
-                    data-copy-text="minseo8524@naver.com"
+                    data-copy-text="minseo8524@gmail.com"
                     data-copy-message="이메일 주소가 복사되었습니다"
                     aria-label="이메일 주소 복사"
                   >
@@ -101,7 +101,7 @@ function Contact() {
                 </div>
                 <div className="col-md-6">
                   <a
-                    href="mailto:minseo8524@naver.com"
+                    href="mailto:minseo8524@gmail.com"
                     className="submit-btn w-100 justify-content-center"
                     aria-label="이메일 앱 열기"
                   >
