@@ -325,17 +325,17 @@ export const projectDetails: ProjectDetail[] = [
     projectId: "seoul-bike",
     period: "2026.06",
     role: "데이터 전처리, 시각화, 다중선형회귀, 로지스틱 회귀, K-means 군집분석, KNN 분류분석, 결과 해석",
-    heroImage: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/hourly_usage.png",
+    heroImage: "assets/img/portfolio/seoul-bike-hourly-usage.png",
     purpose: [
       "2025년 12월 서울 공공자전거 시간대별 이용정보로 수요 집중 시간대와 이용자 특성 파악",
-      "회귀 · 분류 · 군집분석을 통해 고수요 여부와 대여소별 이용 유형 도출",
+      "다중선형회귀로 시간대별 이용건수를 예측하고, 로지스틱 회귀 · KNN으로 고수요 여부를 분류했으며, K-means로 대여소별 이용 유형을 도출",
       "공공자전거가 출퇴근 · 통학 목적의 생활 교통수단으로 활용되는 패턴 분석",
     ],
     responsibilities: [
       "성별 컬럼 제거, 결측값 제거, 숫자형 변환, 이동거리 · 이용시간 이상치 필터링",
       "시간대 · 요일 · 연령대 · 대여구분 · 이동거리와 이용시간 관계 시각화",
       "다중선형회귀로 시간대별 총 이용건수 예측",
-      "로지스틱 회귀와 KNN으로 고수요 · 저수요 분류",
+      "로지스틱 회귀와 KNN으로 고수요 여부 분류",
       "K-means 기반 대여소 유형 군집화와 결과 해석",
     ],
     dataFlow: [
@@ -348,6 +348,11 @@ export const projectDetails: ProjectDetail[] = [
         description: "출근과 퇴근 시간대에 공공자전거 수요가 집중되는 패턴 확인",
       },
       {
+        label: "다중선형회귀",
+        value: "R² = 0.5431",
+        description: "시간대별 이용건수 변동의 약 54.3%를 설명",
+      },
+      {
         label: "로지스틱 회귀",
         value: "정확도 0.8969",
         description: "고수요 여부를 약 90% 수준으로 분류",
@@ -355,7 +360,7 @@ export const projectDetails: ProjectDetail[] = [
       {
         label: "KNN",
         value: "정확도 0.9013",
-        description: "고수요 · 저수요 분류 결과를 로지스틱 회귀와 비교",
+        description: "고수요 여부 분류 결과를 로지스틱 회귀와 비교",
       },
       {
         label: "K-means",
@@ -369,7 +374,7 @@ export const projectDetails: ProjectDetail[] = [
         description: "이동거리 30km 초과, 이용시간 240분 초과 데이터를 제거해 극단값 영향을 완화",
       },
       {
-        title: "수요 예측과 분류",
+        title: "이용건수 예측과 고수요 분류",
         description: "다중선형회귀로 이용건수를 예측하고, 로지스틱 회귀와 KNN으로 고수요 여부를 분류",
       },
       {
@@ -407,7 +412,7 @@ export const projectDetails: ProjectDetail[] = [
     ],
     gallery: [
       {
-        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/hourly_usage.png",
+        src: "assets/img/portfolio/seoul-bike-hourly-usage.png",
         alt: "서울 공공자전거 시간대별 이용건수 그래프",
       },
       {
@@ -415,7 +420,7 @@ export const projectDetails: ProjectDetail[] = [
         alt: "서울 공공자전거 연령대별 이용건수 그래프",
       },
       {
-        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/regression_actual_vs_predicted.png",
+        src: "assets/img/portfolio/seoul-bike-regression.png",
         alt: "서울 공공자전거 실제 이용건수와 예측 이용건수 비교 그래프",
       },
       {
