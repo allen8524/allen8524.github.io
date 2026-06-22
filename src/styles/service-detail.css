@@ -1503,3 +1503,790 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Normalize spacing rhythm between service-detail boxes. */
+.service-details-page .service-details > .container {
+  --service-box-gap: 32px;
+  --service-card-gap: 12px;
+  --service-inner-gap: 18px;
+}
+
+.service-details-page .service-detail-hero,
+.service-details-page .service-detail-section {
+  margin-bottom: var(--service-box-gap);
+}
+
+.service-details-page .service-details .row {
+  --bs-gutter-x: var(--service-box-gap);
+  --bs-gutter-y: var(--service-box-gap);
+}
+
+.service-details-page .service-sidebar {
+  gap: var(--service-card-gap);
+}
+
+.service-details-page .service-detail-section__header {
+  margin-bottom: var(--service-inner-gap);
+}
+
+.service-details-page .service-feature-summary-section .features-list,
+.service-details-page .service-details .service-content .service-evidence-section .features-list {
+  gap: var(--service-card-gap);
+}
+
+.service-details-page .service-process-section .step {
+  padding: 16px 0;
+}
+
+.service-details-page .service-info h4,
+.service-details-page .cta-block h4 {
+  margin-bottom: var(--service-card-gap);
+}
+
+.service-details-page .info-list li {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 991px) {
+  .service-details-page .service-details > .container {
+    --service-box-gap: 28px;
+  }
+}
+
+@media (max-width: 575px) {
+  .service-details-page .service-details > .container {
+    --service-box-gap: 24px;
+    --service-inner-gap: 16px;
+  }
+}
+
+/* Project-detail aligned service page composition. */
+.service-details-page {
+  overflow-x: hidden;
+}
+
+.service-details-page .service-details > .container {
+  --service-detail-radius: 8px;
+  --service-detail-section-gap: clamp(42px, 5.6vw, 72px);
+  --service-detail-card-bg: color-mix(in srgb, var(--surface-color), var(--background-color) 24%);
+  --service-detail-soft-bg: color-mix(in srgb, var(--background-color), var(--surface-color) 72%);
+  --service-detail-line: color-mix(in srgb, var(--default-color), transparent 89%);
+  --service-detail-accent-line: color-mix(in srgb, var(--accent-color), transparent 78%);
+  width: min(1160px, calc(100% - 56px));
+}
+
+.service-details-page .service-details {
+  padding: clamp(46px, 6vw, 76px) 0 clamp(62px, 7vw, 92px);
+}
+
+.service-details-page .service-details *,
+.service-details-page .service-details *::before,
+.service-details-page .service-details *::after {
+  box-sizing: border-box;
+}
+
+.service-details-page .service-detail-hero,
+.service-details-page .service-detail-section {
+  margin-bottom: var(--service-detail-section-gap);
+}
+
+.service-details-page .service-detail-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  gap: clamp(34px, 4.8vw, 60px);
+  align-items: center;
+  min-height: clamp(420px, 44vw, 560px);
+  padding: clamp(40px, 5.4vw, 64px);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 86%);
+  border-radius: var(--service-detail-radius);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 94%), transparent 40%),
+    color-mix(in srgb, var(--surface-color), var(--background-color) 24%);
+  box-shadow: 0 20px 46px color-mix(in srgb, #000, transparent 88%);
+}
+
+.service-details-page .service-detail-hero::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: -1;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent-color), transparent 72%);
+  content: "";
+  opacity: 0.78;
+}
+
+.service-details-page .service-detail-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.service-details-page .service-meta-text {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 18px;
+  padding: 7px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 76%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  color: color-mix(in srgb, var(--accent-color), transparent 5%);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.service-details-page .service-detail-hero h1 {
+  max-width: 700px;
+  margin: 0 0 clamp(18px, 2.6vw, 28px);
+  color: var(--heading-color);
+  font-size: clamp(2.7rem, 5.6vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.service-details-page .service-detail-hero__summary {
+  max-width: 680px;
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--service-detail-line);
+  color: color-mix(in srgb, var(--default-color), transparent 8%);
+  font-size: 1.02rem;
+  line-height: 1.78;
+}
+
+.service-details-page .service-detail-hero__image {
+  align-self: center;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.service-details-page .service-image {
+  overflow: hidden;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 82%);
+  border-radius: var(--service-detail-radius);
+  background: color-mix(in srgb, var(--background-color), var(--surface-color) 68%);
+  box-shadow: 0 18px 38px color-mix(in srgb, #000, transparent 82%);
+}
+
+.service-details-page .service-image::before,
+.service-details-page .service-image::after {
+  display: none;
+}
+
+.service-details-page .service-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  border: 0;
+  border-radius: calc(var(--service-detail-radius) - 1px);
+  background: color-mix(in srgb, #020617, var(--surface-color) 24%);
+  object-fit: contain;
+  object-position: center top;
+}
+
+.service-details-page .service-image figcaption {
+  margin: 12px 4px 0;
+  color: color-mix(in srgb, var(--default-color), transparent 22%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.service-details-page .service-details .row {
+  --bs-gutter-x: clamp(32px, 4.5vw, 52px);
+  --bs-gutter-y: var(--service-detail-section-gap);
+  align-items: flex-start;
+}
+
+.service-details-page .service-content {
+  gap: 0;
+}
+
+.service-details-page .service-detail-section,
+.service-details-page .service-info,
+.service-details-page .cta-block {
+  border: 1px solid var(--service-detail-line);
+  border-radius: var(--service-detail-radius);
+  background: color-mix(in srgb, var(--surface-color), var(--background-color) 30%);
+  box-shadow: none;
+}
+
+.service-details-page .service-detail-section,
+.service-details-page .service-process-section,
+.service-details-page .service-evidence-section {
+  padding: clamp(34px, 4.8vw, 52px);
+}
+
+.service-details-page .service-detail-section__header {
+  max-width: 780px;
+  margin-bottom: clamp(22px, 3vw, 32px);
+}
+
+.service-details-page .service-detail-section h2 {
+  position: relative;
+  margin: 0;
+  padding-bottom: 14px;
+  color: var(--heading-color);
+  font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+.service-details-page .service-detail-section h2::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 76px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  content: "";
+}
+
+.service-details-page .service-feature-summary-section .features-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-details-page .service-feature-summary-section .feature-item,
+.service-details-page .service-evidence-section .feature-item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  min-height: 142px;
+  padding: 22px;
+  overflow: visible;
+  border: 1px solid var(--service-detail-line);
+  border-radius: var(--service-detail-radius);
+  background: var(--service-detail-soft-bg);
+  box-shadow: none;
+  transform: none;
+}
+
+.service-details-page .service-feature-summary-section .feature-item:hover,
+.service-details-page .service-evidence-section .feature-item:hover,
+.service-details-page .service-info:hover,
+.service-details-page .cta-block:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+  box-shadow: 0 12px 26px color-mix(in srgb, #000, transparent 91%);
+  transform: translateY(-1px);
+}
+
+.service-details-page .service-detail-marker {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  border-color: color-mix(in srgb, var(--accent-color), transparent 52%);
+  border-radius: var(--service-detail-radius);
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.service-details-page .service-detail-marker-content {
+  width: 42px;
+  height: 42px;
+}
+
+.service-details-page .feature-item h4,
+.service-details-page .step h4 {
+  margin: 0 0 8px;
+  color: var(--heading-color);
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.service-details-page .feature-item p,
+.service-details-page .step p,
+.service-details-page .info-list li {
+  margin: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 8%);
+  font-size: 0.96rem;
+  line-height: 1.72;
+  overflow-wrap: anywhere;
+}
+
+.service-details-page .service-process-section .process-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.service-details-page .service-process-section .process-steps::before {
+  display: none;
+}
+
+.service-details-page .service-process-section .step {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  min-height: 0;
+  padding: 24px 0;
+  border: 0;
+  border-bottom: 1px solid var(--service-detail-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.service-details-page .service-process-section .step:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.service-details-page .service-evidence-section .features-list {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.service-details-page .service-evidence-section .feature-item {
+  min-height: 132px;
+  border-color: var(--service-detail-accent-line);
+  background: color-mix(in srgb, var(--accent-color), transparent 94%);
+}
+
+.service-details-page .service-sidebar {
+  position: sticky;
+  top: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.service-details-page .service-info,
+.service-details-page .cta-block {
+  padding: 24px;
+}
+
+.service-details-page .service-info h4,
+.service-details-page .cta-block h4 {
+  margin: 0 0 16px;
+  color: var(--heading-color);
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.service-details-page .cta-block {
+  gap: 10px;
+}
+
+.service-details-page .cta-block .btn {
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  margin: 0;
+  border-radius: var(--service-detail-radius);
+  font-weight: 800;
+}
+
+.service-details-page .cta-block .btn-outline {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 58%);
+  background: transparent;
+  color: var(--accent-color);
+}
+
+.service-details-page .cta-block .btn-primary {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 30%);
+  background: color-mix(in srgb, var(--accent-color), transparent 8%);
+  color: color-mix(in srgb, var(--background-color), #000 12%);
+}
+
+.service-details-page .info-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-details-page .info-list li {
+  position: relative;
+  padding: 12px 0 12px 16px;
+  border-bottom: 1px solid var(--service-detail-line);
+}
+
+.service-details-page .info-list li:first-child {
+  padding-top: 0;
+}
+
+.service-details-page .info-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.service-details-page .info-list li::before {
+  position: absolute;
+  top: 1.42em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--accent-color);
+  content: "";
+}
+
+.service-details-page .info-list li:first-child::before {
+  top: 0.7em;
+}
+
+.service-details-page .service-related-link {
+  display: block;
+  margin: 0 0 4px;
+  color: var(--heading-color);
+  font-weight: 800;
+  text-decoration-color: color-mix(in srgb, var(--accent-color), transparent 58%);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.service-details-page .service-related-description {
+  display: block;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 991px) {
+  .service-details-page .service-details > .container {
+    width: min(100% - 36px, 860px);
+  }
+
+  .service-details-page .service-detail-hero,
+  .service-details-page .service-feature-summary-section .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .service-details-page .service-detail-hero {
+    min-height: 0;
+  }
+
+  .service-details-page .service-detail-hero h1 {
+    font-size: clamp(2.35rem, 8vw, 3.35rem);
+  }
+
+  .service-details-page .service-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 575px) {
+  .service-details-page .service-details > .container {
+    width: min(100% - 28px, 100%);
+  }
+
+  .service-details-page .service-details {
+    padding-top: 36px;
+  }
+
+  .service-details-page .service-detail-hero,
+  .service-details-page .service-detail-section,
+  .service-details-page .service-info,
+  .service-details-page .cta-block {
+    padding: 24px;
+  }
+
+  .service-details-page .service-detail-hero {
+    gap: 26px;
+  }
+
+  .service-details-page .service-detail-hero h1 {
+    max-width: 100%;
+    font-size: clamp(1.82rem, 9.2vw, 2.28rem);
+    line-height: 1.12;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .service-details-page .service-meta-text {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .service-details-page .service-image img {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+
+  .service-details-page .service-feature-summary-section .feature-item,
+  .service-details-page .service-evidence-section .feature-item,
+  .service-details-page .service-process-section .step {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .service-details-page .service-feature-summary-section .features-list,
+  .service-details-page .service-evidence-section .features-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Compact spacing pass for content-light service detail pages. */
+.service-details-page .service-details > .container {
+  --service-detail-section-gap: clamp(28px, 3.8vw, 44px);
+}
+
+.service-details-page .service-details {
+  padding: clamp(32px, 4.4vw, 52px) 0 clamp(42px, 5vw, 62px);
+}
+
+.service-details-page .service-detail-hero,
+.service-details-page .service-detail-section {
+  margin-bottom: var(--service-detail-section-gap);
+}
+
+.service-details-page .service-detail-hero {
+  gap: clamp(24px, 3.6vw, 38px);
+  min-height: 0;
+  padding: clamp(30px, 4vw, 44px);
+}
+
+.service-details-page .service-meta-text {
+  margin-bottom: 12px;
+  padding: 6px 11px;
+}
+
+.service-details-page .service-detail-hero h1 {
+  margin-bottom: clamp(12px, 2vw, 18px);
+  font-size: clamp(2.35rem, 4.8vw, 4rem);
+}
+
+.service-details-page .service-detail-hero__summary {
+  padding-top: 16px;
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.service-details-page .service-image {
+  padding: 8px;
+}
+
+.service-details-page .service-image img {
+  aspect-ratio: 16 / 9;
+}
+
+.service-details-page .service-image figcaption {
+  margin-top: 8px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.service-details-page .service-details .row {
+  --bs-gutter-x: clamp(24px, 3.4vw, 38px);
+  --bs-gutter-y: clamp(28px, 4vw, 44px);
+}
+
+.service-details-page .service-detail-section,
+.service-details-page .service-process-section,
+.service-details-page .service-evidence-section {
+  padding: clamp(26px, 3.5vw, 34px);
+}
+
+.service-details-page .service-detail-section__header {
+  margin-bottom: clamp(18px, 2.4vw, 24px);
+}
+
+.service-details-page .service-detail-section h2 {
+  padding-bottom: 11px;
+  font-size: clamp(1.48rem, 2.2vw, 1.9rem);
+}
+
+.service-details-page .service-feature-summary-section .features-list {
+  gap: 12px;
+}
+
+.service-details-page .service-feature-summary-section .feature-item,
+.service-details-page .service-evidence-section .feature-item {
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  min-height: 104px;
+  padding: 16px;
+}
+
+.service-details-page .service-detail-marker {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.service-details-page .service-detail-marker-content {
+  width: 36px;
+  height: 36px;
+}
+
+.service-details-page .feature-item h4,
+.service-details-page .step h4 {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.service-details-page .feature-item p,
+.service-details-page .step p,
+.service-details-page .info-list li {
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+.service-details-page .service-process-section .step {
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  padding: 17px 0;
+}
+
+.service-details-page .service-evidence-section .features-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.service-details-page .service-details .service-content .service-evidence-section .features-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.service-details-page .service-evidence-section .feature-item {
+  min-height: 108px;
+}
+
+.service-details-page .service-details .service-content .service-evidence-section .feature-item {
+  grid-template-columns: 36px minmax(0, 1fr);
+  min-height: 104px;
+  padding: 16px;
+}
+
+.service-details-page .service-sidebar {
+  top: 20px;
+  gap: 12px;
+}
+
+.service-details-page .service-info,
+.service-details-page .cta-block {
+  padding: 18px;
+}
+
+.service-details-page .service-info h4,
+.service-details-page .cta-block h4 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.service-details-page .cta-block {
+  gap: 8px;
+}
+
+.service-details-page .cta-block .btn {
+  min-height: 38px;
+  font-size: 0.88rem;
+}
+
+.service-details-page .info-list li {
+  padding: 9px 0 9px 14px;
+}
+
+.service-details-page .service-related-link {
+  margin-bottom: 2px;
+}
+
+.service-details-page .service-related-description {
+  font-size: 0.86rem;
+}
+
+@media (max-width: 991px) {
+  .service-details-page .service-detail-hero {
+    padding: clamp(26px, 5vw, 36px);
+  }
+
+  .service-details-page .service-evidence-section .features-list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .service-details-page .service-details .service-content .service-evidence-section .features-list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .service-details-page .service-details {
+    padding-top: 28px;
+  }
+
+  .service-details-page .service-detail-hero,
+  .service-details-page .service-detail-section,
+  .service-details-page .service-info,
+  .service-details-page .cta-block {
+    padding: 20px;
+  }
+
+  .service-details-page .service-detail-hero {
+    gap: 20px;
+  }
+
+  .service-details-page .service-detail-hero h1 {
+    font-size: clamp(1.72rem, 8.5vw, 2.12rem);
+  }
+
+  .service-details-page .service-detail-hero__summary {
+    padding-top: 13px;
+  }
+
+  .service-details-page .service-feature-summary-section .feature-item,
+  .service-details-page .service-evidence-section .feature-item,
+  .service-details-page .service-process-section .step {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 11px;
+  }
+
+  .service-details-page .service-evidence-section .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .service-details-page .service-details .service-content .service-evidence-section .features-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Final spacing correction: keep stacked service-detail boxes on one rhythm. */
+.service-details-page .service-details > .container {
+  --service-detail-section-gap: 24px;
+}
+
+.service-details-page .service-content > .service-detail-section {
+  margin-bottom: var(--service-detail-section-gap);
+}
+
+.service-details-page .service-content > .service-detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.service-details-page .service-feature-summary-section .features-list {
+  align-items: stretch;
+}
+
+.service-details-page .service-feature-summary-section .feature-item {
+  min-height: 0;
+}
+
+@media (max-width: 575px) {
+  .service-details-page .service-details > .container {
+    --service-detail-section-gap: 20px;
+  }
+}

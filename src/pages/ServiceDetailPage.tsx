@@ -35,37 +35,43 @@ function ServiceDetailPage() {
       <main className="main service-detail-animation-scope" ref={serviceRootRef}>
         <section id="service-details" className="service-details section">
           <div className="container">
+            <section className="service-detail-hero service-animate-card">
+              <div className="service-detail-hero__content service-animate-hero">
+                <p className="service-meta-text">{formatMiddleDotSpacing(service.title)}</p>
+                <h1>{formatMiddleDotSpacing(service.heroTitle)}</h1>
+                <p className="service-detail-hero__summary">{formatMiddleDotSpacing(service.summary)}</p>
+              </div>
+
+              <figure className="service-image service-detail-hero__image service-animate-image">
+                <img src={service.image} alt={service.imageAlt} className="img-fluid" />
+                <figcaption>{formatMiddleDotSpacing(service.imageAlt)}</figcaption>
+              </figure>
+            </section>
+
             <div className="row gy-5">
               <div className="col-lg-8">
                 <div className="service-content">
-                  <div className="service-intro-panel service-animate-card">
-                    <div className="service-hero-title service-animate-hero">
-                      <span>{formatMiddleDotSpacing(service.title)}</span>
-                      <h1>{formatMiddleDotSpacing(service.heroTitle)}</h1>
+                  <section className="service-detail-section service-feature-summary-section service-animate-card">
+                    <div className="service-detail-section__header">
+                      <h2>핵심 역량 요약</h2>
                     </div>
-
-                    <div className="service-hero">
-                      <div className="features-list service-hero-features">
-                        {service.features.map((feature) => (
-                          <div className="feature-item service-animate-card" key={feature.title}>
-                            <ServiceFeatureIcon icon={feature.icon} />
-                            <div>
-                              <h4>{formatMiddleDotSpacing(feature.title)}</h4>
-                              {feature.description && <p>{formatMiddleDotSpacing(feature.description)}</p>}
-                            </div>
+                    <div className="features-list service-hero-features">
+                      {service.features.map((feature) => (
+                        <article className="feature-item service-animate-card" key={feature.title}>
+                          <ServiceFeatureIcon icon={feature.icon} />
+                          <div>
+                            <h4>{formatMiddleDotSpacing(feature.title)}</h4>
+                            {feature.description && <p>{formatMiddleDotSpacing(feature.description)}</p>}
                           </div>
-                        ))}
-                      </div>
+                        </article>
+                      ))}
                     </div>
-                  </div>
+                  </section>
 
-                  <figure className="service-image service-animate-image">
-                    <img src={service.image} alt={service.imageAlt} className="img-fluid" />
-                    <figcaption>{formatMiddleDotSpacing(service.imageAlt)}</figcaption>
-                  </figure>
-
-                  <div className="process-section service-process-section service-animate-card">
-                    <h3>{formatMiddleDotSpacing(service.processTitle)}</h3>
+                  <section className="service-detail-section service-process-section process-section service-animate-card">
+                    <div className="service-detail-section__header">
+                      <h2>{formatMiddleDotSpacing(service.processTitle)}</h2>
+                    </div>
                     <div className="process-steps">
                       {service.processSteps.map((step, index) => (
                         <div className="step service-animate-step" key={step.title}>
@@ -81,22 +87,24 @@ function ServiceDetailPage() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </section>
 
-                  <div className="process-section service-evidence-section service-animate-card">
-                    <h3>{formatMiddleDotSpacing(service.evidenceTitle)}</h3>
+                  <section className="service-detail-section service-evidence-section process-section service-animate-card">
+                    <div className="service-detail-section__header">
+                      <h2>{formatMiddleDotSpacing(service.evidenceTitle)}</h2>
+                    </div>
                     <div className="features-list">
                       {service.evidence.map((item) => (
-                        <div className="feature-item service-animate-card" key={item.title}>
+                        <article className="feature-item service-animate-card" key={item.title}>
                           <ServiceFeatureIcon icon={item.icon} />
                           <div>
                             <h4>{formatMiddleDotSpacing(item.title)}</h4>
                             {item.description && <p>{formatMiddleDotSpacing(item.description)}</p>}
                           </div>
-                        </div>
+                        </article>
                       ))}
                     </div>
-                  </div>
+                  </section>
                 </div>
               </div>
 
@@ -136,7 +144,7 @@ function ServiceDetailPage() {
                           <Link to={`/projects/${project.projectId}`} className="service-related-link">
                             {formatMiddleDotSpacing(project.label)}
                           </Link>
-                          : {formatMiddleDotSpacing(project.description)}
+                          <span className="service-related-description">{formatMiddleDotSpacing(project.description)}</span>
                         </li>
                       ))}
                     </ul>
