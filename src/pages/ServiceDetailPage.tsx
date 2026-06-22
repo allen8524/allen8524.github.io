@@ -38,30 +38,33 @@ function ServiceDetailPage() {
             <div className="row gy-5">
               <div className="col-lg-8">
                 <div className="service-content">
-                  <div className="service-hero-title service-animate-hero">
-                    <span>{formatMiddleDotSpacing(service.title)}</span>
-                    <h1>{formatMiddleDotSpacing(service.heroTitle)}</h1>
-                  </div>
+                  <div className="service-intro-panel service-animate-card">
+                    <div className="service-hero-title service-animate-hero">
+                      <span>{formatMiddleDotSpacing(service.title)}</span>
+                      <h1>{formatMiddleDotSpacing(service.heroTitle)}</h1>
+                    </div>
 
-                  <div className="service-hero service-animate-card">
-                    <div className="features-list service-hero-features">
-                      {service.features.map((feature) => (
-                        <div className="feature-item service-animate-card" key={feature.title}>
-                          <ServiceFeatureIcon icon={feature.icon} />
-                          <div>
-                            <h4>{formatMiddleDotSpacing(feature.title)}</h4>
-                            {feature.description && <p>{formatMiddleDotSpacing(feature.description)}</p>}
+                    <div className="service-hero">
+                      <div className="features-list service-hero-features">
+                        {service.features.map((feature) => (
+                          <div className="feature-item service-animate-card" key={feature.title}>
+                            <ServiceFeatureIcon icon={feature.icon} />
+                            <div>
+                              <h4>{formatMiddleDotSpacing(feature.title)}</h4>
+                              {feature.description && <p>{formatMiddleDotSpacing(feature.description)}</p>}
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="service-image service-animate-image">
+                  <figure className="service-image service-animate-image">
                     <img src={service.image} alt={service.imageAlt} className="img-fluid" />
-                  </div>
+                    <figcaption>{formatMiddleDotSpacing(service.imageAlt)}</figcaption>
+                  </figure>
 
-                  <div className="process-section service-animate-card">
+                  <div className="process-section service-process-section service-animate-card">
                     <h3>{formatMiddleDotSpacing(service.processTitle)}</h3>
                     <div className="process-steps">
                       {service.processSteps.map((step, index) => (
@@ -80,7 +83,7 @@ function ServiceDetailPage() {
                     </div>
                   </div>
 
-                  <div className="process-section service-animate-card">
+                  <div className="process-section service-evidence-section service-animate-card">
                     <h3>{formatMiddleDotSpacing(service.evidenceTitle)}</h3>
                     <div className="features-list">
                       {service.evidence.map((item) => (
