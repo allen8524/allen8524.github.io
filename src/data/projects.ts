@@ -148,6 +148,36 @@ export const projects: Project[] = [
     type: "data-analysis",
   },
   {
+    id: "seoul-bike",
+    title: "서울 공공자전거 수요 예측 · 이용자 유형 분석",
+    category: "데이터 분석 · R",
+    year: "2026.06",
+    summary: "서울 공공자전거 시간대별 이용정보 기반 수요 예측 프로젝트",
+    description:
+      "2025년 12월 서울 공공자전거 이용정보를 전처리하고, 회귀 · 분류 · 군집분석으로 고수요 시간대와 대여소 이용 유형을 도출",
+    descriptionItems: [
+      "서울 공공자전거 시간대별 이용정보 전처리",
+      "시간대 · 요일 · 연령대 · 대여구분별 이용 패턴 시각화",
+      "다중선형회귀 · 로지스틱 회귀 · KNN 기반 수요 예측",
+      "K-means 군집분석으로 대여소 유형 분류",
+    ],
+    image: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/hourly_usage.png",
+    previewImage:
+      "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/hourly_usage.png",
+    techStack: ["R", "dplyr", "ggplot2", "다중선형회귀", "로지스틱 회귀", "K-means", "KNN"],
+    features: [
+      "공공자전거 이용 데이터 전처리",
+      "시간대별 수요 시각화",
+      "고수요 여부 분류",
+      "대여소 군집분석",
+      "분석 결과 CSV 정리",
+    ],
+    githubUrl: "https://github.com/allen8524/seoul-bike-demand-analysis",
+    detailUrl: "/projects/seoul-bike",
+    filter: "data",
+    type: "data-analysis",
+  },
+  {
     id: "undead-survivor",
     title: "Undead Survivor 모바일 생존 게임",
     category: "모바일 게임 · Unity/C#",

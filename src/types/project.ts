@@ -4,6 +4,7 @@ export type ProjectId =
   | "shopping"
   | "bakery"
   | "movie-analysis"
+  | "seoul-bike"
   | "undead-survivor"
   | "healthyup";
 

@@ -322,6 +322,117 @@ export const projectDetails: ProjectDetail[] = [
     ],
   },
   {
+    projectId: "seoul-bike",
+    period: "2026.06",
+    role: "데이터 전처리, 시각화, 다중선형회귀, 로지스틱 회귀, K-means 군집분석, KNN 분류분석, 결과 해석",
+    heroImage: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/hourly_usage.png",
+    purpose: [
+      "2025년 12월 서울 공공자전거 시간대별 이용정보로 수요 집중 시간대와 이용자 특성 파악",
+      "회귀 · 분류 · 군집분석을 통해 고수요 여부와 대여소별 이용 유형 도출",
+      "공공자전거가 출퇴근 · 통학 목적의 생활 교통수단으로 활용되는 패턴 분석",
+    ],
+    responsibilities: [
+      "성별 컬럼 제거, 결측값 제거, 숫자형 변환, 이동거리 · 이용시간 이상치 필터링",
+      "시간대 · 요일 · 연령대 · 대여구분 · 이동거리와 이용시간 관계 시각화",
+      "다중선형회귀로 시간대별 총 이용건수 예측",
+      "로지스틱 회귀와 KNN으로 고수요 · 저수요 분류",
+      "K-means 기반 대여소 유형 군집화와 결과 해석",
+    ],
+    dataFlow: [
+      "원본 CSV 로드 → 결측값 · 이상치 제거 → 파생 변수 생성 → 시각화 → 회귀 · 분류 · 군집분석 → 결과 CSV · figure 저장",
+    ],
+    analysisResults: [
+      {
+        label: "피크 시간",
+        value: "오전 8시, 오후 17~18시",
+        description: "출근과 퇴근 시간대에 공공자전거 수요가 집중되는 패턴 확인",
+      },
+      {
+        label: "로지스틱 회귀",
+        value: "정확도 0.8969",
+        description: "고수요 여부를 약 90% 수준으로 분류",
+      },
+      {
+        label: "KNN",
+        value: "정확도 0.9013",
+        description: "고수요 · 저수요 분류 결과를 로지스틱 회귀와 비교",
+      },
+      {
+        label: "K-means",
+        value: "퇴근형 고수요 대여소",
+        description: "대여소를 출근형, 장거리 · 장시간형, 퇴근형 고수요 유형으로 구분",
+      },
+    ],
+    implementationPoints: [
+      {
+        title: "데이터 전처리 기준 정리",
+        description: "이동거리 30km 초과, 이용시간 240분 초과 데이터를 제거해 극단값 영향을 완화",
+      },
+      {
+        title: "수요 예측과 분류",
+        description: "다중선형회귀로 이용건수를 예측하고, 로지스틱 회귀와 KNN으로 고수요 여부를 분류",
+      },
+      {
+        title: "대여소 유형 군집화",
+        description: "평균 이동거리, 평균 이용시간, 출근 · 퇴근 · 주말 이용 비율을 활용해 K-means 군집분석 수행",
+      },
+    ],
+    troubleshooting: [
+      {
+        title: "대용량 원본 CSV 관리",
+        description: "GitHub 업로드 제한을 고려해 원본 CSV 대신 샘플 데이터와 분석 결과 CSV를 저장소에 정리",
+      },
+      {
+        title: "분석 기준 일관성",
+        description: "전처리 후 1,808,648행과 2,770개 대여소 기준으로 시각화와 모델링 결과를 해석",
+      },
+    ],
+    resultLinks: [
+      {
+        label: "분석 README",
+        url: "https://github.com/allen8524/seoul-bike-demand-analysis",
+      },
+      {
+        label: "분석 스크립트",
+        url: "https://github.com/allen8524/seoul-bike-demand-analysis/blob/main/scripts/hms_bike_project.R",
+      },
+      {
+        label: "분석 결과 CSV",
+        url: "https://github.com/allen8524/seoul-bike-demand-analysis/tree/main/results",
+      },
+      {
+        label: "발표 자료",
+        url: "https://github.com/allen8524/seoul-bike-demand-analysis/blob/main/presentation/seoul_bike_demand_analysis_presentation.pptx",
+      },
+    ],
+    gallery: [
+      {
+        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/hourly_usage.png",
+        alt: "서울 공공자전거 시간대별 이용건수 그래프",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/age_group_usage.png",
+        alt: "서울 공공자전거 연령대별 이용건수 그래프",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/regression_actual_vs_predicted.png",
+        alt: "서울 공공자전거 실제 이용건수와 예측 이용건수 비교 그래프",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/kmeans_station_cluster.png",
+        alt: "서울 공공자전거 K-means 대여소 군집분석 그래프",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/logistic_prediction_probability.png",
+        alt: "서울 공공자전거 로지스틱 회귀 예측 확률 그래프",
+      },
+      {
+        src: "https://raw.githubusercontent.com/allen8524/seoul-bike-demand-analysis/main/figures/knn_prediction_probability.png",
+        alt: "서울 공공자전거 KNN 예측 확률 그래프",
+      },
+    ],
+  },
+  {
     projectId: "undead-survivor",
     period: "2026년",
     role: "플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 생존 · 사망 결과 처리",
