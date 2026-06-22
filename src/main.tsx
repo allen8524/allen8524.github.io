@@ -11,7 +11,11 @@ import "./styles/troubleshooting.css";
 
 const rootElement = document.getElementById("root");
 
-createRoot(rootElement!).render(
+if (!rootElement) {
+  throw Error("Root element #root was not found.");
+}
+
+createRoot(rootElement).render(
   <StrictMode>
     <App />
   </StrictMode>,
