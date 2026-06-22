@@ -9,6 +9,11 @@ type ProjectDetailHeroProps = {
   detail: ProjectDetail;
 };
 
+const heroTitleStyle = {
+  fontSize: "clamp(2.08rem, 4.45vw, 3.86rem)",
+  lineHeight: 1.08,
+};
+
 function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const period = detail.period || project.year;
   const heroImage = detail.heroImage || project.previewImage;
@@ -21,7 +26,7 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
     <section className="project-detail-hero">
       <div className="project-detail-hero__content">
         <p className="project-meta-text">{projectMeta}</p>
-        <h1>{projectTitle}</h1>
+        <h1 style={heroTitleStyle}>{projectTitle}</h1>
 
         <ProjectTechGroups className="project-detail-tech-groups--hero" project={project} />
       </div>
