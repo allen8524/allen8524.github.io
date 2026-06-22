@@ -47,7 +47,7 @@ export const resumeActivities = [
   },
   {
     id: "devup",
-    year: "2025.04 - 2025.12",
+    year: "2025.04 - 2025.08",
     title: "인덕대학교 스터디 - DevUp",
     organization: "코딩테스트 및 알고리즘 스터디",
     summaries: [
