@@ -98,6 +98,7 @@ src/
 | e스포츠 포털 및 경기관리 웹사이트 | Laravel | `/#/projects/esports` | https://github.com/allen8524/esports-portal-management |
 | 쇼핑몰 판매관리 사이트 | PHP | `/#/projects/shopping` | https://github.com/allen8524/shopping-mall-management-php |
 | 베이커리 판매관리 웹사이트 | Laravel | `/#/projects/bakery` | https://github.com/allen8524/bakery-sales-management-laravel |
+| 서울 공공자전거 수요 예측 · 이용자 유형 분석 | R 데이터 분석 | `/#/projects/seoul-bike` | https://github.com/allen8524/seoul-bike-demand-analysis |
 | Cine21 영화 데이터 PCA·회귀 분석 | Python 데이터 분석 | `/#/projects/movie-analysis` | https://github.com/allen8524/movie-pca-rating-analysis |
 | Undead Survivor 모바일 생존 게임 | Unity C# | `/#/projects/undead-survivor` | https://github.com/allen8524/undead-survivor-unity |
 | HealthyUp iOS 건강관리 앱 | Swift iOS | `/#/projects/healthyup` | https://github.com/allen8524/healthyup-ios |

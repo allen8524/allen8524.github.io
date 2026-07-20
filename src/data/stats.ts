@@ -1,7 +1,9 @@
+import { projects } from "./projects";
+
 export const stats = [
   {
     id: "projects",
-    value: 7,
+    value: projects.length,
     label: "주요 프로젝트",
     delay: 200,
   },
