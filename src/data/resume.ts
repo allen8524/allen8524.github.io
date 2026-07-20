@@ -12,7 +12,7 @@ export const resumeJourney = {
 export const resumeActivities = [
   {
     id: "indev",
-    year: "2026.05 - 진행 중",
+    year: "2026.05 - 2026.12",
     title: "인덕대학교 전공동아리 - INDEV",
     organization: "팀 프로젝트 및 CS",
     summaries: [
@@ -24,13 +24,25 @@ export const resumeActivities = [
   },
   {
     id: "library-work",
-    year: "2026.03 - 2026.08",
+    year: "2026.03 - 2026.06",
     title: "국가근로장학생",
     organization: "인덕대학교 도서관",
     summaries: [
       "인덕대학교 도서관 국가근로 근무",
       "자료 정리 및 이용자 응대 보조",
       "업무 흐름에 맞춘 문서 · 운영 지원",
+    ],
+  },
+  {
+    id: "sangsangirum-work",
+    year: "2026.07 - 2026.08",
+    title: "국가근로장학생",
+    organization: "상상이룸센터(노원진로직업체험지원센터)",
+    summaries: [
+      "청소년 진로체험 프로그램 운영 보조",
+      "활동 재료 준비 및 정리",
+      "참여자 안내와 공간 환경 관리",
+      "행정자료 정리 및 운영 지원",
     ],
   },
   {

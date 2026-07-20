@@ -3,7 +3,7 @@ import type { ProjectDetail } from "../types/project";
 export const projectDetails: ProjectDetail[] = [
   {
     projectId: "cineflow",
-    period: "2026년",
+    period: "2026.05 - 2026.06",
     role: "예매 상태 처리, 좌석 · 상영일정 · 결제 연결, 회원 · 비회원 조회 분기, 관리자 운영, Flyway 마이그레이션",
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
     purpose: [
@@ -323,7 +323,7 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "seoul-bike",
-    period: "2026.06",
+    period: "2026.05 - 2026.06",
     role: "데이터 전처리, 시각화, 다중선형회귀, 로지스틱 회귀, K-means 군집분석, KNN 분류분석, 결과 해석",
     heroImage: "assets/img/portfolio/seoul-bike-hourly-usage.png",
     purpose: [
@@ -439,7 +439,7 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "undead-survivor",
-    period: "2026년",
+    period: "2026.05",
     role: "플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 생존 · 사망 결과 처리",
     heroImage: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
     purpose: [
@@ -516,7 +516,7 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "healthyup",
-    period: "2026년",
+    period: "2026.05",
     role: "BMI 계산, 입력 검증, 성별 기준 분기, 결과 UI, 운동 정보 WebView, 로컬 영상 재생, 운동 계획 입력",
     heroImage: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
     purpose: [

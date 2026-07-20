@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { projects } from "../../data/projects";
+import { resumeActivities } from "../../data/resume";
 
 function Hero() {
   return (
@@ -48,7 +49,7 @@ function Hero() {
                   <span className="stat-label">수상 경험</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-number">5</span>
+                  <span className="stat-number">{resumeActivities.length}</span>
                   <span className="stat-label">학내 활동</span>
                 </div>
               </div>
