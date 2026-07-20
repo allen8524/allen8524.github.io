@@ -6,7 +6,7 @@ function ProjectReview({ detail }: { detail: ProjectDetail }) {
   if (!detail.learned?.length && !detail.limitations?.length) return null;
 
   return (
-    <section className="project-detail-section project-review-section">
+    <section className="project-detail-section project-review-section project-detail-section--secondary">
       <ProjectSectionHeading label="REVIEW" title="배운 점과 한계" />
       <div className={`project-review-panel ${detail.learned?.length && detail.limitations?.length ? "has-two-columns" : ""}`}>
         {detail.learned && detail.learned.length > 0 && <div><h3>배운 점</h3><ul>{detail.learned.map((item) => <li key={item}><i className="bi bi-check2" aria-hidden="true" />{formatMiddleDotSpacing(item)}</li>)}</ul></div>}

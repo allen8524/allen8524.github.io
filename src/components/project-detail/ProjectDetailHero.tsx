@@ -10,7 +10,6 @@ type ProjectDetailHeroProps = {
 };
 
 function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
-  const period = detail.period || project.year;
   const heroImage = detail.heroImage || project.previewImage;
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const projectTitle = formatMiddleDotSpacing(project.title);
@@ -20,7 +19,7 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
     <section className="project-detail-hero">
       <div className="project-detail-hero__content">
         <p className="project-detail-eyebrow">PROJECT · {formatMiddleDotSpacing(detail.developmentType)}</p>
-        <p className="project-detail-hero__category">{formatMiddleDotSpacing(project.category)} · {period}</p>
+        <p className="project-detail-hero__category">{formatMiddleDotSpacing(project.category)}</p>
         <h1>{projectTitle}</h1>
         <p className="project-detail-hero__summary">{formatMiddleDotSpacing(project.description)}</p>
         <ProjectTechGroups className="project-detail-tech-groups--hero" project={project} />

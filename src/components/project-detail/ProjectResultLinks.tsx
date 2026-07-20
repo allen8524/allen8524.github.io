@@ -16,7 +16,7 @@ function ProjectResultLinks({ detail, project }: ProjectResultLinksProps) {
   if (!links.length) return null;
 
   return (
-    <section className="project-detail-section">
+    <section className={`project-detail-section project-output-section project-detail-section--secondary${links.length === 1 ? " project-output-section--single" : ""}`}>
       <ProjectSectionHeading label="OUTPUT" title="결과물 및 링크" />
       <div className={`project-detail-links project-detail-links--count-${Math.min(links.length, 3)}`}>
         {links.map((link) => (
