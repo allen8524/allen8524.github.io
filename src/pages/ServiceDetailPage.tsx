@@ -57,8 +57,10 @@ function ServiceDetailPage() {
               {service.features.map((feature) => (
                 <article className="service-feature-card" key={feature.title}>
                   <ServiceFeatureIcon icon={feature.icon} />
-                  <h3>{formatMiddleDotSpacing(feature.title)}</h3>
-                  {feature.description && <p>{formatMiddleDotSpacing(feature.description)}</p>}
+                  <div className="service-feature-card__content">
+                    <h3>{formatMiddleDotSpacing(feature.title)}</h3>
+                    {feature.description && <p>{formatMiddleDotSpacing(feature.description)}</p>}
+                  </div>
                 </article>
               ))}
             </div>
@@ -126,12 +128,12 @@ function ServiceDetailPage() {
           </section>
 
           <section className="service-detail-section service-other" aria-labelledby="other-title">
-            <div className="service-detail-section__heading"><p>Explore</p><h2 id="other-title">다른 개발 역량</h2></div>
+            <div className="service-detail-section__heading service-other__heading">
+              <div><p>Explore</p><h2 id="other-title">다른 개발 역량</h2></div>
+              <Link to="/#services" className="btn btn-primary service-all-link">개발 역량 전체 보기</Link>
+            </div>
             <div className="service-other-grid">
               {otherServices.map((item) => <Link className="service-other-card" to={`/services/${item.id}`} key={item.id}><div><h3>{formatMiddleDotSpacing(item.title)}</h3><p>{formatMiddleDotSpacing(item.summary)}</p></div><i className="bi bi-arrow-right" aria-hidden="true" /></Link>)}
-            </div>
-            <div className="service-other-actions">
-              <Link to="/#services" className="btn btn-primary service-all-link">개발 역량 전체 보기</Link>
             </div>
           </section>
         </div>

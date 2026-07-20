@@ -26,7 +26,7 @@
 }
 
 .service-detail-section {
-  margin-top: clamp(64px, 5.5vw, 80px);
+  margin-top: clamp(64px, 5vw, 76px);
   padding: 0;
   overflow: visible;
   background: transparent;
@@ -50,7 +50,7 @@
 .service-detail-hero::before {
   position: absolute;
   top: 0;
-  left: clamp(44px, 5vw, 64px);
+  left: clamp(44px, 3.5vw, 54px);
   width: 56px;
   height: 3px;
   background: var(--accent-color);
@@ -78,7 +78,7 @@
 
 .service-detail-hero__summary {
   max-width: 620px;
-  margin: 24px 0 0;
+  margin: 21px 0 0;
   color: var(--service-muted);
   font-size: clamp(1.02rem, 1.25vw, 1.1rem);
   line-height: 1.72;
@@ -89,7 +89,7 @@
 .service-detail-keywords {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin: 28px 0 0;
   padding: 0;
   list-style: none;
@@ -134,7 +134,7 @@
 
 /* 4. Shared section headings */
 .service-detail-section__heading {
-  margin-bottom: clamp(22px, 2vw, 28px);
+  margin-bottom: clamp(24px, 2vw, 28px);
   padding-bottom: 16px;
   border-bottom: 1px solid var(--service-divider);
 }
@@ -146,6 +146,7 @@
   font-weight: 700;
   letter-spacing: 0.055em;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .service-detail-section__heading h2 {
@@ -179,23 +180,44 @@
 
 /* 5. Core capabilities */
 .service-feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   min-width: 0;
-  padding: 26px;
+  padding: 24px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
   background: var(--service-card-background);
+}
+
+.service-feature-grid {
+  align-items: stretch;
+  margin-top: 0;
 }
 
 .service-feature-icon {
   display: grid;
   width: 44px;
   height: 44px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   place-items: center;
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 68%);
   border-radius: 8px;
   background: color-mix(in srgb, var(--accent-color), transparent 91%);
   color: var(--accent-color);
+}
+
+.service-feature-card__content {
+  min-width: 0;
+}
+
+.service-feature-card__content p {
+  margin: 9px 0 0;
+  color: var(--service-muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .service-feature-icon svg {
@@ -224,6 +246,7 @@
 /* 6. Process */
 .service-process-list {
   display: grid;
+  width: min(100%, 980px);
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--service-divider);
@@ -233,7 +256,7 @@
 .service-process-list li {
   display: grid;
   grid-template-columns: 52px minmax(0, 1fr);
-  gap: 24px;
+  gap: 20px;
   align-items: start;
   padding: 24px 0;
   border-bottom: 1px solid var(--service-divider);
@@ -242,19 +265,28 @@
 .service-process-list > li > span {
   padding-top: 2px;
   color: var(--accent-color);
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.04em;
+}
+
+.service-process-list h3 {
+  font-size: 1.12rem;
+}
+
+.service-process-list p {
+  margin-top: 7px;
+  font-size: 0.95rem;
 }
 
 /* 7. Evidence */
 .service-evidence-card {
   display: grid;
-  grid-template-columns: 54px minmax(0, 1fr) auto;
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
   min-width: 0;
-  padding: 26px;
+  padding: 24px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
   background: color-mix(in srgb, var(--service-card-raised), var(--accent-color) 3%);
@@ -264,9 +296,18 @@
 }
 
 .service-evidence-card .service-feature-icon {
-  width: 54px;
-  height: 54px;
+  width: 46px;
+  height: 46px;
   margin: 0;
+}
+
+.service-evidence-card h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.service-evidence-card p {
+  margin-top: 7px;
 }
 
 .service-evidence-card > i {
@@ -288,7 +329,7 @@ a.service-evidence-card:hover > i {
 /* 8. Integrated information panel */
 .service-info-panel {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 0;
   align-items: start;
   padding: 30px;
@@ -305,7 +346,7 @@ a.service-evidence-card:hover > i {
 
 .service-info-group:first-child {
   padding-left: 0;
-  border-right: 1px solid var(--service-divider);
+  border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 89%);
 }
 
 .service-info-group:last-child {
@@ -315,7 +356,7 @@ a.service-evidence-card:hover > i {
 .service-info-group ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin: 20px 0 0;
   padding: 0;
   list-style: none;
@@ -333,14 +374,14 @@ a.service-evidence-card:hover > i {
   border: 1px solid var(--service-border);
   border-radius: 6px;
   background: var(--service-page-background);
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
 .service-info-group--checklist ul {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 20px;
+  grid-template-columns: 1fr;
+  gap: 11px;
 }
 
 .service-info-group--checklist li {
@@ -363,7 +404,7 @@ a.service-evidence-card:hover > i {
   align-items: center;
   justify-content: space-between;
   min-width: 0;
-  padding: 26px;
+  padding: 24px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
   background: color-mix(in srgb, var(--service-card-background), var(--service-page-background) 18%);
@@ -379,7 +420,12 @@ a.service-evidence-card:hover > i {
 }
 
 .service-related-card h3 {
-  font-size: clamp(1.16rem, 1.55vw, 1.25rem);
+  font-size: clamp(1.08rem, 1.4vw, 1.16rem);
+}
+
+.service-related-card p {
+  margin-top: 7px;
+  font-size: 0.9rem;
 }
 
 .service-related-card:hover {
@@ -403,7 +449,7 @@ a.service-evidence-card:hover > i {
   align-items: center;
   justify-content: space-between;
   min-width: 0;
-  padding: 26px;
+  padding: 22px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
   background: var(--service-card-background);
@@ -412,10 +458,34 @@ a.service-evidence-card:hover > i {
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
-.service-other-actions {
+.service-other__heading {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.service-other__heading > div {
+  min-width: 0;
+}
+
+.service-other__heading > div > p {
+  margin: 0 0 8px;
+  color: var(--accent-color);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.service-other-card h3 {
+  font-size: 1.06rem;
+}
+
+.service-other-card p {
+  margin-top: 7px;
+  font-size: 0.88rem;
 }
 
 .service-other-card i {
@@ -471,7 +541,7 @@ a.service-evidence-card:hover > i {
   }
 
   .service-detail-section {
-    margin-top: clamp(64px, 8vw, 80px);
+    margin-top: clamp(56px, 7vw, 68px);
   }
 
   .service-detail-hero {
@@ -498,7 +568,7 @@ a.service-evidence-card:hover > i {
   }
 
   .service-detail-section {
-    margin-top: clamp(52px, 10vw, 64px);
+    margin-top: clamp(48px, 8vw, 58px);
   }
 
   .service-detail-hero {
@@ -534,6 +604,11 @@ a.service-evidence-card:hover > i {
 
   .service-info-group:last-child {
     padding-bottom: 0;
+  }
+
+  .service-other__heading {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -591,7 +666,7 @@ a.service-evidence-card:hover > i {
   }
 
   .service-evidence-card {
-    grid-template-columns: 44px minmax(0, 1fr);
+    grid-template-columns: 46px minmax(0, 1fr);
     gap: 14px;
   }
 
