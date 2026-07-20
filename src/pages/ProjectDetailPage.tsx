@@ -13,6 +13,7 @@ import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
 import { getProjectDetail } from "../data/projectDetails";
 import { projects } from "../data/projects";
+import { DEFAULT_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import NotFoundPage from "./NotFoundPage";
 
@@ -20,6 +21,18 @@ function ProjectDetailPage() {
   const { projectId } = useParams();
   const project = projects.find((item) => item.id === projectId);
   const detail = projectId ? getProjectDetail(projectId) : undefined;
+  const metadataImage = detail?.heroImage
+    ? /^https?:\/\//i.test(detail.heroImage)
+      ? detail.heroImage
+      : new URL(detail.heroImage.replace(/^\/+/, ""), DEFAULT_PAGE_METADATA.url).href
+    : DEFAULT_PAGE_METADATA.image;
+
+  usePageMetadata({
+    title: project ? `${project.title} | 황민서 포트폴리오` : DEFAULT_PAGE_METADATA.title,
+    description: project?.description ?? DEFAULT_PAGE_METADATA.description,
+    image: metadataImage,
+    url: project ? `https://allen8524.github.io/#/projects/${project.id}` : DEFAULT_PAGE_METADATA.url,
+  });
 
   useScrollReveal({ scope: "project", deps: [projectId] });
 
