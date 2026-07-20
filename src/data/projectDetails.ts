@@ -4,7 +4,14 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "cineflow",
     period: "2026.05 - 2026.06",
+    developmentType: "개인 프로젝트",
     role: "예매 상태 처리, 좌석 · 상영일정 · 결제 연결, 회원 · 비회원 조회 분기, 관리자 운영, Flyway 마이그레이션",
+    contribution: "빠른예매부터 조회 · 취소까지의 상태 흐름과 관리자 운영 · DB 변경 관리를 구현",
+    keyAchievements: [
+      "회원 · 비회원 예매 조회 기준 분리",
+      "상영일정 · 좌석 · 결제 · 예매 상태 연결",
+      "Spring Security 권한 분리와 Flyway 기반 DB 변경 이력 관리",
+    ],
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
     purpose: [
       "영화 선택부터 예매 완료 · 조회 · 취소까지 상태 흐름 연결",
@@ -69,7 +76,14 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "esports",
     period: "2025년 12월 16일",
+    developmentType: "개인 프로젝트",
     role: "포털 화면 구성, 도메인별 CRUD, 경기 결과 기반 순위 집계, 관리자 대시보드 연결",
+    contribution: "사용자 · 관리자 화면을 분리하고 경기 집계, 접근 제어와 뉴스 라우팅을 구현",
+    keyAchievements: [
+      "finished 경기만 순위 집계에 반영",
+      "승 · 패 · 승률 · 득실차 계산",
+      "관리자 미들웨어 접근 제어",
+    ],
     heroImage: "assets/img/portfolio/esports_main.png",
     purpose: [
       "선수 · 팀 · 경기 · 뉴스 · 패치노트 데이터를 포털 화면과 관리자 화면으로 분리",
@@ -119,7 +133,13 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "shopping",
     period: "2025년 6월",
+    developmentType: "개인 프로젝트",
     role: "상품 조회, 장바구니, 주문 · 결제, 사용자 주문 조회, 관리자 주문 관리",
+    contribution: "상품 조회 · 장바구니 · 주문 저장 흐름과 사용자 · 관리자 주문 조회 화면을 연결",
+    keyAchievements: [
+      "주문번호 기준 주문 마스터와 주문 상세 데이터 연결",
+      "사용자 주문 조회와 관리자 주문 관리 기준 통일",
+    ],
     heroImage: "assets/img/portfolio/shopping_main.png",
     purpose: [
       "상품 조회부터 장바구니, 주문, 관리자 주문 관리까지 판매관리 흐름 구현",
@@ -161,7 +181,10 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "bakery",
     period: "2025년 12월",
+    developmentType: "개인 프로젝트",
     role: "제품 등록, 재고 관리, 판매 내역 확인, 관리자 화면 기능",
+    contribution: "제품 등록 · 수정, 재고 조회와 판매 · 매입 · 매출 장부 확인 흐름을 구현",
+    keyAchievements: ["제품 ID 기준 재고와 판매 내역 연결", "제품 · 재고 · 매입 · 매출 관리 흐름 구성"],
     heroImage:
       "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
     purpose: [
@@ -234,7 +257,14 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "movie-analysis",
     period: "2026년",
+    developmentType: "개인 프로젝트",
     role: "결측값 처리, 이상치 완화, 정규화, PCA, 상관분석, PC1 기반 선형회귀",
+    contribution: "CSV 전처리부터 PCA · 상관분석 · PC1 회귀와 결과 저장까지 분석 파이프라인을 구성",
+    keyAchievements: [
+      "결측값 · 이상치 처리와 MinMax 정규화",
+      "PCA와 상관분석 수행",
+      "PC1 기반 선형회귀 결과 정리",
+    ],
     heroImage:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/poster_202212004_hwang_minseo.png",
     purpose: [
@@ -324,7 +354,14 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "seoul-bike",
     period: "2026.05 - 2026.06",
+    developmentType: "개인 프로젝트",
     role: "데이터 전처리, 시각화, 다중선형회귀, 로지스틱 회귀, K-means 군집분석, KNN 분류분석, 결과 해석",
+    contribution: "데이터 전처리 · 시각화부터 회귀 · 분류 · 군집 모델링과 결과 해석까지 수행",
+    keyAchievements: [
+      "다중선형회귀 R² 0.5431",
+      "로지스틱 회귀 정확도 0.8969 · KNN 정확도 0.9013",
+      "K-means 기반 대여소 유형 분류",
+    ],
     heroImage: "assets/img/portfolio/seoul-bike-hourly-usage.png",
     purpose: [
       "2025년 12월 서울 공공자전거 시간대별 이용정보로 수요 집중 시간대와 이용자 특성 파악",
@@ -440,7 +477,14 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "undead-survivor",
     period: "2026.05",
+    developmentType: "개인 프로젝트",
     role: "플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 생존 · 사망 결과 처리",
+    contribution: "플레이어 이동 · 전투 · 레벨업 · 결과 화면을 연결하고 적 · 투사체 재사용 구조를 구현",
+    keyAchievements: [
+      "Object Pooling으로 적과 투사체 재사용",
+      "자동 공격 · 적 스폰 · 레벨업과 결과 화면 연결",
+      "Android APK 빌드",
+    ],
     heroImage: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
     purpose: [
       "Unity와 C# 기반 Android 생존형 액션 게임 핵심 루프 구현",
@@ -517,7 +561,14 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "healthyup",
     period: "2026.05",
+    developmentType: "개인 프로젝트",
     role: "BMI 계산, 입력 검증, 성별 기준 분기, 결과 UI, 운동 정보 WebView, 로컬 영상 재생, 운동 계획 입력",
+    contribution: "BMI 입력 검증 · 결과 분기와 운동 정보 · 영상 · 계획 탭 화면을 구현",
+    keyAchievements: [
+      "BMI 계산과 입력값 검증",
+      "UIKit 기반 탭 화면 구성",
+      "WebView와 AVKit 영상 재생 연결",
+    ],
     heroImage: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
     purpose: [
       "BMI 계산, 운동 정보 탐색, 영상 재생, 운동 계획 설정을 탭 구조로 연결",

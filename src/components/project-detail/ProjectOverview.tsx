@@ -44,8 +44,28 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
           <p>{formatMiddleDotSpacing(project.title)}</p>
         </div>
         <div className="spec-item">
+          <h5>개발 형태</h5>
+          <p>{detail.developmentType}</p>
+        </div>
+        <div className="spec-item">
+          <h5>담당 역할</h5>
+          <p>{formatMiddleDotSpacing(detail.role)}</p>
+        </div>
+        <div className="spec-item">
+          <h5>기여도</h5>
+          <p>{formatMiddleDotSpacing(detail.contribution)}</p>
+        </div>
+        <div className="spec-item">
           <h5>개발 기간</h5>
           <p>{detail.period}</p>
+        </div>
+        <div className="spec-item">
+          <h5>핵심 성과</h5>
+          <ul className="project-spec-achievements">
+            {detail.keyAchievements.map((achievement) => (
+              <li key={achievement}>{formatMiddleDotSpacing(achievement)}</li>
+            ))}
+          </ul>
         </div>
         <div className="spec-item">
           <h5>GitHub</h5>

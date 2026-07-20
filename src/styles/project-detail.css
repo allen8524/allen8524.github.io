@@ -1695,6 +1695,21 @@
 .portfolio-details .project-specs p {
   color: var(--heading-color);
   line-height: 1.55;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-details .project-spec-achievements {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.portfolio-details .project-spec-achievements li {
+  line-height: 1.55;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .portfolio-details .project-specs a,

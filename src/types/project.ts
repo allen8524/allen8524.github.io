@@ -33,7 +33,10 @@ export type Project = {
 export type ProjectDetail = {
   projectId: ProjectId;
   period: string;
+  developmentType: string;
   role: string;
+  contribution: string;
+  keyAchievements: string[];
   heroImage: string;
   purpose: string[];
   responsibilities?: string[];
