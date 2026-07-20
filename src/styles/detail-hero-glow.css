@@ -1,36 +1,40 @@
-/* Shared animated glass glow for project and service detail heroes. */
+/* Shared ambient glass glow for project and service detail heroes. */
 .project-detail-hero,
 .service-detail-hero {
   isolation: isolate;
   overflow: hidden;
-  backdrop-filter: blur(18px) saturate(115%);
-  -webkit-backdrop-filter: blur(18px) saturate(115%);
+  backdrop-filter: blur(10px) saturate(108%);
+  -webkit-backdrop-filter: blur(10px) saturate(108%);
 }
 
 .project-detail-hero {
-  background: color-mix(in srgb, var(--project-hero-bg), transparent 7%);
+  background: color-mix(in srgb, var(--project-hero-bg), transparent 3%);
 }
 
 .service-detail-hero {
-  background: color-mix(in srgb, var(--service-card-raised), transparent 7%);
+  background: color-mix(in srgb, var(--service-card-raised), transparent 3%);
 }
 
 .project-detail-hero::after,
 .service-detail-hero::after {
   position: absolute;
-  top: 8%;
-  left: 7%;
+  top: 18%;
+  right: 3%;
   z-index: 0;
-  width: clamp(250px, 32vw, 460px);
-  aspect-ratio: 1;
+  width: clamp(220px, 27vw, 360px);
+  aspect-ratio: 1.15;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--accent-color), #4c6f86 24%);
-  box-shadow: 0 0 90px color-mix(in srgb, var(--accent-color), transparent 55%);
-  opacity: 0.2;
-  filter: blur(34px);
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--accent-color), #4c6f86 18%) 0%,
+    color-mix(in srgb, var(--accent-color), transparent 58%) 48%,
+    transparent 72%
+  );
+  opacity: 0.13;
+  filter: blur(30px);
   pointer-events: none;
   will-change: transform;
-  animation: detail-hero-blob-bounce 9s infinite ease-in-out;
+  animation: detail-hero-ambient-glow 14s infinite ease-in-out;
   content: "";
 }
 
@@ -45,39 +49,33 @@
   z-index: 1;
 }
 
-@keyframes detail-hero-blob-bounce {
+@keyframes detail-hero-ambient-glow {
   0%,
   100% {
-    transform: translate3d(-32%, -34%, 0) scale(1);
-  }
-
-  25% {
-    transform: translate3d(185%, -18%, 0) scale(1.08);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 
   50% {
-    transform: translate3d(190%, 74%, 0) scale(0.96);
-  }
-
-  75% {
-    transform: translate3d(-8%, 88%, 0) scale(1.04);
+    transform: translate3d(-24px, 18px, 0) scale(1.05);
   }
 }
 
 @media (max-width: 767px) {
   .project-detail-hero::after,
   .service-detail-hero::after {
-    width: clamp(210px, 70vw, 320px);
-    opacity: 0.16;
-    filter: blur(30px);
-    animation-duration: 11s;
+    top: 52%;
+    right: -18%;
+    width: clamp(220px, 72vw, 300px);
+    opacity: 0.1;
+    filter: blur(34px);
+    animation-duration: 16s;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .project-detail-hero::after,
   .service-detail-hero::after {
-    transform: translate3d(38%, 12%, 0);
+    transform: none;
     animation: none;
   }
 }
