@@ -1,5 +1,6 @@
 import type { Project, ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import ProjectSectionHeading from "./ProjectSectionHeading";
 
 type ProjectResultLinksProps = {
   project: Project;
@@ -7,21 +8,20 @@ type ProjectResultLinksProps = {
 };
 
 function ProjectResultLinks({ detail, project }: ProjectResultLinksProps) {
-  const links = [
-    { label: "GitHub 저장소", url: project.githubUrl },
-    ...(detail.deploymentUrl ? [{ label: "배포 보기", url: detail.deploymentUrl }] : []),
-    ...(detail.resultLinks ?? []),
-  ];
+  const heroUrls = new Set([project.githubUrl, detail.deploymentUrl].filter(Boolean));
+  const links = (detail.resultLinks ?? []).filter((link, index, items) =>
+    !heroUrls.has(link.url) && items.findIndex((item) => item.url === link.url) === index,
+  );
+
+  if (!links.length) return null;
 
   return (
     <section className="project-detail-section">
-      <div className="project-detail-section__header">
-        <h2>확인 가능한 결과물</h2>
-      </div>
+      <ProjectSectionHeading label="OUTPUT" title="결과물 및 링크" />
       <div className="project-detail-links">
         {links.map((link) => (
-          <a href={link.url} target="_blank" rel="noopener noreferrer" key={`${link.label}-${link.url}`}>
-            {formatMiddleDotSpacing(link.label)}
+          <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={`${formatMiddleDotSpacing(link.label)} 새 창에서 열기`} key={`${link.label}-${link.url}`}>
+            <i className="bi bi-link-45deg" aria-hidden="true" /><span>{formatMiddleDotSpacing(link.label)}</span><i className="bi bi-arrow-up-right" aria-hidden="true" />
           </a>
         ))}
       </div>

@@ -6,7 +6,7 @@ import ProjectImplementation from "../components/project-detail/ProjectImplement
 import ProjectNavigation from "../components/project-detail/ProjectNavigation";
 import ProjectOverview from "../components/project-detail/ProjectOverview";
 import ProjectResultLinks from "../components/project-detail/ProjectResultLinks";
-import ProjectTechStack from "../components/project-detail/ProjectTechStack";
+import ProjectReview from "../components/project-detail/ProjectReview";
 import ProjectTroubleshooting from "../components/project-detail/ProjectTroubleshooting";
 import Footer from "../components/sections/Footer";
 import Header from "../components/sections/Header";
@@ -45,14 +45,14 @@ function ProjectDetailPage() {
       <Header />
       <main className="main">
         <section id="portfolio-details" className="portfolio-details section">
-          <div className="container">
+          <div className="project-detail-container">
             <ProjectDetailHero detail={detail} project={project} />
             <ProjectOverview detail={detail} project={project} />
-            <ProjectTechStack project={project} />
             <ProjectImplementation detail={detail} />
             <ProjectTroubleshooting detail={detail} />
-            <ProjectGallery detail={detail} />
+            <ProjectReview detail={detail} />
             <ProjectResultLinks detail={detail} project={project} />
+            <ProjectGallery detail={detail} />
             <ProjectNavigation previousProject={previousProject} nextProject={nextProject} />
           </div>
         </section>

@@ -35,11 +35,14 @@ const revealGroupsByScope: Record<RevealScope, RevealGroup[]> = {
     { container: "#contact", selector: ".contact-info-card, .contact-form, .info-item", stagger: 80 },
   ],
   project: [
-    { selector: ".page-title .container" },
     { selector: ".project-detail-hero" },
     { container: ".project-detail-hero", selector: ".project-detail-hero__content > *, .project-detail-hero__image", stagger: 90 },
-    { container: ".portfolio-details", selector: ".project-detail-section, .project-nav", stagger: 90 },
-    { container: ".project-detail-timeline", selector: ".project-detail-step", stagger: 70 },
+    { selector: ".project-summary-panel" },
+    { container: ".portfolio-details", selector: ".project-section-heading", stagger: 60 },
+    { container: ".project-responsibility-list", selector: "li", stagger: 60 },
+    { container: ".project-implementation-grid", selector: ".project-implementation-card", stagger: 70 },
+    { container: ".project-results-grid", selector: ".project-result-card", stagger: 70 },
+    { container: ".project-troubleshooting-list", selector: "li", stagger: 70 },
     { container: ".project-gallery-grid", selector: ".project-gallery-item", stagger: 80 },
   ],
   service: [

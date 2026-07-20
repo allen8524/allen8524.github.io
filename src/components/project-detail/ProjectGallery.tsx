@@ -2,6 +2,7 @@ import { useState } from "react";
 import ImagePreview from "../portfolio/ImagePreview";
 import type { ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import ProjectSectionHeading from "./ProjectSectionHeading";
 
 type ProjectGalleryProps = {
   detail: ProjectDetail;
@@ -17,11 +18,8 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
   }
 
   return (
-    <section className="project-detail-section">
-      <div className="project-detail-section__header">
-        <h2>대표 화면</h2>
-        <p>기존 상세 페이지에서 사용하던 대표 화면 자료를 공통 상세 페이지 안에 정리했습니다.</p>
-      </div>
+    <section className={`project-detail-section project-gallery-section project-gallery-section--${detail.projectId}`}>
+      <ProjectSectionHeading label="GALLERY" title="프로젝트 화면" />
       <div className="project-gallery-grid">
         {detail.gallery.map((image) => {
           const imageAlt = formatMiddleDotSpacing(image.alt);
@@ -35,6 +33,7 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
                 onClick={() => setPreviewImage(image)}
               >
                 <img src={image.src} alt={imageAlt} className="img-fluid" loading="lazy" />
+                <span className="project-gallery-item__preview"><i className="bi bi-arrows-fullscreen" aria-hidden="true" /> 미리보기</span>
               </button>
               <figcaption>{imageAlt}</figcaption>
             </figure>

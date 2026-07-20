@@ -1,65 +1,32 @@
 import type { ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import ProjectSectionHeading from "./ProjectSectionHeading";
 
-type ProjectImplementationProps = {
-  detail: ProjectDetail;
-};
+type ProjectImplementationProps = { detail: ProjectDetail };
+const format = (value: string) => formatMiddleDotSpacing(value);
 
 function ProjectImplementation({ detail }: ProjectImplementationProps) {
   return (
-    <section className="project-detail-section project-implementation-section">
-      <div className="project-detail-section__header">
-        <h2>구현 방식</h2>
-      </div>
-
-      <div className="project-detail-timeline">
-        {detail.implementationPoints.map((point, index) => (
-          <article className="project-detail-step" key={point.title}>
-            <span className="project-detail-step__number" aria-hidden="true">
-              <span className="project-detail-step__number-text">{String(index + 1).padStart(2, "0")}</span>
-            </span>
-            <div>
-              <h3>{formatMiddleDotSpacing(point.title)}</h3>
-              <p>{formatMiddleDotSpacing(point.description)}</p>
-            </div>
-          </article>
-        ))}
-      </div>
+    <>
+      {detail.implementationPoints.length > 0 && (
+        <section className="project-detail-section project-implementation-section">
+          <ProjectSectionHeading label="IMPLEMENTATION" title="핵심 구현" />
+          <div className="project-implementation-grid">
+            {detail.implementationPoints.map((point, index) => <article className="project-implementation-card" key={point.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{format(point.title)}</h3><p>{format(point.description)}</p></article>)}
+          </div>
+        </section>
+      )}
 
       {detail.analysisResults && detail.analysisResults.length > 0 && (
-        <div className="project-detail-metric-grid">
-          {detail.analysisResults.map((result) => (
-            <article className="project-detail-metric" key={result.label}>
-              <span>{formatMiddleDotSpacing(result.label)}</span>
-              <strong>{formatMiddleDotSpacing(result.value)}</strong>
-              {result.description && <p>{formatMiddleDotSpacing(result.description)}</p>}
-            </article>
-          ))}
-        </div>
+        <section className="project-detail-section project-results-section">
+          <ProjectSectionHeading label="RESULTS" title="주요 결과" />
+          <div className="project-results-grid">
+            {detail.analysisResults.map((result) => <article className="project-result-card" key={result.label}><span>{format(result.label)}</span><strong>{format(result.value)}</strong>{result.description && <p>{format(result.description)}</p>}</article>)}
+          </div>
+        </section>
       )}
 
-      {detail.learned && detail.learned.length > 0 && (
-        <div className="project-detail-list-block">
-          <h3>배운 점</h3>
-          <ul className="project-detail-check-list">
-            {detail.learned.map((item) => (
-              <li key={item}>{formatMiddleDotSpacing(item)}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {detail.limitations && detail.limitations.length > 0 && (
-        <div className="project-detail-list-block">
-          <h3>한계와 개선 방향</h3>
-          <ul className="project-detail-check-list">
-            {detail.limitations.map((item) => (
-              <li key={item}>{formatMiddleDotSpacing(item)}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </section>
+    </>
   );
 }
 

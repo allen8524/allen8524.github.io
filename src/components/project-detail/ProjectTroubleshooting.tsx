@@ -1,30 +1,16 @@
 import type { ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import ProjectSectionHeading from "./ProjectSectionHeading";
 
-type ProjectTroubleshootingProps = {
-  detail: ProjectDetail;
-};
-
-function ProjectTroubleshooting({ detail }: ProjectTroubleshootingProps) {
-  if (detail.troubleshooting.length === 0) {
-    return null;
-  }
-
+function ProjectTroubleshooting({ detail }: { detail: ProjectDetail }) {
+  if (!detail.troubleshooting.length) return null;
   return (
     <section className="project-detail-section project-troubleshooting-section">
-      <div className="project-detail-section__header">
-        <h2>트러블슈팅</h2>
-      </div>
-      <div className="project-detail-note-grid">
-        {detail.troubleshooting.map((item) => (
-          <article className="detail-note" key={item.title}>
-            <h3>{formatMiddleDotSpacing(item.title)}</h3>
-            <p>{formatMiddleDotSpacing(item.description)}</p>
-          </article>
-        ))}
-      </div>
+      <ProjectSectionHeading label="TROUBLESHOOTING" title="트러블슈팅" />
+      <ol className="project-troubleshooting-list">
+        {detail.troubleshooting.map((item, index) => <li key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{formatMiddleDotSpacing(item.title)}</h3><p>{formatMiddleDotSpacing(item.description)}</p></li>)}
+      </ol>
     </section>
   );
 }
-
 export default ProjectTroubleshooting;

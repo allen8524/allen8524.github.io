@@ -9,37 +9,42 @@ type ProjectDetailHeroProps = {
   detail: ProjectDetail;
 };
 
-const heroTitleStyle = {
-  fontSize: "clamp(2.08rem, 4.45vw, 3.86rem)",
-  lineHeight: 1.08,
-};
-
 function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const period = detail.period || project.year;
   const heroImage = detail.heroImage || project.previewImage;
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const projectTitle = formatMiddleDotSpacing(project.title);
-  const projectMeta = formatMiddleDotSpacing(`${project.category} · ${period}`);
   const previewAddress = `${project.id}.portfolio/detail`;
 
   return (
     <section className="project-detail-hero">
       <div className="project-detail-hero__content">
-        <p className="project-meta-text">{projectMeta}</p>
-        <h1 style={heroTitleStyle}>{projectTitle}</h1>
-
+        <p className="project-detail-eyebrow">PROJECT · {formatMiddleDotSpacing(detail.developmentType)}</p>
+        <p className="project-detail-hero__category">{formatMiddleDotSpacing(project.category)} · {period}</p>
+        <h1>{projectTitle}</h1>
+        <p className="project-detail-hero__summary">{formatMiddleDotSpacing(project.description)}</p>
         <ProjectTechGroups className="project-detail-tech-groups--hero" project={project} />
+        <div className="project-detail-hero__actions">
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${projectTitle} GitHub 저장소 새 창에서 열기`}>
+            <i className="bi bi-github" aria-hidden="true" /> GitHub <i className="bi bi-arrow-up-right" aria-hidden="true" />
+          </a>
+          {detail.deploymentUrl && (
+            <a href={detail.deploymentUrl} target="_blank" rel="noopener noreferrer" aria-label={`${projectTitle} 배포 사이트 새 창에서 열기`}>
+              <i className="bi bi-box-arrow-up-right" aria-hidden="true" /> 배포 사이트 <i className="bi bi-arrow-up-right" aria-hidden="true" />
+            </a>
+          )}
+        </div>
       </div>
 
       <figure className="project-detail-hero__image">
         <div className="project-detail-browser-frame">
-          <div className="project-detail-browser-bar" aria-hidden="true">
-            <span className="project-detail-browser-dots">
+          <div className="project-detail-browser-bar">
+            <span className="project-detail-browser-dots" aria-hidden="true">
               <span />
               <span />
               <span />
             </span>
-            <span className="project-detail-browser-address">{previewAddress}</span>
+            <span className="project-detail-browser-address" title={previewAddress}>{previewAddress}</span>
           </div>
           <button
             type="button"
