@@ -6,7 +6,6 @@ const navItems = [
   { id: "about", label: "소개", icon: "bi-person" },
   { id: "resume", label: "이력 및 활동", icon: "bi-file-earmark-text" },
   { id: "portfolio", label: "프로젝트", icon: "bi-images" },
-  { id: "services", label: "개발 역량", icon: "bi-hdd-stack" },
   { id: "testimonials", label: "트러블슈팅", icon: "bi-tools" },
   { id: "contact", label: "연락처", icon: "bi-envelope" },
 ];

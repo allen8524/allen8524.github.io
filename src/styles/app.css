@@ -352,6 +352,37 @@ a {
   text-wrap: balance;
 }
 
+.skills .backend-capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.skills .backend-capability {
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: 8px;
+  background: var(--surface-color);
+}
+
+.skills .backend-capability h3 {
+  margin: 0 0 8px;
+  color: var(--heading-color);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.skills .backend-capability p {
+  margin: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 24%);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
 .resume .professional-journey .experience-timeline .timeline-summary-list {
   display: grid;
   gap: 0.35rem;
@@ -417,6 +448,10 @@ a {
   .about .intro-header h1 {
     font-size: var(--about-title-size-md);
   }
+
+  .skills .backend-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
@@ -426,5 +461,15 @@ a {
 
   .about .intro-header h1 {
     font-size: var(--about-title-size-sm);
+  }
+
+  .skills .backend-capabilities {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .skills .backend-capability {
+    padding: 18px;
   }
 }

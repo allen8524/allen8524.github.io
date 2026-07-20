@@ -38,31 +38,31 @@ function About() {
                     <div className="expertise-grid">
                       <div className="expertise-item">
                         <div className="expertise-icon">
-                          <i className="bi bi-lightbulb" />
+                          <i className="bi bi-database-check" />
                         </div>
                         <div className="expertise-content">
-                          <h4>백엔드 개발</h4>
-                          <p>Spring Boot, Laravel, PHP 기반 예매 · 주문 · 관리자 기능 구현</p>
+                          <h4>데이터 구조 우선</h4>
+                          <p>기능 구현 전에 필요한 데이터와 테이블 관계, 조회 기준을 먼저 확인합니다.</p>
                         </div>
                       </div>
 
                       <div className="expertise-item">
                         <div className="expertise-icon">
-                          <i className="bi bi-phone" />
+                          <i className="bi bi-diagram-3" />
                         </div>
                         <div className="expertise-content">
-                          <h4>데이터 처리</h4>
-                          <p>MySQL 중심 DB 설계와 Python 기반 CSV 전처리 · 분석</p>
+                          <h4>상태 흐름 연결</h4>
+                          <p>요청부터 저장, 조회, 수정까지 데이터 상태가 이어지는 과정을 기준으로 구현합니다.</p>
                         </div>
                       </div>
 
                       <div className="expertise-item">
                         <div className="expertise-icon">
-                          <i className="bi bi-graph-up" />
+                          <i className="bi bi-search" />
                         </div>
                         <div className="expertise-content">
-                          <h4>구현 확장</h4>
-                          <p>iOS 화면 흐름, Unity 게임 루프, 스터디 · 문제 풀이 경험</p>
+                          <h4>문제 원인 추적</h4>
+                          <p>화면 오류만 수정하지 않고 요청값, 서비스 로직, DB 상태를 순서대로 확인합니다.</p>
                         </div>
                       </div>
                     </div>
@@ -77,8 +77,8 @@ function About() {
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <div className="collaboration-text">
-                    <h3>구현 전 데이터 구조를 우선적으로 확인합니다.</h3>
-                    <p>화면에 필요한 값의 저장 위치와 조회 흐름부터 확인하며 개발</p>
+                    <h3>구현 전 데이터 구조와 처리 순서를 먼저 확인합니다.</h3>
+                    <p>필요한 값의 저장 위치와 요청부터 응답까지의 흐름을 기준으로 개발합니다.</p>
                   </div>
                 </div>
                 <div className="col-lg-6">

@@ -2,6 +2,21 @@ import { recentAchievements } from "../../data/awards";
 import { skillCategories, skillsHighlight, skillsSection, technologies } from "../../data/skills";
 import { formatMiddleDotSpacing } from "../../utils/typography";
 
+const backendCapabilities = [
+  {
+    title: "인증 · 권한",
+    description: "Spring Security와 미들웨어를 활용한 사용자 및 관리자 접근 범위 분리",
+  },
+  {
+    title: "업무 상태 처리",
+    description: "예매, 주문, 경기 결과 등 상태 변경에 따른 저장 및 조회 흐름 구현",
+  },
+  {
+    title: "관리자 데이터 운영",
+    description: "영화, 상품, 경기, 뉴스 등 운영 데이터의 등록, 수정, 조회 기능 구현",
+  },
+];
+
 function Skills() {
   return (
     <section id="skills" className="skills section">
@@ -74,6 +89,15 @@ function Skills() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="backend-capabilities" aria-label="백엔드 개발 역량 요약">
+          {backendCapabilities.map((capability) => (
+            <div className="backend-capability" key={capability.title}>
+              <h3>{formatMiddleDotSpacing(capability.title)}</h3>
+              <p>{formatMiddleDotSpacing(capability.description)}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
