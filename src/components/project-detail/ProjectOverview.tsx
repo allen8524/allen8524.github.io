@@ -7,9 +7,7 @@ type ProjectOverviewProps = { project: Project; detail: ProjectDetail };
 const format = (value: string) => formatMiddleDotSpacing(value);
 
 function ProjectOverview({ detail, project }: ProjectOverviewProps) {
-  const useResponsibilityGrid =
-    Boolean(detail.responsibilities && detail.responsibilities.length >= 4) &&
-    detail.responsibilities!.every((item) => item.length <= 54);
+  const responsibilityCount = detail.responsibilities?.length ?? 0;
   const flowSteps = (detail.dataFlow ?? []).flatMap((flow, flowIndex) => {
     if (!flow.includes("→")) return [];
     const steps = flow.split("→").map((step) => step.trim()).filter(Boolean);
@@ -53,7 +51,7 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
       {detail.responsibilities && detail.responsibilities.length > 0 && (
         <section className="project-detail-section project-responsibility-section">
           <ProjectSectionHeading label="RESPONSIBILITY" title="내가 담당한 부분" />
-          <ol className={`project-responsibility-list ${useResponsibilityGrid ? "is-grid" : ""}`}>
+          <ol className={`project-responsibility-list project-responsibility-list--count-${Math.min(responsibilityCount, 7)}`}>
             {detail.responsibilities.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{format(item)}</p></li>)}
           </ol>
         </section>
