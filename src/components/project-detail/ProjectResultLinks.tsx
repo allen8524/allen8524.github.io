@@ -18,7 +18,7 @@ function ProjectResultLinks({ detail, project }: ProjectResultLinksProps) {
   return (
     <section className="project-detail-section">
       <ProjectSectionHeading label="OUTPUT" title="결과물 및 링크" />
-      <div className="project-detail-links">
+      <div className={`project-detail-links project-detail-links--count-${Math.min(links.length, 3)}`}>
         {links.map((link) => (
           <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={`${formatMiddleDotSpacing(link.label)} 새 창에서 열기`} key={`${link.label}-${link.url}`}>
             <i className="bi bi-link-45deg" aria-hidden="true" /><span>{formatMiddleDotSpacing(link.label)}</span><i className="bi bi-arrow-up-right" aria-hidden="true" />

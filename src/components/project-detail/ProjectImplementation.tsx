@@ -11,7 +11,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
       {detail.implementationPoints.length > 0 && (
         <section className="project-detail-section project-implementation-section">
           <ProjectSectionHeading label="IMPLEMENTATION" title="핵심 구현" />
-          <div className="project-implementation-grid">
+          <div className={`project-implementation-grid project-implementation-grid--count-${Math.min(detail.implementationPoints.length, 7)}`}>
             {detail.implementationPoints.map((point, index) => <article className="project-implementation-card" key={point.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{format(point.title)}</h3><p>{format(point.description)}</p></article>)}
           </div>
         </section>
