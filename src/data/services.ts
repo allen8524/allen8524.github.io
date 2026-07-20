@@ -13,14 +13,17 @@ export const services: ServiceDetail[] = [
       {
         icon: "shield",
         title: "로그인 · 로그아웃 · 세션 만료 기준 정리",
+        description: "인증 상태가 변경되는 시점과 이동 경로를 구분했습니다.",
       },
       {
         icon: "user",
         title: "사용자 · 관리자 라우트와 메뉴 분리",
+        description: "역할에 따라 접근 가능한 화면과 메뉴 노출 범위를 분리했습니다.",
       },
       {
         icon: "bug",
         title: "비로그인 · 권한 없음 · 직접 URL 접근 제한",
+        description: "화면 숨김뿐 아니라 직접 경로 접근까지 제한했습니다.",
       },
     ],
     processTitle: "구현 기준",
@@ -29,7 +32,7 @@ export const services: ServiceDetail[] = [
       { title: "라우트 보호", description: "권한이 필요한 화면에 인증 조건 적용." },
       { title: "차단 확인", description: "정상 이동과 예외 접근 함께 점검." },
     ],
-    evidenceTitle: "대표 근거",
+    evidenceTitle: "적용 프로젝트",
     evidence: [
       { icon: "film", title: "CineFlow", description: "예매 권한 · 관리자 접근 분리" },
       { icon: "controller", title: "e스포츠 포털", description: "Laravel 관리자 미들웨어" },
@@ -63,14 +66,17 @@ export const services: ServiceDetail[] = [
       {
         icon: "ticket",
         title: "예매번호 · 주문번호 기준 저장 · 조회",
+        description: "고유 번호를 기준으로 저장 데이터와 조회 결과를 연결했습니다.",
       },
       {
         icon: "cart",
         title: "주문 마스터 · 상세 항목 분리 저장",
+        description: "주문 단위 정보와 상품별 상세 항목을 분리해 저장했습니다.",
       },
       {
         icon: "bug",
         title: "결제 완료 · 조회 · 취소 값 유지",
+        description: "진행 단계가 바뀌어도 예매와 결제 상태가 유지되도록 구성했습니다.",
       },
     ],
     processTitle: "구현 기준",
@@ -79,7 +85,7 @@ export const services: ServiceDetail[] = [
       { title: "단계값 전달", description: "좌석, 결제수단, 주문 항목을 저장 단계까지 유지." },
       { title: "조회 기준 통일", description: "사용자와 관리자 조회 기준 일치." },
     ],
-    evidenceTitle: "대표 근거",
+    evidenceTitle: "적용 프로젝트",
     evidence: [
       { icon: "film", title: "CineFlow", description: "예매번호 · 좌석 · 결제 연결" },
       { icon: "cart", title: "쇼핑몰", description: "주문번호 · 주문 상세 저장" },
@@ -113,14 +119,17 @@ export const services: ServiceDetail[] = [
       {
         icon: "document",
         title: "등록 · 목록 · 수정 · 삭제 동작 분리",
+        description: "관리 기능별 요청과 처리 흐름을 각각 분리했습니다.",
       },
       {
         icon: "search",
         title: "필수값 · 날짜 · 상태값 · 이미지 조건 확인",
+        description: "저장 전 입력값과 데이터 상태를 검증하도록 구성했습니다.",
       },
       {
         icon: "trophy",
         title: "공개 여부 · 종료 경기 · 재고 표시 조건 정리",
+        description: "데이터 상태에 따라 사용자 화면의 노출 범위를 구분했습니다.",
       },
     ],
     processTitle: "구현 기준",
@@ -129,7 +138,7 @@ export const services: ServiceDetail[] = [
       { title: "입력 규칙", description: "필수 필드와 수정 가능 값 제한." },
       { title: "노출 확인", description: "필요한 화면에만 저장값 표시." },
     ],
-    evidenceTitle: "대표 근거",
+    evidenceTitle: "적용 프로젝트",
     evidence: [
       { icon: "film", title: "CineFlow", description: "영화 · 극장 · 상영일정 운영" },
       { icon: "controller", title: "e스포츠 포털", description: "뉴스 · 팀 · 선수 · 경기 운영" },
@@ -163,14 +172,17 @@ export const services: ServiceDetail[] = [
       {
         icon: "database",
         title: "PK · FK · 상태값 · 조회 조건 분리",
+        description: "저장과 조회에 필요한 기준값과 테이블 관계를 정리했습니다.",
       },
       {
         icon: "database",
         title: "Flyway 변경 이력 · 초기 데이터 관리",
+        description: "환경이 달라도 같은 DB 구조와 초기 데이터를 재현하도록 관리했습니다.",
       },
       {
         icon: "chart",
         title: "CSV 정제 후 PCA · 회귀분석 수행",
+        description: "결측값과 이상치를 처리한 뒤 분석 모델과 시각화를 수행했습니다.",
       },
     ],
     processTitle: "구현 기준",
@@ -179,7 +191,7 @@ export const services: ServiceDetail[] = [
       { title: "관계 설계", description: "조회와 저장 기준에 맞춰 테이블 연결." },
       { title: "입력 정제", description: "결측값, 이상치, 스케일 차이 처리." },
     ],
-    evidenceTitle: "대표 근거",
+    evidenceTitle: "적용 프로젝트",
     evidence: [
       { icon: "film", title: "CineFlow", description: "JPA · Flyway" },
       { icon: "controller", title: "e스포츠 포털", description: "MySQL JOIN · 집계" },

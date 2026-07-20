@@ -49,8 +49,7 @@ const revealGroupsByScope: Record<RevealScope, RevealGroup[]> = {
     { container: ".service-feature-grid", selector: ".service-feature-card", stagger: 70 },
     { container: ".service-process-list", selector: "li", stagger: 70 },
     { container: ".service-evidence-grid", selector: ".service-evidence-card", stagger: 70 },
-    { container: ".service-info-grid", selector: ".service-info-panel", stagger: 70 },
-    { container: ".service-related-grid", selector: ".service-related-card", stagger: 70 },
+    { selector: ".service-info-panel" },
     { container: ".service-other-grid", selector: ".service-other-card", stagger: 70 },
   ],
 };

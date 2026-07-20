@@ -26,8 +26,15 @@ function ServiceDetailPage() {
 
   const otherServices = services.filter((item) => item.id !== service.id).slice(0, 3);
   const keywords = service.sideInfo[0]?.items.slice(0, 4) ?? [];
-  const findEvidenceProject = (title: string) =>
-    service.relatedProjects.find((project) => project.label.toLocaleLowerCase().includes(title.toLocaleLowerCase()));
+  const findEvidenceProject = (title: string) => {
+    const normalizedTitle = title.toLocaleLowerCase();
+    const meaningfulTokens = normalizedTitle.split(/\s+/).filter((token) => token.length >= 3);
+
+    return service.relatedProjects.find((project) => {
+      const normalizedLabel = project.label.toLocaleLowerCase();
+      return normalizedLabel.includes(normalizedTitle) || meaningfulTokens.some((token) => normalizedLabel.includes(token));
+    });
+  };
 
   return (
     <>
@@ -73,8 +80,9 @@ function ServiceDetailPage() {
             <ol className="service-process-list">
               {service.processSteps.map((step, index) => (
                 <li key={step.title}>
-                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                  <div><h3>{formatMiddleDotSpacing(step.title)}</h3><p>{formatMiddleDotSpacing(step.description)}</p></div>
+                  <span className="service-process-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  <h3 className="service-process-title">{formatMiddleDotSpacing(step.title)}</h3>
+                  <p className="service-process-description">{formatMiddleDotSpacing(step.description)}</p>
                 </li>
               ))}
             </ol>
@@ -118,19 +126,10 @@ function ServiceDetailPage() {
             </div>
           </section>
 
-          <section className="service-detail-section" aria-labelledby="related-title">
-            <div className="service-detail-section__heading">
-              <p>Projects</p><h2 id="related-title">관련 프로젝트</h2>
-            </div>
-            <div className="service-related-grid">
-              {service.relatedProjects.map((project) => <Link className="service-related-card" to={`/projects/${project.projectId}`} key={project.projectId}><div><h3>{formatMiddleDotSpacing(project.label)}</h3><p>{formatMiddleDotSpacing(project.description)}</p></div><i className="bi bi-arrow-right" aria-hidden="true" /><span className="visually-hidden">프로젝트 상세 보기</span></Link>)}
-            </div>
-          </section>
-
           <section className="service-detail-section service-other" aria-labelledby="other-title">
             <div className="service-detail-section__heading service-other__heading">
               <div><p>Explore</p><h2 id="other-title">다른 개발 역량</h2></div>
-              <Link to="/#services" className="btn btn-primary service-all-link">개발 역량 전체 보기</Link>
+              <Link to="/#services" className="btn btn-outline service-all-link">개발 역량 전체 보기</Link>
             </div>
             <div className="service-other-grid">
               {otherServices.map((item) => <Link className="service-other-card" to={`/services/${item.id}`} key={item.id}><div><h3>{formatMiddleDotSpacing(item.title)}</h3><p>{formatMiddleDotSpacing(item.summary)}</p></div><i className="bi bi-arrow-right" aria-hidden="true" /></Link>)}
