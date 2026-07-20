@@ -43,12 +43,15 @@ const revealGroupsByScope: Record<RevealScope, RevealGroup[]> = {
     { container: ".project-gallery-grid", selector: ".project-gallery-item", stagger: 80 },
   ],
   service: [
-    { selector: ".page-title .container" },
-    { selector: ".service-hero" },
-    { selector: ".service-image" },
-    { container: ".service-description", selector: ".feature-item", stagger: 80 },
-    { container: ".process-section", selector: ".step, .feature-item", stagger: 80 },
-    { container: ".service-sidebar", selector: ".service-info, .cta-block", stagger: 80 },
+    { selector: ".service-detail-hero" },
+    { container: ".service-detail-hero", selector: ".service-detail-hero__content > *, .service-detail-hero__image", stagger: 70 },
+    { selector: ".service-detail-section__heading" },
+    { container: ".service-feature-grid", selector: ".service-feature-card", stagger: 70 },
+    { container: ".service-process-list", selector: "li", stagger: 70 },
+    { container: ".service-evidence-grid", selector: ".service-evidence-card", stagger: 70 },
+    { container: ".service-info-grid", selector: ".service-info-panel", stagger: 70 },
+    { container: ".service-related-grid", selector: ".service-related-card", stagger: 70 },
+    { container: ".service-other-grid", selector: ".service-other-card", stagger: 70 },
   ],
 };
 
