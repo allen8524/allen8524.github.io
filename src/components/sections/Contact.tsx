@@ -1,4 +1,27 @@
+import { useState } from "react";
+
+const EMAIL_ADDRESS = "minseo8524@gmail.com";
+const COPY_SUCCESS_MESSAGE = "이메일 주소가 복사되었습니다.";
+const COPY_FAILURE_MESSAGE = "이메일 주소를 복사하지 못했습니다. 직접 선택해 주세요.";
+
 function Contact() {
+  const [copyMessage, setCopyMessage] = useState("");
+  const isCopySuccessful = copyMessage === COPY_SUCCESS_MESSAGE;
+
+  const handleCopyEmail = async () => {
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API is not supported.");
+      }
+
+      await navigator.clipboard.writeText(EMAIL_ADDRESS);
+      setCopyMessage(COPY_SUCCESS_MESSAGE);
+    } catch (error) {
+      console.error("이메일 주소 복사에 실패했습니다.", error);
+      setCopyMessage(COPY_FAILURE_MESSAGE);
+    }
+  };
+
   return (
     <section id="contact" className="contact section">
       <div className="container section-title">
@@ -26,8 +49,8 @@ function Contact() {
                 </div>
                 <div className="detail-content">
                   <span className="detail-label">이메일</span>
-                  <a href="mailto:minseo8524@gmail.com" className="detail-value text-decoration-none">
-                    minseo8524@gmail.com
+                  <a href={`mailto:${EMAIL_ADDRESS}`} className="detail-value text-decoration-none">
+                    {EMAIL_ADDRESS}
                   </a>
                 </div>
               </div>
@@ -80,7 +103,7 @@ function Contact() {
                 <input
                   type="text"
                   id="contactEmailAddress"
-                  value="minseo8524@gmail.com"
+                  value={EMAIL_ADDRESS}
                   readOnly
                   aria-label="이메일 주소"
                 />
@@ -90,18 +113,17 @@ function Contact() {
                 <div className="col-md-6">
                   <button
                     type="button"
-                    className="submit-btn w-100 justify-content-center copy-trigger"
-                    data-copy-text="minseo8524@gmail.com"
-                    data-copy-message="이메일 주소가 복사되었습니다"
+                    className="submit-btn w-100 justify-content-center"
+                    onClick={handleCopyEmail}
                     aria-label="이메일 주소 복사"
                   >
-                    <span>이메일 복사</span>
-                    <i className="bi bi-copy" />
+                    <span>{isCopySuccessful ? "복사 완료" : "이메일 복사"}</span>
+                    <i className={`bi ${isCopySuccessful ? "bi-check-lg" : "bi-copy"}`} aria-hidden="true" />
                   </button>
                 </div>
                 <div className="col-md-6">
                   <a
-                    href="mailto:minseo8524@gmail.com"
+                    href={`mailto:${EMAIL_ADDRESS}`}
                     className="submit-btn w-100 justify-content-center"
                     aria-label="이메일 앱 열기"
                   >
@@ -134,6 +156,11 @@ function Contact() {
                   </a>
                 </div>
               </div>
+              {copyMessage && (
+                <p className="mt-3 mb-0" role="status" aria-live="polite">
+                  {copyMessage}
+                </p>
+              )}
             </div>
           </div>
         </div>
