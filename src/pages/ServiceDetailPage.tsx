@@ -95,8 +95,24 @@ function ServiceDetailPage() {
             <div className="service-detail-section__heading">
               <p>Information</p><h2 id="information-title">사용 기술 및 확인 항목</h2>
             </div>
-            <div className="service-info-grid">
-              {service.sideInfo.map((info) => <article className="service-info-panel" key={info.title}><h3>{formatMiddleDotSpacing(info.title)}</h3><ul>{info.items.map((item) => <li key={item}>{formatMiddleDotSpacing(item)}</li>)}</ul></article>)}
+            <div className="service-info-panel">
+              {service.sideInfo.map((info, index) => (
+                <div
+                  className={`service-info-group service-info-group--${index === 0 ? "technologies" : "checklist"}`}
+                  aria-labelledby={`service-info-${index}`}
+                  key={info.title}
+                >
+                  <h3 id={`service-info-${index}`}>{formatMiddleDotSpacing(info.title)}</h3>
+                  <ul>
+                    {info.items.map((item) => (
+                      <li key={item}>
+                        {index > 0 && <i className="bi bi-check2" aria-hidden="true" />}
+                        <span>{formatMiddleDotSpacing(item)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -114,7 +130,9 @@ function ServiceDetailPage() {
             <div className="service-other-grid">
               {otherServices.map((item) => <Link className="service-other-card" to={`/services/${item.id}`} key={item.id}><div><h3>{formatMiddleDotSpacing(item.title)}</h3><p>{formatMiddleDotSpacing(item.summary)}</p></div><i className="bi bi-arrow-right" aria-hidden="true" /></Link>)}
             </div>
-            <Link to="/#services" className="btn btn-primary service-all-link">개발 역량 전체 보기</Link>
+            <div className="service-other-actions">
+              <Link to="/#services" className="btn btn-primary service-all-link">개발 역량 전체 보기</Link>
+            </div>
           </section>
         </div>
       </main>

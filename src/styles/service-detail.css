@@ -1,11 +1,11 @@
 /* 1. Page variables */
 .service-details-page {
   --service-page-background: color-mix(in srgb, var(--background-color), #000 6%);
-  --service-card-background: color-mix(in srgb, var(--surface-color), #fff 3%);
-  --service-card-raised: color-mix(in srgb, var(--surface-color), #fff 6%);
-  --service-border: color-mix(in srgb, var(--default-color), transparent 84%);
-  --service-divider: color-mix(in srgb, var(--default-color), transparent 88%);
-  --service-muted: color-mix(in srgb, var(--default-color), transparent 14%);
+  --service-card-background: color-mix(in srgb, var(--surface-color), #fff 4%);
+  --service-card-raised: color-mix(in srgb, var(--surface-color), #fff 8%);
+  --service-border: color-mix(in srgb, var(--default-color), transparent 80%);
+  --service-divider: color-mix(in srgb, var(--default-color), transparent 84%);
+  --service-muted: color-mix(in srgb, var(--default-color), transparent 8%);
   --service-radius: 9px;
 }
 
@@ -21,48 +21,25 @@
 }
 
 .service-detail-container {
-  width: min(1240px, calc(100% - 96px));
+  width: min(1280px, calc(100% - 64px));
   margin: 0 auto;
 }
 
 .service-detail-section {
-  margin-top: clamp(80px, 7vw, 96px);
-}
-
-@media (min-width: 1200px) {
-  .service-details-page .header {
-    width: 270px;
-  }
-
-  .service-details-page .header .profile-img img {
-    max-width: 190px;
-    margin-block: 20px;
-  }
-
-  .service-details-page .header .logo h1 {
-    font-size: 22px;
-  }
-
-  .service-details-page .header ~ main,
-  .service-details-page .header ~ #footer {
-    margin-left: 280px;
-  }
-
-  .service-details-page .navmenu li:nth-child(5) button {
-    border-left: 3px solid var(--accent-color);
-    background: color-mix(in srgb, var(--accent-color), transparent 90%);
-    color: var(--accent-color);
-  }
+  margin-top: clamp(64px, 5.5vw, 80px);
+  padding: 0;
+  overflow: visible;
+  background: transparent;
 }
 
 /* 3. Hero */
 .service-detail-hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(380px, 1fr);
-  gap: clamp(32px, 3.5vw, 52px);
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 1.04fr);
+  gap: clamp(30px, 3vw, 44px);
   align-items: center;
-  padding: clamp(44px, 4vw, 56px);
+  padding: clamp(44px, 3.5vw, 54px);
   overflow: hidden;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
@@ -83,7 +60,7 @@
 .service-detail-eyebrow {
   margin: 0 0 10px;
   color: var(--accent-color);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.035em;
 }
@@ -92,7 +69,8 @@
   margin: 0;
   color: var(--heading-color);
   font-family: var(--heading-font);
-  font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+  max-width: 11em;
+  font-size: clamp(2.65rem, 3.4vw, 4rem);
   line-height: 1.12;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -102,7 +80,7 @@
   max-width: 620px;
   margin: 24px 0 0;
   color: var(--service-muted);
-  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-size: clamp(1.02rem, 1.25vw, 1.1rem);
   line-height: 1.72;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -123,7 +101,7 @@
   border-radius: 6px;
   background: var(--service-page-background);
   color: var(--default-color);
-  font-size: 0.8rem;
+  font-size: 0.81rem;
   font-weight: 600;
   line-height: 1.35;
 }
@@ -149,24 +127,24 @@
 .service-detail-hero__image figcaption {
   padding: 10px 4px 2px;
   color: var(--service-muted);
-  font-size: 0.85rem;
+  font-size: 0.81rem;
   line-height: 1.5;
   word-break: keep-all;
 }
 
 /* 4. Shared section headings */
 .service-detail-section__heading {
-  margin-bottom: clamp(24px, 2.5vw, 30px);
-  padding-bottom: 18px;
+  margin-bottom: clamp(22px, 2vw, 28px);
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--service-divider);
 }
 
 .service-detail-section__heading > p {
   margin: 0 0 8px;
   color: var(--accent-color);
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.055em;
   text-transform: uppercase;
 }
 
@@ -174,7 +152,7 @@
   margin: 0;
   color: var(--heading-color);
   font-family: var(--heading-font);
-  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  font-size: clamp(1.95rem, 2.7vw, 2.3rem);
   line-height: 1.28;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -183,7 +161,7 @@
 .service-detail-page h3 {
   margin: 0;
   color: var(--heading-color);
-  font-size: clamp(1.08rem, 1.5vw, 1.18rem);
+  font-size: clamp(1.12rem, 1.45vw, 1.2rem);
   line-height: 1.45;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -272,22 +250,22 @@
 /* 7. Evidence */
 .service-evidence-card {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) auto;
-  gap: 18px;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  gap: 20px;
   align-items: start;
   min-width: 0;
   padding: 26px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
-  background: var(--service-card-raised);
+  background: color-mix(in srgb, var(--service-card-raised), var(--accent-color) 3%);
   color: inherit;
   text-decoration: none;
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .service-evidence-card .service-feature-icon {
-  width: 48px;
-  height: 48px;
+  width: 54px;
+  height: 54px;
   margin: 0;
 }
 
@@ -307,48 +285,75 @@ a.service-evidence-card:hover > i {
   transform: translateX(3px);
 }
 
-/* 8. Information cards */
-.service-info-grid {
+/* 8. Integrated information panel */
+.service-info-panel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 0;
   align-items: start;
-}
-
-.service-info-panel {
-  padding: 26px 28px;
+  padding: 30px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
-  background: var(--service-card-background);
+  background: var(--service-card-raised);
+  box-shadow: 0 8px 20px color-mix(in srgb, #000, transparent 90%);
 }
 
-.service-info-panel ul {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 13px 24px;
+.service-info-group {
+  min-width: 0;
+  padding-inline: 30px;
+}
+
+.service-info-group:first-child {
+  padding-left: 0;
+  border-right: 1px solid var(--service-divider);
+}
+
+.service-info-group:last-child {
+  padding-right: 0;
+}
+
+.service-info-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: 20px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.service-info-panel li {
-  position: relative;
-  padding-left: 16px;
+.service-info-group li {
   color: var(--service-muted);
   font-size: 0.96rem;
   line-height: 1.55;
   overflow-wrap: anywhere;
 }
 
-.service-info-panel li::before {
-  position: absolute;
-  top: 0.65em;
-  left: 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  content: "";
+.service-info-group--technologies li {
+  padding: 8px 12px;
+  border: 1px solid var(--service-border);
+  border-radius: 6px;
+  background: var(--service-page-background);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.service-info-group--checklist ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+}
+
+.service-info-group--checklist li {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+
+.service-info-group--checklist i {
+  flex: 0 0 auto;
+  margin-top: 0.12em;
+  color: var(--accent-color);
+  font-size: 1rem;
 }
 
 /* 9. Related projects */
@@ -361,7 +366,7 @@ a.service-evidence-card:hover > i {
   padding: 26px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
-  background: var(--service-card-background);
+  background: color-mix(in srgb, var(--service-card-background), var(--service-page-background) 18%);
   color: inherit;
   text-decoration: none;
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
@@ -371,6 +376,10 @@ a.service-evidence-card:hover > i {
   flex: 0 0 auto;
   color: var(--accent-color);
   transition: transform 180ms ease;
+}
+
+.service-related-card h3 {
+  font-size: clamp(1.16rem, 1.55vw, 1.25rem);
 }
 
 .service-related-card:hover {
@@ -385,7 +394,7 @@ a.service-evidence-card:hover > i {
 
 /* 10. Other capabilities */
 .service-other {
-  padding-top: 2px;
+  padding-top: 0;
 }
 
 .service-other-card {
@@ -401,6 +410,12 @@ a.service-evidence-card:hover > i {
   color: inherit;
   text-decoration: none;
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.service-other-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
 .service-other-card i {
@@ -425,7 +440,7 @@ a.service-evidence-card:hover > i {
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  margin-top: 24px;
+  margin-top: 0;
   padding-inline: 24px;
   border-radius: 6px;
   font-size: 0.96rem;
@@ -439,13 +454,20 @@ a.service-evidence-card:hover > i {
 /* 12. Responsive */
 @media (max-width: 1199px) {
   .service-detail-container {
-    width: min(100% - 72px, 1080px);
+    width: min(100% - 56px, 1120px);
   }
 }
 
-@media (max-width: 991px) {
+@media (min-width: 993px) and (max-width: 1240px) {
+  .service-detail-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 992px) {
   .service-detail-container {
-    width: min(100% - 56px, 900px);
+    width: min(100% - 48px, 944px);
   }
 
   .service-detail-section {
@@ -496,12 +518,22 @@ a.service-evidence-card:hover > i {
   .service-evidence-grid,
   .service-related-grid,
   .service-other-grid,
-  .service-info-grid {
+  .service-info-panel {
     grid-template-columns: 1fr;
   }
 
-  .service-info-panel ul {
-    grid-template-columns: 1fr;
+  .service-info-group {
+    padding: 24px 0;
+  }
+
+  .service-info-group:first-child {
+    padding-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--service-divider);
+  }
+
+  .service-info-group:last-child {
+    padding-bottom: 0;
   }
 }
 
@@ -519,7 +551,7 @@ a.service-evidence-card:hover > i {
   }
 
   .service-detail-hero h1 {
-    font-size: clamp(2.1rem, 10.8vw, 2.75rem);
+    font-size: clamp(2rem, 9vw, 2.5rem);
   }
 
   .service-detail-keywords {
@@ -529,10 +561,17 @@ a.service-evidence-card:hover > i {
 
   .service-feature-card,
   .service-evidence-card,
-  .service-info-panel,
   .service-related-card,
   .service-other-card {
     padding: 22px;
+  }
+
+  .service-info-panel {
+    padding: 24px 22px;
+  }
+
+  .service-info-group--checklist ul {
+    grid-template-columns: 1fr;
   }
 
   .service-process-list li {
