@@ -6,6 +6,7 @@ import "./styles/app.css";
 import "./styles/portfolio.css";
 import "./styles/project-detail.css";
 import "./styles/project-gallery-fan.css";
+import "./styles/project-detail-density.css";
 import "./styles/service-detail.css";
 import "./styles/troubleshooting.css";
 
