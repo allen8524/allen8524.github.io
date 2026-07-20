@@ -39,7 +39,18 @@
 
 .project-gallery-fan__front {
   z-index: 4;
+  border-bottom-color: transparent;
+  border-radius: var(--project-radius) var(--project-radius) 0 0;
   transform: none;
+}
+
+.project-gallery-item figcaption {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0;
+  border-top: 0;
+  border-radius: 0 0 var(--project-radius) var(--project-radius);
+  box-shadow: 0 5px 14px color-mix(in srgb, #000, transparent 90%);
 }
 
 @media (hover: hover) and (min-width: 768px) {
@@ -60,7 +71,7 @@
 
   .project-gallery-item:hover .project-gallery-fan__front,
   .project-gallery-item:focus-within .project-gallery-fan__front {
-    transform: translateY(-3px) rotate(-0.75deg);
+    transform: none;
   }
 }
 
