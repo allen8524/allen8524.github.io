@@ -1,0 +1,38 @@
+/* Project detail: remove decorative sequence numbers to reduce visual density. */
+.project-open-list li,
+.project-responsibility-list > li {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.project-open-list > li > span,
+.project-responsibility-list > li > span,
+.project-flow-list > li > span,
+.project-implementation-card > span,
+.project-troubleshooting-number {
+  display: none;
+}
+
+.project-troubleshooting-header {
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+}
+
+.project-troubleshooting-header > span:first-child {
+  display: none;
+}
+
+.project-troubleshooting-list li {
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+}
+
+@media (max-width: 767px) {
+  .project-troubleshooting-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .project-troubleshooting-problem,
+  .project-troubleshooting-solution {
+    grid-column: 1;
+  }
+}
