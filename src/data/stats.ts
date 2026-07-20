@@ -1,3 +1,4 @@
+import { recentAchievements } from "./awards";
 import { projects } from "./projects";
 
 export const stats = [
@@ -9,7 +10,7 @@ export const stats = [
   },
   {
     id: "awards",
-    value: 4,
+    value: recentAchievements.length,
     label: "수상 경험",
     delay: 300,
   },

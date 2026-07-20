@@ -12,7 +12,7 @@ export const resumeJourney = {
 export const resumeActivities = [
   {
     id: "indev",
-    year: "2026.05 - 2026.12",
+    year: "2026.05 – 2026.12",
     title: "인덕대학교 전공동아리 - INDEV",
     organization: "팀 프로젝트 및 CS",
     summaries: [
@@ -24,7 +24,7 @@ export const resumeActivities = [
   },
   {
     id: "library-work",
-    year: "2026.03 - 2026.06",
+    year: "2026.03 – 2026.06",
     title: "국가근로장학생",
     organization: "인덕대학교 도서관",
     summaries: [
@@ -35,7 +35,7 @@ export const resumeActivities = [
   },
   {
     id: "sangsangirum-work",
-    year: "2026.07 - 2026.08",
+    year: "2026.07 – 2026.08",
     title: "국가근로장학생",
     organization: "상상이룸센터(노원진로직업체험지원센터)",
     summaries: [
@@ -47,7 +47,7 @@ export const resumeActivities = [
   },
   {
     id: "codeattack",
-    year: "2025.03 - 2026.09",
+    year: "2025.03 – 2026.09",
     title: "인덕대학교 스터디 - CodeAttack",
     organization: "CS 및 자격증 스터디",
     summaries: [
@@ -59,7 +59,7 @@ export const resumeActivities = [
   },
   {
     id: "devup",
-    year: "2025.04 - 2025.12",
+    year: "2025.04 – 2025.12",
     title: "인덕대학교 스터디 - DevUp",
     organization: "코딩테스트 및 알고리즘 스터디",
     summaries: [
@@ -71,7 +71,7 @@ export const resumeActivities = [
   },
   {
     id: "ifp",
-    year: "2022.03 - 2022.12",
+    year: "2022.03 – 2022.12",
     title: "인덕대학교 전공동아리 - IFP",
     organization: "알고리즘 · 기초 프로그래밍",
     summaries: [
@@ -94,7 +94,7 @@ export const resumeEducation = {
       icon: "bi bi-award",
       name: "컴퓨터소프트웨어학과",
       institution: "인덕대학교",
-      year: "2022.03 - 2027.02",
+      year: "2022.03 – 2027.02",
       description:
         "백엔드 웹 프로젝트를 중심으로 예매 · 주문 · 콘텐츠 관리 기능을 구현하고, 데이터 분석 · 모바일 · 게임 프로젝트로 구현 범위를 확장했습니다.",
       honors: ["학점 4.0"],
@@ -106,7 +106,7 @@ export const resumeEducation = {
       icon: "bi bi-laptop",
       name: "자동화기계과",
       institution: "인덕과학기술고등학교",
-      year: "2019.03 - 2022.01",
+      year: "2019.03 – 2022.01",
       description: "기초 공학 역량을 바탕으로 문제 해결 중심의 학습 태도를 갖추었습니다.",
       honors: [],
     },

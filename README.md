@@ -43,7 +43,7 @@ Spring Boot, Laravel, PHP 기반 웹 프로젝트를 중심으로 데이터 분�
 - 모바일 사이드바
 - ScrollTop 버튼
 - 현재 섹션 하이라이팅
-- Stats, Skills, Resume 섹션의 JSX 및 데이터 배열 기반 렌더링
+- Skills, Resume 섹션의 JSX 및 데이터 배열 기반 렌더링
 - `assets/` 폴더의 이미지, 아이콘, 이력서 PDF 등 정적 리소스 유지
 
 ## 프로젝트 구조
@@ -99,9 +99,9 @@ src/
 | 쇼핑몰 판매관리 사이트 | PHP | `/#/projects/shopping` | https://github.com/allen8524/shopping-mall-management-php |
 | 베이커리 판매관리 웹사이트 | Laravel | `/#/projects/bakery` | https://github.com/allen8524/bakery-sales-management-laravel |
 | 서울 공공자전거 수요 예측 · 이용자 유형 분석 | R 데이터 분석 | `/#/projects/seoul-bike` | https://github.com/allen8524/seoul-bike-demand-analysis |
-| Cine21 영화 데이터 PCA·회귀 분석 | Python 데이터 분석 | `/#/projects/movie-analysis` | https://github.com/allen8524/movie-pca-rating-analysis |
-| Undead Survivor 모바일 생존 게임 | Unity C# | `/#/projects/undead-survivor` | https://github.com/allen8524/undead-survivor-unity |
-| HealthyUp iOS 건강관리 앱 | Swift iOS | `/#/projects/healthyup` | https://github.com/allen8524/healthyup-ios |
+| Cine21 영화 데이터 PCA · 회귀 분석 | Python 데이터 분석 | `/#/projects/movie-analysis` | https://github.com/allen8524/movie-pca-rating-analysis |
+| Undead Survivor 모바일 생존 게임 | Unity · C# | `/#/projects/undead-survivor` | https://github.com/allen8524/undead-survivor-unity |
+| HealthyUp iOS 건강관리 앱 | Swift · iOS | `/#/projects/healthyup` | https://github.com/allen8524/healthyup-ios |
 
 ## 실행 방법
 
@@ -137,7 +137,7 @@ npm run deploy
 
 기존 정적 HTML 기반 구조에서 React, TypeScript, Vite 기반 구조로 전환되었습니다. 홈 화면의 주요 섹션은 React 컴포넌트와 TypeScript 데이터 배열을 조합해 렌더링합니다.
 
-Stats, Skills, Resume 섹션은 JSX와 데이터 배열 기반 구조로 정리되어 있으며, 프로젝트 카드와 프로젝트 상세 페이지 내용도 TypeScript data module에서 관리합니다.
+Skills, Resume 섹션은 JSX와 데이터 배열 기반 구조로 정리되어 있으며, 프로젝트 카드와 프로젝트 상세 페이지 내용도 TypeScript data module에서 관리합니다.
 
 HTML 문자열을 직접 주입하는 방식은 제거되었고, 유지보수가 필요한 화면 데이터는 `src/data/` 안의 목적별 파일로 분리되어 있습니다.
 

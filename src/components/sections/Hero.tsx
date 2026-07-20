@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { recentAchievements } from "../../data/awards";
 import { projects } from "../../data/projects";
 import { resumeActivities } from "../../data/resume";
 
@@ -45,7 +46,7 @@ function Hero() {
                   <span className="stat-label">주요 프로젝트</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-number">4</span>
+                  <span className="stat-number">{recentAchievements.length}</span>
                   <span className="stat-label">수상 경험</span>
                 </div>
                 <div className="stat-item">

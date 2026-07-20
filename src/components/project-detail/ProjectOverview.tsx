@@ -1,12 +1,15 @@
-import type { ProjectDetail } from "../../types/project";
+import type { Project, ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
 import ProjectSectionHeading from "./ProjectSectionHeading";
 
-type ProjectOverviewProps = { detail: ProjectDetail };
+type ProjectOverviewProps = {
+  detail: ProjectDetail;
+  project: Project;
+};
 
 const format = (value: string) => formatMiddleDotSpacing(value);
 
-function ProjectOverview({ detail }: ProjectOverviewProps) {
+function ProjectOverview({ detail, project }: ProjectOverviewProps) {
   const flowSteps = (detail.dataFlow ?? []).flatMap((flow, flowIndex) => {
     if (!flow.includes("→")) return [];
     const steps = flow.split("→").map((step) => step.trim()).filter(Boolean);
@@ -26,7 +29,7 @@ function ProjectOverview({ detail }: ProjectOverviewProps) {
         <div className="project-summary-panel" aria-label="프로젝트 요약 정보">
           <div className="project-summary-panel__facts">
             <div className="project-summary-fact"><span>개발 형태</span><strong>{format(detail.developmentType)}</strong></div>
-            <div className="project-summary-fact"><span>개발 기간</span><strong>{format(detail.period)}</strong></div>
+            <div className="project-summary-fact"><span>개발 기간</span><strong>{format(project.year)}</strong></div>
             <div className="project-summary-fact project-summary-fact--full"><span>담당 역할</span><strong>{format(detail.role)}</strong></div>
             <div className="project-summary-fact project-summary-fact--full"><span>기여도</span><strong>{format(detail.contribution)}</strong></div>
           </div>

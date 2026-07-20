@@ -3,7 +3,6 @@ import type { ProjectDetail } from "../types/project";
 export const projectDetails: ProjectDetail[] = [
   {
     projectId: "cineflow",
-    period: "2026.05 - 2026.06",
     developmentType: "개인 프로젝트",
     role: "예매 상태 처리, 좌석 · 상영일정 · 결제 연결, 회원 · 비회원 조회 분기, 관리자 운영, Flyway 마이그레이션",
     contribution: "빠른예매부터 조회 · 취소까지의 상태 흐름과 관리자 운영 · DB 변경 관리를 구현",
@@ -75,7 +74,6 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "esports",
-    period: "2025년 12월 16일",
     developmentType: "개인 프로젝트",
     role: "포털 화면 구성, 도메인별 CRUD, 경기 결과 기반 순위 집계, 관리자 대시보드 연결",
     contribution: "사용자 · 관리자 화면을 분리하고 경기 집계, 접근 제어와 뉴스 라우팅을 구현",
@@ -132,7 +130,6 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "shopping",
-    period: "2025년 6월",
     developmentType: "개인 프로젝트",
     role: "상품 조회, 장바구니, 주문 · 결제, 사용자 주문 조회, 관리자 주문 관리",
     contribution: "상품 조회 · 장바구니 · 주문 저장 흐름과 사용자 · 관리자 주문 조회 화면을 연결",
@@ -180,7 +177,6 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "bakery",
-    period: "2025년 12월",
     developmentType: "개인 프로젝트",
     role: "제품 등록, 재고 관리, 판매 내역 확인, 관리자 화면 기능",
     contribution: "제품 등록 · 수정, 재고 조회와 판매 · 매입 · 매출 장부 확인 흐름을 구현",
@@ -256,7 +252,6 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "movie-analysis",
-    period: "2026년",
     developmentType: "개인 프로젝트",
     role: "결측값 처리, 이상치 완화, 정규화, PCA, 상관분석, PC1 기반 선형회귀",
     contribution: "CSV 전처리부터 PCA · 상관분석 · PC1 회귀와 결과 저장까지 분석 파이프라인을 구성",
@@ -353,7 +348,6 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "seoul-bike",
-    period: "2026.05 - 2026.06",
     developmentType: "개인 프로젝트",
     role: "데이터 전처리, 시각화, 다중선형회귀, 로지스틱 회귀, K-means 군집분석, KNN 분류분석, 결과 해석",
     contribution: "데이터 전처리 · 시각화부터 회귀 · 분류 · 군집 모델링과 결과 해석까지 수행",
@@ -476,7 +470,6 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "undead-survivor",
-    period: "2026.05",
     developmentType: "개인 프로젝트",
     role: "플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 생존 · 사망 결과 처리",
     contribution: "플레이어 이동 · 전투 · 레벨업 · 결과 화면을 연결하고 적 · 투사체 재사용 구조를 구현",
@@ -560,7 +553,6 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     projectId: "healthyup",
-    period: "2026.05",
     developmentType: "개인 프로젝트",
     role: "BMI 계산, 입력 검증, 성별 기준 분기, 결과 UI, 운동 정보 WebView, 로컬 영상 재생, 운동 계획 입력",
     contribution: "BMI 입력 검증 · 결과 분기와 운동 정보 · 영상 · 계획 탭 화면을 구현",

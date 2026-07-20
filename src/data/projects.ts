@@ -19,7 +19,7 @@ export const projects: Project[] = [
     id: "cineflow",
     title: "CineFlow 영화 예매 관리 시스템",
     category: "대표 프로젝트 · Spring Boot",
-    year: "2026.05 - 2026.06",
+    year: "2026.05 – 2026.06",
     summary: "Spring Boot 기반 영화 예매 웹 애플리케이션",
     description:
       "영화 탐색, 빠른예매, 좌석 선택, 결제, 예매 조회 · 취소 흐름 구현. 관리자 화면에서 영화 · 극장 · 상영일정 · 예매 데이터 운영",
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     id: "seoul-bike",
     title: "서울 공공자전거 수요 예측 · 이용자 유형 분석",
     category: "데이터 분석 · R",
-    year: "2026.05 - 2026.06",
+    year: "2026.05 – 2026.06",
     summary: "서울 공공자전거 시간대별 이용정보 기반 수요 예측 프로젝트",
     description:
       "2025년 12월 서울 공공자전거 시간대별 이용정보를 전처리하고, 다중선형회귀로 이용건수를 예측했으며 로지스틱 회귀 · KNN으로 고수요 여부를 분류하고 K-means로 대여소 이용 유형을 군집화한 데이터 분석 프로젝트",
@@ -180,7 +180,7 @@ export const projects: Project[] = [
   {
     id: "undead-survivor",
     title: "Undead Survivor 모바일 생존 게임",
-    category: "모바일 게임 · Unity/C#",
+    category: "모바일 게임 · Unity · C#",
     year: "2026.05",
     summary: "Unity 기반 Android 생존형 액션 게임",
     description:
