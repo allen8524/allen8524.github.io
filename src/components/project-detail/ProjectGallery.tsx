@@ -40,10 +40,26 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
           const isLastOdd = gallery.length % 2 === 1 && index === gallery.length - 1;
           return (
             <figure className={`project-gallery-item project-gallery-item--${layout}${isLastOdd ? " project-gallery-item--last-odd" : ""}`} key={image.src}>
-              <button type="button" className="project-detail-image-button" aria-label={`${imageAlt} 이미지 확대`} onClick={() => setPreviewImage(image)}>
-                <img src={image.src} alt={imageAlt} loading="lazy" onLoad={(event) => handleImageLoad(image.src, event)} />
-                <span className="project-gallery-item__preview"><i className="bi bi-arrows-fullscreen" aria-hidden="true" /> 미리보기</span>
-              </button>
+              <div className="project-gallery-fan">
+                {[1, 2, 3].map((layer) => (
+                  <span
+                    className={`project-gallery-fan__sheet project-gallery-fan__sheet--${layer}`}
+                    aria-hidden="true"
+                    key={layer}
+                  >
+                    <img src={image.src} alt="" loading="lazy" />
+                  </span>
+                ))}
+                <button
+                  type="button"
+                  className="project-detail-image-button project-gallery-fan__front"
+                  aria-label={`${imageAlt} 이미지 확대`}
+                  onClick={() => setPreviewImage(image)}
+                >
+                  <img src={image.src} alt={imageAlt} loading="lazy" onLoad={(event) => handleImageLoad(image.src, event)} />
+                  <span className="project-gallery-item__preview"><i className="bi bi-arrows-fullscreen" aria-hidden="true" /> 미리보기</span>
+                </button>
+              </div>
               <figcaption>{imageAlt}</figcaption>
             </figure>
           );
