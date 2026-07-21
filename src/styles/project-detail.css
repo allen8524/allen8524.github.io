@@ -348,15 +348,15 @@
 .project-explore-heading { display: flex; gap: 24px; align-items: end; justify-content: space-between; }
 .project-explore-heading .all-projects { display: inline-flex; gap: 9px; align-items: center; justify-content: center; min-height: 48px; padding: 10px 18px; border: 1px solid var(--project-border); border-radius: 6px; color: var(--heading-color); font-size: 0.9rem; font-weight: 700; }
 .project-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.project-nav .nav-link { display: flex; flex-direction: column; min-height: 210px; padding: 27px 28px 24px; border: 1px solid var(--project-border); border-radius: var(--project-radius); background: var(--project-card-bg); color: var(--heading-color); transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
+.project-nav .nav-link { display: flex; flex-direction: column; min-height: 244px; padding: 27px 28px 24px; border: 1px solid var(--project-border); border-radius: var(--project-radius); background: var(--project-card-bg); color: var(--heading-color); transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
 .project-nav .nav-body { display: grid; gap: 8px; }
 .project-nav .nav-direction { display: inline-flex; gap: 9px; align-items: center; color: var(--accent-color); font-size: 0.75rem; font-weight: 700; }
 .project-nav .nav-direction i { font-size: 1rem; }
 .project-nav .nav-title { font-size: 1.1rem; font-weight: 700; line-height: 1.5; }
 .project-nav .nav-meta { color: var(--project-muted); font-size: 0.79rem; font-weight: 600; line-height: 1.55; }
-.project-nav .nav-thumbnail { display: block; width: clamp(96px, 10vw, 124px); aspect-ratio: 16 / 10; margin-top: auto; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: 7px; background: color-mix(in srgb, var(--project-card-bg), var(--project-page-bg) 40%); box-shadow: 0 4px 12px color-mix(in srgb, #000, transparent 90%); }
+.project-nav .nav-thumbnail { display: block; flex: 0 0 auto; width: clamp(140px, 14vw, 180px); aspect-ratio: 16 / 10; margin-top: auto; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: 8px; background: linear-gradient(135deg, color-mix(in srgb, var(--project-card-bg), #fff 3%), color-mix(in srgb, var(--project-page-bg), #000 3%)); box-shadow: 0 4px 12px color-mix(in srgb, #000, transparent 90%); }
 .project-nav-thumb-effect { position: relative; display: block; width: 100%; height: 100%; overflow: visible; border-radius: inherit; isolation: isolate; transform: translateZ(0); transition: transform 180ms ease; }
-.project-nav-thumb-effect__image { display: block; width: 100%; height: 100%; border-radius: inherit; object-fit: cover; transition: filter 180ms ease; }
+.project-nav-thumb-effect__image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border-radius: inherit; object-fit: contain; object-position: center; transition: filter 180ms ease; }
 .project-nav-thumb-effect__overlay { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, transparent 12%, color-mix(in srgb, var(--accent-color), transparent 78%) 34%, color-mix(in srgb, var(--accent-color), #fff 18%) 50%, color-mix(in srgb, var(--accent-color), transparent 80%) 66%, transparent 88%); background-position: 0% 50%; background-size: 220% 220%; mix-blend-mode: screen; opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
 .project-nav-thumb-effect__leaf { position: absolute; z-index: 3; color: var(--accent-color); pointer-events: none; transform-origin: 50% 0; filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 30%)); }
 .project-nav-thumb-effect__leaf svg { display: block; width: 100%; height: auto; }
@@ -449,7 +449,10 @@
   .project-flow-list i { display: none; }
   .project-troubleshooting-header,
   .project-troubleshooting-list li { grid-template-columns: 50px minmax(210px, 260px) minmax(0, 1fr); gap: 18px; }
-  .project-nav .nav-thumbnail { width: 104px; }
+}
+
+@media (max-width: 768px) {
+  .project-nav .nav-thumbnail { width: clamp(112px, 34vw, 140px); }
 }
 
 @media (max-width: 767px) {
@@ -517,8 +520,7 @@
   .project-review-panel { padding: 22px 18px; }
   .project-explore-heading { align-items: stretch; flex-direction: column; }
   .project-explore-heading .all-projects { align-self: stretch; }
-  .project-nav .nav-link { min-height: 196px; padding: 24px 22px 20px; }
-  .project-nav .nav-thumbnail { width: 96px; }
+  .project-nav .nav-link { min-height: 220px; padding: 24px 22px 20px; }
 }
 
 @media (max-width: 374px) {
