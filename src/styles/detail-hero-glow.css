@@ -1,46 +1,50 @@
-/* Shared ambient glass glow for project and service detail heroes. */
+/* Uiverse-style structure: moving blob behind a translucent inner glass panel. */
 .project-detail-hero,
 .service-detail-hero {
   isolation: isolate;
   overflow: hidden;
-  backdrop-filter: blur(8px) saturate(110%);
-  -webkit-backdrop-filter: blur(8px) saturate(110%);
+  background: transparent;
 }
 
-.project-detail-hero {
-  background: color-mix(in srgb, var(--project-hero-bg), transparent 5%);
-}
-
-.service-detail-hero {
-  background: color-mix(in srgb, var(--service-card-raised), transparent 5%);
-}
-
-.project-detail-hero::after,
-.service-detail-hero::after {
+.detail-hero-blob,
+.detail-hero-glass {
   position: absolute;
-  top: 8%;
-  right: 4%;
-  z-index: 2;
-  width: clamp(280px, 34vw, 460px);
+  pointer-events: none;
+}
+
+.detail-hero-blob {
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: clamp(190px, 22vw, 300px);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at 45% 45%,
-    color-mix(in srgb, var(--accent-color), #5f7f91 12%) 0%,
-    color-mix(in srgb, var(--accent-color), transparent 28%) 36%,
-    color-mix(in srgb, var(--accent-color), transparent 68%) 68%,
-    transparent 100%
-  );
-  box-shadow:
-    0 0 76px color-mix(in srgb, var(--accent-color), transparent 58%),
-    0 0 140px color-mix(in srgb, var(--accent-color), transparent 76%);
-  opacity: 0.34;
-  filter: blur(14px);
-  mix-blend-mode: screen;
-  pointer-events: none;
+  background: var(--accent-color);
+  box-shadow: 0 0 54px color-mix(in srgb, var(--accent-color), transparent 42%);
+  opacity: 0.88;
+  filter: blur(18px);
   will-change: transform;
-  animation: detail-hero-ambient-glow 11s infinite ease-in-out;
-  content: "";
+  animation: detail-hero-blob-bounce 9s infinite ease-in-out;
+}
+
+.detail-hero-glass {
+  inset: 5px;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, #fff, transparent 91%);
+  backdrop-filter: blur(24px) saturate(112%);
+  -webkit-backdrop-filter: blur(24px) saturate(112%);
+  pointer-events: none;
+}
+
+.project-detail-hero .detail-hero-glass {
+  border-radius: calc(var(--project-radius) - 3px);
+  background: color-mix(in srgb, var(--project-hero-bg), transparent 14%);
+}
+
+.service-detail-hero .detail-hero-glass {
+  border-radius: calc(var(--service-radius) - 3px);
+  background: color-mix(in srgb, var(--service-card-raised), transparent 14%);
 }
 
 .project-detail-hero::before,
@@ -48,49 +52,51 @@
   z-index: 4;
 }
 
-.project-detail-hero > *,
-.service-detail-hero > * {
-  position: relative;
-  z-index: 1;
-}
-
 .project-detail-hero__content,
-.service-detail-hero__content {
-  z-index: 3;
-}
-
 .project-detail-hero__image,
+.service-detail-hero__content,
 .service-detail-hero__image {
-  z-index: 1;
+  position: relative;
+  z-index: 2;
 }
 
-@keyframes detail-hero-ambient-glow {
+@keyframes detail-hero-blob-bounce {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate(-170%, -125%) scale(1);
+  }
+
+  25% {
+    transform: translate(70%, -125%) scale(1.06);
   }
 
   50% {
-    transform: translate3d(-42px, 24px, 0) scale(1.07);
+    transform: translate(70%, 35%) scale(0.96);
+  }
+
+  75% {
+    transform: translate(-170%, 35%) scale(1.04);
   }
 }
 
 @media (max-width: 767px) {
-  .project-detail-hero::after,
-  .service-detail-hero::after {
-    top: 44%;
-    right: -14%;
-    width: clamp(250px, 80vw, 350px);
-    opacity: 0.26;
-    filter: blur(17px);
-    animation-duration: 13s;
+  .detail-hero-blob {
+    width: clamp(170px, 58vw, 250px);
+    opacity: 0.72;
+    filter: blur(20px);
+    animation-duration: 11s;
+  }
+
+  .detail-hero-glass {
+    inset: 4px;
+    backdrop-filter: blur(20px) saturate(108%);
+    -webkit-backdrop-filter: blur(20px) saturate(108%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-detail-hero::after,
-  .service-detail-hero::after {
-    transform: none;
+  .detail-hero-blob {
+    transform: translate(-45%, -50%);
     animation: none;
   }
 }
