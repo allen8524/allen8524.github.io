@@ -395,9 +395,9 @@
 
 .project-nav .nav-link:focus-visible .project-nav-thumb-effect__overlay { opacity: 0.3; animation: project-nav-thumb-wind 2.4s ease-in-out infinite; }
 .project-nav .nav-link:focus-visible .project-nav-thumb-effect__image { filter: brightness(1.04); transform: scale(1.035); }
-.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--1 { animation: project-nav-leaf-sway-1 2.8s ease-in-out infinite both; }
-.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--2 { animation: project-nav-leaf-sway-2 3.2s ease-in-out 80ms infinite both; }
-.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--3 { animation: project-nav-leaf-sway-3 2.4s ease-in-out 140ms infinite both; }
+.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--1 { animation: project-nav-leaf-sway-1 2.1s ease-in-out infinite both; }
+.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--2 { animation: project-nav-leaf-sway-2 2.5s ease-in-out 60ms infinite both; }
+.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--3 { animation: project-nav-leaf-sway-3 1.9s ease-in-out 100ms infinite both; }
 
 /* 17. Focus and hover */
 .portfolio-details a:focus-visible,
@@ -424,9 +424,9 @@
   .project-nav .nav-link:hover .project-nav-thumb-effect { transform: translateY(-2px); }
   .project-nav .nav-link:hover .project-nav-thumb-effect__image { filter: brightness(1.04); transform: scale(1.035); }
   .project-nav .nav-link:hover .project-nav-thumb-effect__overlay { opacity: 0.3; animation: project-nav-thumb-wind 2.4s ease-in-out infinite; }
-  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--1 { animation: project-nav-leaf-sway-1 2.8s ease-in-out infinite both; }
-  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--2 { animation: project-nav-leaf-sway-2 3.2s ease-in-out 80ms infinite both; }
-  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--3 { animation: project-nav-leaf-sway-3 2.4s ease-in-out 140ms infinite both; }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--1 { animation: project-nav-leaf-sway-1 2.1s ease-in-out infinite both; }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--2 { animation: project-nav-leaf-sway-2 2.5s ease-in-out 60ms infinite both; }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--3 { animation: project-nav-leaf-sway-3 1.9s ease-in-out 100ms infinite both; }
   .project-detail-links a:hover > i:last-child,
   .project-nav .nav-link:hover .nav-direction i { transform: translateX(2px); }
 }
