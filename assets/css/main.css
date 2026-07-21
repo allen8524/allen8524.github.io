@@ -118,39 +118,96 @@
   --nav-font: var(--font-nav);
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #25303f; /* Background color for the entire website, including individual sections */
-  --default-color: #f3f4f6; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #f9fafb; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #22e7a1; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #293443; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #1f2937; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Theme foundation */
 :root {
-  --nav-color: #f3f4f6;  /* The default color of the main navmenu links */
-  --nav-hover-color: #22e7a1; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #38485f; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #38485f; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #f3f4f6; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #22e7a1; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  color-scheme: dark;
+
+  /* Theme surfaces */
+  --theme-page-bg: #25303f;
+  --theme-section-bg: #25303f;
+  --theme-section-alt-bg: #293341;
+  --theme-sidebar-bg: #1c2737;
+  --theme-surface-1: #293443;
+  --theme-surface-2: #151f2b;
+  --theme-surface-3: #38485f;
+  --theme-surface-raised: #4b607f;
+  --theme-image-canvas: #ffffff;
+  --theme-highlight-base: #ffffff;
+  --theme-shadow-base: #000000;
+
+  /* Theme typography */
+  --theme-text-primary: #f3f4f6;
+  --theme-text-heading: #f9fafb;
+  --theme-text-bright: #ffffff;
+  --theme-text-secondary: rgba(243, 244, 246, 0.72);
+  --theme-text-muted: rgba(243, 244, 246, 0.52);
+  --theme-text-inverse: #1f2937;
+
+  /* Theme borders */
+  --theme-border-subtle: rgba(243, 244, 246, 0.1);
+  --theme-border-default: rgba(243, 244, 246, 0.16);
+  --theme-border-project: rgba(243, 244, 246, 0.2);
+  --theme-border-strong: rgba(243, 244, 246, 0.28);
+  --theme-border-accent: color-mix(in srgb, var(--theme-accent), transparent 62%);
+
+  /* Theme shadows and overlays */
+  --theme-shadow-soft: rgba(0, 0, 0, 0.16);
+  --theme-shadow-medium: rgba(0, 0, 0, 0.28);
+  --theme-shadow-strong: rgba(0, 0, 0, 0.4);
+  --theme-overlay-soft: rgba(0, 0, 0, 0.08);
+  --theme-overlay-medium: rgba(0, 0, 0, 0.22);
+  --theme-overlay-strong: rgba(0, 0, 0, 0.42);
+  --theme-media-overlay: rgba(5, 13, 24, 0.82);
+  --theme-modal-shadow: rgba(0, 0, 0, 0.45);
+
+  /* Legacy shell roles retained for route compatibility */
+  --theme-shell-page-bg: #f4fafd;
+  --theme-shell-surface: #ffffff;
+  --theme-shell-item-bg: #f9fcfe;
+  --theme-shell-text: #272829;
+  --theme-shell-heading: #173b6c;
+  --theme-shell-muted: #3d4d5f;
+  --theme-shell-border: #e4edf4;
+  --theme-shell-accent: #149ddd;
+  --theme-shell-accent-hover: #0d83b9;
+  --theme-shell-accent-border: rgba(20, 157, 221, 0.16);
+  --theme-shell-shadow: rgba(5, 13, 24, 0.08);
+
+  /* Brand accent */
+  --theme-accent: #22e7a1;
+  --theme-accent-hover: color-mix(in srgb, var(--theme-accent), transparent 25%);
+  --theme-accent-soft: color-mix(in srgb, var(--theme-accent), transparent 82%);
+
+  /* Existing component aliases */
+  --background-color: var(--theme-page-bg);
+  --default-color: var(--theme-text-primary);
+  --heading-color: var(--theme-text-heading);
+  --accent-color: var(--theme-accent);
+  --surface-color: var(--theme-surface-1);
+  --contrast-color: var(--theme-text-inverse);
+  --nav-color: var(--theme-text-primary);
+  --nav-hover-color: var(--theme-accent);
+  --nav-mobile-background-color: var(--theme-surface-3);
+  --nav-dropdown-background-color: var(--theme-surface-3);
+  --nav-dropdown-color: var(--theme-text-primary);
+  --nav-dropdown-hover-color: var(--theme-accent);
+  --nav-nested-background-color: rgba(33, 37, 41, 0.1);
+  --nav-nested-active-background-color: rgba(33, 37, 41, 0.03);
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #293341;
-  --surface-color: #4b607f;
+  --background-color: var(--theme-section-alt-bg);
+  --surface-color: var(--theme-surface-raised);
 }
 
 .dark-background {
-  --background-color: #1c2737;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #151f2b;
-  --contrast-color: #ffffff;
+  --background-color: var(--theme-sidebar-bg);
+  --default-color: var(--theme-text-bright);
+  --heading-color: var(--theme-text-bright);
+  --surface-color: var(--theme-surface-2);
+  --contrast-color: var(--theme-text-bright);
 }
 
 /* Smooth scroll */
@@ -193,7 +250,7 @@ h6 {
 .php-email-form .error-message {
   display: none;
   background: #df1529;
-  color: #ffffff;
+  color: var(--theme-text-bright);
   text-align: left;
   padding: 15px;
   margin-bottom: 24px;
@@ -202,7 +259,7 @@ h6 {
 
 .php-email-form .sent-message {
   display: none;
-  color: #ffffff;
+  color: var(--theme-text-bright);
   background: #059652;
   text-align: center;
   padding: 15px;
@@ -432,12 +489,12 @@ h6 {
 }
 
 .navmenu .dropdown ul ul {
-  background-color: rgba(33, 37, 41, 0.1);
+  background-color: var(--nav-nested-background-color);
 }
 
 .navmenu .dropdown>.dropdown-active {
   display: block;
-  background-color: rgba(33, 37, 41, 0.03);
+  background-color: var(--nav-nested-active-background-color);
 }
 
 /*--------------------------------------------------------------
@@ -518,7 +575,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #ffffff;
+  border: 6px solid var(--theme-highlight-base);
   border-color: var(--accent-color) transparent var(--accent-color) transparent;
   border-radius: 50%;
   width: 60px;
@@ -2524,7 +2581,7 @@ section,
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: color-mix(in srgb, var(--theme-shadow-base), transparent 30%);
   opacity: 0;
   transition: all 0.4s ease;
   display: flex;
@@ -3006,7 +3063,7 @@ section,
 .testimonials .trouble-nav-item {
   text-align: left;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 83%);
-  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-color), #fff 5%), color-mix(in srgb, var(--surface-color), #0b1326 20%));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 5%), color-mix(in srgb, var(--surface-color), #0b1326 20%));
   border-radius: 14px;
   padding: 0.85rem 0.9rem;
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
@@ -3068,8 +3125,8 @@ section,
   border-radius: 20px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%);
   background:
-    linear-gradient(160deg, color-mix(in srgb, var(--surface-color), #fff 2%), color-mix(in srgb, var(--surface-color), #091223 12%));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 14px 36px rgba(8, 18, 37, 0.24);
+    linear-gradient(160deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 2%), color-mix(in srgb, var(--surface-color), #091223 12%));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--theme-highlight-base), transparent 96%), 0 14px 36px rgba(8, 18, 37, 0.24);
 }
 
 .testimonials .trouble-case {
@@ -3133,7 +3190,7 @@ section,
   width: 0.86rem;
   height: 0.86rem;
   border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), #fff 20%) 0 35%, color-mix(in srgb, var(--accent-color), transparent 55%) 36% 100%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), var(--theme-highlight-base) 20%) 0 35%, color-mix(in srgb, var(--accent-color), transparent 55%) 36% 100%);
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 35%);
 }
 
@@ -3155,7 +3212,7 @@ section,
   font-size: 0.85em;
   padding: 0.08rem 0.28rem;
   border-radius: 4px;
-  background: color-mix(in srgb, var(--surface-color), #000 10%);
+  background: color-mix(in srgb, var(--surface-color), var(--theme-shadow-base) 10%);
 }
 
 .testimonials .trouble-evidence {
@@ -3189,7 +3246,7 @@ section,
   padding: 0.26rem 0.55rem;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  background: color-mix(in srgb, var(--surface-color), #fff 4%);
+  background: color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 4%);
 }
 
 .testimonials .trouble-pipeline code {

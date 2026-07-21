@@ -1,6 +1,6 @@
 :root {
-  color: #272829;
-  background: #f4fafd;
+  color: var(--theme-shell-text);
+  background: var(--theme-shell-page-bg);
   font-family:
     "Roboto",
     system-ui,
@@ -127,10 +127,10 @@ a {
 
 .react-shell__intro,
 .react-shell__panel {
-  background: #ffffff;
-  border: 1px solid rgba(20, 157, 221, 0.16);
+  background: var(--theme-shell-surface);
+  border: 1px solid var(--theme-shell-accent-border);
   border-radius: 8px;
-  box-shadow: 0 16px 45px rgba(5, 13, 24, 0.08);
+  box-shadow: 0 16px 45px var(--theme-shell-shadow);
 }
 
 .react-shell__intro {
@@ -143,7 +143,7 @@ a {
 
 .react-shell__eyebrow {
   margin: 0 0 12px;
-  color: #149ddd;
+  color: var(--theme-shell-accent);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -152,21 +152,21 @@ a {
 
 .react-shell h1 {
   margin: 0;
-  color: #173b6c;
+  color: var(--theme-shell-heading);
   font-size: 3.5rem;
   line-height: 1.05;
 }
 
 .react-shell h2 {
   margin: 0 0 18px;
-  color: #173b6c;
+  color: var(--theme-shell-heading);
   font-size: 1.2rem;
 }
 
 .react-shell__copy {
   max-width: 680px;
   margin: 24px 0 0;
-  color: #3d4d5f;
+  color: var(--theme-shell-muted);
   font-size: 1rem;
   line-height: 1.8;
 }
@@ -183,26 +183,26 @@ a {
   align-items: center;
   min-height: 44px;
   padding: 0 18px;
-  border: 1px solid #149ddd;
+  border: 1px solid var(--theme-shell-accent);
   border-radius: 6px;
-  background: #149ddd;
-  color: #ffffff;
+  background: var(--theme-shell-accent);
+  color: var(--theme-text-bright);
   font-weight: 700;
   text-decoration: none;
 }
 
 .react-shell__button:hover {
-  color: #ffffff;
-  background: #0d83b9;
+  color: var(--theme-text-bright);
+  background: var(--theme-shell-accent-hover);
 }
 
 .react-shell__button--ghost {
-  background: #ffffff;
-  color: #149ddd;
+  background: var(--theme-shell-surface);
+  color: var(--theme-shell-accent);
 }
 
 .react-shell__button--ghost:hover {
-  color: #ffffff;
+  color: var(--theme-text-bright);
 }
 
 .react-shell__section-list {
@@ -220,14 +220,14 @@ a {
   justify-content: space-between;
   min-height: 42px;
   padding: 0 12px;
-  border: 1px solid #e4edf4;
+  border: 1px solid var(--theme-shell-border);
   border-radius: 6px;
-  color: #272829;
-  background: #f9fcfe;
+  color: var(--theme-shell-text);
+  background: var(--theme-shell-item-bg);
 }
 
 .react-shell__section-list code {
-  color: #149ddd;
+  color: var(--theme-shell-accent);
   font-size: 0.85rem;
 }
 

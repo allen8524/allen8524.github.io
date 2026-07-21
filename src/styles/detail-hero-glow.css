@@ -32,7 +32,7 @@
   inset: 5px;
   z-index: 1;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, #fff, transparent 91%);
+  border: 1px solid color-mix(in srgb, var(--theme-highlight-base), transparent 91%);
   backdrop-filter: blur(30px) saturate(108%);
   -webkit-backdrop-filter: blur(30px) saturate(108%);
   pointer-events: none;

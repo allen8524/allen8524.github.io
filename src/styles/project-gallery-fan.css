@@ -7,7 +7,7 @@
 
 .project-gallery-fan__sheet,
 .project-gallery-fan__front {
-  box-shadow: 0 5px 14px color-mix(in srgb, #000, transparent 90%);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--theme-shadow-base), transparent 90%);
 }
 
 .project-gallery-fan__sheet {
@@ -50,7 +50,7 @@
   margin-top: 0;
   border-top: 0;
   border-radius: 0 0 var(--project-radius) var(--project-radius);
-  box-shadow: 0 5px 14px color-mix(in srgb, #000, transparent 90%);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--theme-shadow-base), transparent 90%);
 }
 
 @media (hover: hover) and (min-width: 768px) {

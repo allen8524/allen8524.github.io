@@ -1,8 +1,8 @@
 /* 1. Page variables */
 .service-details-page {
-  --service-page-background: color-mix(in srgb, var(--background-color), #000 6%);
-  --service-card-background: color-mix(in srgb, var(--surface-color), #fff 4%);
-  --service-card-raised: color-mix(in srgb, var(--surface-color), #fff 8%);
+  --service-page-background: color-mix(in srgb, var(--background-color), var(--theme-shadow-base) 6%);
+  --service-card-background: color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 4%);
+  --service-card-raised: color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 8%);
   --service-border: color-mix(in srgb, var(--default-color), transparent 80%);
   --service-divider: color-mix(in srgb, var(--default-color), transparent 84%);
   --service-muted: color-mix(in srgb, var(--default-color), transparent 8%);
@@ -44,7 +44,7 @@
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
   background: var(--service-card-raised);
-  box-shadow: 0 14px 34px color-mix(in srgb, #000, transparent 82%);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--theme-shadow-base), transparent 82%);
 }
 
 .service-detail-hero::before {
@@ -112,7 +112,7 @@
   padding: 10px;
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
-  background: color-mix(in srgb, var(--service-page-background), #fff 2%);
+  background: color-mix(in srgb, var(--service-page-background), var(--theme-highlight-base) 2%);
 }
 
 .service-detail-hero__image img {
@@ -120,7 +120,7 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 6px;
-  background: #fff;
+  background: var(--theme-image-canvas);
   object-fit: contain;
 }
 
@@ -316,7 +316,7 @@
 a.service-evidence-card:hover {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--accent-color), transparent 55%);
-  box-shadow: 0 10px 24px color-mix(in srgb, #000, transparent 86%);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--theme-shadow-base), transparent 86%);
 }
 
 a.service-evidence-card:hover > i {
@@ -333,7 +333,7 @@ a.service-evidence-card:hover > i {
   border: 1px solid var(--service-border);
   border-radius: var(--service-radius);
   background: var(--service-card-raised);
-  box-shadow: 0 8px 20px color-mix(in srgb, #000, transparent 90%);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--theme-shadow-base), transparent 90%);
 }
 
 .service-info-group {
@@ -454,7 +454,7 @@ a.service-evidence-card:hover > i {
 .service-other-card:hover {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--accent-color), transparent 55%);
-  box-shadow: 0 10px 24px color-mix(in srgb, #000, transparent 86%);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--theme-shadow-base), transparent 86%);
 }
 
 .service-other-card:hover i {

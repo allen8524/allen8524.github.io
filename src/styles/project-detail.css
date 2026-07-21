@@ -1,12 +1,19 @@
 /* 1. Page variables */
 .portfolio-details-page {
-  --project-page-bg: color-mix(in srgb, var(--background-color), #000 6%);
-  --project-hero-bg: color-mix(in srgb, var(--surface-color), #fff 7%);
+  --project-page-bg: color-mix(in srgb, var(--background-color), var(--theme-shadow-base) 6%);
+  --project-hero-bg: color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 7%);
   --project-panel-bg: color-mix(in srgb, var(--surface-color), var(--background-color) 24%);
-  --project-card-bg: color-mix(in srgb, var(--surface-color), #fff 2%);
-  --project-border: color-mix(in srgb, var(--default-color), transparent 80%);
+  --project-card-bg: color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 2%);
+  --project-card-bg-strong: var(--theme-surface-2);
+  --project-border: var(--theme-border-project);
+  --project-border-hover: var(--theme-border-strong);
   --project-divider: color-mix(in srgb, var(--default-color), transparent 84%);
   --project-muted: color-mix(in srgb, var(--default-color), transparent 12%);
+  --project-faint: var(--theme-text-muted);
+  --project-shadow: var(--theme-shadow-medium);
+  --project-overlay: var(--theme-overlay-medium);
+  --project-glass-bg: var(--project-hero-bg);
+  --project-glass-border: var(--theme-border-subtle);
   --project-radius: 9px;
 }
 
@@ -56,7 +63,7 @@
   border: 1px solid var(--project-border);
   border-radius: var(--project-radius);
   background: var(--project-hero-bg);
-  box-shadow: 0 14px 34px color-mix(in srgb, #000, transparent 82%);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--theme-shadow-base), transparent 82%);
 }
 
 .project-detail-hero::before {
@@ -161,7 +168,7 @@
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 82%);
   border-radius: 14px;
   background: color-mix(in srgb, var(--background-color), var(--surface-color) 68%);
-  box-shadow: 0 22px 46px color-mix(in srgb, #000, transparent 78%), inset 0 1px 0 color-mix(in srgb, #fff, transparent 92%);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--theme-shadow-base), transparent 78%), inset 0 1px 0 color-mix(in srgb, var(--theme-highlight-base), transparent 92%);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -173,7 +180,7 @@
   min-height: 42px;
   padding: 0 14px;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-  background: color-mix(in srgb, var(--surface-color), #000 8%);
+  background: color-mix(in srgb, var(--surface-color), var(--theme-shadow-base) 8%);
 }
 
 .project-detail-browser-dots { display: inline-flex; gap: 6px; }
@@ -250,7 +257,7 @@
 .project-flow-list--count-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .project-flow-list--count-6,
 .project-flow-list--count-7 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.project-flow-list li { position: relative; display: grid; align-content: center; min-height: 76px; padding: 18px 20px 18px 28px; border: 1px solid var(--project-border); border-radius: var(--project-radius); background: linear-gradient(135deg, color-mix(in srgb, var(--project-card-bg), #fff 2%), color-mix(in srgb, var(--project-card-bg), var(--project-page-bg) 22%)); }
+.project-flow-list li { position: relative; display: grid; align-content: center; min-height: 76px; padding: 18px 20px 18px 28px; border: 1px solid var(--project-border); border-radius: var(--project-radius); background: linear-gradient(135deg, color-mix(in srgb, var(--project-card-bg), var(--theme-highlight-base) 2%), color-mix(in srgb, var(--project-card-bg), var(--project-page-bg) 22%)); }
 .project-flow-list li::before { position: absolute; top: 50%; left: 14px; width: 3px; height: 24px; border-radius: 999px; background: var(--accent-color); content: ""; transform: translateY(-50%); }
 .project-flow-list > li > span { display: none; }
 .project-flow-list strong { color: var(--heading-color); font-size: 0.94rem; font-weight: 700; line-height: 1.45; }
@@ -332,12 +339,12 @@
 .project-gallery-item--last-odd.project-gallery-item--portrait .project-gallery-fan,
 .project-gallery-item--last-odd.project-gallery-item--long-page .project-gallery-fan { max-width: 720px; margin-inline: auto; }
 .project-gallery-fan__sheet,
-.project-gallery-fan__front { position: absolute; inset: 0; width: 100%; height: 100%; border: 1px solid var(--project-border); border-radius: var(--project-radius); background: var(--project-card-bg); box-shadow: 0 9px 20px color-mix(in srgb, #000, transparent 88%); transform-origin: 10% 100%; transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 380ms ease, filter 380ms ease; }
+.project-gallery-fan__front { position: absolute; inset: 0; width: 100%; height: 100%; border: 1px solid var(--project-border); border-radius: var(--project-radius); background: var(--project-card-bg); box-shadow: 0 9px 20px color-mix(in srgb, var(--theme-shadow-base), transparent 88%); transform-origin: 10% 100%; transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 380ms ease, filter 380ms ease; }
 .project-gallery-fan__sheet { overflow: hidden; pointer-events: none; }
 .project-gallery-fan__sheet--1 { z-index: 1; transform: rotate(2deg) translate(3px, 2px); }
 .project-gallery-fan__sheet--2 { z-index: 2; transform: rotate(4deg) translate(5px, 4px); }
 .project-gallery-fan__sheet--3 { z-index: 3; transform: rotate(6deg) translate(7px, 6px); }
-.project-gallery-fan__front { position: relative; z-index: 4; overflow: hidden; background: color-mix(in srgb, var(--project-page-bg), #fff 2%); transform: rotate(0deg); }
+.project-gallery-fan__front { position: relative; z-index: 4; overflow: hidden; background: color-mix(in srgb, var(--project-page-bg), var(--theme-highlight-base) 2%); transform: rotate(0deg); }
 .project-gallery-fan__sheet img,
 .project-gallery-fan__front img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .project-gallery-fan__sheet img { opacity: 0.58; filter: brightness(0.74) saturate(0.7); }
@@ -360,10 +367,10 @@
 .project-nav .nav-meta { color: var(--project-muted); font-size: 0.79rem; font-weight: 600; line-height: 1.55; }
 .project-nav .nav-thumbnail { position: relative; display: block; grid-area: thumbnail; align-self: center; width: 100%; max-width: 280px; aspect-ratio: 16 / 10; margin: 0; overflow: visible; border-radius: 8px; }
 .project-nav-thumb-effect { position: relative; display: block; width: 100%; height: 100%; overflow: visible; border-radius: inherit; isolation: isolate; transform: translateZ(0); transition: transform 180ms ease; }
-.project-nav-thumb-effect__image-frame { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: inherit; background: var(--project-card-bg); box-shadow: 0 4px 12px color-mix(in srgb, #000, transparent 90%); }
+.project-nav-thumb-effect__image-frame { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: inherit; background: var(--project-card-bg); box-shadow: 0 4px 12px color-mix(in srgb, var(--theme-shadow-base), transparent 90%); }
 .project-nav-thumb-effect__image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 300ms ease, filter 300ms ease; }
-.project-nav-thumb-effect__overlay { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, transparent 12%, color-mix(in srgb, var(--accent-color), transparent 78%) 34%, color-mix(in srgb, var(--accent-color), #fff 18%) 50%, color-mix(in srgb, var(--accent-color), transparent 80%) 66%, transparent 88%); background-position: 0% 50%; background-size: 220% 220%; mix-blend-mode: screen; opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
-.project-nav-thumb-effect__leaf { position: absolute; z-index: 3; color: var(--accent-color); pointer-events: none; transform-origin: 50% 0; filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 30%)); }
+.project-nav-thumb-effect__overlay { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, transparent 12%, color-mix(in srgb, var(--accent-color), transparent 78%) 34%, color-mix(in srgb, var(--accent-color), var(--theme-highlight-base) 18%) 50%, color-mix(in srgb, var(--accent-color), transparent 80%) 66%, transparent 88%); background-position: 0% 50%; background-size: 220% 220%; mix-blend-mode: screen; opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
+.project-nav-thumb-effect__leaf { position: absolute; z-index: 3; color: var(--accent-color); pointer-events: none; transform-origin: 50% 0; filter: drop-shadow(2px 2px 3px color-mix(in srgb, var(--theme-shadow-base), transparent 70%)); }
 .project-nav-thumb-effect__leaf svg { display: block; width: 100%; height: auto; }
 .project-nav-thumb-effect__leaf--1 { top: -8px; right: -6px; width: 26px; transform: rotate(10deg); }
 .project-nav-thumb-effect__leaf--2 { top: -6px; left: 24px; width: 13px; transform: rotate(8deg); }
@@ -405,7 +412,7 @@
 .portfolio-details a:focus-visible,
 .portfolio-details button:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent-color), transparent 28%); outline-offset: 3px; }
 @media (hover: hover) and (pointer: fine) {
-  .project-detail-browser-frame:hover { border-color: color-mix(in srgb, var(--accent-color), transparent 62%); box-shadow: 0 26px 52px color-mix(in srgb, #000, transparent 76%), inset 0 1px 0 color-mix(in srgb, #fff, transparent 90%); transform: translateY(-2px); }
+  .project-detail-browser-frame:hover { border-color: color-mix(in srgb, var(--accent-color), transparent 62%); box-shadow: 0 26px 52px color-mix(in srgb, var(--theme-shadow-base), transparent 76%), inset 0 1px 0 color-mix(in srgb, var(--theme-highlight-base), transparent 90%); transform: translateY(-2px); }
   .project-detail-browser-frame:hover img { transform: scale(1.02); }
   .project-implementation-card:hover,
   .project-detail-links a:hover { border-color: color-mix(in srgb, var(--accent-color), transparent 55%); transform: translateY(-2px); }
@@ -422,7 +429,7 @@
   .project-detail-hero__actions a:hover,
   .project-nav .nav-link:hover,
   .project-explore-heading .all-projects:hover { border-color: var(--accent-color); color: var(--accent-color); }
-  .project-nav .nav-link:hover { background: color-mix(in srgb, var(--project-card-bg), #fff 3%); box-shadow: 0 10px 24px color-mix(in srgb, #000, transparent 88%); transform: translateY(-2px); }
+  .project-nav .nav-link:hover { background: color-mix(in srgb, var(--project-card-bg), var(--theme-highlight-base) 3%); box-shadow: 0 10px 24px color-mix(in srgb, var(--theme-shadow-base), transparent 88%); transform: translateY(-2px); }
   .project-nav .nav-link:hover .project-nav-thumb-effect { transform: translateY(-2px); }
   .project-nav .nav-link:hover .project-nav-thumb-effect__image { filter: brightness(1.04); transform: scale(1.035); }
   .project-nav .nav-link:hover .project-nav-thumb-effect__overlay { opacity: 0.3; animation: project-nav-thumb-wind 2.4s ease-in-out infinite; }
