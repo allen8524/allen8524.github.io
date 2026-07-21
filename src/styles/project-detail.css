@@ -348,13 +348,15 @@
 .project-explore-heading { display: flex; gap: 24px; align-items: end; justify-content: space-between; }
 .project-explore-heading .all-projects { display: inline-flex; gap: 9px; align-items: center; justify-content: center; min-height: 48px; padding: 10px 18px; border: 1px solid var(--project-border); border-radius: 6px; color: var(--heading-color); font-size: 0.9rem; font-weight: 700; }
 .project-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.project-nav .nav-link { display: flex; flex-direction: column; min-height: clamp(280px, 24vw, 340px); padding: 27px 28px 24px; border: 1px solid var(--project-border); border-radius: var(--project-radius); background: var(--project-card-bg); color: var(--heading-color); transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
-.project-nav .nav-body { position: relative; z-index: 2; display: grid; gap: 8px; margin-bottom: 24px; }
+.project-nav .nav-link { min-height: clamp(220px, 18vw, 260px); padding: clamp(26px, 2.6vw, 34px); border: 1px solid var(--project-border); border-radius: var(--project-radius); background: var(--project-card-bg); color: var(--heading-color); transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
+.project-nav .prev-project { display: grid; grid-template-columns: minmax(0, 1fr) clamp(220px, 42%, 280px); grid-template-areas: "body thumbnail"; gap: clamp(24px, 3vw, 40px); align-items: center; }
+.project-nav .next-project { display: grid; grid-template-columns: clamp(220px, 42%, 280px) minmax(0, 1fr); grid-template-areas: "thumbnail body"; gap: clamp(24px, 3vw, 40px); align-items: center; }
+.project-nav .nav-body { position: relative; z-index: 2; display: grid; grid-area: body; align-self: center; min-width: 0; gap: 8px; overflow-wrap: anywhere; word-break: keep-all; }
 .project-nav .nav-direction { display: inline-flex; gap: 9px; align-items: center; color: var(--accent-color); font-size: 0.75rem; font-weight: 700; }
 .project-nav .nav-direction i { font-size: 1rem; }
 .project-nav .nav-title { font-size: 1.1rem; font-weight: 700; line-height: 1.5; }
 .project-nav .nav-meta { color: var(--project-muted); font-size: 0.79rem; font-weight: 600; line-height: 1.55; }
-.project-nav .nav-thumbnail { position: relative; display: block; flex: 0 0 auto; width: clamp(210px, 19vw, 280px); aspect-ratio: 16 / 10; margin-top: auto; overflow: visible; border-radius: 8px; }
+.project-nav .nav-thumbnail { position: relative; display: block; grid-area: thumbnail; align-self: center; width: 100%; max-width: 280px; aspect-ratio: 16 / 10; margin: 0; overflow: visible; border-radius: 8px; }
 .project-nav-thumb-effect { position: relative; display: block; width: 100%; height: 100%; overflow: visible; border-radius: inherit; isolation: isolate; transform: translateZ(0); transition: transform 180ms ease; }
 .project-nav-thumb-effect__image-frame { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: inherit; background: var(--project-card-bg); box-shadow: 0 4px 12px color-mix(in srgb, #000, transparent 90%); }
 .project-nav-thumb-effect__image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 300ms ease, filter 300ms ease; }
@@ -364,8 +366,10 @@
 .project-nav-thumb-effect__leaf--1 { top: -8px; right: -6px; width: 24px; transform: rotate(10deg); }
 .project-nav-thumb-effect__leaf--2 { top: -6px; left: 28px; width: 13px; transform: rotate(8deg); }
 .project-nav-thumb-effect__leaf--3 { top: -8px; left: -6px; width: 19px; transform: rotate(-6deg); }
-.project-nav .prev-project .nav-thumbnail { align-self: flex-end; }
-.project-nav .next-project .nav-thumbnail { align-self: flex-start; }
+.project-nav .prev-project .nav-body { text-align: left; }
+.project-nav .prev-project .nav-direction { justify-content: flex-start; }
+.project-nav .prev-project .nav-thumbnail { justify-self: end; }
+.project-nav .next-project .nav-thumbnail { justify-self: start; }
 .project-nav .next-project { text-align: right; }
 .project-nav .next-project .nav-direction { justify-content: flex-end; }
 
@@ -451,10 +455,9 @@
   .project-flow-list i { display: none; }
   .project-troubleshooting-header,
   .project-troubleshooting-list li { grid-template-columns: 50px minmax(210px, 260px) minmax(0, 1fr); gap: 18px; }
-}
-
-@media (max-width: 768px) {
-  .project-nav .nav-thumbnail { width: min(100%, 240px); }
+  .project-nav .nav-link { gap: 22px; padding: 24px; }
+  .project-nav .prev-project { grid-template-columns: minmax(0, 1fr) minmax(180px, 38%); }
+  .project-nav .next-project { grid-template-columns: minmax(180px, 38%) minmax(0, 1fr); }
 }
 
 @media (max-width: 767px) {
@@ -496,8 +499,12 @@
   .project-review-panel.has-two-columns { grid-template-columns: 1fr; }
   .project-review-panel.has-two-columns > div + div { margin: 26px 0 0; padding: 26px 0 0; border-top: 1px solid var(--project-divider); border-left: 0; }
   .project-nav { grid-template-columns: 1fr; }
+  .project-nav .prev-project,
+  .project-nav .next-project { grid-template-columns: 1fr; grid-template-areas: "body" "thumbnail"; gap: 24px; }
   .project-nav .next-project { text-align: left; }
+  .project-nav .next-project .nav-body { text-align: left; }
   .project-nav .next-project .nav-direction { justify-content: flex-start; }
+  .project-nav .nav-thumbnail { justify-self: start; width: min(100%, 260px); }
   .project-nav-thumb-effect__overlay { opacity: 0; }
   .project-nav-thumb-effect__leaf--1 { top: -6px; right: -4px; width: 20px; }
   .project-nav-thumb-effect__leaf--2 { top: -5px; left: 24px; width: 10px; }
@@ -522,7 +529,7 @@
   .project-review-panel { padding: 22px 18px; }
   .project-explore-heading { align-items: stretch; flex-direction: column; }
   .project-explore-heading .all-projects { align-self: stretch; }
-  .project-nav .nav-link { min-height: 280px; padding: 24px 22px 20px; }
+  .project-nav .nav-link { padding: 24px 22px 20px; }
 }
 
 @media (max-width: 374px) {
