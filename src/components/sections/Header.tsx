@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ScrollHamster from "../common/ScrollHamster";
+import ThemeToggle from "../common/ThemeToggle";
 
 const navItems = [
   { id: "hero", label: "홈", icon: "bi-house" },
@@ -62,7 +63,8 @@ function Header() {
   };
 
   return (
-    <header
+    <>
+      <header
       id="header"
       className={`header dark-background d-flex flex-column${isOpen ? " header-show" : ""}`}
     >
@@ -106,7 +108,9 @@ function Header() {
           <ScrollHamster />
         </div>
       </div>
-    </header>
+      </header>
+      <ThemeToggle />
+    </>
   );
 }
 
