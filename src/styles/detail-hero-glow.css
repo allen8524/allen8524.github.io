@@ -32,19 +32,19 @@
   z-index: 1;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, #fff, transparent 91%);
-  backdrop-filter: blur(24px) saturate(112%);
-  -webkit-backdrop-filter: blur(24px) saturate(112%);
+  backdrop-filter: blur(30px) saturate(108%);
+  -webkit-backdrop-filter: blur(30px) saturate(108%);
   pointer-events: none;
 }
 
 .project-detail-hero .detail-hero-glass {
   border-radius: calc(var(--project-radius) - 3px);
-  background: color-mix(in srgb, var(--project-hero-bg), transparent 14%);
+  background: color-mix(in srgb, var(--project-hero-bg), transparent 8%);
 }
 
 .service-detail-hero .detail-hero-glass {
   border-radius: calc(var(--service-radius) - 3px);
-  background: color-mix(in srgb, var(--service-card-raised), transparent 14%);
+  background: color-mix(in srgb, var(--service-card-raised), transparent 8%);
 }
 
 .project-detail-hero::before,
@@ -89,8 +89,8 @@
 
   .detail-hero-glass {
     inset: 4px;
-    backdrop-filter: blur(20px) saturate(108%);
-    -webkit-backdrop-filter: blur(20px) saturate(108%);
+    backdrop-filter: blur(26px) saturate(106%);
+    -webkit-backdrop-filter: blur(26px) saturate(106%);
   }
 }
 
