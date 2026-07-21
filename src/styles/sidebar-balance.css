@@ -58,7 +58,7 @@
     width: 100%;
     height: auto;
     min-height: 0;
-    margin: 14px auto 0;
+    margin: 30px auto 0;
     padding: 0;
     overflow: visible;
     line-height: 0;
@@ -96,7 +96,7 @@
   }
 
   .header-hamster {
-    margin-top: 10px;
+    margin-top: 22px;
   }
 
   .header-hamster > div {
