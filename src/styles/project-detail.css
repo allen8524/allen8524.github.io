@@ -354,17 +354,49 @@
 .project-nav .nav-direction i { font-size: 1rem; }
 .project-nav .nav-title { font-size: 1.1rem; font-weight: 700; line-height: 1.5; }
 .project-nav .nav-meta { color: var(--project-muted); font-size: 0.79rem; font-weight: 600; line-height: 1.55; }
-.project-nav .nav-thumbnail { display: block; width: clamp(96px, 10vw, 124px); aspect-ratio: 16 / 10; margin-top: auto; overflow: hidden; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: 7px; background: color-mix(in srgb, var(--project-card-bg), var(--project-page-bg) 40%); box-shadow: 0 4px 12px color-mix(in srgb, #000, transparent 90%); }
-.project-nav .nav-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; transition: filter 180ms ease, transform 180ms ease; }
+.project-nav .nav-thumbnail { display: block; width: clamp(96px, 10vw, 124px); aspect-ratio: 16 / 10; margin-top: auto; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: 7px; background: color-mix(in srgb, var(--project-card-bg), var(--project-page-bg) 40%); box-shadow: 0 4px 12px color-mix(in srgb, #000, transparent 90%); }
+.project-nav-thumb-effect { position: relative; display: block; width: 100%; height: 100%; overflow: visible; border-radius: inherit; isolation: isolate; transform: translateZ(0); transition: transform 180ms ease; }
+.project-nav-thumb-effect__image { display: block; width: 100%; height: 100%; border-radius: inherit; object-fit: cover; transition: filter 180ms ease; }
+.project-nav-thumb-effect__overlay { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, transparent 12%, color-mix(in srgb, var(--accent-color), transparent 78%) 34%, color-mix(in srgb, var(--accent-color), #fff 18%) 50%, color-mix(in srgb, var(--accent-color), transparent 80%) 66%, transparent 88%); background-position: 0% 50%; background-size: 220% 220%; mix-blend-mode: screen; opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
+.project-nav-thumb-effect__leaf { position: absolute; z-index: 3; color: var(--accent-color); pointer-events: none; transform-origin: 50% 0; filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 30%)); }
+.project-nav-thumb-effect__leaf svg { display: block; width: 100%; height: auto; }
+.project-nav-thumb-effect__leaf--1 { top: -7px; right: -5px; width: 22px; transform: rotate(10deg); }
+.project-nav-thumb-effect__leaf--2 { top: -5px; left: 24px; width: 11px; transform: rotate(8deg); }
+.project-nav-thumb-effect__leaf--3 { top: -7px; left: -5px; width: 16px; transform: rotate(-6deg); }
 .project-nav .prev-project .nav-thumbnail { align-self: flex-end; }
 .project-nav .next-project .nav-thumbnail { align-self: flex-start; }
 .project-nav .next-project { text-align: right; }
 .project-nav .next-project .nav-direction { justify-content: flex-end; }
 
+@keyframes project-nav-thumb-wind {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes project-nav-leaf-sway-1 {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(-5deg); }
+}
+
+@keyframes project-nav-leaf-sway-2 {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(14deg); }
+}
+
+@keyframes project-nav-leaf-sway-3 {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-7deg); }
+}
+
+.project-nav .nav-link:focus-visible .project-nav-thumb-effect__overlay { opacity: 0.3; animation: project-nav-thumb-wind 2.4s ease-in-out infinite; }
+.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--1 { animation: project-nav-leaf-sway-1 2.8s ease-in-out infinite both; }
+.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--2 { animation: project-nav-leaf-sway-2 3.2s ease-in-out 80ms infinite both; }
+.project-nav .nav-link:focus-visible .project-nav-thumb-effect__leaf--3 { animation: project-nav-leaf-sway-3 2.4s ease-in-out 140ms infinite both; }
+
 /* 17. Focus and hover */
 .portfolio-details a:focus-visible,
 .portfolio-details button:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent-color), transparent 28%); outline-offset: 3px; }
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .project-detail-browser-frame:hover { border-color: color-mix(in srgb, var(--accent-color), transparent 62%); box-shadow: 0 26px 52px color-mix(in srgb, #000, transparent 76%), inset 0 1px 0 color-mix(in srgb, #fff, transparent 90%); transform: translateY(-2px); }
   .project-detail-browser-frame:hover img { transform: scale(1.02); }
   .project-implementation-card:hover,
@@ -383,7 +415,12 @@
   .project-nav .nav-link:hover,
   .project-explore-heading .all-projects:hover { border-color: var(--accent-color); color: var(--accent-color); }
   .project-nav .nav-link:hover { background: color-mix(in srgb, var(--project-card-bg), #fff 3%); box-shadow: 0 10px 24px color-mix(in srgb, #000, transparent 88%); transform: translateY(-2px); }
-  .project-nav .nav-link:hover .nav-thumbnail img { filter: brightness(1.04); transform: scale(1.02); }
+  .project-nav .nav-link:hover .project-nav-thumb-effect { transform: translateY(-2px); }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__image { filter: brightness(1.04); }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__overlay { opacity: 0.3; animation: project-nav-thumb-wind 2.4s ease-in-out infinite; }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--1 { animation: project-nav-leaf-sway-1 2.8s ease-in-out infinite both; }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--2 { animation: project-nav-leaf-sway-2 3.2s ease-in-out 80ms infinite both; }
+  .project-nav .nav-link:hover .project-nav-thumb-effect__leaf--3 { animation: project-nav-leaf-sway-3 2.4s ease-in-out 140ms infinite both; }
   .project-detail-links a:hover > i:last-child,
   .project-nav .nav-link:hover .nav-direction i { transform: translateX(2px); }
 }
@@ -456,6 +493,10 @@
   .project-nav { grid-template-columns: 1fr; }
   .project-nav .next-project { text-align: left; }
   .project-nav .next-project .nav-direction { justify-content: flex-start; }
+  .project-nav-thumb-effect__overlay { opacity: 0; }
+  .project-nav-thumb-effect__leaf--1 { top: -5px; right: -3px; width: 18px; }
+  .project-nav-thumb-effect__leaf--2 { top: -4px; left: 20px; width: 9px; }
+  .project-nav-thumb-effect__leaf--3 { top: -5px; left: -3px; width: 13px; }
 }
 
 @media (max-width: 574px) {
@@ -494,6 +535,10 @@
   .portfolio-details .reveal-item { opacity: 1 !important; transform: none !important; }
   .project-gallery-fan__sheet,
   .project-gallery-fan__front { transition: none !important; }
+  .project-nav-thumb-effect,
+  .project-nav-thumb-effect__overlay,
+  .project-nav-thumb-effect__leaf { animation: none !important; transition: none; }
+  .project-nav .nav-link:hover .project-nav-thumb-effect { transform: none; }
   .project-gallery-item:hover .project-gallery-fan__sheet--1,
   .project-gallery-item:focus-within .project-gallery-fan__sheet--1 { transform: rotate(2deg) translate(3px, 2px); }
   .project-gallery-item:hover .project-gallery-fan__sheet--2,
