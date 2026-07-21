@@ -1,0 +1,245 @@
+.header-hamster {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 112px;
+  margin: 0 auto 8px;
+  opacity: 0.86;
+}
+
+.scroll-hamster {
+  --hamster-duration: 0.78s;
+  position: relative;
+  width: 12em;
+  height: 12em;
+  color: color-mix(in srgb, var(--default-color), transparent 55%);
+  font-size: 8px;
+}
+
+.scroll-hamster__wheel {
+  position: absolute;
+  inset: 0.6em;
+  overflow: hidden;
+  border: 0.45em solid currentColor;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0.12em color-mix(in srgb, var(--default-color), transparent 78%);
+}
+
+.scroll-hamster__animal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 7em;
+  height: 3.75em;
+  transform: translate(-50%, -48%) rotate(4deg);
+  transform-origin: 50% 50%;
+  animation: scroll-hamster-bob var(--hamster-duration) ease-in-out infinite;
+}
+
+.scroll-hamster__body {
+  position: absolute;
+  top: 0.38em;
+  left: 1.75em;
+  width: 4.6em;
+  height: 3em;
+  border-radius: 52% 46% 48% 54%;
+  background: #f3a847;
+  box-shadow: inset -0.45em -0.3em 0 #df8734;
+  transform-origin: 20% 50%;
+  animation: scroll-hamster-body var(--hamster-duration) ease-in-out infinite;
+}
+
+.scroll-hamster__body::before {
+  position: absolute;
+  right: 0.45em;
+  bottom: 0.18em;
+  width: 2.65em;
+  height: 1.8em;
+  border-radius: 50%;
+  background: #f8dfb5;
+  content: "";
+  transform: rotate(-8deg);
+}
+
+.scroll-hamster__head {
+  position: absolute;
+  top: -0.1em;
+  left: -1.45em;
+  width: 2.75em;
+  height: 2.55em;
+  border-radius: 64% 46% 55% 50%;
+  background: #f8dfb5;
+  box-shadow: inset 0.25em -0.25em 0 #edc990;
+  transform-origin: 85% 70%;
+  animation: scroll-hamster-head var(--hamster-duration) ease-in-out infinite;
+}
+
+.scroll-hamster__ear {
+  position: absolute;
+  top: -0.38em;
+  right: 0.35em;
+  width: 0.92em;
+  height: 0.92em;
+  border: 0.18em solid #f8dfb5;
+  border-radius: 50%;
+  background: #e9a5a1;
+  transform-origin: 50% 100%;
+  animation: scroll-hamster-ear var(--hamster-duration) ease-in-out infinite;
+}
+
+.scroll-hamster__eye {
+  position: absolute;
+  top: 0.7em;
+  left: 0.72em;
+  width: 0.38em;
+  height: 0.38em;
+  border-radius: 50%;
+  background: #24211f;
+  transform-origin: 50% 50%;
+  animation: scroll-hamster-eye calc(var(--hamster-duration) * 2) linear infinite;
+}
+
+.scroll-hamster__nose {
+  position: absolute;
+  top: 1.25em;
+  left: -0.18em;
+  width: 0.46em;
+  height: 0.4em;
+  border-radius: 50% 45% 45% 50%;
+  background: #d9827d;
+}
+
+.scroll-hamster__limb {
+  position: absolute;
+  z-index: 3;
+  width: 1.35em;
+  height: 0.42em;
+  border-radius: 999px;
+  background: #f1b5a7;
+  transform-origin: 0.2em 50%;
+}
+
+.scroll-hamster__limb--front-right { top: 1.9em; left: 0.42em; animation: scroll-hamster-front-right-limb var(--hamster-duration) ease-in-out infinite; }
+.scroll-hamster__limb--front-left { top: 2.32em; left: 0.62em; animation: scroll-hamster-front-left-limb var(--hamster-duration) ease-in-out infinite; }
+.scroll-hamster__limb--back-right { top: 1.92em; right: 0.08em; animation: scroll-hamster-back-right-limb var(--hamster-duration) ease-in-out infinite; }
+.scroll-hamster__limb--back-left { top: 2.35em; right: 0.35em; animation: scroll-hamster-back-left-limb var(--hamster-duration) ease-in-out infinite; }
+
+.scroll-hamster__tail {
+  position: absolute;
+  top: 1.1em;
+  right: -0.8em;
+  width: 1.25em;
+  height: 0.7em;
+  border: 0.22em solid #e9a5a1;
+  border-left: 0;
+  border-radius: 0 100% 100% 0;
+  transform-origin: 0 50%;
+  animation: scroll-hamster-tail var(--hamster-duration) ease-in-out infinite;
+}
+
+.scroll-hamster__spoke {
+  position: absolute;
+  inset: 0.35em;
+  z-index: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--accent-color) 0 0.32em, transparent 0.36em),
+    repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--default-color), transparent 62%) 0deg 2deg, transparent 2deg 30deg);
+  animation: scroll-hamster-spoke var(--hamster-duration) linear infinite;
+}
+
+.scroll-hamster__animal,
+.scroll-hamster__head,
+.scroll-hamster__ear,
+.scroll-hamster__eye,
+.scroll-hamster__body,
+.scroll-hamster__limb,
+.scroll-hamster__tail,
+.scroll-hamster__spoke { animation-play-state: paused; }
+
+.scroll-hamster--running .scroll-hamster__animal,
+.scroll-hamster--running .scroll-hamster__head,
+.scroll-hamster--running .scroll-hamster__ear,
+.scroll-hamster--running .scroll-hamster__eye,
+.scroll-hamster--running .scroll-hamster__body,
+.scroll-hamster--running .scroll-hamster__limb,
+.scroll-hamster--running .scroll-hamster__tail,
+.scroll-hamster--running .scroll-hamster__spoke { animation-play-state: running; }
+
+.scroll-hamster--down .scroll-hamster__spoke { animation-direction: normal; }
+.scroll-hamster--up .scroll-hamster__spoke { animation-direction: reverse; }
+
+@keyframes scroll-hamster-bob {
+  0%, 100% { transform: translate(-50%, -48%) rotate(4deg); }
+  50% { transform: translate(-50%, -58%) rotate(1deg); }
+}
+
+@keyframes scroll-hamster-head {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-9deg); }
+}
+
+@keyframes scroll-hamster-eye {
+  0%, 88%, 100% { transform: scaleY(1); }
+  92%, 96% { transform: scaleY(0.1); }
+}
+
+@keyframes scroll-hamster-ear {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes scroll-hamster-body {
+  0%, 100% { transform: rotate(0deg) scaleX(1); }
+  50% { transform: rotate(-2deg) scaleX(0.97); }
+}
+
+@keyframes scroll-hamster-front-right-limb {
+  0%, 100% { transform: rotate(24deg); }
+  50% { transform: rotate(-26deg); }
+}
+
+@keyframes scroll-hamster-front-left-limb {
+  0%, 100% { transform: rotate(-24deg); }
+  50% { transform: rotate(28deg); }
+}
+
+@keyframes scroll-hamster-back-right-limb {
+  0%, 100% { transform: rotate(-28deg); }
+  50% { transform: rotate(24deg); }
+}
+
+@keyframes scroll-hamster-back-left-limb {
+  0%, 100% { transform: rotate(26deg); }
+  50% { transform: rotate(-22deg); }
+}
+
+@keyframes scroll-hamster-tail {
+  0%, 100% { transform: rotate(7deg); }
+  50% { transform: rotate(-9deg); }
+}
+
+@keyframes scroll-hamster-spoke {
+  to { transform: rotate(1turn); }
+}
+
+@media (max-width: 1199px) {
+  .header-hamster { display: none; }
+}
+
+@media (min-width: 1200px) and (max-height: 760px) {
+  .header-hamster { min-height: 84px; }
+  .scroll-hamster { font-size: 6.5px; }
+}
+
+@media (min-width: 1200px) and (max-height: 650px) {
+  .header-hamster { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hamster *,
+  .scroll-hamster *::before,
+  .scroll-hamster *::after { animation: none !important; }
+}

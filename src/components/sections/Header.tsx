@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import ScrollHamster from "../common/ScrollHamster";
 
 const navItems = [
   { id: "hero", label: "홈", icon: "bi-house" },
@@ -99,6 +100,10 @@ function Header() {
           ))}
         </ul>
       </nav>
+
+      <div className="header-hamster">
+        <ScrollHamster />
+      </div>
 
       <div className="social-links text-center">
         <a
