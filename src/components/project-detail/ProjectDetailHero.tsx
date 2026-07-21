@@ -17,6 +17,9 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
 
   return (
     <section className="project-detail-hero">
+      <span className="detail-hero-blob" aria-hidden="true" />
+      <span className="detail-hero-glass" aria-hidden="true" />
+
       <div className="project-detail-hero__content">
         <p className="project-detail-eyebrow">PROJECT · {formatMiddleDotSpacing(detail.developmentType)}</p>
         <p className="project-detail-hero__category">{formatMiddleDotSpacing(project.category)}</p>
