@@ -42,6 +42,9 @@ function ServiceDetailPage() {
       <main className="main service-detail-page">
         <div className="service-detail-container">
           <section className="service-detail-hero" aria-labelledby="service-title">
+            <span className="detail-hero-blob" aria-hidden="true" />
+            <span className="detail-hero-glass" aria-hidden="true" />
+
             <div className="service-detail-hero__content">
               <p className="service-detail-eyebrow">개발 역량 · {formatMiddleDotSpacing(service.title)}</p>
               <h1 id="service-title">{formatMiddleDotSpacing(service.heroTitle)}</h1>
