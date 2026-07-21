@@ -84,25 +84,27 @@ function Header() {
         </Link>
       </div>
 
-      <nav id="navmenu" className="navmenu">
-        <ul>
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <button
-                type="button"
-                className={activeSection === item.id ? "active" : undefined}
-                onClick={() => moveToSection(item.id)}
-              >
-                <i className={`bi ${item.icon} navicon`} />
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className="header-navigation-stack">
+        <nav id="navmenu" className="navmenu">
+          <ul>
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <button
+                  type="button"
+                  className={activeSection === item.id ? "active" : undefined}
+                  onClick={() => moveToSection(item.id)}
+                >
+                  <i className={`bi ${item.icon} navicon`} />
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      <div className="header-hamster">
-        <ScrollHamster />
+        <div className="header-hamster">
+          <ScrollHamster />
+        </div>
       </div>
     </header>
   );
