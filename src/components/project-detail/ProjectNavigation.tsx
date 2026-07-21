@@ -9,8 +9,10 @@ function NavigationThumbnail({ alt, src }: NavigationThumbnailProps) {
   return (
     <span className="nav-thumbnail">
       <span className="project-nav-thumb-effect">
-        <img className="project-nav-thumb-effect__image" src={src} alt={alt} />
-        <span className="project-nav-thumb-effect__overlay" aria-hidden="true" />
+        <span className="project-nav-thumb-effect__image-frame">
+          <img className="project-nav-thumb-effect__image" src={src} alt={alt} />
+          <span className="project-nav-thumb-effect__overlay" aria-hidden="true" />
+        </span>
         {[1, 2, 3].map((leaf) => (
           <span
             key={leaf}
