@@ -131,6 +131,11 @@
   --theme-surface-2: #151f2b;
   --theme-surface-3: #38485f;
   --theme-surface-raised: #4b607f;
+  --theme-surface-deep: #0b1326;
+  --theme-surface-inset: #091223;
+  --theme-surface-recessed: #091120;
+  --theme-code-bg: #050a14;
+  --theme-accent-surface-deep: #060d1b;
   --theme-image-canvas: #ffffff;
   --theme-highlight-base: #ffffff;
   --theme-shadow-base: #000000;
@@ -159,6 +164,10 @@
   --theme-overlay-strong: rgba(0, 0, 0, 0.42);
   --theme-media-overlay: rgba(5, 13, 24, 0.82);
   --theme-modal-shadow: rgba(0, 0, 0, 0.45);
+  --theme-shadow-card: rgba(16, 27, 54, 0.26);
+  --theme-shadow-panel: rgba(8, 18, 37, 0.24);
+  --theme-ambient-glow-primary: rgba(78, 99, 255, 0.15);
+  --theme-ambient-glow-secondary: rgba(25, 45, 80, 0.22);
 
   /* Legacy shell roles retained for route compatibility */
   --theme-shell-page-bg: #f4fafd;
@@ -177,6 +186,8 @@
   --theme-accent: #22e7a1;
   --theme-accent-hover: color-mix(in srgb, var(--theme-accent), transparent 25%);
   --theme-accent-soft: color-mix(in srgb, var(--theme-accent), transparent 82%);
+  --theme-accent-contrast: #dbeafe;
+  --theme-accent-contrast-soft: #cbd5ff;
 
   /* Existing component aliases */
   --background-color: var(--theme-page-bg);
@@ -3031,8 +3042,8 @@ section,
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 22%, rgba(78, 99, 255, 0.15), transparent 44%),
-    radial-gradient(circle at 85% 80%, rgba(25, 45, 80, 0.22), transparent 48%);
+    radial-gradient(circle at 18% 22%, var(--theme-ambient-glow-primary), transparent 44%),
+    radial-gradient(circle at 85% 80%, var(--theme-ambient-glow-secondary), transparent 48%);
   pointer-events: none;
 }
 
@@ -3063,7 +3074,7 @@ section,
 .testimonials .trouble-nav-item {
   text-align: left;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 83%);
-  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 5%), color-mix(in srgb, var(--surface-color), #0b1326 20%));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 5%), color-mix(in srgb, var(--surface-color), var(--theme-surface-deep) 20%));
   border-radius: 14px;
   padding: 0.85rem 0.9rem;
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
@@ -3076,7 +3087,7 @@ section,
 
 .testimonials .trouble-nav-item.active {
   border-color: color-mix(in srgb, var(--accent-color), transparent 38%);
-  box-shadow: 0 12px 24px rgba(16, 27, 54, 0.26);
+  box-shadow: 0 12px 24px var(--theme-shadow-card);
 }
 
 .testimonials .trouble-nav-label,
@@ -3094,7 +3105,7 @@ section,
 .testimonials .trouble-nav-keyword {
   margin-top: 0.35rem;
   font-size: 0.8rem;
-  color: color-mix(in srgb, var(--accent-color), #dbeafe 30%);
+  color: color-mix(in srgb, var(--accent-color), var(--theme-accent-contrast) 30%);
 }
 
 .testimonials .trouble-nav-stack {
@@ -3125,14 +3136,14 @@ section,
   border-radius: 20px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%);
   background:
-    linear-gradient(160deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 2%), color-mix(in srgb, var(--surface-color), #091223 12%));
-  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--theme-highlight-base), transparent 96%), 0 14px 36px rgba(8, 18, 37, 0.24);
+    linear-gradient(160deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 2%), color-mix(in srgb, var(--surface-color), var(--theme-surface-inset) 12%));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--theme-highlight-base), transparent 96%), 0 14px 36px var(--theme-shadow-panel);
 }
 
 .testimonials .trouble-case {
   border-radius: 16px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-  background: color-mix(in srgb, var(--surface-color), #050a14 10%);
+  background: color-mix(in srgb, var(--surface-color), var(--theme-code-bg) 10%);
   padding: 1rem;
 }
 
@@ -3141,7 +3152,7 @@ section,
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--accent-color), #cbd5ff 26%);
+  color: color-mix(in srgb, var(--accent-color), var(--theme-accent-contrast-soft) 26%);
   font-weight: 700;
 }
 
@@ -3218,7 +3229,7 @@ section,
 .testimonials .trouble-evidence {
   border-radius: 16px;
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color), transparent 93%), color-mix(in srgb, var(--surface-color), #060d1b 12%));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color), transparent 93%), color-mix(in srgb, var(--surface-color), var(--theme-accent-surface-deep) 12%));
   padding: 0.95rem;
 }
 
@@ -3272,7 +3283,7 @@ section,
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
   border-radius: 8px;
   padding: 0.36rem 0.5rem;
-  background: color-mix(in srgb, var(--surface-color), #091120 8%);
+  background: color-mix(in srgb, var(--surface-color), var(--theme-surface-recessed) 8%);
 }
 
 @media (max-width: 1199.98px) {
