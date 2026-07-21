@@ -1,4 +1,4 @@
-/* Preserve the original footer layout and colors; add only subtle motion effects. */
+/* Preserve the original footer layout and colors; add only a subtle rotating-wave motion. */
 .footer.footer-minimal {
   position: relative;
   isolation: isolate;
@@ -50,70 +50,6 @@
   animation: footer-minimal-wave-spin 18s infinite linear;
 }
 
-.footer.footer-minimal .footer-minimal__copyright {
-  position: relative;
-  display: inline-grid;
-  place-items: center;
-  isolation: isolate;
-}
-
-.footer-minimal__copyright-text {
-  position: relative;
-  z-index: 2;
-}
-
-.footer-minimal__dust,
-.footer-minimal__dust::before,
-.footer-minimal__dust::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: calc(100% + 180px);
-  height: 54px;
-  pointer-events: none;
-  content: "";
-  transform: translate(-50%, -50%);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
-}
-
-.footer-minimal__dust {
-  z-index: 1;
-  background-image: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--default-color), transparent 20%) 0 0.8px,
-    transparent 1.15px
-  );
-  background-position: 0 0;
-  background-size: 22px 18px;
-  opacity: 0.58;
-  animation: footer-space-dust 18s linear infinite;
-}
-
-.footer-minimal__dust::before {
-  background-image: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--accent-color), transparent 16%) 0 0.9px,
-    transparent 1.25px
-  );
-  background-position: 9px 4px;
-  background-size: 31px 23px;
-  opacity: 0.42;
-  animation: footer-space-dust 26s linear infinite reverse;
-}
-
-.footer-minimal__dust::after {
-  background-image: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--default-color), transparent 44%) 0 0.6px,
-    transparent 1px
-  );
-  background-position: 4px 11px;
-  background-size: 17px 29px;
-  opacity: 0.34;
-  animation: footer-space-dust-slow 34s linear infinite;
-}
-
 @keyframes footer-minimal-wave-spin {
   from {
     transform: rotate(0deg);
@@ -124,33 +60,10 @@
   }
 }
 
-@keyframes footer-space-dust {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 140px -46px;
-  }
-}
-
-@keyframes footer-space-dust-slow {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: -110px -58px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .footer-minimal__wave,
   .footer-minimal__wave::before,
-  .footer-minimal__wave::after,
-  .footer-minimal__dust,
-  .footer-minimal__dust::before,
-  .footer-minimal__dust::after {
+  .footer-minimal__wave::after {
     animation: none;
   }
 }
