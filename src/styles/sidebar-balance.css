@@ -1,5 +1,9 @@
 /* Sidebar visual balance overrides */
 @media (min-width: 1200px) {
+  .header {
+    justify-content: flex-start !important;
+  }
+
   .header .profile-img img {
     width: 142px;
     max-width: 142px;
@@ -17,6 +21,17 @@
     font-size: 20px;
   }
 
+  .header .navmenu {
+    flex: 0 0 auto !important;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .header .navmenu ul {
+    margin: 0;
+    padding-bottom: 0;
+  }
+
   .header .navmenu button {
     padding: 12px 10px;
     font-size: 15.5px;
@@ -29,15 +44,17 @@
     justify-content: center;
     flex: 0 0 auto;
     width: 100%;
-    min-height: 118px;
-    margin: 4px auto 0;
+    height: 112px;
+    min-height: 0;
+    margin: -16px auto 0;
     padding: 0;
     overflow: visible;
+    pointer-events: none;
   }
 
   .header-hamster > div {
-    width: 118px !important;
-    height: 118px !important;
+    width: 116px !important;
+    height: 116px !important;
   }
 
   .header-hamster .wheel-and-hamster {
@@ -63,8 +80,8 @@
   }
 
   .header-hamster {
-    min-height: 100px;
-    margin-top: 0;
+    height: 96px;
+    margin-top: -14px;
   }
 
   .header-hamster > div {
