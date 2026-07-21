@@ -64,7 +64,7 @@ function Header() {
   return (
     <header
       id="header"
-      className={`header dark-background d-flex flex-column justify-content-between${isOpen ? " header-show" : ""}`}
+      className={`header dark-background d-flex flex-column${isOpen ? " header-show" : ""}`}
     >
       <button
         type="button"
