@@ -1,53 +1,159 @@
-.theme-toggle {
+/* Compact adaptation of the Uiverse light/dark switch. */
+.theme-switch {
   position: fixed;
-  top: 14px;
-  left: 246px;
+  top: 16px;
+  right: 20px;
   z-index: 10000;
-  display: inline-grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
+}
+
+.theme-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
   padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+.theme-switch__label {
+  position: relative;
+  display: block;
+  width: 144px;
+  height: 42px;
+  padding: 4px;
+  overflow: hidden;
   border: 1px solid var(--theme-border-default);
-  border-radius: 10px;
-  background: var(--theme-surface-1);
-  color: var(--theme-text-heading);
-  box-shadow: 0 8px 20px var(--theme-shadow-soft);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--theme-surface-1), var(--theme-text-heading) 7%);
+  box-shadow: 0 8px 22px var(--theme-shadow-soft);
   cursor: pointer;
+  user-select: none;
   transition:
-    color 180ms ease,
-    background-color 180ms ease,
     border-color 180ms ease,
-    box-shadow 180ms ease;
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
-.theme-toggle i {
-  font-size: 19px;
+.theme-switch__thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 1;
+  width: 68px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  transform: translateX(0);
+  transition:
+    transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background 300ms ease;
+}
+
+.theme-switch__crescent {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--theme-surface-1), var(--theme-text-heading) 7%);
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.theme-switch__names {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  pointer-events: none;
+}
+
+.theme-switch__name {
+  color: var(--theme-text-muted);
+  font-family: var(--font-button);
+  font-size: 0.72rem;
+  font-weight: 700;
   line-height: 1;
+  text-align: center;
+  transition: color 220ms ease, opacity 220ms ease;
 }
 
-.theme-toggle:hover {
+.theme-switch__name--light {
+  color: #ffffff;
+}
+
+.theme-switch__input:checked + .theme-switch__label .theme-switch__thumb {
+  background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
+  transform: translateX(68px);
+}
+
+.theme-switch__input:checked + .theme-switch__label .theme-switch__crescent {
+  transform: scale(1);
+}
+
+.theme-switch__input:checked + .theme-switch__label .theme-switch__name--light {
+  color: var(--theme-text-muted);
+}
+
+.theme-switch__input:checked + .theme-switch__label .theme-switch__name--dark {
+  color: #172033;
+}
+
+.theme-switch__label:hover {
   border-color: var(--theme-border-accent);
-  background: color-mix(in srgb, var(--theme-surface-1), var(--theme-accent) 7%);
-  color: var(--theme-accent);
+  box-shadow: 0 10px 26px var(--theme-shadow-medium);
+  transform: translateY(-1px);
 }
 
-.theme-toggle:focus-visible {
+.theme-switch__input:focus-visible + .theme-switch__label {
+  border-color: var(--theme-accent);
   outline: 3px solid var(--theme-accent-soft);
   outline-offset: 3px;
-  border-color: var(--theme-accent);
 }
 
 @media (max-width: 1199px) {
-  .theme-toggle {
+  .theme-switch {
     top: 15px;
     right: 68px;
-    left: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .theme-switch__label {
+    width: 132px;
+    height: 40px;
+  }
+
+  .theme-switch__thumb {
+    width: 62px;
+    height: 30px;
+  }
+
+  .theme-switch__input:checked + .theme-switch__label .theme-switch__thumb {
+    transform: translateX(62px);
+  }
+
+  .theme-switch__name {
+    font-size: 0.68rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .theme-toggle {
+  .theme-switch__label,
+  .theme-switch__thumb,
+  .theme-switch__crescent,
+  .theme-switch__name {
     transition: none;
   }
 }
