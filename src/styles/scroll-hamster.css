@@ -3,8 +3,9 @@
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  min-height: 112px;
-  margin: 0 auto 8px;
+  min-height: 96px;
+  margin: 12px auto 0;
+  padding: 0;
   opacity: 0.86;
 }
 
@@ -230,7 +231,7 @@
 }
 
 @media (min-width: 1200px) and (max-height: 760px) {
-  .header-hamster { min-height: 84px; }
+  .header-hamster { min-height: 78px; margin-top: 6px; }
   .scroll-hamster { font-size: 6.5px; }
 }
 

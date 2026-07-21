@@ -104,29 +104,6 @@ function Header() {
       <div className="header-hamster">
         <ScrollHamster />
       </div>
-
-      <div className="social-links text-center">
-        <a
-          href="https://github.com/allen8524"
-          className="github"
-          title="GitHub"
-          aria-label="GitHub"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="bi bi-github" />
-        </a>
-        <a
-          href="https://allen8524.tistory.com/"
-          className="tistory"
-          title="Tistory"
-          aria-label="Tistory"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="bi bi-journal-text" />
-        </a>
-      </div>
     </header>
   );
 }
