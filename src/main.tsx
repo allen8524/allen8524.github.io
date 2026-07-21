@@ -11,6 +11,7 @@ import "./styles/service-detail.css";
 import "./styles/detail-hero-glow.css";
 import "./styles/troubleshooting.css";
 import "./styles/sidebar-balance.css";
+import "./styles/about-cta.css";
 
 const rootElement = document.getElementById("root");
 
