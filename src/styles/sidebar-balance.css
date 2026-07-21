@@ -1,0 +1,84 @@
+/* Sidebar visual balance overrides */
+@media (min-width: 1200px) {
+  .header .profile-img img {
+    width: 142px;
+    max-width: 142px;
+    margin: 16px auto 8px;
+    border-width: 5px;
+    border-radius: 17px;
+  }
+
+  .header .logo {
+    margin-top: 4px;
+    margin-bottom: 10px;
+  }
+
+  .header .logo h1 {
+    font-size: 20px;
+  }
+
+  .header .navmenu button {
+    padding: 12px 10px;
+    font-size: 15.5px;
+    line-height: 1.35;
+  }
+
+  .header-hamster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 118px;
+    margin: 4px auto 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .header-hamster > div {
+    width: 118px !important;
+    height: 118px !important;
+  }
+
+  .header-hamster .wheel-and-hamster {
+    transform: scale(0.68) !important;
+    transform-origin: center !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-height: 800px) {
+  .header .profile-img img {
+    width: 132px;
+    max-width: 132px;
+    margin: 10px auto 5px;
+  }
+
+  .header .logo {
+    margin-top: 2px;
+    margin-bottom: 6px;
+  }
+
+  .header .navmenu button {
+    padding: 10px;
+  }
+
+  .header-hamster {
+    min-height: 100px;
+    margin-top: 0;
+  }
+
+  .header-hamster > div {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .header-hamster .wheel-and-hamster {
+    transform: scale(0.57) !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-height: 680px) {
+  .header-hamster {
+    display: none;
+  }
+}
