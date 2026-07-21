@@ -363,8 +363,8 @@
 .project-nav-thumb-effect__overlay { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, transparent 12%, color-mix(in srgb, var(--accent-color), transparent 78%) 34%, color-mix(in srgb, var(--accent-color), #fff 18%) 50%, color-mix(in srgb, var(--accent-color), transparent 80%) 66%, transparent 88%); background-position: 0% 50%; background-size: 220% 220%; mix-blend-mode: screen; opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
 .project-nav-thumb-effect__leaf { position: absolute; z-index: 3; color: var(--accent-color); pointer-events: none; transform-origin: 50% 0; filter: drop-shadow(2px 2px 3px rgb(0 0 0 / 30%)); }
 .project-nav-thumb-effect__leaf svg { display: block; width: 100%; height: auto; }
-.project-nav-thumb-effect__leaf--1 { top: -8px; right: -6px; width: 24px; transform: rotate(10deg); }
-.project-nav-thumb-effect__leaf--2 { top: -6px; left: 28px; width: 13px; transform: rotate(8deg); }
+.project-nav-thumb-effect__leaf--1 { top: -8px; right: -6px; width: 26px; transform: rotate(10deg); }
+.project-nav-thumb-effect__leaf--2 { top: -6px; left: 24px; width: 13px; transform: rotate(8deg); }
 .project-nav-thumb-effect__leaf--3 { top: -8px; left: -6px; width: 19px; transform: rotate(-6deg); }
 .project-nav .prev-project .nav-body { text-align: left; }
 .project-nav .prev-project .nav-direction { justify-content: flex-start; }
@@ -506,8 +506,8 @@
   .project-nav .next-project .nav-direction { justify-content: flex-start; }
   .project-nav .nav-thumbnail { justify-self: start; width: min(100%, 260px); }
   .project-nav-thumb-effect__overlay { opacity: 0; }
-  .project-nav-thumb-effect__leaf--1 { top: -6px; right: -4px; width: 20px; }
-  .project-nav-thumb-effect__leaf--2 { top: -5px; left: 24px; width: 10px; }
+  .project-nav-thumb-effect__leaf--1 { top: -6px; right: -4px; width: 21px; }
+  .project-nav-thumb-effect__leaf--2 { top: -5px; left: 24px; width: 11px; }
   .project-nav-thumb-effect__leaf--3 { top: -6px; left: -4px; width: 16px; }
 }
 
