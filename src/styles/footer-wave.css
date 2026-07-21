@@ -1,113 +1,56 @@
-/* Compact adaptation of the Uiverse rotating-wave card for the site footer. */
-.footer.footer-wave {
-  position: relative;
-  padding: 42px 0 48px;
-  overflow: hidden;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  background: var(--background-color);
-}
-
-.footer.footer-wave .container {
-  max-width: 1080px;
-  padding-inline: 24px;
-}
-
-.footer-wave__card {
+/* Preserve the original footer layout and colors; add only a subtle rotating-wave motion. */
+.footer.footer-minimal {
   position: relative;
   isolation: isolate;
-  display: grid;
-  width: min(520px, 100%);
-  min-height: 150px;
-  margin: 0 auto;
   overflow: hidden;
-  place-items: center;
-  border: 1px solid color-mix(in srgb, var(--theme-highlight-base), transparent 86%);
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--theme-surface-2), var(--theme-shadow-base) 12%);
-  box-shadow: 0 18px 42px var(--theme-shadow-medium);
 }
 
-.footer-wave__card::after {
+.footer.footer-minimal .container {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-minimal__wave,
+.footer-minimal__wave::before,
+.footer-minimal__wave::after {
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--theme-shadow-base), transparent 88%),
-    color-mix(in srgb, var(--theme-shadow-base), transparent 56%)
-  );
+  width: 620px;
+  height: 620px;
+  border-radius: 42%;
   pointer-events: none;
   content: "";
 }
 
-.footer-wave__layers {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.footer-wave__layer {
-  position: absolute;
-  top: -475px;
+.footer-minimal__wave {
+  top: -584px;
   left: 50%;
-  width: 760px;
-  height: 640px;
-  margin-left: -380px;
-  border-radius: 41%;
-  background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
-  transform-origin: 50% 50%;
-  animation: footer-wave-spin 8s infinite linear;
+  z-index: 1;
+  margin-left: -310px;
+  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+  animation: footer-minimal-wave-spin 10s infinite linear;
 }
 
-.footer-wave__layer--1 {
-  opacity: 0.62;
+.footer-minimal__wave::before,
+.footer-minimal__wave::after {
+  top: 0;
+  left: 0;
 }
 
-.footer-wave__layer--2 {
-  top: -458px;
-  border-radius: 44%;
-  opacity: 0.46;
-  animation-duration: 11s;
-  animation-direction: reverse;
+.footer-minimal__wave::before {
+  border-radius: 45%;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  transform: rotate(70deg);
+  animation: footer-minimal-wave-spin 14s infinite linear reverse;
 }
 
-.footer-wave__layer--3 {
-  top: -442px;
-  border-radius: 47%;
-  opacity: 0.34;
-  animation-duration: 14s;
+.footer-minimal__wave::after {
+  border-radius: 48%;
+  background: color-mix(in srgb, var(--default-color), transparent 97%);
+  transform: rotate(145deg);
+  animation: footer-minimal-wave-spin 18s infinite linear;
 }
 
-.footer-wave__content {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  gap: 10px;
-  place-items: center;
-  padding: 28px 24px;
-  color: #ffffff;
-  text-align: center;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.34);
-}
-
-.footer-wave__content i {
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.footer.footer-wave .footer-minimal__copyright {
-  margin: 0;
-  padding: 0;
-  color: inherit;
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-}
-
-@keyframes footer-wave-spin {
+@keyframes footer-minimal-wave-spin {
   from {
     transform: rotate(0deg);
   }
@@ -117,63 +60,10 @@
   }
 }
 
-@media (max-width: 575px) {
-  .footer.footer-wave {
-    padding: 32px 0 38px;
-  }
-
-  .footer.footer-wave .container {
-    padding-inline: 16px;
-  }
-
-  .footer-wave__card {
-    min-height: 132px;
-    border-radius: 16px;
-  }
-
-  .footer-wave__layer {
-    top: -488px;
-    width: 700px;
-    height: 620px;
-    margin-left: -350px;
-  }
-
-  .footer-wave__layer--2 {
-    top: -472px;
-  }
-
-  .footer-wave__layer--3 {
-    top: -456px;
-  }
-
-  .footer-wave__content {
-    gap: 8px;
-    padding: 24px 18px;
-  }
-
-  .footer-wave__content i {
-    font-size: 1.75rem;
-  }
-
-  .footer.footer-wave .footer-minimal__copyright {
-    font-size: 0.82rem;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .footer-wave__layer {
+  .footer-minimal__wave,
+  .footer-minimal__wave::before,
+  .footer-minimal__wave::after {
     animation: none;
-  }
-
-  .footer-wave__layer--1 {
-    transform: rotate(12deg);
-  }
-
-  .footer-wave__layer--2 {
-    transform: rotate(84deg);
-  }
-
-  .footer-wave__layer--3 {
-    transform: rotate(156deg);
   }
 }
