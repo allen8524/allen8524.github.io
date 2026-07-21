@@ -10,6 +10,7 @@ import "./styles/project-detail-density.css";
 import "./styles/service-detail.css";
 import "./styles/detail-hero-glow.css";
 import "./styles/troubleshooting.css";
+import "./styles/sidebar-balance.css";
 
 const rootElement = document.getElementById("root");
 
