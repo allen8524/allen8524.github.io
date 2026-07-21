@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 function About() {
   return (
     <section id="about" className="about section">
@@ -33,8 +31,6 @@ function About() {
 
                 <div className="col-lg-8">
                   <div className="content-area">
-
-
                     <div className="expertise-grid">
                       <div className="expertise-item">
                         <div className="expertise-icon">
@@ -66,29 +62,6 @@ function About() {
                         </div>
                       </div>
                     </div>
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bottom-section">
-              <div className="row align-items-center">
-                <div className="col-lg-6">
-                  <div className="collaboration-text">
-                    <h3>구현 전 데이터 구조와 처리 순서를 먼저 확인합니다.</h3>
-                    <p>필요한 값의 저장 위치와 요청부터 응답까지의 흐름을 기준으로 개발합니다.</p>
-                  </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="action-buttons">
-                    <Link to="/#portfolio" className="btn-custom primary">
-                      프로젝트
-                    </Link>
-                    <Link to="/#contact" className="btn-custom secondary">
-                      연락처
-                    </Link>
                   </div>
                 </div>
               </div>
