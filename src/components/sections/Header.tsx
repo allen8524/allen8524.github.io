@@ -154,14 +154,11 @@ function Header() {
               />
 
               <label
-                className="hamster-toggle__heart"
+                className="hamster-toggle__switch"
                 htmlFor="hamster-switch"
                 title={isHamsterVisible ? "햄스터 끄기" : "햄스터 켜기"}
               >
-                <i className="hamster-toggle__left" aria-hidden="true" />
-                <i className="hamster-toggle__right" aria-hidden="true" />
-                <i className="hamster-toggle__bottom" aria-hidden="true" />
-                <span className="hamster-toggle__round" aria-hidden="true" />
+                <span className="hamster-toggle__slider" aria-hidden="true" />
               </label>
 
               <span className="hamster-toggle__caption" aria-hidden="true">

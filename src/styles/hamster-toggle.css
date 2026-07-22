@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   margin-top: -2px;
   padding: 4px 16px 0;
   line-height: 1;
@@ -39,160 +39,102 @@
   white-space: nowrap;
 }
 
-.hamster-toggle__heart {
-  --hamster-heart-fill: color-mix(in srgb, var(--theme-text-primary), transparent 80%);
-  --hamster-heart-border: color-mix(in srgb, var(--theme-text-primary), transparent 58%);
-  --hamster-heart-shadow: color-mix(in srgb, var(--theme-text-primary), transparent 88%);
+.hamster-toggle__switch {
+  --button-width: 3.25rem;
+  --button-height: 1.8rem;
+  --toggle-diameter: 1.35rem;
+  --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+  --toggle-wider: 1.8rem;
+  --track-off: color-mix(in srgb, var(--theme-text-primary), transparent 79%);
+  --track-border: color-mix(in srgb, var(--theme-text-primary), transparent 70%);
+  --track-on: var(--accent-color);
+  --thumb-color: var(--theme-text-bright);
 
   position: relative;
-  isolation: isolate;
-  display: block;
-  width: 19px;
-  height: 19px;
-  margin: 9px 0 7px;
-  border: 1px solid var(--hamster-heart-border);
-  border-radius: 5px;
-  background: var(--hamster-heart-fill);
-  box-shadow:
-    inset 4px -4px 0 var(--hamster-heart-shadow),
-    0 5px 12px color-mix(in srgb, var(--theme-shadow-base), transparent 78%);
+  display: inline-flex;
+  border-radius: calc(var(--button-height) / 2);
   cursor: pointer;
-  transform: rotate(-45deg);
-  transition:
-    transform 220ms ease,
-    background-color 300ms ease,
-    border-color 300ms ease,
-    box-shadow 300ms ease;
+  transition: transform 180ms ease;
 }
 
-.hamster-toggle__heart::before,
-.hamster-toggle__heart::after {
-  position: absolute;
-  z-index: -1;
-  width: 19px;
-  height: 19px;
-  border: 1px solid var(--hamster-heart-border);
-  border-radius: 50%;
-  background: var(--hamster-heart-fill);
-  box-shadow: inset 4px -4px 0 var(--hamster-heart-shadow);
-  content: "";
-  transition:
-    background-color 300ms ease,
-    border-color 300ms ease,
-    box-shadow 300ms ease;
+.hamster-toggle__switch:hover {
+  transform: translateY(-1px);
 }
 
-.hamster-toggle__heart::before {
-  top: -10px;
-  left: -1px;
+.hamster-toggle__switch:active {
+  transform: translateY(0) scale(0.98);
 }
 
-.hamster-toggle__heart::after {
-  top: -1px;
-  right: -10px;
-}
-
-.hamster-toggle__input:checked + .hamster-toggle__heart {
-  --hamster-heart-fill: #f2a65a;
-  --hamster-heart-border: #d9772f;
-  --hamster-heart-shadow: #ffd6a5;
-
+.hamster-toggle__slider {
+  position: relative;
+  display: inline-block;
+  width: var(--button-width);
+  height: var(--button-height);
+  border: 1px solid var(--track-border);
+  border-radius: calc(var(--button-height) / 2);
+  background: var(--track-off);
   box-shadow:
-    inset 5px -5px 0 var(--hamster-heart-shadow),
-    0 6px 15px color-mix(in srgb, #f2a65a, transparent 66%);
+    inset 0 1px 3px color-mix(in srgb, var(--theme-shadow-base), transparent 78%),
+    0 5px 14px color-mix(in srgb, var(--theme-shadow-base), transparent 82%);
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
 }
 
-.hamster-toggle__heart:hover {
-  transform: rotate(-45deg) scale(1.08);
+.hamster-toggle__slider::after {
+  position: absolute;
+  top: var(--button-toggle-offset);
+  left: 0;
+  width: var(--toggle-diameter);
+  height: var(--toggle-diameter);
+  border: 1px solid color-mix(in srgb, var(--theme-shadow-base), transparent 86%);
+  border-radius: 50%;
+  background: var(--thumb-color);
+  box-shadow:
+    8px 0 22px color-mix(in srgb, var(--theme-shadow-base), transparent 82%),
+    inset 0 -2px 4px color-mix(in srgb, var(--theme-shadow-base), transparent 91%);
+  content: "";
+  transform: translateX(var(--button-toggle-offset));
+  transition:
+    width 180ms ease,
+    transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 300ms ease;
 }
 
-.hamster-toggle__heart:active {
-  transform: rotate(-45deg) scale(0.96);
+.hamster-toggle__input:checked + .hamster-toggle__switch .hamster-toggle__slider {
+  border-color: color-mix(in srgb, var(--accent-color), var(--theme-text-bright) 18%);
+  background: var(--track-on);
+  box-shadow:
+    inset 0 1px 3px color-mix(in srgb, var(--theme-shadow-base), transparent 86%),
+    0 5px 16px color-mix(in srgb, var(--accent-color), transparent 68%);
 }
 
-.hamster-toggle__input:focus-visible + .hamster-toggle__heart {
+.hamster-toggle__input:checked + .hamster-toggle__switch .hamster-toggle__slider::after {
+  box-shadow:
+    -8px 0 22px color-mix(in srgb, var(--theme-shadow-base), transparent 82%),
+    inset 0 -2px 4px color-mix(in srgb, var(--theme-shadow-base), transparent 91%);
+  transform: translateX(
+    calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset))
+  );
+}
+
+.hamster-toggle__switch:active .hamster-toggle__slider::after {
+  width: var(--toggle-wider);
+  border-radius: calc(var(--toggle-diameter) / 2);
+}
+
+.hamster-toggle__input:checked
+  + .hamster-toggle__switch:active
+  .hamster-toggle__slider::after {
+  transform: translateX(
+    calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset))
+  );
+}
+
+.hamster-toggle__input:focus-visible + .hamster-toggle__switch {
   outline: 2px solid var(--accent-color);
-  outline-offset: 5px;
-}
-
-.hamster-toggle__round {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  z-index: 3;
-  width: 7px;
-  height: 7px;
-  border: 1px solid color-mix(in srgb, var(--theme-shadow-base), transparent 84%);
-  border-radius: 50%;
-  background: var(--theme-text-bright);
-  box-shadow: 0 1px 5px color-mix(in srgb, var(--theme-shadow-base), transparent 68%);
-  transform: translate(0, 0);
-  transition:
-    transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
-    background-color 300ms ease;
-}
-
-.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__round {
-  background: #fff8ee;
-  transform: translate(10px, 10px);
-}
-
-.hamster-toggle__left,
-.hamster-toggle__right,
-.hamster-toggle__bottom {
-  position: absolute;
-  z-index: 2;
-  display: block;
-  pointer-events: none;
-  transform: rotate(45deg);
-  transition:
-    opacity 300ms ease,
-    background-color 300ms ease;
-}
-
-.hamster-toggle__left {
-  top: 4px;
-  left: 8px;
-  width: 6px;
-  height: 3px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--theme-text-bright), transparent 35%);
-  opacity: 0.4;
-}
-
-.hamster-toggle__right {
-  right: 2px;
-  bottom: 3px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #f7a7a7;
-  opacity: 0.35;
-}
-
-.hamster-toggle__bottom {
-  top: 8px;
-  left: 8px;
-  width: 4px;
-  height: 3px;
-  border-radius: 50% 50% 45% 45%;
-  background: color-mix(in srgb, var(--theme-text-primary), transparent 38%);
-  opacity: 0.45;
-}
-
-.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__left {
-  background: #fff3df;
-  opacity: 0.9;
-}
-
-.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__right {
-  background: #ff8f9f;
-  opacity: 0.9;
-}
-
-.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__bottom {
-  background: #7a4025;
-  opacity: 0.8;
+  outline-offset: 4px;
 }
 
 .hamster-toggle__caption {
@@ -227,13 +169,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hamster-toggle__heart,
-  .hamster-toggle__heart::before,
-  .hamster-toggle__heart::after,
-  .hamster-toggle__round,
-  .hamster-toggle__left,
-  .hamster-toggle__right,
-  .hamster-toggle__bottom,
+  .hamster-toggle__switch,
+  .hamster-toggle__slider,
+  .hamster-toggle__slider::after,
   .hamster-toggle__caption {
     transition: none;
   }
