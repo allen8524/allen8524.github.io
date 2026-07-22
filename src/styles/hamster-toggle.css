@@ -1,4 +1,5 @@
 .header-hamster-control {
+  position: relative;
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
@@ -7,11 +8,14 @@
 }
 
 #header-hamster-visual {
+  display: grid;
+  place-items: start center;
   width: 100%;
+  min-height: 163px;
 }
 
 #header-hamster-visual:empty {
-  display: none;
+  display: grid;
 }
 
 .hamster-toggle {
@@ -19,15 +23,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
-  margin-top: -2px;
-  padding: 4px 16px 0;
+  gap: 6px;
+  margin-top: -14px;
+  padding: 0 16px;
   line-height: 1;
   pointer-events: auto;
-}
-
-.header-hamster-control.is-disabled .hamster-toggle {
-  margin-top: 28px;
 }
 
 .hamster-toggle__input {
@@ -153,12 +153,12 @@
 }
 
 @media (min-width: 1200px) and (max-height: 800px) {
-  .hamster-toggle {
-    margin-top: -8px;
+  #header-hamster-visual {
+    min-height: 147px;
   }
 
-  .header-hamster-control.is-disabled .hamster-toggle {
-    margin-top: 18px;
+  .hamster-toggle {
+    margin-top: -12px;
   }
 }
 
