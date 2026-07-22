@@ -15,11 +15,11 @@
 
 @media (min-width: 1200px) {
   .header {
-    display: grid !important;
-    grid-template-rows: auto minmax(0, 1fr) auto;
+    display: flex !important;
+    flex-direction: column;
     height: 100dvh;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     overscroll-behavior: none;
     scrollbar-width: none;
   }
@@ -29,10 +29,12 @@
   }
 
   .header-top {
+    flex: 0 0 auto;
     min-width: 0;
   }
 
   .header-navigation-stack {
+    flex: 0 0 auto;
     min-width: 0;
     min-height: 0;
     align-self: stretch;
@@ -47,9 +49,10 @@
     display: grid;
     grid-template-rows: var(--hamster-size) auto;
     justify-items: center;
-    align-self: end;
+    align-self: stretch;
     gap: var(--hamster-dock-gap);
     width: 100%;
+    margin-top: clamp(18px, 3vh, 30px);
     padding: 0 0 var(--hamster-dock-bottom);
   }
 
@@ -198,7 +201,9 @@
   .header-hamster-control {
     --hamster-size: 96px;
     --hamster-scale: 0.571429;
-    --hamster-dock-bottom: 14px;
+    --hamster-dock-bottom: 12px;
+
+    margin-top: clamp(14px, 2.2vh, 20px);
   }
 }
 
@@ -207,7 +212,9 @@
     --hamster-size: 80px;
     --hamster-scale: 0.47619;
     --hamster-dock-gap: 8px;
-    --hamster-dock-bottom: 12px;
+    --hamster-dock-bottom: 10px;
+
+    margin-top: 10px;
   }
 
   .hamster-toggle__caption {
