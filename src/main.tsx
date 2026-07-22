@@ -15,6 +15,7 @@ import "./styles/theme-toggle.css";
 import "./styles/footer-wave.css";
 import "./styles/scroll-top-jelly.css";
 import "./styles/hamster-toggle.css";
+import "./styles/sidebar-hamster-polish.css";
 
 const rootElement = document.getElementById("root");
 
