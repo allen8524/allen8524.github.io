@@ -1,0 +1,46 @@
+/* Desktop sidebar should remain visually fixed without its own scrollbar. */
+@media (min-width: 1200px) {
+  .header {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overscroll-behavior: none;
+    scrollbar-width: none;
+  }
+
+  .header::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Match the visibility toggle to the hamster's fur and cream colors. */
+.header-hamster-control {
+  --hamster-fur: #f2a65a;
+  --hamster-fur-deep: #d9772f;
+  --hamster-cream: #fff3df;
+  --hamster-toggle-glow: color-mix(in srgb, var(--hamster-fur), transparent 66%);
+}
+
+.hamster-toggle__switch {
+  --track-on: var(--hamster-fur);
+  --thumb-color: var(--hamster-cream);
+}
+
+.hamster-toggle__input:checked + .hamster-toggle__switch .hamster-toggle__slider {
+  border-color: color-mix(in srgb, var(--hamster-fur-deep), var(--hamster-cream) 18%);
+  background: var(--hamster-fur);
+  box-shadow:
+    inset 0 1px 3px color-mix(in srgb, var(--theme-shadow-base), transparent 86%),
+    0 5px 16px var(--hamster-toggle-glow);
+}
+
+.hamster-toggle__input:checked + .hamster-toggle__switch .hamster-toggle__slider::after {
+  background: var(--hamster-cream);
+}
+
+.hamster-toggle__input:focus-visible + .hamster-toggle__switch {
+  outline-color: var(--hamster-fur);
+}
+
+.hamster-toggle__input:checked ~ .hamster-toggle__caption {
+  color: var(--hamster-fur);
+}
