@@ -119,13 +119,13 @@
   );
 }
 
-.hamster-toggle__input:active + .hamster-toggle__switch .hamster-toggle__slider::after {
+.hamster-toggle__switch:active .hamster-toggle__slider::after {
   width: var(--toggle-wider);
   border-radius: calc(var(--toggle-diameter) / 2);
 }
 
-.hamster-toggle__input:checked:active
-  + .hamster-toggle__switch
+.hamster-toggle__input:checked
+  + .hamster-toggle__switch:active
   .hamster-toggle__slider::after {
   transform: translateX(
     calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset))
