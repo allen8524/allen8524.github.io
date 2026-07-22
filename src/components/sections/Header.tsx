@@ -129,42 +129,42 @@ function Header() {
               ))}
             </ul>
           </nav>
+        </div>
 
-          <div
-            className={`header-hamster-control${isHamsterVisible ? "" : " is-disabled"}`}
-          >
-            <div id="header-hamster-visual">
-              {isHamsterVisible ? (
-                <div className="header-hamster">
-                  <ScrollHamster />
-                </div>
-              ) : null}
-            </div>
+        <div
+          className={`header-hamster-control${isHamsterVisible ? "" : " is-disabled"}`}
+        >
+          <div id="header-hamster-visual" className="header-hamster-visual">
+            {isHamsterVisible ? (
+              <div className="header-hamster">
+                <ScrollHamster />
+              </div>
+            ) : null}
+          </div>
 
-            <div className="hamster-toggle">
-              <input
-                id="hamster-switch"
-                className="hamster-toggle__input"
-                type="checkbox"
-                role="switch"
-                checked={isHamsterVisible}
-                aria-label={isHamsterVisible ? "햄스터 숨기기" : "햄스터 표시하기"}
-                aria-controls="header-hamster-visual"
-                onChange={(event) => setIsHamsterVisible(event.target.checked)}
-              />
+          <div className="hamster-toggle">
+            <input
+              id="hamster-switch"
+              className="hamster-toggle__input"
+              type="checkbox"
+              role="switch"
+              checked={isHamsterVisible}
+              aria-label={isHamsterVisible ? "햄스터 숨기기" : "햄스터 표시하기"}
+              aria-controls="header-hamster-visual"
+              onChange={(event) => setIsHamsterVisible(event.target.checked)}
+            />
 
-              <label
-                className="hamster-toggle__switch"
-                htmlFor="hamster-switch"
-                title={isHamsterVisible ? "햄스터 끄기" : "햄스터 켜기"}
-              >
-                <span className="hamster-toggle__slider" aria-hidden="true" />
-              </label>
+            <label
+              className="hamster-toggle__switch"
+              htmlFor="hamster-switch"
+              title={isHamsterVisible ? "햄스터 끄기" : "햄스터 켜기"}
+            >
+              <span className="hamster-toggle__slider" aria-hidden="true" />
+            </label>
 
-              <span className="hamster-toggle__caption" aria-hidden="true">
-                HAMSTER {isHamsterVisible ? "ON" : "OFF"}
-              </span>
-            </div>
+            <span className="hamster-toggle__caption" aria-hidden="true">
+              HAMSTER {isHamsterVisible ? "ON" : "OFF"}
+            </span>
           </div>
         </div>
       </header>

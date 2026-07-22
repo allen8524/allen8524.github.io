@@ -11,8 +11,8 @@ type StyledWrapperProps = {
 const StyledWrapper = styled.div<StyledWrapperProps>`
   display: grid;
   place-items: center;
-  width: 104px;
-  height: 104px;
+  width: var(--hamster-size, 104px);
+  height: var(--hamster-size, 104px);
 
   &,
   & *,
@@ -27,7 +27,7 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
     width: 12em;
     height: 12em;
     font-size: 14px;
-    transform: scale(0.6);
+    transform: scale(var(--hamster-scale, 0.6));
     transform-origin: center;
   }
 
