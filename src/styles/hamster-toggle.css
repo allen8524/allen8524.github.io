@@ -45,6 +45,7 @@
   --hamster-heart-shadow: color-mix(in srgb, var(--theme-text-primary), transparent 88%);
 
   position: relative;
+  isolation: isolate;
   display: block;
   width: 19px;
   height: 19px;
