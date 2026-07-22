@@ -183,6 +183,23 @@
   outline-offset: 4px;
 }
 
+/* Keep the light theme jelly visually flat: one solid green without gloss or tone shifts. */
+:root[data-theme="light"] #scroll-top.jelly-scroll-top {
+  --jelly-bg: var(--accent-color);
+  --jelly-hover: var(--accent-color);
+  background: var(--accent-color);
+}
+
+:root[data-theme="light"] #scroll-top.jelly-scroll-top.active:hover,
+:root[data-theme="light"] #scroll-top.jelly-scroll-top.active:active,
+:root[data-theme="light"] .jelly-scroll-top__blob {
+  background: var(--accent-color);
+}
+
+:root[data-theme="light"] .jelly-scroll-top__gloss {
+  display: none;
+}
+
 @media (max-width: 575px) {
   #scroll-top.jelly-scroll-top {
     right: 16px;
