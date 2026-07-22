@@ -1,0 +1,191 @@
+#scroll-top.jelly-scroll-top {
+  --jelly-bg: var(--accent-color);
+  --jelly-hover: var(--theme-accent-hover);
+  --jelly-text: var(--contrast-color);
+  --jelly-shadow: color-mix(in srgb, var(--accent-color), transparent 62%);
+
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  overflow: visible;
+  isolation: isolate;
+  border: 0;
+  border-radius: 18px;
+  background: var(--jelly-bg);
+  color: var(--jelly-text);
+  box-shadow: 0 0.3rem 1rem var(--jelly-shadow);
+  cursor: pointer;
+  filter: url(#scroll-top-jelly-goo);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.86);
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease,
+    transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 300ms ease,
+    box-shadow 400ms ease;
+}
+
+#scroll-top.jelly-scroll-top.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.jelly-scroll-top__icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  font-size: 1.65rem;
+  line-height: 1;
+  transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.jelly-scroll-top__blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  border-radius: 50%;
+  background: var(--jelly-bg);
+  transform: translate(-50%, -50%) scale(0);
+  transition:
+    transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 300ms ease;
+}
+
+.jelly-scroll-top__blob--1 {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.jelly-scroll-top__blob--2 {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.jelly-scroll-top__blob--3 {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.jelly-scroll-top__gloss {
+  position: absolute;
+  top: 4px;
+  right: 10%;
+  left: 10%;
+  z-index: 1;
+  height: 40%;
+  border-radius: 14px 14px 50% 50%;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--theme-highlight-base), transparent 68%) 0%,
+    color-mix(in srgb, var(--theme-highlight-base), transparent 94%) 100%
+  );
+  opacity: 0.9;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.jelly-scroll-top__svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+#scroll-top.jelly-scroll-top.active:hover {
+  background: var(--jelly-hover);
+  box-shadow: 0 0.45rem 1.25rem var(--jelly-shadow);
+  transform: translateY(0) scaleX(1.08) scaleY(0.92);
+}
+
+#scroll-top.jelly-scroll-top:hover .jelly-scroll-top__icon {
+  transform: translateY(-1px) scaleX(0.92) scaleY(1.08);
+}
+
+#scroll-top.jelly-scroll-top:hover .jelly-scroll-top__blob--1 {
+  transform: translate(-145%, -130%) scale(1);
+}
+
+#scroll-top.jelly-scroll-top:hover .jelly-scroll-top__blob--2 {
+  transform: translate(105%, -105%) scale(1);
+  transition-delay: 50ms;
+}
+
+#scroll-top.jelly-scroll-top:hover .jelly-scroll-top__blob--3 {
+  transform: translate(-80%, 125%) scale(1);
+  transition-delay: 100ms;
+}
+
+#scroll-top.jelly-scroll-top:hover .jelly-scroll-top__gloss {
+  opacity: 0.68;
+}
+
+#scroll-top.jelly-scroll-top.active:active {
+  box-shadow: 0 0.2rem 0.65rem var(--jelly-shadow);
+  transform: translateY(0) scaleX(0.92) scaleY(1.08);
+  transition-duration: 100ms;
+}
+
+#scroll-top.jelly-scroll-top:active .jelly-scroll-top__icon {
+  transform: scaleX(1.08) scaleY(0.92);
+  transition-duration: 100ms;
+}
+
+#scroll-top.jelly-scroll-top:active .jelly-scroll-top__blob {
+  transform: translate(-50%, -50%) scale(0);
+  transition-duration: 150ms;
+}
+
+#scroll-top.jelly-scroll-top:active .jelly-scroll-top__gloss {
+  opacity: 0.3;
+}
+
+#scroll-top.jelly-scroll-top:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-color), var(--theme-text-bright) 35%);
+  outline-offset: 4px;
+}
+
+@media (max-width: 575px) {
+  #scroll-top.jelly-scroll-top {
+    right: 16px;
+    bottom: 16px;
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #scroll-top.jelly-scroll-top,
+  .jelly-scroll-top__icon,
+  .jelly-scroll-top__blob,
+  .jelly-scroll-top__gloss {
+    transition: none;
+  }
+
+  #scroll-top.jelly-scroll-top.active:hover,
+  #scroll-top.jelly-scroll-top.active:active {
+    transform: none;
+  }
+
+  #scroll-top.jelly-scroll-top:hover .jelly-scroll-top__icon,
+  #scroll-top.jelly-scroll-top:active .jelly-scroll-top__icon {
+    transform: none;
+  }
+
+  #scroll-top.jelly-scroll-top:hover .jelly-scroll-top__blob {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}

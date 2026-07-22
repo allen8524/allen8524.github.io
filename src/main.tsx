@@ -13,6 +13,7 @@ import "./styles/troubleshooting.css";
 import "./styles/sidebar-balance.css";
 import "./styles/theme-toggle.css";
 import "./styles/footer-wave.css";
+import "./styles/scroll-top-jelly.css";
 
 const rootElement = document.getElementById("root");
 
