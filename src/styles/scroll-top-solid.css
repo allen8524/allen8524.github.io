@@ -1,0 +1,15 @@
+/* Keep the jelly scroll-top control flat in both themes while preserving motion. */
+#scroll-top.jelly-scroll-top {
+  --jelly-hover: var(--jelly-bg);
+  background: var(--jelly-bg);
+}
+
+#scroll-top.jelly-scroll-top.active:hover,
+#scroll-top.jelly-scroll-top.active:active,
+#scroll-top.jelly-scroll-top .jelly-scroll-top__blob {
+  background: var(--jelly-bg);
+}
+
+.jelly-scroll-top__gloss {
+  display: none;
+}
