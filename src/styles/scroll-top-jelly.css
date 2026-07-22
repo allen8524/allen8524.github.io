@@ -4,6 +4,19 @@
   --jelly-text: var(--contrast-color);
   --jelly-shadow: color-mix(in srgb, var(--accent-color), transparent 62%);
 
+  --blob-1-x: -18px;
+  --blob-1-y: -16px;
+  --blob-1-scale: 1;
+  --blob-1-delay: 0ms;
+  --blob-2-x: 18px;
+  --blob-2-y: -14px;
+  --blob-2-scale: 1;
+  --blob-2-delay: 50ms;
+  --blob-3-x: -8px;
+  --blob-3-y: 20px;
+  --blob-3-scale: 1;
+  --blob-3-delay: 100ms;
+
   position: fixed;
   right: 22px;
   bottom: 22px;
@@ -115,17 +128,30 @@
 }
 
 #scroll-top.jelly-scroll-top:hover .jelly-scroll-top__blob--1 {
-  transform: translate(-145%, -130%) scale(1);
+  transform: translate(
+      calc(-50% + var(--blob-1-x)),
+      calc(-50% + var(--blob-1-y))
+    )
+    scale(var(--blob-1-scale));
+  transition-delay: var(--blob-1-delay);
 }
 
 #scroll-top.jelly-scroll-top:hover .jelly-scroll-top__blob--2 {
-  transform: translate(105%, -105%) scale(1);
-  transition-delay: 50ms;
+  transform: translate(
+      calc(-50% + var(--blob-2-x)),
+      calc(-50% + var(--blob-2-y))
+    )
+    scale(var(--blob-2-scale));
+  transition-delay: var(--blob-2-delay);
 }
 
 #scroll-top.jelly-scroll-top:hover .jelly-scroll-top__blob--3 {
-  transform: translate(-80%, 125%) scale(1);
-  transition-delay: 100ms;
+  transform: translate(
+      calc(-50% + var(--blob-3-x)),
+      calc(-50% + var(--blob-3-y))
+    )
+    scale(var(--blob-3-scale));
+  transition-delay: var(--blob-3-delay);
 }
 
 #scroll-top.jelly-scroll-top:hover .jelly-scroll-top__gloss {
