@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import ScrollHamster from "../common/ScrollHamster";
 import ThemeToggle from "../common/ThemeToggle";
 
+const HAMSTER_VISIBILITY_STORAGE_KEY = "portfolio-hamster-visible";
+
 const navItems = [
   { id: "hero", label: "홈", icon: "bi-house" },
   { id: "about", label: "소개", icon: "bi-person" },
@@ -13,12 +15,36 @@ const navItems = [
   { id: "contact", label: "연락처", icon: "bi-envelope" },
 ];
 
+function getInitialHamsterVisibility() {
+  if (typeof window === "undefined") {
+    return true;
+  }
+
+  try {
+    return window.localStorage.getItem(HAMSTER_VISIBILITY_STORAGE_KEY) !== "false";
+  } catch {
+    return true;
+  }
+}
+
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [isHamsterVisible, setIsHamsterVisible] = useState(getInitialHamsterVisibility);
   const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        HAMSTER_VISIBILITY_STORAGE_KEY,
+        String(isHamsterVisible),
+      );
+    } catch {
+      // Keep the toggle functional even when storage access is blocked.
+    }
+  }, [isHamsterVisible]);
 
   useEffect(() => {
     if (!isHome) {
@@ -65,49 +91,85 @@ function Header() {
   return (
     <>
       <header
-      id="header"
-      className={`header dark-background d-flex flex-column${isOpen ? " header-show" : ""}`}
-    >
-      <button
-        type="button"
-        className={`header-toggle d-xl-none bi ${isOpen ? "bi-x" : "bi-list"}`}
-        aria-label="사이드 메뉴 열기/닫기"
-        aria-expanded={isOpen}
-        onClick={() => setIsOpen((current) => !current)}
-      />
+        id="header"
+        className={`header dark-background d-flex flex-column${isOpen ? " header-show" : ""}`}
+      >
+        <button
+          type="button"
+          className={`header-toggle d-xl-none bi ${isOpen ? "bi-x" : "bi-list"}`}
+          aria-label="사이드 메뉴 열기/닫기"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((current) => !current)}
+        />
 
-      <div className="header-top">
-        <div className="profile-img">
-          <img src="assets/img/profile/profile_face.png" alt="" className="img-fluid" />
+        <div className="header-top">
+          <div className="profile-img">
+            <img src="assets/img/profile/profile_face.png" alt="" className="img-fluid" />
+          </div>
+
+          <Link to="/" className="logo d-flex align-items-center justify-content-center">
+            <h1 className="sitename">황민서</h1>
+          </Link>
         </div>
 
-        <Link to="/" className="logo d-flex align-items-center justify-content-center">
-          <h1 className="sitename">황민서</h1>
-        </Link>
-      </div>
+        <div className="header-navigation-stack">
+          <nav id="navmenu" className="navmenu">
+            <ul>
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className={activeSection === item.id ? "active" : undefined}
+                    onClick={() => moveToSection(item.id)}
+                  >
+                    <i className={`bi ${item.icon} navicon`} />
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-      <div className="header-navigation-stack">
-        <nav id="navmenu" className="navmenu">
-          <ul>
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <button
-                  type="button"
-                  className={activeSection === item.id ? "active" : undefined}
-                  onClick={() => moveToSection(item.id)}
-                >
-                  <i className={`bi ${item.icon} navicon`} />
-                  {item.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <div
+            className={`header-hamster-control${isHamsterVisible ? "" : " is-disabled"}`}
+          >
+            <div id="header-hamster-visual">
+              {isHamsterVisible ? (
+                <div className="header-hamster">
+                  <ScrollHamster />
+                </div>
+              ) : null}
+            </div>
 
-        <div className="header-hamster">
-          <ScrollHamster />
+            <div className="hamster-toggle">
+              <input
+                id="hamster-switch"
+                className="hamster-toggle__input"
+                type="checkbox"
+                role="switch"
+                checked={isHamsterVisible}
+                aria-label={isHamsterVisible ? "햄스터 숨기기" : "햄스터 표시하기"}
+                aria-controls="header-hamster-visual"
+                onChange={(event) => setIsHamsterVisible(event.target.checked)}
+              />
+
+              <label
+                className="hamster-toggle__heart"
+                htmlFor="hamster-switch"
+                title={isHamsterVisible ? "햄스터 끄기" : "햄스터 켜기"}
+              >
+                <i className="hamster-toggle__left" aria-hidden="true" />
+                <i className="hamster-toggle__right" aria-hidden="true" />
+                <i className="hamster-toggle__bottom" aria-hidden="true" />
+                <span className="hamster-toggle__round" aria-hidden="true" />
+              </label>
+
+              <span className="hamster-toggle__caption" aria-hidden="true">
+                HAMSTER {isHamsterVisible ? "ON" : "OFF"}
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
       </header>
       <ThemeToggle />
     </>

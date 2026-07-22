@@ -1,0 +1,240 @@
+.header-hamster-control {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#header-hamster-visual {
+  width: 100%;
+}
+
+#header-hamster-visual:empty {
+  display: none;
+}
+
+.hamster-toggle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: -2px;
+  padding: 4px 16px 0;
+  line-height: 1;
+  pointer-events: auto;
+}
+
+.header-hamster-control.is-disabled .hamster-toggle {
+  margin-top: 28px;
+}
+
+.hamster-toggle__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hamster-toggle__heart {
+  --hamster-heart-fill: color-mix(in srgb, var(--theme-text-primary), transparent 80%);
+  --hamster-heart-border: color-mix(in srgb, var(--theme-text-primary), transparent 58%);
+  --hamster-heart-shadow: color-mix(in srgb, var(--theme-text-primary), transparent 88%);
+
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 19px;
+  height: 19px;
+  margin: 9px 0 7px;
+  border: 1px solid var(--hamster-heart-border);
+  border-radius: 5px;
+  background: var(--hamster-heart-fill);
+  box-shadow:
+    inset 4px -4px 0 var(--hamster-heart-shadow),
+    0 5px 12px color-mix(in srgb, var(--theme-shadow-base), transparent 78%);
+  cursor: pointer;
+  transform: rotate(-45deg);
+  transition:
+    transform 220ms ease,
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.hamster-toggle__heart::before,
+.hamster-toggle__heart::after {
+  position: absolute;
+  z-index: -1;
+  width: 19px;
+  height: 19px;
+  border: 1px solid var(--hamster-heart-border);
+  border-radius: 50%;
+  background: var(--hamster-heart-fill);
+  box-shadow: inset 4px -4px 0 var(--hamster-heart-shadow);
+  content: "";
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.hamster-toggle__heart::before {
+  top: -10px;
+  left: -1px;
+}
+
+.hamster-toggle__heart::after {
+  top: -1px;
+  right: -10px;
+}
+
+.hamster-toggle__input:checked + .hamster-toggle__heart {
+  --hamster-heart-fill: #f2a65a;
+  --hamster-heart-border: #d9772f;
+  --hamster-heart-shadow: #ffd6a5;
+
+  box-shadow:
+    inset 5px -5px 0 var(--hamster-heart-shadow),
+    0 6px 15px color-mix(in srgb, #f2a65a, transparent 66%);
+}
+
+.hamster-toggle__heart:hover {
+  transform: rotate(-45deg) scale(1.08);
+}
+
+.hamster-toggle__heart:active {
+  transform: rotate(-45deg) scale(0.96);
+}
+
+.hamster-toggle__input:focus-visible + .hamster-toggle__heart {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 5px;
+}
+
+.hamster-toggle__round {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 3;
+  width: 7px;
+  height: 7px;
+  border: 1px solid color-mix(in srgb, var(--theme-shadow-base), transparent 84%);
+  border-radius: 50%;
+  background: var(--theme-text-bright);
+  box-shadow: 0 1px 5px color-mix(in srgb, var(--theme-shadow-base), transparent 68%);
+  transform: translate(0, 0);
+  transition:
+    transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 300ms ease;
+}
+
+.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__round {
+  background: #fff8ee;
+  transform: translate(10px, 10px);
+}
+
+.hamster-toggle__left,
+.hamster-toggle__right,
+.hamster-toggle__bottom {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  pointer-events: none;
+  transform: rotate(45deg);
+  transition:
+    opacity 300ms ease,
+    background-color 300ms ease;
+}
+
+.hamster-toggle__left {
+  top: 4px;
+  left: 8px;
+  width: 6px;
+  height: 3px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--theme-text-bright), transparent 35%);
+  opacity: 0.4;
+}
+
+.hamster-toggle__right {
+  right: 2px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f7a7a7;
+  opacity: 0.35;
+}
+
+.hamster-toggle__bottom {
+  top: 8px;
+  left: 8px;
+  width: 4px;
+  height: 3px;
+  border-radius: 50% 50% 45% 45%;
+  background: color-mix(in srgb, var(--theme-text-primary), transparent 38%);
+  opacity: 0.45;
+}
+
+.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__left {
+  background: #fff3df;
+  opacity: 0.9;
+}
+
+.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__right {
+  background: #ff8f9f;
+  opacity: 0.9;
+}
+
+.hamster-toggle__input:checked + .hamster-toggle__heart .hamster-toggle__bottom {
+  background: #7a4025;
+  opacity: 0.8;
+}
+
+.hamster-toggle__caption {
+  color: color-mix(in srgb, var(--default-color), transparent 46%);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color 300ms ease;
+}
+
+.hamster-toggle__input:checked ~ .hamster-toggle__caption {
+  color: color-mix(in srgb, var(--accent-color), var(--theme-text-bright) 20%);
+}
+
+@media (min-width: 1200px) and (max-height: 800px) {
+  .hamster-toggle {
+    margin-top: -8px;
+  }
+
+  .header-hamster-control.is-disabled .hamster-toggle {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 1199px), (min-width: 1200px) and (max-height: 680px) {
+  .header-hamster-control {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamster-toggle__heart,
+  .hamster-toggle__heart::before,
+  .hamster-toggle__heart::after,
+  .hamster-toggle__round,
+  .hamster-toggle__left,
+  .hamster-toggle__right,
+  .hamster-toggle__bottom,
+  .hamster-toggle__caption {
+    transition: none;
+  }
+}
