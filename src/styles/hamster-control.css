@@ -2,8 +2,9 @@
 .header-hamster-control {
   --hamster-size: 112px;
   --hamster-scale: 0.666667;
-  --hamster-dock-gap: 10px;
-  --hamster-toggle-gap: 6px;
+  --hamster-visual-overhang: 16px;
+  --hamster-dock-gap: 6px;
+  --hamster-toggle-gap: 5px;
   --hamster-dock-bottom: 16px;
   --hamster-fur: #f2a65a;
   --hamster-fur-deep: #d9772f;
@@ -18,8 +19,7 @@
     display: flex !important;
     flex-direction: column;
     height: 100dvh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     overscroll-behavior: none;
     scrollbar-width: none;
   }
@@ -47,30 +47,44 @@
 
   .header-hamster-control {
     display: grid;
-    grid-template-rows: var(--hamster-size) auto;
+    grid-template-rows: calc(var(--hamster-size) + var(--hamster-visual-overhang)) auto;
     justify-items: center;
-    align-self: stretch;
+    align-self: center;
     gap: var(--hamster-dock-gap);
-    width: 100%;
-    margin-top: clamp(18px, 3vh, 30px);
+    width: min(140px, 100%);
+    margin-top: clamp(14px, 2vh, 22px);
     padding: 0 0 var(--hamster-dock-bottom);
   }
 
   .header-hamster-visual {
-    display: grid;
-    place-items: center;
+    position: relative;
+    display: block;
     width: var(--hamster-size);
-    height: var(--hamster-size);
+    height: calc(var(--hamster-size) + var(--hamster-visual-overhang));
     pointer-events: none;
   }
 
   .header-hamster {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    display: block;
+    width: var(--hamster-size);
+    height: var(--hamster-size);
+    margin: 0 auto;
     padding: 0;
     line-height: 0;
+  }
+
+  /*
+   * ScrollHamster renders a 168px wheel and then scales it down.
+   * Absolute centering prevents the unscaled layout box from pushing
+   * the visible wheel to the right and down inside the smaller slot.
+   */
+  .header-hamster-control .header-hamster .wheel-and-hamster {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(var(--hamster-scale)) !important;
+    transform-origin: center !important;
   }
 
   .hamster-toggle {
@@ -78,7 +92,8 @@
     display: grid;
     justify-items: center;
     gap: var(--hamster-toggle-gap);
-    padding: 0 16px;
+    width: 100%;
+    padding: 0;
     line-height: 1;
   }
 
@@ -92,11 +107,11 @@
   }
 
   .hamster-toggle__switch {
-    --button-width: 3.25rem;
-    --button-height: 1.8rem;
-    --toggle-diameter: 1.35rem;
+    --button-width: 3.15rem;
+    --button-height: 1.72rem;
+    --toggle-diameter: 1.27rem;
     --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
-    --toggle-wider: 1.8rem;
+    --toggle-wider: 1.72rem;
     --track-off: color-mix(in srgb, var(--theme-text-primary), transparent 79%);
     --track-border: color-mix(in srgb, var(--theme-text-primary), transparent 70%);
 
@@ -104,7 +119,7 @@
     align-items: center;
     justify-content: center;
     min-width: 44px;
-    min-height: 44px;
+    min-height: 40px;
     border-radius: calc(var(--button-height) / 2);
     cursor: pointer;
   }
@@ -184,10 +199,11 @@
   .hamster-toggle__caption {
     color: color-mix(in srgb, var(--default-color), transparent 46%);
     font-family: var(--font-label);
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     font-weight: 700;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.11em;
     line-height: 1;
+    text-align: center;
     text-transform: uppercase;
     transition: color 300ms ease;
   }
@@ -199,22 +215,33 @@
 
 @media (min-width: 1200px) and (max-height: 899px) {
   .header-hamster-control {
-    --hamster-size: 96px;
-    --hamster-scale: 0.571429;
+    --hamster-size: 94px;
+    --hamster-scale: 0.559524;
+    --hamster-visual-overhang: 14px;
     --hamster-dock-bottom: 12px;
 
-    margin-top: clamp(14px, 2.2vh, 20px);
+    margin-top: 14px;
   }
 }
 
 @media (min-width: 1200px) and (max-height: 759px) {
   .header-hamster-control {
-    --hamster-size: 80px;
-    --hamster-scale: 0.47619;
-    --hamster-dock-gap: 8px;
+    --hamster-size: 78px;
+    --hamster-scale: 0.464286;
+    --hamster-visual-overhang: 12px;
+    --hamster-dock-gap: 4px;
     --hamster-dock-bottom: 10px;
 
-    margin-top: 10px;
+    margin-top: 8px;
+  }
+
+  .hamster-toggle__switch {
+    --button-width: 2.85rem;
+    --button-height: 1.58rem;
+    --toggle-diameter: 1.15rem;
+    --toggle-wider: 1.58rem;
+
+    min-height: 36px;
   }
 
   .hamster-toggle__caption {
