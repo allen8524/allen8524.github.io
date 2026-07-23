@@ -33,19 +33,17 @@ export type Project = {
 export type ProjectDetail = {
   projectId: ProjectId;
   developmentType: string;
-  role: string;
-  contribution: string;
-  keyAchievements: string[];
+  teamRole?: string;
   heroImage: string;
-  purpose: string[];
-  responsibilities?: string[];
+  dataFlow?: string[];
   implementationPoints: Array<{
     title: string;
     description: string;
   }>;
   troubleshooting: Array<{
     title: string;
-    description: string;
+    cause: string;
+    solution: string;
   }>;
   resultLinks?: Array<{
     label: string;
@@ -56,20 +54,26 @@ export type ProjectDetail = {
     alt: string;
   }>;
   deploymentUrl?: string;
-  architecture?: Array<{
-    title: string;
-    description: string;
-  }>;
-  dataFlow?: string[];
   analysisResults?: Array<{
     label: string;
     value: string;
     description?: string;
   }>;
+
+  // 이전 상세 데이터 구조와의 호환을 위한 선택 필드
+  role?: string;
+  contribution?: string;
+  keyAchievements?: string[];
+  purpose?: string[];
+  responsibilities?: string[];
+  learned?: string[];
+  limitations?: string[];
+  architecture?: Array<{
+    title: string;
+    description: string;
+  }>;
   metrics?: Array<{
     label: string;
     value: string;
   }>;
-  learned?: string[];
-  limitations?: string[];
 };

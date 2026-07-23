@@ -6,13 +6,21 @@ type ProjectImplementationProps = { detail: ProjectDetail };
 const format = (value: string) => formatMiddleDotSpacing(value);
 
 function ProjectImplementation({ detail }: ProjectImplementationProps) {
+  const designPoints = detail.implementationPoints.slice(0, 3);
+
   return (
     <>
-      {detail.implementationPoints.length > 0 && (
+      {designPoints.length > 0 && (
         <section className="project-detail-section project-implementation-section">
-          <ProjectSectionHeading label="IMPLEMENTATION" title="핵심 구현" />
-          <div className={`project-implementation-grid project-implementation-grid--count-${Math.min(detail.implementationPoints.length, 7)}`}>
-            {detail.implementationPoints.map((point, index) => <article className="project-implementation-card" key={point.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{format(point.title)}</h3><p>{format(point.description)}</p></article>)}
+          <ProjectSectionHeading label="DESIGN" title="핵심 설계" />
+          <div className={`project-implementation-grid project-implementation-grid--count-${designPoints.length}`}>
+            {designPoints.map((point, index) => (
+              <article className="project-implementation-card" key={point.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{format(point.title)}</h3>
+                <p>{format(point.description)}</p>
+              </article>
+            ))}
           </div>
         </section>
       )}
@@ -21,11 +29,16 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
         <section className="project-detail-section project-results-section">
           <ProjectSectionHeading label="RESULTS" title="주요 결과" />
           <div className="project-results-grid">
-            {detail.analysisResults.map((result) => <article className="project-result-card" key={result.label}><span>{format(result.label)}</span><strong>{format(result.value)}</strong>{result.description && <p>{format(result.description)}</p>}</article>)}
+            {detail.analysisResults.map((result) => (
+              <article className="project-result-card" key={result.label}>
+                <span>{format(result.label)}</span>
+                <strong>{format(result.value)}</strong>
+                {result.description && <p>{format(result.description)}</p>}
+              </article>
+            ))}
           </div>
         </section>
       )}
-
     </>
   );
 }
