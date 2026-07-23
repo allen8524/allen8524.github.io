@@ -4,121 +4,101 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "cineflow",
     developmentType: "개인 프로젝트",
-    role: "예매 상태 처리, 좌석 · 상영일정 · 결제 연결, 회원 · 비회원 조회 분기, 관리자 운영, Flyway 마이그레이션",
-    contribution: "빠른예매부터 조회 · 취소까지의 상태 흐름과 관리자 운영 · DB 변경 관리를 구현",
-    keyAchievements: [
-      "회원 · 비회원 예매 조회 기준 분리",
-      "상영일정 · 좌석 · 결제 · 예매 상태 연결",
-      "Spring Security 권한 분리와 Flyway 기반 DB 변경 이력 관리",
-    ],
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
-    purpose: [
-      "영화 선택부터 예매 완료 · 조회 · 취소까지 상태 흐름 연결",
-      "사용자, 비회원, 관리자 영역을 Spring Security 기준으로 분리",
-      "영화 · 극장 · 상영관 · 좌석 · 예매 · 결제 · 회원 테이블 변경 이력 관리",
-    ],
-    responsibilities: [
-      "빠른예매, 좌석 선택, 결제, 예매 완료 흐름 구현",
-      "회원 · 비회원 예매 조회 분기와 취소 상태 처리",
-      "관리자 영화 · 극장 · 상영관 · 상영일정 운영 기능 구성",
-      "Spring Security 기반 접근 권한 분리",
-      "Flyway 기반 DB 변경 이력과 seed 데이터 관리",
-    ],
     dataFlow: [
       "영화 선택 → 극장 · 날짜 · 상영회차 선택 → 좌석 선택 → 결제수단 저장 → 예매 완료",
-      "회원은 계정 기준, 비회원은 예매번호와 연락처 기준 조회",
-      "관리자 화면은 영화 · 극장 · 상영일정 · 예매 상태 운영",
     ],
     implementationPoints: [
       {
-        title: "예매 흐름 상태 연결",
-        description: "상영일정 ID, 좌석 상태, 예매번호, 결제 상태를 하나의 서비스 흐름으로 연결",
+        title: "예매 상태 일관성",
+        description:
+          "좌석 선택부터 결제 · 예매 완료까지 동일한 상영일정과 좌석 상태를 기준으로 하나의 서비스 흐름으로 연결했습니다.",
       },
       {
-        title: "회원 · 비회원 조회 분기",
-        description: "회원은 계정 기준, 비회원은 예매번호와 연락처 기준 조회",
+        title: "회원 · 비회원 조회 기준 분리",
+        description:
+          "회원은 계정 정보를 기준으로 조회하고, 비회원은 예매번호와 연락처가 모두 일치할 때만 조회되도록 분기했습니다.",
       },
       {
-        title: "관리자 운영 기능",
-        description: "영화 · 극장 · 상영관 · 상영일정 생성 · 수정 · 비활성화와 예매 현황 관리",
-      },
-      {
-        title: "TMDB fallback/cache",
-        description: "외부 API 실패 시 로컬 seed와 fallback 데이터로 화면 유지",
-      },
-      {
-        title: "Flyway 마이그레이션",
-        description: "실행 환경마다 같은 DB 구조를 재현할 수 있도록 변경 이력 관리",
+        title: "운영 데이터와 DB 변경 관리",
+        description:
+          "예매가 연결된 운영 데이터의 수정 범위를 제한하고, Flyway로 스키마와 초기 데이터 변경 이력을 관리했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "좌석과 예매 상태 불일치 방지",
-        description: "결제와 예매 완료 단계에서 같은 상영일정 · 좌석 상태 참조",
+        title: "좌석과 예매 상태 불일치",
+        cause:
+          "결제와 예매 완료 단계가 서로 다른 좌석 상태를 기준으로 처리되면 저장 결과가 어긋날 수 있었습니다.",
+        solution:
+          "두 단계가 동일한 상영일정과 좌석 상태를 참조하도록 처리 기준을 통일했습니다.",
       },
       {
-        title: "운영 데이터 보호",
-        description: "예매가 연결된 상영일정 · 상영관 수정 범위 제한",
+        title: "기존 예매와 운영 데이터 충돌",
+        cause:
+          "예매가 연결된 상영일정과 상영관을 자유롭게 수정하면 기존 예매 정보가 달라질 수 있었습니다.",
+        solution:
+          "예매 데이터가 연결된 운영 항목의 수정 범위를 제한해 기존 예매 정보를 보호했습니다.",
       },
     ],
     resultLinks: [
-      { label: "GitHub Actions 테스트", url: "https://github.com/allen8524/cineflow-spring-boot/actions" },
+      {
+        label: "GitHub Actions 테스트",
+        url: "https://github.com/allen8524/cineflow-spring-boot/actions",
+      },
     ],
     gallery: [
       { src: "assets/img/portfolio/cineflow-main.png", alt: "CineFlow 메인 화면" },
       { src: "assets/img/portfolio/cineflow-booking.png", alt: "CineFlow 예매 화면" },
       { src: "assets/img/portfolio/cineflow-admin.png", alt: "CineFlow 관리자 화면" },
-      { src: "assets/img/portfolio/cineflow-booking-gallery.png", alt: "CineFlow 빠른예매 진행 화면" },
-      { src: "assets/img/portfolio/cineflow-admin-gallery.png", alt: "CineFlow 관리자 상영일정 관리 화면" },
+      {
+        src: "assets/img/portfolio/cineflow-booking-gallery.png",
+        alt: "CineFlow 빠른예매 진행 화면",
+      },
+      {
+        src: "assets/img/portfolio/cineflow-admin-gallery.png",
+        alt: "CineFlow 관리자 상영일정 관리 화면",
+      },
     ],
   },
   {
     projectId: "esports",
     developmentType: "개인 프로젝트",
-    role: "포털 화면 구성, 도메인별 CRUD, 경기 결과 기반 순위 집계, 관리자 대시보드 연결",
-    contribution: "사용자 · 관리자 화면을 분리하고 경기 집계, 접근 제어와 뉴스 라우팅을 구현",
-    keyAchievements: [
-      "finished 경기만 순위 집계에 반영",
-      "승 · 패 · 승률 · 득실차 계산",
-      "관리자 미들웨어 접근 제어",
-    ],
     heroImage: "assets/img/portfolio/esports_main.png",
-    purpose: [
-      "선수 · 팀 · 경기 · 뉴스 · 패치노트 데이터를 포털 화면과 관리자 화면으로 분리",
-      "라우팅, 인증, 권한 제어 흐름 학습 목적의 Laravel 프로젝트",
-    ],
-    responsibilities: [
-      "팀 · 선수 · 경기 · 뉴스 데이터 사용자/관리자 화면 분리",
-      "finished 경기만 순위표 집계에 반영",
-      "관리자 인증과 미들웨어 접근 제어 구성",
-      "slug와 썸네일 기반 뉴스 목록 · 상세 라우팅 구현",
-    ],
     dataFlow: [
       "경기 결과 입력 → finished 확인 → 승 · 패 · 승률 · 득실차 계산 → 순위표 갱신",
-      "뉴스 등록 → slug 생성 → 사용자 목록 · 상세 화면 노출",
     ],
     implementationPoints: [
       {
-        title: "finished 경기 기준 순위 집계",
-        description: "종료 경기만 순위 반영, 팀별 승 · 패 · 승률 · 득실차 계산",
+        title: "종료 상태 기반 순위 집계",
+        description:
+          "예정 경기와 종료 경기를 분리하고, finished 상태인 경기만 승 · 패 · 승률 · 득실차 계산에 반영했습니다.",
       },
       {
-        title: "관리자 인증과 미들웨어",
-        description: "관리자 대시보드와 운영 기능 접근 제어",
+        title: "운영 영역 접근 분리",
+        description:
+          "사용자 화면과 관리자 기능의 책임을 나누고, 인증과 미들웨어를 기준으로 운영 기능 접근을 제한했습니다.",
       },
       {
-        title: "slug 기반 뉴스 라우팅",
-        description: "뉴스 상세 페이지와 썸네일 관리 기준 통일",
+        title: "뉴스 식별자와 라우팅 기준",
+        description:
+          "뉴스 제목과 URL 구조가 독립적으로 유지되도록 slug를 식별자로 사용해 목록과 상세 경로를 연결했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "순위표 집계 기준 혼선",
-        description: "예정 경기와 종료 경기가 섞이지 않도록 finished 상태만 집계",
+        title: "순위표 집계 결과 왜곡",
+        cause:
+          "예정 경기와 종료 경기를 같은 기준으로 합산하면 실제 경기 결과와 다른 순위가 생성될 수 있었습니다.",
+        solution:
+          "finished 상태인 경기만 승패 · 승률 · 득실차 집계에 포함하도록 기준을 고정했습니다.",
       },
       {
-        title: "관리자 접근 범위 분리",
-        description: "인증 · 미들웨어 기준으로 사용자 화면과 관리자 화면 책임 분리",
+        title: "관리자 기능 접근 범위 혼선",
+        cause:
+          "사용자 화면과 관리자 기능이 같은 접근 흐름을 사용하면 권한 경계가 불명확했습니다.",
+        solution:
+          "관리자 인증과 미들웨어를 적용해 대시보드와 운영 기능의 접근 경로를 분리했습니다.",
       },
     ],
     gallery: [
@@ -131,41 +111,29 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "shopping",
     developmentType: "개인 프로젝트",
-    role: "상품 조회, 장바구니, 주문 · 결제, 사용자 주문 조회, 관리자 주문 관리",
-    contribution: "상품 조회 · 장바구니 · 주문 저장 흐름과 사용자 · 관리자 주문 조회 화면을 연결",
-    keyAchievements: [
-      "주문번호 기준 주문 마스터와 주문 상세 데이터 연결",
-      "사용자 주문 조회와 관리자 주문 관리 기준 통일",
-    ],
     heroImage: "assets/img/portfolio/shopping_main.png",
-    purpose: [
-      "상품 조회부터 장바구니, 주문, 관리자 주문 관리까지 판매관리 흐름 구현",
-      "주문번호 기준으로 사용자 주문 조회와 관리자 주문 관리 연결",
-    ],
-    responsibilities: [
-      "상품 목록 · 상세 조회와 옵션 선택 구현",
-      "장바구니 데이터를 주문서 작성 단계로 전달",
-      "주문번호 기준 주문 마스터 1건과 주문 상세 N건 저장",
-      "사용자 주문 조회와 관리자 주문 관리 화면 연결",
-    ],
     dataFlow: [
       "상품 상세 → 장바구니 → 주문서 작성 → 주문번호 생성 → 주문 마스터 저장 → 주문 상세 저장",
-      "사용자 주문 내역과 관리자 주문 관리가 같은 주문번호 기준 조회",
     ],
     implementationPoints: [
       {
-        title: "주문 마스터와 주문 상세 분리",
-        description: "주문번호 기준 주문 단위와 상품 단위 저장 구조 분리",
+        title: "주문 단위와 상품 단위 분리",
+        description:
+          "주문 공통 정보는 마스터에 한 번 저장하고, 주문 상품은 상세 데이터로 분리해 다중 상품 주문 구조를 구성했습니다.",
       },
       {
-        title: "사용자 · 관리자 주문 조회 연결",
-        description: "사용자 주문 조회와 관리자 주문 관리 기준 일치",
+        title: "사용자 · 관리자 조회 기준 통일",
+        description:
+          "사용자 주문 내역과 관리자 주문 관리가 같은 주문번호를 기준으로 동일한 주문 데이터를 조회하도록 연결했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "주문 데이터 기준 통일",
-        description: "주문번호 기준으로 마스터 · 상세 데이터를 함께 저장해 조회 기준 유지",
+        title: "다중 상품 주문 데이터 연결",
+        cause:
+          "주문 단위 정보와 상품별 상세 정보가 한 구조에 섞이면 여러 상품이 포함된 주문을 안정적으로 조회하기 어려웠습니다.",
+        solution:
+          "주문번호 기준으로 마스터 1건과 상세 N건을 분리하고 같은 번호로 함께 조회하도록 구성했습니다.",
       },
     ],
     gallery: [
@@ -178,39 +146,30 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "bakery",
     developmentType: "개인 프로젝트",
-    role: "제품 등록, 재고 관리, 판매 내역 확인, 관리자 화면 기능",
-    contribution: "제품 등록 · 수정, 재고 조회와 판매 · 매입 · 매출 장부 확인 흐름을 구현",
-    keyAchievements: ["제품 ID 기준 재고와 판매 내역 연결", "제품 · 재고 · 매입 · 매출 관리 흐름 구성"],
     heroImage:
       "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
-    purpose: [
-      "베이커리 제품, 재고, 판매 내역을 관리자 화면에서 확인하는 판매관리 프로젝트",
-      "제품 ID 기준 재고 수량과 판매 내역 연결",
-    ],
-    responsibilities: [
-      "제품 등록과 수정 화면 구성",
-      "제품 기준 재고 수량 조회",
-      "판매 내역과 매입 · 매출 장부 확인 화면 구성",
-      "제품별 재고 · 판매 상태 확인 흐름 정리",
-    ],
     dataFlow: [
       "제품 등록 → 제품 ID 기준 재고 연결 → 판매 내역 조회 → 통계 화면 확인",
-      "누락 데이터가 있어도 제품 중심 조회 기준으로 화면 응답 유지",
     ],
     implementationPoints: [
       {
-        title: "제품 기준 재고 · 판매 연결",
-        description: "제품 ID 중심으로 재고 수량과 판매 내역 조회",
+        title: "제품 중심 데이터 연결",
+        description:
+          "재고 · 판매 · 매입 · 매출 데이터를 제품 ID로 연결해 제품 하나를 기준으로 관련 상태를 확인하도록 구성했습니다.",
       },
       {
-        title: "관리자 중심 화면 구성",
-        description: "제품 등록, 재고 관리, 판매 내역 확인을 관리자 작업 흐름에 맞춰 배치",
+        title: "관리 작업 흐름 구성",
+        description:
+          "제품 등록과 수정, 재고 확인, 판매 내역과 장부 조회를 관리자 작업 순서에 맞춰 연결했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "제품별 상태 확인",
-        description: "재고와 판매 내역을 제품 기준 조회 흐름으로 통일",
+        title: "제품별 상태 조회 기준 불일치",
+        cause:
+          "재고와 판매 내역을 서로 다른 기준으로 조회하면 같은 제품의 현재 상태를 한 번에 파악하기 어려웠습니다.",
+        solution:
+          "제품 ID를 공통 조회 기준으로 사용해 재고 · 판매 · 장부 데이터를 연결했습니다.",
       },
     ],
     resultLinks: [
@@ -253,28 +212,31 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "movie-analysis",
     developmentType: "개인 프로젝트",
-    role: "결측값 처리, 이상치 완화, 정규화, PCA, 상관분석, PC1 기반 선형회귀",
-    contribution: "CSV 전처리부터 PCA · 상관분석 · PC1 회귀와 결과 저장까지 분석 파이프라인을 구성",
-    keyAchievements: [
-      "결측값 · 이상치 처리와 MinMax 정규화",
-      "PCA와 상관분석 수행",
-      "PC1 기반 선형회귀 결과 정리",
-    ],
     heroImage:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/poster_202212004_hwang_minseo.png",
-    purpose: [
-      "Cine21 영화 CSV 데이터 전처리 후 PCA · 상관분석 · 선형회귀 수행",
-      "PC1 설명분산비, R², MSE와 시각화 이미지로 분석 결과 정리",
-    ],
-    responsibilities: [
-      "오프라인 CSV 기준 분석 파이프라인 구성",
-      "문자열 · 수치형 결측값 처리",
-      "IQR 기반 이상치 완화와 MinMax 정규화",
-      "PCA, 상관분석, PC1 기반 선형회귀 실행",
-      "분석 결과 이미지와 요약 파일 저장",
-    ],
     dataFlow: [
       "CSV 로드 → 결측값 처리 → 이상치 완화 → 정규화 → PCA → 상관분석 → 선형회귀 → 결과 저장",
+    ],
+    implementationPoints: [
+      {
+        title: "전처리 순서 고정",
+        description:
+          "결측값과 이상치를 먼저 처리한 뒤 정규화를 적용해 이후 PCA와 회귀분석이 같은 데이터 기준을 사용하도록 구성했습니다.",
+      },
+      {
+        title: "축소 지표와 회귀 결과 연결",
+        description:
+          "PCA로 수치형 지표를 축약하고 PC1을 회귀 입력으로 사용해 설명분산비와 예측 결과를 함께 비교했습니다.",
+      },
+    ],
+    troubleshooting: [
+      {
+        title: "관객 수 이상치와 스케일 영향",
+        cause:
+          "관객 수의 큰 값과 이상치가 정규화 및 회귀 결과에 과도한 영향을 줄 수 있었습니다.",
+        solution:
+          "IQR 기준으로 이상치 영향을 완화한 뒤 MinMax 정규화를 적용해 변수 스케일을 맞췄습니다.",
+      },
     ],
     analysisResults: [
       {
@@ -291,22 +253,6 @@ export const projectDetails: ProjectDetail[] = [
         label: "선형회귀",
         value: "R², MSE 기준 확인",
         description: "PC1 기반 예측 결과와 실제 평점 비교",
-      },
-    ],
-    implementationPoints: [
-      {
-        title: "전처리 파이프라인",
-        description: "결측값 · 이상치 처리 후 MinMax 정규화 적용",
-      },
-      {
-        title: "PCA와 회귀분석",
-        description: "PCA 축소와 PC1 기반 선형회귀로 지표 관계 확인",
-      },
-    ],
-    troubleshooting: [
-      {
-        title: "이상치 영향 완화",
-        description: "관객 수 스케일 차이를 줄이기 위해 이상치 완화와 정규화 선적용",
       },
     ],
     resultLinks: [
@@ -349,28 +295,42 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "seoul-bike",
     developmentType: "개인 프로젝트",
-    role: "데이터 전처리, 시각화, 다중선형회귀, 로지스틱 회귀, K-means 군집분석, KNN 분류분석, 결과 해석",
-    contribution: "데이터 전처리 · 시각화부터 회귀 · 분류 · 군집 모델링과 결과 해석까지 수행",
-    keyAchievements: [
-      "다중선형회귀 R² 0.5431",
-      "로지스틱 회귀 정확도 0.8969 · KNN 정확도 0.9013",
-      "K-means 기반 대여소 유형 분류",
-    ],
     heroImage: "assets/img/portfolio/seoul-bike-hourly-usage.png",
-    purpose: [
-      "2025년 12월 서울 공공자전거 시간대별 이용정보로 수요 집중 시간대와 이용자 특성 파악",
-      "다중선형회귀로 시간대별 이용건수를 예측하고, 로지스틱 회귀 · KNN으로 고수요 여부를 분류했으며, K-means로 대여소별 이용 유형을 도출",
-      "공공자전거가 출퇴근 · 통학 목적의 생활 교통수단으로 활용되는 패턴 분석",
-    ],
-    responsibilities: [
-      "성별 컬럼 제거, 결측값 제거, 숫자형 변환, 이동거리 · 이용시간 이상치 필터링",
-      "시간대 · 요일 · 연령대 · 대여구분 · 이동거리와 이용시간 관계 시각화",
-      "다중선형회귀로 시간대별 총 이용건수 예측",
-      "로지스틱 회귀와 KNN으로 고수요 여부 분류",
-      "K-means 기반 대여소 유형 군집화와 결과 해석",
-    ],
     dataFlow: [
-      "원본 CSV 로드 → 결측값 · 이상치 제거 → 파생 변수 생성 → 시각화 → 회귀 · 분류 · 군집분석 → 결과 CSV · figure 저장",
+      "원본 CSV 로드 → 결측값 · 이상치 제거 → 파생 변수 생성 → 시각화 → 회귀 · 분류 · 군집분석 → 결과 저장",
+    ],
+    implementationPoints: [
+      {
+        title: "분석 기준 데이터셋 고정",
+        description:
+          "전처리 기준을 먼저 확정하고 동일한 행과 대여소 집합을 시각화와 모델링에 사용해 결과 비교 기준을 통일했습니다.",
+      },
+      {
+        title: "예측과 분류 역할 분리",
+        description:
+          "다중선형회귀는 이용건수 예측에 사용하고, 로지스틱 회귀와 KNN은 고수요 여부 분류에 사용해 모델 목적을 분리했습니다.",
+      },
+      {
+        title: "대여소 특성 군집화",
+        description:
+          "평균 이동거리 · 이용시간과 출근 · 퇴근 · 주말 비율을 조합해 대여소의 이용 유형을 군집화했습니다.",
+      },
+    ],
+    troubleshooting: [
+      {
+        title: "대용량 원본 CSV 저장소 관리",
+        cause:
+          "원본 데이터 규모가 커 GitHub 저장소에 그대로 포함하기 어려웠습니다.",
+        solution:
+          "저장소에는 샘플 데이터와 분석 결과 CSV를 정리하고 원본 전체 파일은 제외했습니다.",
+      },
+      {
+        title: "시각화와 모델링 기준 불일치",
+        cause:
+          "분석 단계마다 서로 다른 전처리 결과를 사용하면 지표와 모델 결과를 직접 비교하기 어려웠습니다.",
+        solution:
+          "전처리 후 1,808,648행과 2,770개 대여소를 공통 분석 기준으로 고정했습니다.",
+      },
     ],
     analysisResults: [
       {
@@ -397,30 +357,6 @@ export const projectDetails: ProjectDetail[] = [
         label: "K-means",
         value: "퇴근형 고수요 대여소",
         description: "대여소를 출근형, 장거리 · 장시간형, 퇴근형 고수요 유형으로 구분",
-      },
-    ],
-    implementationPoints: [
-      {
-        title: "데이터 전처리 기준 정리",
-        description: "이동거리 30km 초과, 이용시간 240분 초과 데이터를 제거해 극단값 영향을 완화",
-      },
-      {
-        title: "이용건수 예측과 고수요 분류",
-        description: "다중선형회귀로 이용건수를 예측하고, 로지스틱 회귀와 KNN으로 고수요 여부를 분류",
-      },
-      {
-        title: "대여소 유형 군집화",
-        description: "평균 이동거리, 평균 이용시간, 출근 · 퇴근 · 주말 이용 비율을 활용해 K-means 군집분석 수행",
-      },
-    ],
-    troubleshooting: [
-      {
-        title: "대용량 원본 CSV 관리",
-        description: "GitHub 업로드 제한을 고려해 원본 CSV 대신 샘플 데이터와 분석 결과 CSV를 저장소에 정리",
-      },
-      {
-        title: "분석 기준 일관성",
-        description: "전처리 후 1,808,648행과 2,770개 대여소 기준으로 시각화와 모델링 결과를 해석",
       },
     ],
     resultLinks: [
@@ -471,53 +407,35 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "undead-survivor",
     developmentType: "개인 프로젝트",
-    role: "플레이어 이동, 자동 공격, 적 스폰, 오브젝트 풀링, 레벨업 보상, 생존 · 사망 결과 처리",
-    contribution: "플레이어 이동 · 전투 · 레벨업 · 결과 화면을 연결하고 적 · 투사체 재사용 구조를 구현",
-    keyAchievements: [
-      "Object Pooling으로 적과 투사체 재사용",
-      "자동 공격 · 적 스폰 · 레벨업과 결과 화면 연결",
-      "Android APK 빌드",
-    ],
-    heroImage: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
-    purpose: [
-      "Unity와 C# 기반 Android 생존형 액션 게임 핵심 루프 구현",
-      "PoolManager 기반 적 · 투사체 재사용으로 반복 생성 비용 절감",
-    ],
-    responsibilities: [
-      "플레이어 이동과 캐릭터 선택 흐름 구현",
-      "주변 적 탐지 기반 자동 공격 처리",
-      "진행 시간 기반 적 스폰과 난이도 흐름 구성",
-      "Object Pooling으로 적과 투사체 재사용",
-      "레벨업 보상과 생존 · 사망 결과 화면 연결",
-    ],
+    heroImage:
+      "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
     dataFlow: [
       "캐릭터 선택 → 게임 시작 → 이동 → 자동 공격 → 적 스폰 → 경험치 획득 → 레벨업 → 결과 화면",
     ],
-    learned: [
-      "반복 생성 오브젝트는 PoolManager 관리로 모바일 실행 비용 절감 가능",
-      "게임 상태, HUD, 결과 화면을 한 흐름으로 연결해야 플레이 루프 유지",
-    ],
-    limitations: [
-      "포트폴리오 검토용 APK와 주요 스크립트 중심 정리. 상용 수준 밸런싱과 저장 기능은 추가 보강 필요",
-    ],
     implementationPoints: [
       {
-        title: "자동 공격과 적 스폰",
-        description: "이동, 적 탐색, 자동 공격, 적 스폰을 연결해 생존형 루프 구성",
+        title: "생존 루프 상태 연결",
+        description:
+          "플레이어 이동 · 적 탐색 · 자동 공격 · 경험치 획득 · 레벨업을 하나의 반복 플레이 흐름으로 연결했습니다.",
       },
       {
-        title: "Object Pooling",
-        description: "적과 투사체를 풀에서 재사용해 플레이 중 비용 절감",
+        title: "반복 오브젝트 재사용",
+        description:
+          "플레이 중 계속 생성되는 적과 투사체를 PoolManager에서 재사용해 생성과 제거 횟수를 줄였습니다.",
       },
       {
-        title: "레벨업과 결과 화면",
-        description: "생존 시간, 레벨업 보상, 생존 · 사망 결과 화면 연결",
+        title: "게임 상태와 결과 화면 연결",
+        description:
+          "생존 시간과 사망 상태를 HUD 및 결과 화면과 연결해 게임 시작부터 종료까지 상태 흐름을 유지했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "반복 생성 비용",
-        description: "적과 투사체 누적 생성 비용을 PoolManager 재사용 구조로 완화",
+        title: "적과 투사체 반복 생성 비용",
+        cause:
+          "전투 중 적과 투사체를 계속 생성하고 제거하면 모바일 실행 환경에서 반복 비용이 누적될 수 있었습니다.",
+        solution:
+          "PoolManager가 기존 오브젝트를 비활성화 후 재사용하는 Object Pooling 구조로 변경했습니다.",
       },
     ],
     gallery: [
@@ -554,59 +472,53 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "healthyup",
     developmentType: "개인 프로젝트",
-    role: "BMI 계산, 입력 검증, 성별 기준 분기, 결과 UI, 운동 정보 WebView, 로컬 영상 재생, 운동 계획 입력",
-    contribution: "BMI 입력 검증 · 결과 분기와 운동 정보 · 영상 · 계획 탭 화면을 구현",
-    keyAchievements: [
-      "BMI 계산과 입력값 검증",
-      "UIKit 기반 탭 화면 구성",
-      "WebView와 AVKit 영상 재생 연결",
-    ],
-    heroImage: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
-    purpose: [
-      "BMI 계산, 운동 정보 탐색, 영상 재생, 운동 계획 설정을 탭 구조로 연결",
-      "BMI 결과 이후 운동 정보 · 영상 · 계획 화면으로 이어지는 흐름 구성",
-    ],
-    responsibilities: [
-      "BMI 입력값 검증과 계산 결과 화면 구성",
-      "성별 기준 결과 문구와 UI 피드백 분기",
-      "WKWebView 기반 운동 정보 화면 연결",
-      "AVPlayerViewController 기반 로컬 운동 영상 재생",
-      "운동 강도, 시간, 세트 수 입력 화면 구성",
-    ],
+    heroImage:
+      "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
     dataFlow: [
       "키 · 체중 입력 → 입력값 검증 → 성별 기준 BMI 판정 → 결과 표시 → 운동 정보 · 영상 · 계획 탭 이동",
     ],
-    learned: [
-      "입력 검증을 계산 로직 앞에 두어 잘못된 값 전파 방지",
-      "네트워크 의존 화면과 로컬 리소스 화면 병행으로 시연 안정성 확보",
-    ],
     implementationPoints: [
       {
-        title: "BMI 입력 검증과 결과 UI",
-        description: "키 · 체중 입력값 검증, 성별 기준 BMI 판정, 결과 문구와 UI 피드백 표시",
+        title: "검증 우선 계산 흐름",
+        description:
+          "빈 값과 숫자 변환 실패를 먼저 차단한 뒤 BMI 계산과 성별 기준 결과 분기를 실행하도록 순서를 고정했습니다.",
       },
       {
-        title: "WebKit과 AVKit 화면",
-        description: "운동 정보는 WKWebView, 운동 영상은 AVPlayerViewController로 재생",
+        title: "네트워크 · 로컬 콘텐츠 분리",
+        description:
+          "운동 정보는 WebView로 제공하고 운동 영상은 로컬 리소스로 재생해 콘텐츠 성격과 시연 환경을 분리했습니다.",
       },
       {
-        title: "운동 계획 설정",
-        description: "UISlider, UIStepper, UISegmentedControl로 운동 강도 · 시간 · 세트 수 조정",
+        title: "입력 컨트롤과 운동 계획 연결",
+        description:
+          "슬라이더 · 스테퍼 · 세그먼트 컨트롤의 값을 운동 강도 · 시간 · 세트 수에 연결해 계획 입력 흐름을 구성했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "잘못된 입력값 방어",
-        description: "빈 값과 숫자 변환 실패를 BMI 계산 전 차단",
+        title: "잘못된 BMI 입력값 전파",
+        cause:
+          "빈 값이나 숫자로 변환할 수 없는 값이 계산 단계에 전달되면 잘못된 결과가 표시될 수 있었습니다.",
+        solution:
+          "BMI 계산 전에 필수 입력과 숫자 변환 여부를 검증하고 실패한 경우 계산을 중단했습니다.",
       },
       {
-        title: "시연 환경 안정성",
-        description: "네트워크와 관계없는 로컬 운동 영상 재생 구조 사용",
+        title: "시연 중 네트워크 의존",
+        cause:
+          "모든 운동 콘텐츠가 네트워크에 의존하면 연결 상태에 따라 시연이 중단될 수 있었습니다.",
+        solution:
+          "운동 영상은 앱 내부 로컬 파일로 제공하고 WebView는 운동 정보 화면에만 사용했습니다.",
       },
     ],
     resultLinks: [
-      { label: "기능 정리", url: "https://github.com/allen8524/healthyup-ios/blob/main/docs/FEATURES.md" },
-      { label: "개선 사항", url: "https://github.com/allen8524/healthyup-ios/blob/main/docs/IMPROVEMENTS.md" },
+      {
+        label: "기능 정리",
+        url: "https://github.com/allen8524/healthyup-ios/blob/main/docs/FEATURES.md",
+      },
+      {
+        label: "개선 사항",
+        url: "https://github.com/allen8524/healthyup-ios/blob/main/docs/IMPROVEMENTS.md",
+      },
     ],
     gallery: [
       {
