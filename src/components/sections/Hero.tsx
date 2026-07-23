@@ -16,10 +16,8 @@ function Hero() {
               </h1>
 
               <p className="hero-description portfolio-intro-text">
-                <span>Spring Boot · Laravel · PHP 기반 프로젝트</span>
-                <span>예매 · 주문 · 게시판 · 관리자 기능 구현</span>
-                <span>DB 연동과 서비스 로직 중심 데이터 흐름 정리</span>
-                <span>데이터 분석 · iOS · Unity 프로젝트 확장 경험 보유</span>
+                <span>Spring Boot · Laravel · PHP 기반 웹 프로젝트</span>
+                <span>예매 · 주문 · 게시판 · 관리자 및 DB 연동 구현</span>
               </p>
 
               <div className="hero-actions">
