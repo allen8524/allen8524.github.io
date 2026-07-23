@@ -59,21 +59,4 @@ export type ProjectDetail = {
     value: string;
     description?: string;
   }>;
-
-  // 이전 상세 데이터 구조와의 호환을 위한 선택 필드
-  role?: string;
-  contribution?: string;
-  keyAchievements?: string[];
-  purpose?: string[];
-  responsibilities?: string[];
-  learned?: string[];
-  limitations?: string[];
-  architecture?: Array<{
-    title: string;
-    description: string;
-  }>;
-  metrics?: Array<{
-    label: string;
-    value: string;
-  }>;
 };

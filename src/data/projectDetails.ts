@@ -6,7 +6,7 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
     dataFlow: [
-      "영화 선택 → 극장 · 날짜 · 상영회차 선택 → 좌석 선택 → 결제수단 저장 → 예매 완료",
+      "영화 선택 → 상영회차 선택 → 좌석 선택 → 결제 → 예매 완료",
     ],
     implementationPoints: [
       {
@@ -27,18 +27,11 @@ export const projectDetails: ProjectDetail[] = [
     ],
     troubleshooting: [
       {
-        title: "좌석과 예매 상태 불일치",
+        title: "외부 영화 API 응답 실패",
         cause:
-          "결제와 예매 완료 단계가 서로 다른 좌석 상태를 기준으로 처리되면 저장 결과가 어긋날 수 있었습니다.",
+          "TMDB 응답이 지연되거나 실패하면 영화 목록과 상세 화면에 표시할 데이터가 없어질 수 있었습니다.",
         solution:
-          "두 단계가 동일한 상영일정과 좌석 상태를 참조하도록 처리 기준을 통일했습니다.",
-      },
-      {
-        title: "기존 예매와 운영 데이터 충돌",
-        cause:
-          "예매가 연결된 상영일정과 상영관을 자유롭게 수정하면 기존 예매 정보가 달라질 수 있었습니다.",
-        solution:
-          "예매 데이터가 연결된 운영 항목의 수정 범위를 제한해 기존 예매 정보를 보호했습니다.",
+          "로컬 seed와 fallback 데이터를 준비해 외부 API 상태와 관계없이 핵심 화면을 유지하도록 구성했습니다.",
       },
     ],
     resultLinks: [
@@ -66,7 +59,7 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/esports_main.png",
     dataFlow: [
-      "경기 결과 입력 → finished 확인 → 승 · 패 · 승률 · 득실차 계산 → 순위표 갱신",
+      "경기 결과 입력 → 종료 상태 확인 → 팀 기록 계산 → 순위 정렬 → 순위표 갱신",
     ],
     implementationPoints: [
       {
@@ -85,22 +78,7 @@ export const projectDetails: ProjectDetail[] = [
           "뉴스 제목과 URL 구조가 독립적으로 유지되도록 slug를 식별자로 사용해 목록과 상세 경로를 연결했습니다.",
       },
     ],
-    troubleshooting: [
-      {
-        title: "순위표 집계 결과 왜곡",
-        cause:
-          "예정 경기와 종료 경기를 같은 기준으로 합산하면 실제 경기 결과와 다른 순위가 생성될 수 있었습니다.",
-        solution:
-          "finished 상태인 경기만 승패 · 승률 · 득실차 집계에 포함하도록 기준을 고정했습니다.",
-      },
-      {
-        title: "관리자 기능 접근 범위 혼선",
-        cause:
-          "사용자 화면과 관리자 기능이 같은 접근 흐름을 사용하면 권한 경계가 불명확했습니다.",
-        solution:
-          "관리자 인증과 미들웨어를 적용해 대시보드와 운영 기능의 접근 경로를 분리했습니다.",
-      },
-    ],
+    troubleshooting: [],
     gallery: [
       { src: "assets/img/portfolio/esports_main.png", alt: "e스포츠 포털 메인 화면" },
       { src: "assets/img/portfolio/esports_sub1.png", alt: "e스포츠 서브 화면 1" },
@@ -113,7 +91,7 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/shopping_main.png",
     dataFlow: [
-      "상품 상세 → 장바구니 → 주문서 작성 → 주문번호 생성 → 주문 마스터 저장 → 주문 상세 저장",
+      "상품 선택 → 장바구니 → 주문서 작성 → 주문 저장 → 주문 조회",
     ],
     implementationPoints: [
       {
@@ -127,15 +105,7 @@ export const projectDetails: ProjectDetail[] = [
           "사용자 주문 내역과 관리자 주문 관리가 같은 주문번호를 기준으로 동일한 주문 데이터를 조회하도록 연결했습니다.",
       },
     ],
-    troubleshooting: [
-      {
-        title: "다중 상품 주문 데이터 연결",
-        cause:
-          "주문 단위 정보와 상품별 상세 정보가 한 구조에 섞이면 여러 상품이 포함된 주문을 안정적으로 조회하기 어려웠습니다.",
-        solution:
-          "주문번호 기준으로 마스터 1건과 상세 N건을 분리하고 같은 번호로 함께 조회하도록 구성했습니다.",
-      },
-    ],
+    troubleshooting: [],
     gallery: [
       { src: "assets/img/portfolio/shopping_main.png", alt: "쇼핑몰 메인 화면" },
       { src: "assets/img/portfolio/shopping_sub1.png", alt: "쇼핑몰 서브 화면 1" },
@@ -149,7 +119,7 @@ export const projectDetails: ProjectDetail[] = [
     heroImage:
       "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
     dataFlow: [
-      "제품 등록 → 제품 ID 기준 재고 연결 → 판매 내역 조회 → 통계 화면 확인",
+      "제품 등록 → 재고 연결 → 판매 기록 → 장부 집계 → 통계 확인",
     ],
     implementationPoints: [
       {
@@ -163,33 +133,7 @@ export const projectDetails: ProjectDetail[] = [
           "제품 등록과 수정, 재고 확인, 판매 내역과 장부 조회를 관리자 작업 순서에 맞춰 연결했습니다.",
       },
     ],
-    troubleshooting: [
-      {
-        title: "제품별 상태 조회 기준 불일치",
-        cause:
-          "재고와 판매 내역을 서로 다른 기준으로 조회하면 같은 제품의 현재 상태를 한 번에 파악하기 어려웠습니다.",
-        solution:
-          "제품 ID를 공통 조회 기준으로 사용해 재고 · 판매 · 장부 데이터를 연결했습니다.",
-      },
-    ],
-    resultLinks: [
-      {
-        label: "대시보드 화면",
-        url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
-      },
-      {
-        label: "상품 관리 화면",
-        url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/product-index.png",
-      },
-      {
-        label: "매입 매출 장부 화면",
-        url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/jangbu-index.png",
-      },
-      {
-        label: "통계 차트 화면",
-        url: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/chart.png",
-      },
-    ],
+    troubleshooting: [],
     gallery: [
       {
         src: "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
@@ -215,7 +159,7 @@ export const projectDetails: ProjectDetail[] = [
     heroImage:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/poster_202212004_hwang_minseo.png",
     dataFlow: [
-      "CSV 로드 → 결측값 처리 → 이상치 완화 → 정규화 → PCA → 상관분석 → 선형회귀 → 결과 저장",
+      "CSV 로드 → 전처리 → PCA · 상관분석 → 회귀분석 → 결과 저장",
     ],
     implementationPoints: [
       {
@@ -257,10 +201,6 @@ export const projectDetails: ProjectDetail[] = [
     ],
     resultLinks: [
       {
-        label: "분석 README",
-        url: "https://github.com/allen8524/movie-pca-rating-analysis",
-      },
-      {
         label: "분석 스크립트",
         url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/src/hms_project_202212004.py",
       },
@@ -271,10 +211,6 @@ export const projectDetails: ProjectDetail[] = [
       {
         label: "분석 요약",
         url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/outputs/analysis_summary.txt",
-      },
-      {
-        label: "발표 포스터",
-        url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/docs/poster_202212004_hwang_minseo.png",
       },
     ],
     gallery: [
@@ -297,7 +233,7 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/seoul-bike-hourly-usage.png",
     dataFlow: [
-      "원본 CSV 로드 → 결측값 · 이상치 제거 → 파생 변수 생성 → 시각화 → 회귀 · 분류 · 군집분석 → 결과 저장",
+      "데이터 로드 → 전처리 · 파생변수 → 시각화 → 회귀 · 분류 · 군집 → 결과 저장",
     ],
     implementationPoints: [
       {
@@ -323,13 +259,6 @@ export const projectDetails: ProjectDetail[] = [
           "원본 데이터 규모가 커 GitHub 저장소에 그대로 포함하기 어려웠습니다.",
         solution:
           "저장소에는 샘플 데이터와 분석 결과 CSV를 정리하고 원본 전체 파일은 제외했습니다.",
-      },
-      {
-        title: "시각화와 모델링 기준 불일치",
-        cause:
-          "분석 단계마다 서로 다른 전처리 결과를 사용하면 지표와 모델 결과를 직접 비교하기 어려웠습니다.",
-        solution:
-          "전처리 후 1,808,648행과 2,770개 대여소를 공통 분석 기준으로 고정했습니다.",
       },
     ],
     analysisResults: [
@@ -360,10 +289,6 @@ export const projectDetails: ProjectDetail[] = [
       },
     ],
     resultLinks: [
-      {
-        label: "분석 README",
-        url: "https://github.com/allen8524/seoul-bike-demand-analysis",
-      },
       {
         label: "분석 스크립트",
         url: "https://github.com/allen8524/seoul-bike-demand-analysis/blob/main/scripts/hms_bike_project.R",
@@ -410,7 +335,7 @@ export const projectDetails: ProjectDetail[] = [
     heroImage:
       "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
     dataFlow: [
-      "캐릭터 선택 → 게임 시작 → 이동 → 자동 공격 → 적 스폰 → 경험치 획득 → 레벨업 → 결과 화면",
+      "캐릭터 선택 → 전투 루프 → 경험치 · 레벨업 → 생존 판정 → 결과 화면",
     ],
     implementationPoints: [
       {
@@ -429,15 +354,7 @@ export const projectDetails: ProjectDetail[] = [
           "생존 시간과 사망 상태를 HUD 및 결과 화면과 연결해 게임 시작부터 종료까지 상태 흐름을 유지했습니다.",
       },
     ],
-    troubleshooting: [
-      {
-        title: "적과 투사체 반복 생성 비용",
-        cause:
-          "전투 중 적과 투사체를 계속 생성하고 제거하면 모바일 실행 환경에서 반복 비용이 누적될 수 있었습니다.",
-        solution:
-          "PoolManager가 기존 오브젝트를 비활성화 후 재사용하는 Object Pooling 구조로 변경했습니다.",
-      },
-    ],
+    troubleshooting: [],
     gallery: [
       {
         src: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-character-select.png",
@@ -475,7 +392,7 @@ export const projectDetails: ProjectDetail[] = [
     heroImage:
       "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
     dataFlow: [
-      "키 · 체중 입력 → 입력값 검증 → 성별 기준 BMI 판정 → 결과 표시 → 운동 정보 · 영상 · 계획 탭 이동",
+      "키 · 체중 입력 → 입력값 검증 → BMI 판정 → 결과 표시 → 운동 콘텐츠 이동",
     ],
     implementationPoints: [
       {
@@ -494,22 +411,7 @@ export const projectDetails: ProjectDetail[] = [
           "슬라이더 · 스테퍼 · 세그먼트 컨트롤의 값을 운동 강도 · 시간 · 세트 수에 연결해 계획 입력 흐름을 구성했습니다.",
       },
     ],
-    troubleshooting: [
-      {
-        title: "잘못된 BMI 입력값 전파",
-        cause:
-          "빈 값이나 숫자로 변환할 수 없는 값이 계산 단계에 전달되면 잘못된 결과가 표시될 수 있었습니다.",
-        solution:
-          "BMI 계산 전에 필수 입력과 숫자 변환 여부를 검증하고 실패한 경우 계산을 중단했습니다.",
-      },
-      {
-        title: "시연 중 네트워크 의존",
-        cause:
-          "모든 운동 콘텐츠가 네트워크에 의존하면 연결 상태에 따라 시연이 중단될 수 있었습니다.",
-        solution:
-          "운동 영상은 앱 내부 로컬 파일로 제공하고 WebView는 운동 정보 화면에만 사용했습니다.",
-      },
-    ],
+    troubleshooting: [],
     resultLinks: [
       {
         label: "기능 정리",

@@ -59,11 +59,11 @@ function ProjectDetailPage() {
         <section id="portfolio-details" className="portfolio-details section">
           <div className="project-detail-container">
             <ProjectDetailHero detail={detail} project={project} />
-            <ProjectOverview detail={detail} project={project} />
+            <ProjectOverview detail={detail} />
             <ProjectImplementation detail={detail} />
             <ProjectTroubleshooting detail={detail} />
-            <ProjectResultLinks detail={detail} project={project} />
             <ProjectGallery detail={detail} />
+            <ProjectResultLinks detail={detail} project={project} />
             <ProjectNavigation previousProject={previousProject} nextProject={nextProject} />
           </div>
         </section>
