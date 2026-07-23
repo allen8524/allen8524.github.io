@@ -8,7 +8,7 @@ export type ProjectId =
   | "undead-survivor"
   | "healthyup";
 
-export type ProjectFilter = "spring" | "laravel" | "php" | "data" | "etc";
+export type ProjectFilter = "spring" | "laravel" | "php" | "etc";
 
 export type ProjectType = "web" | "data-analysis" | "mobile-app" | "game";
 
