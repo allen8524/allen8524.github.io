@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { SyntheticEvent } from "react";
-import ImagePreview from "../portfolio/ImagePreview";
 import type { ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import ImagePreview from "../portfolio/ImagePreview";
 import ProjectSectionHeading from "./ProjectSectionHeading";
 
 type ProjectGalleryProps = { detail: ProjectDetail };
@@ -21,7 +21,7 @@ function getImageLayout(image: HTMLImageElement): ImageLayout {
 function ProjectGallery({ detail }: ProjectGalleryProps) {
   const [previewImage, setPreviewImage] = useState<GalleryImage | null>(null);
   const [layouts, setLayouts] = useState<Record<string, ImageLayout>>({});
-  const gallery = detail.gallery;
+  const gallery = detail.gallery?.filter((image) => image.src !== detail.heroImage);
 
   if (!gallery?.length) return null;
 
