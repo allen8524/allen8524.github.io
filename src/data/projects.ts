@@ -10,8 +10,7 @@ export const projectFilters: ProjectFilterOption[] = [
   { label: "Spring", value: "spring" },
   { label: "Laravel", value: "laravel" },
   { label: "PHP", value: "php" },
-  { label: "데이터분석", value: "data" },
-  { label: "모바일 · 게임", value: "etc" },
+  { label: "기타", value: "etc" },
 ];
 
 export const projects: Project[] = [
@@ -149,7 +148,7 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/allen8524/seoul-bike-demand-analysis",
     detailUrl: "/projects/seoul-bike",
-    filter: "data",
+    filter: "etc",
     type: "data-analysis",
   },
   {
@@ -174,7 +173,7 @@ export const projects: Project[] = [
     features: ["결측값 처리", "이상치 완화", "MinMax 정규화", "PCA 차원 축소", "상관분석", "PC1 기반 선형회귀"],
     githubUrl: "https://github.com/allen8524/movie-pca-rating-analysis",
     detailUrl: "/projects/movie-analysis",
-    filter: "data",
+    filter: "etc",
     type: "data-analysis",
   },
   {
