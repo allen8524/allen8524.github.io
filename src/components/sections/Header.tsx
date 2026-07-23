@@ -143,28 +143,34 @@ function Header() {
           </div>
 
           <div className="hamster-toggle">
-            <input
-              id="hamster-switch"
-              className="hamster-toggle__input"
-              type="checkbox"
-              role="switch"
-              checked={isHamsterVisible}
-              aria-label={isHamsterVisible ? "햄스터 숨기기" : "햄스터 표시하기"}
-              aria-controls="header-hamster-visual"
-              onChange={(event) => setIsHamsterVisible(event.target.checked)}
-            />
-
             <label
-              className="hamster-toggle__switch"
-              htmlFor="hamster-switch"
+              className="hamster-toggle__lever"
               title={isHamsterVisible ? "햄스터 끄기" : "햄스터 켜기"}
             >
-              <span className="hamster-toggle__slider" aria-hidden="true" />
-            </label>
+              <input
+                id="hamster-switch"
+                className="hamster-toggle__input"
+                type="checkbox"
+                role="switch"
+                checked={isHamsterVisible}
+                aria-label={isHamsterVisible ? "햄스터 숨기기" : "햄스터 표시하기"}
+                aria-controls="header-hamster-visual"
+                onChange={(event) => setIsHamsterVisible(event.target.checked)}
+              />
 
-            <span className="hamster-toggle__caption" aria-hidden="true">
-              HAMSTER {isHamsterVisible ? "ON" : "OFF"}
-            </span>
+              <span className="hamster-toggle__handle-wrapper" aria-hidden="true">
+                <span className="hamster-toggle__handle">
+                  <span className="hamster-toggle__handle-knob" />
+                  <span className="hamster-toggle__handle-bar-wrapper">
+                    <span className="hamster-toggle__handle-bar" />
+                  </span>
+                </span>
+              </span>
+
+              <span className="hamster-toggle__base" aria-hidden="true">
+                <span className="hamster-toggle__base-inside" />
+              </span>
+            </label>
           </div>
         </div>
       </header>

@@ -3,13 +3,13 @@
   --hamster-size: 112px;
   --hamster-scale: 0.666667;
   --hamster-visual-overhang: 16px;
-  --hamster-dock-gap: 6px;
-  --hamster-toggle-gap: 5px;
-  --hamster-dock-bottom: 16px;
+  --hamster-dock-gap: 2px;
+  --hamster-dock-bottom: 14px;
   --hamster-fur: #f2a65a;
+  --hamster-fur-light: #ffd7a8;
   --hamster-fur-deep: #d9772f;
   --hamster-cream: #fff3df;
-  --hamster-toggle-glow: color-mix(in srgb, var(--hamster-fur), transparent 66%);
+  --hamster-toggle-glow: color-mix(in srgb, var(--hamster-fur), transparent 64%);
 
   display: none;
 }
@@ -52,7 +52,7 @@
     align-self: center;
     gap: var(--hamster-dock-gap);
     width: min(140px, 100%);
-    margin-top: clamp(14px, 2vh, 22px);
+    margin-top: clamp(12px, 1.8vh, 20px);
     padding: 0 0 var(--hamster-dock-bottom);
   }
 
@@ -74,11 +74,7 @@
     line-height: 0;
   }
 
-  /*
-   * ScrollHamster renders a 168px wheel and then scales it down.
-   * Absolute centering prevents the unscaled layout box from pushing
-   * the visible wheel to the right and down inside the smaller slot.
-   */
+  /* ScrollHamster uses a 168px source box, so center the scaled wheel explicitly. */
   .header-hamster-control .header-hamster .wheel-and-hamster {
     position: absolute !important;
     top: 50% !important;
@@ -88,128 +84,216 @@
   }
 
   .hamster-toggle {
-    position: relative;
     display: grid;
-    justify-items: center;
-    gap: var(--hamster-toggle-gap);
+    place-items: center;
     width: 100%;
-    padding: 0;
+    min-height: 58px;
     line-height: 1;
+  }
+
+  .hamster-toggle__lever {
+    --knob-size: 1.42rem;
+    --lever-width: 4.6rem;
+    --lever-height: 3.75rem;
+    --base-width: 3.45rem;
+    --base-height: 1rem;
+    --bar-width: 0.42rem;
+    --bar-height: 2.35rem;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: var(--lever-width);
+    height: var(--lever-height);
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .hamster-toggle__input {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  .hamster-toggle__switch {
-    --button-width: 3.15rem;
-    --button-height: 1.72rem;
-    --toggle-diameter: 1.27rem;
-    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
-    --toggle-wider: 1.72rem;
-    --track-off: color-mix(in srgb, var(--theme-text-primary), transparent 79%);
-    --track-border: color-mix(in srgb, var(--theme-text-primary), transparent 70%);
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 40px;
-    border-radius: calc(var(--button-height) / 2);
+    inset: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    opacity: 0;
     cursor: pointer;
   }
 
-  .hamster-toggle__slider {
-    position: relative;
-    display: inline-block;
-    width: var(--button-width);
-    height: var(--button-height);
-    border: 1px solid var(--track-border);
-    border-radius: calc(var(--button-height) / 2);
-    background: var(--track-off);
-    box-shadow:
-      inset 0 1px 3px color-mix(in srgb, var(--theme-shadow-base), transparent 78%),
-      0 5px 14px color-mix(in srgb, var(--theme-shadow-base), transparent 82%);
-    transition:
-      background-color 300ms ease,
-      border-color 300ms ease,
-      box-shadow 300ms ease;
-  }
-
-  .hamster-toggle__slider::after {
+  .hamster-toggle__handle-wrapper {
     position: absolute;
-    top: var(--button-toggle-offset);
-    left: 0;
-    width: var(--toggle-diameter);
-    height: var(--toggle-diameter);
-    border: 1px solid color-mix(in srgb, var(--theme-shadow-base), transparent 86%);
+    bottom: 0.45rem;
+    left: 50%;
+    z-index: 2;
+    width: 150%;
+    height: calc(var(--lever-height) - 0.1rem);
+    overflow: hidden;
+    transform: translateX(-50%);
+    mask-image: linear-gradient(to bottom, #000 0 73%, transparent 73% 100%);
+  }
+
+  .hamster-toggle__handle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    transform: rotate(-25deg);
+    transform-origin: bottom center;
+    transition: transform 240ms cubic-bezier(0.65, 1.35, 0.5, 1);
+  }
+
+  .hamster-toggle__input:checked + .hamster-toggle__handle-wrapper > .hamster-toggle__handle {
+    transform: rotate(25deg);
+  }
+
+  .hamster-toggle__handle-knob {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: var(--knob-size);
+    height: var(--knob-size);
+    border: 1px solid color-mix(in srgb, var(--hamster-fur-deep), transparent 32%);
     border-radius: 50%;
-    background: var(--hamster-cream);
-    box-shadow:
-      8px 0 22px color-mix(in srgb, var(--theme-shadow-base), transparent 82%),
-      inset 0 -2px 4px color-mix(in srgb, var(--theme-shadow-base), transparent 91%);
-    content: "";
-    transform: translateX(var(--button-toggle-offset));
-    transition:
-      width 180ms ease,
-      transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
-      box-shadow 300ms ease;
-  }
-
-  .hamster-toggle__input:checked + .hamster-toggle__switch .hamster-toggle__slider {
-    border-color: color-mix(in srgb, var(--hamster-fur-deep), var(--hamster-cream) 18%);
-    background: var(--hamster-fur);
-    box-shadow:
-      inset 0 1px 3px color-mix(in srgb, var(--theme-shadow-base), transparent 86%),
-      0 5px 16px var(--hamster-toggle-glow);
-  }
-
-  .hamster-toggle__input:checked + .hamster-toggle__switch .hamster-toggle__slider::after {
-    box-shadow:
-      -8px 0 22px color-mix(in srgb, var(--theme-shadow-base), transparent 82%),
-      inset 0 -2px 4px color-mix(in srgb, var(--theme-shadow-base), transparent 91%);
-    transform: translateX(
-      calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset))
+    background-image: radial-gradient(
+      farthest-corner at 68% 28%,
+      var(--hamster-cream) 3%,
+      var(--hamster-fur-light) 14% 26%,
+      var(--hamster-fur) 48% 68%,
+      var(--hamster-fur-deep) 84%
     );
-  }
-
-  .hamster-toggle__switch:active .hamster-toggle__slider::after {
-    width: var(--toggle-wider);
-    border-radius: calc(var(--toggle-diameter) / 2);
+    box-shadow:
+      0 5px 12px color-mix(in srgb, var(--theme-shadow-base), transparent 66%),
+      inset 0 -3px 5px color-mix(in srgb, var(--hamster-fur-deep), transparent 48%);
+    transition:
+      transform 240ms cubic-bezier(0.65, 1.35, 0.5, 1),
+      box-shadow 200ms ease;
   }
 
   .hamster-toggle__input:checked
-    + .hamster-toggle__switch:active
-    .hamster-toggle__slider::after {
-    transform: translateX(
-      calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset))
+    + .hamster-toggle__handle-wrapper
+    .hamster-toggle__handle-knob {
+    transform: rotate(-90deg);
+  }
+
+  .hamster-toggle__handle-knob::after {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 7px 2px color-mix(in srgb, var(--hamster-cream), transparent 42%);
+    content: "";
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .hamster-toggle__handle-bar-wrapper {
+    position: relative;
+    width: var(--bar-width);
+    height: var(--bar-height);
+  }
+
+  .hamster-toggle__handle-bar {
+    position: absolute;
+    top: calc(var(--knob-size) / -2);
+    left: 0;
+    width: 100%;
+    height: calc(100% + var(--knob-size) / 2);
+    background-image: linear-gradient(
+      to right,
+      #686868,
+      #a3a3a3,
+      #f7f7f7 45% 55%,
+      #a3a3a3,
+      #686868
     );
+    background-position-x: 0.05rem;
+    box-shadow: inset 0 0.85rem 0.22rem rgb(0 0 0 / 34%);
+    transition: background-position-x 240ms cubic-bezier(0.65, 1.35, 0.5, 1);
   }
 
-  .hamster-toggle__input:focus-visible + .hamster-toggle__switch {
+  .hamster-toggle__input:checked
+    + .hamster-toggle__handle-wrapper
+    .hamster-toggle__handle-bar {
+    background-position-x: -0.05rem;
+  }
+
+  .hamster-toggle__base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 1;
+    width: var(--base-width);
+    height: var(--base-height);
+    padding: 0.2rem;
+    border: 1px solid color-mix(in srgb, var(--theme-border-strong), transparent 20%);
+    border-radius: 999px;
+    background-image: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--theme-surface-raised), white 22%),
+      color-mix(in srgb, var(--theme-surface-deep), white 20%)
+    );
+    box-shadow:
+      0 -0.18rem 0.4rem color-mix(in srgb, var(--theme-highlight-base), transparent 64%),
+      0 0.22rem 0.48rem color-mix(in srgb, var(--theme-shadow-base), transparent 68%);
+    transform: translateX(-50%);
+  }
+
+  .hamster-toggle__base-inside {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    background-image: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--theme-text-muted), transparent 20%),
+      color-mix(in srgb, var(--theme-text-primary), transparent 48%)
+    );
+    box-shadow:
+      inset 0 1px rgb(255 255 255 / 18%),
+      inset 0 -1px rgb(255 255 255 / 52%),
+      inset 0 -2px 5px rgb(0 0 0 / 14%);
+  }
+
+  .hamster-toggle__base-inside::after {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: linear-gradient(
+      to bottom,
+      var(--hamster-fur-light),
+      var(--hamster-fur-deep)
+    );
+    box-shadow:
+      inset 0 1px color-mix(in srgb, var(--hamster-cream), transparent 50%),
+      inset 0 -2px 4px color-mix(in srgb, var(--hamster-fur-deep), transparent 38%),
+      0 0 12px var(--hamster-toggle-glow);
+    content: "";
+    opacity: 0;
+    transition: opacity 240ms cubic-bezier(0.65, 1.35, 0.5, 1);
+  }
+
+  .hamster-toggle__input:checked ~ .hamster-toggle__base .hamster-toggle__base-inside::after {
+    opacity: 1;
+  }
+
+  .hamster-toggle__lever:has(.hamster-toggle__input:focus-visible) {
     outline: 2px solid var(--hamster-fur);
-    outline-offset: 3px;
+    outline-offset: 4px;
+    border-radius: 10px;
   }
 
-  .hamster-toggle__caption {
-    color: color-mix(in srgb, var(--default-color), transparent 46%);
-    font-family: var(--font-label);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-    line-height: 1;
-    text-align: center;
-    text-transform: uppercase;
-    transition: color 300ms ease;
-  }
-
-  .hamster-toggle__input:checked ~ .hamster-toggle__caption {
-    color: var(--hamster-fur);
+  @media (hover: hover) {
+    .hamster-toggle__input:hover
+      + .hamster-toggle__handle-wrapper
+      .hamster-toggle__handle-knob::after,
+    .hamster-toggle__input:focus-visible
+      + .hamster-toggle__handle-wrapper
+      .hamster-toggle__handle-knob::after {
+      opacity: 1;
+    }
   }
 }
 
@@ -218,9 +302,22 @@
     --hamster-size: 94px;
     --hamster-scale: 0.559524;
     --hamster-visual-overhang: 14px;
-    --hamster-dock-bottom: 12px;
+    --hamster-dock-bottom: 10px;
 
-    margin-top: 14px;
+    margin-top: 12px;
+  }
+
+  .hamster-toggle {
+    min-height: 52px;
+  }
+
+  .hamster-toggle__lever {
+    --knob-size: 1.3rem;
+    --lever-width: 4.25rem;
+    --lever-height: 3.4rem;
+    --base-width: 3.2rem;
+    --base-height: 0.92rem;
+    --bar-height: 2.15rem;
   }
 }
 
@@ -229,23 +326,24 @@
     --hamster-size: 78px;
     --hamster-scale: 0.464286;
     --hamster-visual-overhang: 12px;
-    --hamster-dock-gap: 4px;
-    --hamster-dock-bottom: 10px;
+    --hamster-dock-gap: 0;
+    --hamster-dock-bottom: 8px;
 
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
-  .hamster-toggle__switch {
-    --button-width: 2.85rem;
-    --button-height: 1.58rem;
-    --toggle-diameter: 1.15rem;
-    --toggle-wider: 1.58rem;
-
-    min-height: 36px;
+  .hamster-toggle {
+    min-height: 46px;
   }
 
-  .hamster-toggle__caption {
-    display: none;
+  .hamster-toggle__lever {
+    --knob-size: 1.16rem;
+    --lever-width: 3.8rem;
+    --lever-height: 3rem;
+    --base-width: 2.9rem;
+    --base-height: 0.84rem;
+    --bar-width: 0.36rem;
+    --bar-height: 1.88rem;
   }
 }
 
@@ -256,10 +354,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hamster-toggle__switch,
-  .hamster-toggle__slider,
-  .hamster-toggle__slider::after,
-  .hamster-toggle__caption {
+  .hamster-toggle__handle,
+  .hamster-toggle__handle-knob,
+  .hamster-toggle__handle-bar,
+  .hamster-toggle__base-inside::after {
     transition: none;
   }
 }
