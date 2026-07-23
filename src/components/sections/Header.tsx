@@ -160,7 +160,9 @@ function Header() {
 
               <span className="hamster-toggle__handle-wrapper" aria-hidden="true">
                 <span className="hamster-toggle__handle">
-                  <span className="hamster-toggle__handle-knob" />
+                  <span className="hamster-toggle__handle-knob">
+                    <span className="hamster-toggle__knob-face" />
+                  </span>
                   <span className="hamster-toggle__handle-bar-wrapper">
                     <span className="hamster-toggle__handle-bar" />
                   </span>
