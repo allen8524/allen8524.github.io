@@ -10,6 +10,7 @@ type ProjectOverviewProps = {
 const format = (value: string) => formatMiddleDotSpacing(value);
 
 function ProjectOverview({ detail, project }: ProjectOverviewProps) {
+  const isPersonalProject = detail.developmentType.includes("개인");
   const flowSteps = (detail.dataFlow ?? []).flatMap((flow, flowIndex) => {
     if (!flow.includes("→")) return [];
     const steps = flow.split("→").map((step) => step.trim()).filter(Boolean);
@@ -30,8 +31,16 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
           <div className="project-summary-panel__facts">
             <div className="project-summary-fact"><span>개발 형태</span><strong>{format(detail.developmentType)}</strong></div>
             <div className="project-summary-fact"><span>개발 기간</span><strong>{format(project.year)}</strong></div>
-            <div className="project-summary-fact project-summary-fact--full"><span>담당 역할</span><strong>{format(detail.role)}</strong></div>
-            <div className="project-summary-fact project-summary-fact--full"><span>기여도</span><strong>{format(detail.contribution)}</strong></div>
+            <div className="project-summary-fact project-summary-fact--full">
+              <span>{isPersonalProject ? "구현 범위" : "담당 역할"}</span>
+              <strong>{format(detail.role)}</strong>
+            </div>
+            {!isPersonalProject && (
+              <div className="project-summary-fact project-summary-fact--full">
+                <span>기여도</span>
+                <strong>{format(detail.contribution)}</strong>
+              </div>
+            )}
           </div>
           <div className="project-summary-panel__results">
             <h3>핵심 성과</h3>
@@ -47,7 +56,7 @@ function ProjectOverview({ detail, project }: ProjectOverviewProps) {
         </ol>
       </section>
 
-      {detail.responsibilities && detail.responsibilities.length > 0 && (
+      {!isPersonalProject && detail.responsibilities && detail.responsibilities.length > 0 && (
         <section className="project-detail-section project-responsibility-section">
           <ProjectSectionHeading label="RESPONSIBILITY" title="내가 담당한 부분" />
           <ol className="project-responsibility-list">
