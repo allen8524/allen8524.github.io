@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ImagePreview from "../portfolio/ImagePreview";
-import ProjectTechGroups from "./ProjectTechGroups";
 import type { Project, ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import ImagePreview from "../portfolio/ImagePreview";
+import ProjectTechGroups from "./ProjectTechGroups";
 
 type ProjectDetailHeroProps = {
   project: Project;
@@ -14,6 +14,9 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const projectTitle = formatMiddleDotSpacing(project.title);
   const previewAddress = `${project.id}.portfolio/detail`;
+  const projectMeta = ["PROJECT", detail.developmentType, project.year]
+    .map(formatMiddleDotSpacing)
+    .join(" · ");
 
   return (
     <section className="project-detail-hero">
@@ -21,10 +24,16 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
       <span className="detail-hero-glass" aria-hidden="true" />
 
       <div className="project-detail-hero__content">
-        <p className="project-detail-eyebrow">PROJECT · {formatMiddleDotSpacing(detail.developmentType)}</p>
+        <p className="project-detail-eyebrow">{projectMeta}</p>
         <p className="project-detail-hero__category">{formatMiddleDotSpacing(project.category)}</p>
         <h1>{projectTitle}</h1>
         <p className="project-detail-hero__summary">{formatMiddleDotSpacing(project.description)}</p>
+        {detail.teamRole && (
+          <p className="project-detail-hero__role">
+            <span>담당 영역</span>
+            {formatMiddleDotSpacing(detail.teamRole)}
+          </p>
+        )}
         <ProjectTechGroups className="project-detail-tech-groups--hero" project={project} />
         <div className="project-detail-hero__actions">
           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${projectTitle} GitHub 저장소 새 창에서 열기`}>
