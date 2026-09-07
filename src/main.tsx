@@ -17,6 +17,8 @@ import "./styles/scroll-top-jelly.css";
 import "./styles/scroll-top-solid.css";
 import "./styles/hamster-control.css";
 import "./styles/hamster-knob-face.css";
+import "./styles/topbar.css";
+import "./styles/contact.css";
 
 const rootElement = document.getElementById("root");
 

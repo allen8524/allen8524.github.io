@@ -1,0 +1,122 @@
+.contact.section {
+  padding: 72px 0 80px;
+  background: var(--background-color);
+}
+
+.contact .contact-layout { --bs-gutter-x: 28px; }
+
+.contact .contact-info-card,
+.contact .form-wrapper {
+  height: 100%;
+  padding: 28px;
+  border: 1px solid var(--theme-border-default);
+  border-radius: 14px;
+  background: var(--surface-color);
+  box-shadow: 0 10px 32px var(--theme-shadow-soft);
+}
+
+.contact .contact-info-card {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--accent-color) 6%, var(--surface-color)), var(--surface-color) 65%);
+}
+.contact .info-item { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.contact .info-item .info-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-color), transparent 87%);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+.contact .info-item .info-content h4 { margin: 0; }
+
+.contact .contact-details .detail-item {
+  gap: 16px;
+  align-items: center;
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color) 9%, transparent);
+}
+.contact .contact-details .detail-item:last-child { padding-bottom: 0; }
+.contact .contact-details .detail-item .detail-icon {
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+.contact .contact-details .detail-item .detail-content { min-width: 0; }
+.contact .contact-details .detail-item .detail-content .detail-label {
+  margin-bottom: 2px;
+}
+.contact .contact-details .detail-item .detail-content .detail-value {
+  overflow-wrap: anywhere;
+}
+.contact .form-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 3px solid color-mix(in srgb, var(--accent-color) 65%, var(--surface-color));
+  background: radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent-color) 5%, transparent), transparent 65%), var(--surface-color);
+}
+.contact .contact-email-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--heading-color);
+  letter-spacing: 0.2px;
+}
+.contact .contact-email-label i {
+  color: var(--accent-color);
+  font-size: 20px;
+}
+.contact .form-wrapper .form-group { position: relative; margin-bottom: 20px; }
+.contact .form-wrapper .form-group input {
+  padding: 16px 52px 16px 18px;
+  background: color-mix(in srgb, var(--accent-color) 3%, var(--surface-color));
+  border-color: color-mix(in srgb, var(--accent-color) 18%, var(--surface-color));
+}
+.contact .contact-copy-icon {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--default-color);
+  cursor: pointer;
+}
+.contact .contact-copy-icon:hover { background: color-mix(in srgb, var(--accent-color), transparent 90%); }
+.contact .form-wrapper .submit-btn {
+  min-height: 64px;
+  padding: 16px 12px;
+  gap: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-color), transparent 87%);
+}
+.contact .form-wrapper .contact-secondary-btn {
+  background: var(--surface-color);
+  color: var(--default-color);
+  border: 1px solid var(--theme-border-default);
+  box-shadow: none;
+}
+.contact .form-wrapper .contact-secondary-btn i { color: var(--accent-color); }
+.contact .form-wrapper .contact-secondary-btn:hover {
+  background: color-mix(in srgb, var(--accent-color) 7%, var(--surface-color));
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 12px var(--theme-shadow-soft);
+}
+.contact .form-wrapper .submit-btn i { order: -1; }
+.contact .form-wrapper .submit-btn:hover i { transform: none; }
+.contact button:focus-visible,
+.contact a:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 4px; }
+
+@media (max-width: 767px) {
+  .contact.section { padding: 48px 0; }
+  .contact .contact-info-card,
+  .contact .form-wrapper { padding: 24px 20px; }
+}

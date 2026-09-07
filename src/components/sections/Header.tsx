@@ -92,12 +92,12 @@ function Header() {
     <>
       <header
         id="header"
-        className={`header dark-background d-flex flex-column${isOpen ? " header-show" : ""}`}
+        className={`site-topbar${isOpen ? " is-open" : ""}`}
       >
         <button
           type="button"
-          className={`header-toggle d-xl-none bi ${isOpen ? "bi-x" : "bi-list"}`}
-          aria-label="사이드 메뉴 열기/닫기"
+          className={`site-topbar-menu-toggle bi ${isOpen ? "bi-x" : "bi-list"}`}
+          aria-label="메뉴 열기/닫기"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
         />
@@ -110,25 +110,6 @@ function Header() {
           <Link to="/" className="logo d-flex align-items-center justify-content-center">
             <h1 className="sitename">황민서</h1>
           </Link>
-        </div>
-
-        <div className="header-navigation-stack">
-          <nav id="navmenu" className="navmenu">
-            <ul>
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <button
-                    type="button"
-                    className={activeSection === item.id ? "active" : undefined}
-                    onClick={() => moveToSection(item.id)}
-                  >
-                    <i className={`bi ${item.icon} navicon`} />
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
 
         <div
@@ -175,8 +156,28 @@ function Header() {
             </label>
           </div>
         </div>
+        <div className="header-navigation-stack">
+          <nav id="navmenu" className="site-topbar-nav" aria-label="주 메뉴">
+            <ul>
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className={activeSection === item.id ? "active" : undefined}
+                    aria-current={activeSection === item.id ? "location" : undefined}
+                    onClick={() => moveToSection(item.id)}
+                  >
+                    <i className={`bi ${item.icon} navicon`} />
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <ThemeToggle />
       </header>
-      <ThemeToggle />
     </>
   );
 }

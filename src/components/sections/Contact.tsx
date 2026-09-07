@@ -26,11 +26,13 @@ function Contact() {
     <section id="contact" className="contact section">
       <div className="container section-title">
         <h1>연락처</h1>
+        <p>문의나 협업 제안은 이메일로 보내주세요.</p>
       </div>
 
       <div className="container">
-        <div className="row gy-4">
-          <div className="col-lg-5">
+        <div className="row gy-4 contact-layout">
+          <div className="col-lg-4">
+            <div className="contact-info-card">
             <div className="info-item">
               <div className="info-icon">
                 <i className="bi bi-chat-dots" />
@@ -41,18 +43,6 @@ function Contact() {
             </div>
 
             <div className="contact-details">
-              <div className="detail-item">
-                <div className="detail-icon">
-                  <i className="bi bi-envelope-open" />
-                </div>
-                <div className="detail-content">
-                  <span className="detail-label">이메일</span>
-                  <a href={`mailto:${EMAIL_ADDRESS}`} className="detail-value text-decoration-none">
-                    {EMAIL_ADDRESS}
-                  </a>
-                </div>
-              </div>
-
               <div className="detail-item">
                 <div className="detail-icon">
                   <i className="bi bi-github" />
@@ -87,11 +77,15 @@ function Contact() {
                 </div>
               </div>
             </div>
+            </div>
           </div>
 
-          <div className="col-lg-7">
+          <div className="col-lg-8">
             <div className="form-wrapper">
-
+              <label className="contact-email-label" htmlFor="contactEmailAddress">
+                <i className="bi bi-envelope" aria-hidden="true" />
+                이메일
+              </label>
               <div className="form-group">
                 <input
                   type="text"
@@ -100,6 +94,9 @@ function Contact() {
                   readOnly
                   aria-label="이메일 주소"
                 />
+                <button className="contact-copy-icon" type="button" onClick={handleCopyEmail} aria-label="이메일 주소 복사">
+                  <i className={`bi ${isCopySuccessful ? "bi-check-lg" : "bi-copy"}`} aria-hidden="true" />
+                </button>
               </div>
 
               <div className="row g-3">
@@ -127,7 +124,7 @@ function Contact() {
                 <div className="col-md-6">
                   <a
                     href="https://github.com/allen8524"
-                    className="submit-btn w-100 justify-content-center"
+                    className="submit-btn contact-secondary-btn w-100 justify-content-center"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub 바로가기"
@@ -139,7 +136,7 @@ function Contact() {
                 <div className="col-md-6">
                   <a
                     href="https://allen8524.tistory.com/"
-                    className="submit-btn w-100 justify-content-center"
+                    className="submit-btn contact-secondary-btn w-100 justify-content-center"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="블로그 바로가기"
