@@ -26,7 +26,6 @@ function Contact() {
     <section id="contact" className="contact section">
       <div className="container section-title">
         <h1>연락처</h1>
-        <p>채용 · 협업 문의는 이메일로 가장 빠르게 확인하며, GitHub와 블로그에서 작업 내용을 이어서 보실 수 있습니다.</p>
       </div>
 
       <div className="container">
@@ -38,7 +37,6 @@ function Contact() {
               </div>
               <div className="info-content">
                 <h4>연락처 안내</h4>
-                <p>필요한 채널만 빠르게 확인할 수 있도록 핵심 연락처와 작업 링크를 한곳에 정리했습니다.</p>
               </div>
             </div>
 
@@ -93,13 +91,8 @@ function Contact() {
 
           <div className="col-lg-7">
             <div className="form-wrapper">
-              <div className="form-header">
-                <h3>바로 연락하기</h3>
-                <p>이메일 복사와 메일 보내기, GitHub · 블로그 바로가기를 한 번에 사용할 수 있습니다.</p>
-              </div>
 
               <div className="form-group">
-                <label htmlFor="contactEmailAddress">이메일</label>
                 <input
                   type="text"
                   id="contactEmailAddress"
