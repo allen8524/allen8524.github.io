@@ -53,6 +53,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-block: 22px;
   border-top: 3px solid color-mix(in srgb, var(--accent-color) 65%, var(--surface-color));
   background: radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent-color) 5%, transparent), transparent 65%), var(--surface-color);
 }
@@ -71,9 +72,9 @@
   color: var(--accent-color);
   font-size: 20px;
 }
-.contact .form-wrapper .form-group { position: relative; margin-bottom: 20px; }
+.contact .form-wrapper .form-group { position: relative; margin-bottom: 14px; }
 .contact .form-wrapper .form-group input {
-  padding: 16px 52px 16px 18px;
+  padding: 13px 52px 13px 18px;
   background: color-mix(in srgb, var(--accent-color) 3%, var(--surface-color));
   border-color: color-mix(in srgb, var(--accent-color) 18%, var(--surface-color));
 }
@@ -92,11 +93,14 @@
 }
 .contact .contact-copy-icon:hover { background: color-mix(in srgb, var(--accent-color), transparent 90%); }
 .contact .form-wrapper .submit-btn {
-  min-height: 64px;
-  padding: 16px 12px;
+  min-height: 52px;
+  padding: 12px;
   gap: 16px;
   text-decoration: none;
   box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-color), transparent 87%);
+}
+.contact .form-wrapper .row.g-3 {
+  --bs-gutter-y: 12px;
 }
 .contact .form-wrapper .contact-secondary-btn {
   background: var(--surface-color);

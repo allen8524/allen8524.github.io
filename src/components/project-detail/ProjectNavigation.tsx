@@ -36,7 +36,7 @@ function ProjectNavigation({ nextProject, previousProject }: ProjectNavigationPr
   return (
     <section className="project-detail-section project-explore-section">
       <header className="project-explore-heading">
-        <div><p>EXPLORE</p><h2>다른 프로젝트</h2></div>
+        <div><h2>다른 프로젝트</h2></div>
         <Link to="/#portfolio" className="all-projects"><i className="bi bi-grid-3x3-gap" aria-hidden="true" /><span>프로젝트 전체 보기</span></Link>
       </header>
       <nav className="project-nav" aria-label="프로젝트 상세 이동">

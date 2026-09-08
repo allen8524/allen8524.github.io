@@ -9,7 +9,7 @@ function ProjectTroubleshooting({ detail }: { detail: ProjectDetail }) {
 
   return (
     <section className="project-detail-section project-troubleshooting-section project-detail-section--secondary">
-      <ProjectSectionHeading label="TROUBLESHOOTING" title="트러블슈팅" />
+      <ProjectSectionHeading title="트러블슈팅" />
       <div className="project-troubleshooting-header">
         <span>번호</span>
         <span>문제 상황</span>

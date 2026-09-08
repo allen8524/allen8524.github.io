@@ -12,7 +12,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
     <>
       {designPoints.length > 0 && (
         <section className="project-detail-section project-implementation-section">
-          <ProjectSectionHeading label="DESIGN" title="핵심 설계" />
+          <ProjectSectionHeading title="핵심 설계" />
           <div className={`project-implementation-grid project-implementation-grid--count-${designPoints.length}`}>
             {designPoints.map((point, index) => (
               <article className="project-implementation-card" key={point.title}>
@@ -27,7 +27,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
 
       {detail.analysisResults && detail.analysisResults.length > 0 && (
         <section className="project-detail-section project-results-section">
-          <ProjectSectionHeading label="RESULTS" title="주요 결과" />
+          <ProjectSectionHeading title="주요 결과" />
           <div className="project-results-grid">
             {detail.analysisResults.map((result) => (
               <article className="project-result-card" key={result.label}>

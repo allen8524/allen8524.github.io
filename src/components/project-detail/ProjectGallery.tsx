@@ -32,7 +32,7 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
 
   return (
     <section className="project-detail-section project-gallery-section">
-      <ProjectSectionHeading label="OUTPUT" title="결과 및 화면" />
+      <ProjectSectionHeading title="결과 및 화면" />
       <div className="project-gallery-grid">
         {gallery.map((image, index) => {
           const imageAlt = formatMiddleDotSpacing(image.alt);

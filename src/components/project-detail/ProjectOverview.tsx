@@ -19,7 +19,7 @@ function ProjectOverview({ detail }: ProjectOverviewProps) {
 
   return (
     <section className="project-detail-section project-flow-section project-detail-section--secondary">
-      <ProjectSectionHeading label="FLOW" title="핵심 흐름" />
+      <ProjectSectionHeading title="핵심 흐름" />
       <ol className={`project-flow-list ${flowCountClass}`}>
         {flowSteps.map((step, index) => (
           <li key={`${index}-${step}`}>
