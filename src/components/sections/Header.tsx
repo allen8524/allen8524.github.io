@@ -115,14 +115,6 @@ function Header() {
         <div
           className={`header-hamster-control${isHamsterVisible ? "" : " is-disabled"}`}
         >
-          <div id="header-hamster-visual" className="header-hamster-visual">
-            {isHamsterVisible ? (
-              <div className="header-hamster">
-                <ScrollHamster />
-              </div>
-            ) : null}
-          </div>
-
           <div className="hamster-toggle">
             <label
               className="hamster-toggle__lever"
@@ -154,6 +146,13 @@ function Header() {
                 <span className="hamster-toggle__base-inside" />
               </span>
             </label>
+          </div>
+          <div id="header-hamster-visual" className="header-hamster-visual">
+            {isHamsterVisible ? (
+              <div className="header-hamster">
+                <ScrollHamster />
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="header-navigation-stack">

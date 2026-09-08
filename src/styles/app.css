@@ -24,6 +24,42 @@ a {
   flex: 0 0 auto;
 }
 
+.hero-profile-meta {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.hero-profile-meta__location,
+.hero-profile-meta__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-profile-meta__location {
+  font-size: 1rem;
+}
+
+.hero-profile-meta__location i {
+  color: var(--accent-color);
+}
+
+.hero-profile-meta__indicator {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  margin-inline: 4px;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
+
 .scroll-top {
   border: 0;
 }

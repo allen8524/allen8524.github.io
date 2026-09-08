@@ -43,8 +43,8 @@
 .site-topbar ~ main section[id] { scroll-margin-top: 96px; }
 @media (min-width: 1200px) {
   .site-topbar .header-hamster-control {
-    --hamster-size: 49px;
-    --hamster-scale: 0.291667;
+    --hamster-size: 32px;
+    --hamster-scale: 0.190476;
     --hamster-visual-overhang: 0px;
     display: flex;
     align-items: center;
@@ -55,17 +55,17 @@
     padding: 0;
   }
   .site-topbar .hamster-toggle {
-    width: 49px;
-    min-height: 49px;
+    width: 32px;
+    min-height: 32px;
   }
   .site-topbar .hamster-toggle__lever {
-    --knob-size: 1.16rem;
-    --lever-width: 3.77rem;
-    --lever-height: 3.08rem;
-    --base-width: 2.83rem;
-    --base-height: 0.82rem;
-    --bar-width: 0.34rem;
-    --bar-height: 1.93rem;
+    --knob-size: 0.744rem;
+    --lever-width: 2.416rem;
+    --lever-height: 1.968rem;
+    --base-width: 1.808rem;
+    --base-height: 0.528rem;
+    --bar-width: 0.216rem;
+    --bar-height: 1.232rem;
   }
 }
 @media (min-width: 1200px) and (max-width: 1399px) {

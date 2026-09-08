@@ -64,6 +64,16 @@ function Hero() {
                     alt="황민서 백엔드 개발자 포트폴리오"
                     className="img-fluid main-image"
                   />
+                  <div className="hero-profile-meta">
+                    <div className="hero-profile-meta__location">
+                      <i className="bi bi-geo-alt" aria-hidden="true" />
+                      <span>서울 노원구</span>
+                    </div>
+                    <div className="hero-profile-meta__status">
+                      <span className="hero-profile-meta__indicator" aria-hidden="true" />
+                      <span>신입 백엔드 개발자 포지션 지원</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="hero-card-stack">
                   <div className="floating-card card-1">

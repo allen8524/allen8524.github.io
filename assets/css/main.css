@@ -876,19 +876,6 @@ section,
   margin-left: auto;
 }
 
-.hero .hero-image .hero-profile-shell::before {
-  content: "";
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: -5%;
-  height: 34%;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent-color), transparent 84%);
-  filter: blur(28px);
-  z-index: 0;
-}
-
 .hero .hero-image .image-wrapper .main-image {
   position: relative;
   z-index: 1;

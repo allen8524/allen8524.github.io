@@ -1,35 +1,99 @@
+function BackendDiagram() {
+  return (
+    <figure className="backend-diagram" aria-label="백엔드 요청 처리 흐름">
+      <figcaption className="visually-hidden">
+        클라이언트 요청을 API 서버에서 받아 인증과 권한을 확인합니다. 서비스에서 비즈니스 로직을
+        처리하고 데이터베이스에 저장하거나 조회한 뒤, 처리 결과를 클라이언트로 반환합니다.
+        코드와 데이터는 이 흐름을 설명합니다.
+      </figcaption>
+
+      <div className="backend-diagram__preview" aria-hidden="true">
+        <div className="backend-code">
+          <div className="backend-code__bar">
+            <span className="backend-code__dots"><b /><b /><b /></span>
+            <span>request.flow</span>
+          </div>
+          <pre><code><span className="backend-code__comment">{"// 요청 처리\n"}</span><span className="backend-code__keyword">{"receive"}</span>{" request\n"}<span className="backend-code__keyword">{"check"}</span>{"   auth & role\n"}<span className="backend-code__keyword">{"call"}</span>{"    service\n"}<span className="backend-code__keyword">{"query"}</span>{"   database\n"}<span className="backend-code__keyword">{"return"}</span>{"  response"}</code></pre>
+        </div>
+
+        <div className="backend-response-preview">
+          <div className="backend-response-preview__heading">
+            <span>Response</span>
+            <span className="backend-response-preview__status">200 OK</span>
+          </div>
+          <div className="backend-response-preview__type">application/json</div>
+          <pre><code>{"{\n  "}<span>"id"</span>{": 1,\n  "}<span>"name"</span>{": "}<em>"user"</em>{",\n  "}<span>"role"</span>{": "}<em>"MEMBER"</em>{"\n}"}</code></pre>
+        </div>
+      </div>
+
+      <div className="backend-flow" aria-hidden="true">
+        <div className="backend-flow__node backend-flow__client">
+          <i className="bi bi-display" />
+          <strong>Client</strong>
+          <span>사용자 요청</span>
+        </div>
+        <div className="backend-flow__arrow backend-flow__request"><span>HTTP</span></div>
+        <div className="backend-flow__node backend-flow__api">
+          <i className="bi bi-hdd-stack" />
+          <strong>API Server</strong>
+          <span>요청 처리</span>
+        </div>
+        <div className="backend-flow__arrow backend-flow__arrow--both backend-flow__verify"><span>Verify</span></div>
+        <div className="backend-flow__node backend-flow__auth">
+          <i className="bi bi-shield-check" />
+          <strong>Auth</strong>
+          <span>인증 · 권한</span>
+        </div>
+
+        <div className="backend-flow__down backend-flow__route"><span>Route</span></div>
+
+        <div className="backend-flow__table">
+          <div className="backend-flow__table-heading"><i className="bi bi-database" /> users</div>
+          <div className="backend-flow__table-row backend-flow__table-labels"><span>id</span><span>role</span></div>
+          <div className="backend-flow__table-row"><span>1</span><span>MEMBER</span></div>
+          <div className="backend-flow__table-row"><span>2</span><span>ADMIN</span></div>
+          <div className="backend-flow__table-row"><span>3</span><span>MEMBER</span></div>
+        </div>
+        <div className="backend-flow__node backend-flow__service">
+          <i className="bi bi-gear" />
+          <strong>Service</strong>
+          <span>비즈니스 로직</span>
+        </div>
+        <div className="backend-flow__arrow backend-flow__arrow--both backend-flow__query"><span>Query</span><small>Result</small></div>
+        <div className="backend-flow__node backend-flow__database">
+          <i className="bi bi-database" />
+          <strong>Database</strong>
+          <span>저장 · 조회</span>
+        </div>
+
+        <div className="backend-flow__down backend-flow__result" />
+        <div className="backend-flow__node backend-flow__response">
+          <i className="bi bi-file-earmark-code" />
+          <div><strong>Response</strong><span>클라이언트에 처리 결과 반환</span></div>
+        </div>
+      </div>
+    </figure>
+  );
+}
+
 function About() {
   return (
     <section id="about" className="about section">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-lg-10">
+          <div className="col-xl-11">
             <div className="intro-header text-center">
               <h1>화면 뒤의 처리 구조를 설계합니다.</h1>
               <p className="subtitle">요청 처리 · 상태 관리 · 데이터 연동</p>
             </div>
 
             <div className="main-content-wrapper">
-              <div className="row align-items-start">
-                <div className="col-lg-4">
-                  <div className="profile-section">
-                    <div className="profile-image-container">
-                      <img src="assets/img/profile/profile_face.png" className="img-fluid" alt="황민서" />
-                    </div>
-                    <div className="profile-meta">
-                      <div className="location">
-                        <i className="bi bi-geo-alt" />
-                        <span>서울 노원구</span>
-                      </div>
-                      <div className="status">
-                        <div className="status-indicator" />
-                        <span>신입 백엔드 개발자 포지션 지원</span>
-                      </div>
-                    </div>
-                  </div>
+              <div className="about-layout">
+                <div className="about-visual">
+                  <BackendDiagram />
                 </div>
 
-                <div className="col-lg-8">
+                <div className="about-principles">
                   <div className="content-area">
                     <div className="expertise-grid">
                       <div className="expertise-item">
