@@ -12,9 +12,9 @@
 }
 .site-topbar .header-top { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .site-topbar .profile-img { display: flex; align-items: center; }
-.site-topbar .profile-img img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+.site-topbar .profile-img img { width: 40.8px; height: 40.8px; border-radius: 9.6px; object-fit: cover; }
 .site-topbar .logo { margin: 0; text-decoration: none; }
-.site-topbar .logo h1 { margin: 0; font-family: var(--nav-font); font-size: 16px; font-weight: 500; line-height: 1.4; color: var(--heading-color); }
+.site-topbar .logo h1 { margin: 0; font-family: var(--nav-font); font-size: 19.2px; font-weight: 500; line-height: 1.4; color: var(--heading-color); }
 .site-topbar .header-navigation-stack { margin-left: auto; align-self: stretch; display: flex; align-items: stretch; }
 .site-topbar-nav { display: flex; }
 .site-topbar-nav ul { display: flex; align-items: stretch; gap: 22px; list-style: none; padding: 0; margin: 0; }
@@ -29,15 +29,16 @@
   background: transparent;
   color: color-mix(in srgb, var(--heading-color), transparent 24%);
   font-family: var(--nav-font);
-  font-size: 14.5px;
+  font-size: 17.4px;
   font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 }
-.site-topbar-nav button .navicon { font-size: 0.95rem; }
+.site-topbar-nav button .navicon { font-size: 1.14rem; }
 .site-topbar-nav button.active, .site-topbar-nav button:hover { color: var(--accent-color); }
 .site-topbar-nav button.active::after { content: ""; position: absolute; bottom: 9px; left: 0; right: 0; height: 2px; background: var(--accent-color); }
-.site-topbar .theme-orb-toggle { position: relative; inset: auto; flex: 0 0 50px; }
+.site-topbar .theme-orb-toggle { position: relative; inset: auto; flex: 0 0 60px; width: 60px; height: 60px; }
+.site-topbar .theme-orb-toggle__orb { scale: 1.2; }
 .site-topbar-menu-toggle { display: none; }
 .site-topbar a:focus-visible, .site-topbar button:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
 .site-topbar ~ main section[id] { scroll-margin-top: 96px; }
@@ -71,11 +72,11 @@
 @media (min-width: 1200px) and (max-width: 1399px) {
   .site-topbar { gap: 16px; padding: 0 20px; }
   .site-topbar-nav ul { gap: 14px; }
-  .site-topbar-nav button { font-size: 13.5px; gap: 5px; }
+  .site-topbar-nav button { font-size: 16.2px; gap: 5px; }
 }
 @media (max-width: 1199px) {
   .site-topbar { min-height: 72px; padding: 0 20px; gap: 16px; }
-  .site-topbar-menu-toggle { display: block; order: 2; border: 0; background: transparent; color: var(--heading-color); font-size: 26px; padding: 4px; cursor: pointer; }
+  .site-topbar-menu-toggle { display: block; order: 2; border: 0; background: transparent; color: var(--heading-color); font-size: 31.2px; padding: 4px; cursor: pointer; }
   .site-topbar .theme-orb-toggle { margin-left: auto; }
   .site-topbar .header-navigation-stack { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 12px 20px 20px; background: var(--background-color); border-bottom: 1px solid var(--theme-border-default); max-height: calc(100dvh - 72px); overflow-y: auto; }
   .site-topbar.is-open .header-navigation-stack { display: block; }
