@@ -1,11 +1,9 @@
 /* Project detail: remove decorative sequence numbers to reduce visual density. */
-.project-open-list li,
 .project-responsibility-list > li {
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
 }
 
-.project-open-list > li > span,
 .project-responsibility-list > li > span,
 .project-flow-list > li > span,
 .project-implementation-card > span,

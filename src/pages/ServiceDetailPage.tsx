@@ -59,7 +59,7 @@ function ServiceDetailPage() {
             <span className="detail-hero-glass" aria-hidden="true" />
 
             <div className="service-detail-hero__content">
-              <h1 id="service-title">{formatMiddleDotSpacing(service.heroTitle)}</h1>
+              <h1 id="service-title">{formatMiddleDotSpacing(service.title)}</h1>
               <ul className="service-detail-keywords" aria-label="핵심 기술">
                 {keywords.map((keyword) => <li key={keyword}><i className={`bi ${getTechnologyIcon(keyword)}`} aria-hidden="true" />{formatMiddleDotSpacing(keyword)}</li>)}
               </ul>

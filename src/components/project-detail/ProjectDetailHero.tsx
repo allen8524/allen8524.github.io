@@ -14,11 +14,6 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const projectTitle = formatMiddleDotSpacing(project.title);
   const previewAddress = `${project.id}.portfolio/detail`;
-  const projectTechnologies = project.category
-    .split("·")
-    .slice(1)
-    .map((item) => item.trim())
-    .filter(Boolean);
 
   return (
     <section className="project-detail-hero">
@@ -28,11 +23,6 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
       <div className="project-detail-hero__content">
         <div className="project-detail-meta" aria-label="프로젝트 정보">
           <span><i className="bi bi-person" aria-hidden="true" />{formatMiddleDotSpacing(detail.developmentType)}</span>
-          {projectTechnologies.map((technology) => (
-            <span className="project-detail-meta__tech" key={technology}>
-              <i className="bi bi-code-slash" aria-hidden="true" />{formatMiddleDotSpacing(technology)}
-            </span>
-          ))}
           <span><i className="bi bi-calendar3" aria-hidden="true" />{formatMiddleDotSpacing(project.year)}</span>
         </div>
         <h1>{projectTitle}</h1>

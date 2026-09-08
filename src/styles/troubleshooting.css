@@ -95,16 +95,6 @@
   word-break: keep-all;
 }
 
-.testimonials .trouble-card-summary {
-  margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-family: var(--font-card-body);
-  font-size: 0.92rem;
-  font-weight: 300;
-  line-height: 1.72;
-  word-break: keep-all;
-}
-
 .testimonials .trouble-card-flow {
   display: grid;
   gap: 0;

@@ -27,12 +27,14 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--theme-text-muted);
+  color: color-mix(in srgb, var(--heading-color), transparent 24%);
   font-family: var(--nav-font);
-  font-size: 14px;
+  font-size: 14.5px;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 }
+.site-topbar-nav button .navicon { font-size: 0.95rem; }
 .site-topbar-nav button.active, .site-topbar-nav button:hover { color: var(--accent-color); }
 .site-topbar-nav button.active::after { content: ""; position: absolute; bottom: 9px; left: 0; right: 0; height: 2px; background: var(--accent-color); }
 .site-topbar .theme-orb-toggle { position: relative; inset: auto; flex: 0 0 50px; }
@@ -41,8 +43,8 @@
 .site-topbar ~ main section[id] { scroll-margin-top: 96px; }
 @media (min-width: 1200px) {
   .site-topbar .header-hamster-control {
-    --hamster-size: 60px;
-    --hamster-scale: 0.357143;
+    --hamster-size: 49px;
+    --hamster-scale: 0.291667;
     --hamster-visual-overhang: 0px;
     display: flex;
     align-items: center;
@@ -52,12 +54,24 @@
     margin: 0;
     padding: 0;
   }
-  .site-topbar .hamster-toggle { width: 58px; }
+  .site-topbar .hamster-toggle {
+    width: 49px;
+    min-height: 49px;
+  }
+  .site-topbar .hamster-toggle__lever {
+    --knob-size: 1.16rem;
+    --lever-width: 3.77rem;
+    --lever-height: 3.08rem;
+    --base-width: 2.83rem;
+    --base-height: 0.82rem;
+    --bar-width: 0.34rem;
+    --bar-height: 1.93rem;
+  }
 }
 @media (min-width: 1200px) and (max-width: 1399px) {
   .site-topbar { gap: 16px; padding: 0 20px; }
   .site-topbar-nav ul { gap: 14px; }
-  .site-topbar-nav button { font-size: 13px; gap: 5px; }
+  .site-topbar-nav button { font-size: 13.5px; gap: 5px; }
 }
 @media (max-width: 1199px) {
   .site-topbar { min-height: 72px; padding: 0 20px; gap: 16px; }

@@ -10,7 +10,6 @@ import "./styles/project-detail-density.css";
 import "./styles/service-detail.css";
 import "./styles/detail-hero-glow.css";
 import "./styles/troubleshooting.css";
-import "./styles/sidebar-balance.css";
 import "./styles/theme-toggle.css";
 import "./styles/footer-wave.css";
 import "./styles/scroll-top-jelly.css";
