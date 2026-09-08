@@ -9,6 +9,19 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import { formatMiddleDotSpacing } from "../utils/typography";
 import NotFoundPage from "./NotFoundPage";
 
+function getTechnologyIcon(technology: string) {
+  const value = technology.toLocaleLowerCase();
+
+  if (value.includes("spring security") || value.includes("access control")) return "bi-shield-lock";
+  if (value.includes("laravel")) return "bi-boxes";
+  if (value.includes("php")) return "bi-filetype-php";
+  if (value.includes("bootstrap")) return "bi-bootstrap-fill";
+  if (value.includes("mysql") || value.includes("jpa") || value.includes("flyway")) return "bi-database";
+  if (value.includes("pandas")) return "bi-table";
+  if (value.includes("scikit")) return "bi-cpu";
+  return "bi-code-slash";
+}
+
 function ServiceDetailPage() {
   const { serviceId } = useParams();
   const service = serviceId ? getServiceDetail(serviceId) : undefined;
@@ -46,11 +59,9 @@ function ServiceDetailPage() {
             <span className="detail-hero-glass" aria-hidden="true" />
 
             <div className="service-detail-hero__content">
-              <p className="service-detail-eyebrow">개발 역량 · {formatMiddleDotSpacing(service.title)}</p>
               <h1 id="service-title">{formatMiddleDotSpacing(service.heroTitle)}</h1>
-              <p className="service-detail-hero__summary">{formatMiddleDotSpacing(service.summary)}</p>
               <ul className="service-detail-keywords" aria-label="핵심 기술">
-                {keywords.map((keyword) => <li key={keyword}>{formatMiddleDotSpacing(keyword)}</li>)}
+                {keywords.map((keyword) => <li key={keyword}><i className={`bi ${getTechnologyIcon(keyword)}`} aria-hidden="true" />{formatMiddleDotSpacing(keyword)}</li>)}
               </ul>
             </div>
             <figure className="service-detail-hero__image">
@@ -61,7 +72,7 @@ function ServiceDetailPage() {
 
           <section className="service-detail-section" aria-labelledby="capabilities-title">
             <div className="service-detail-section__heading">
-              <p>Capabilities</p><h2 id="capabilities-title">핵심 역량</h2>
+              <h2 id="capabilities-title">핵심 역량</h2>
             </div>
             <div className="service-feature-grid">
               {service.features.map((feature) => (
@@ -78,7 +89,7 @@ function ServiceDetailPage() {
 
           <section className="service-detail-section" aria-labelledby="process-title">
             <div className="service-detail-section__heading">
-              <p>Process</p><h2 id="process-title">{formatMiddleDotSpacing(service.processTitle)}</h2>
+              <h2 id="process-title">{formatMiddleDotSpacing(service.processTitle)}</h2>
             </div>
             <ol className="service-process-list">
               {service.processSteps.map((step, index) => (
@@ -93,7 +104,7 @@ function ServiceDetailPage() {
 
           <section className="service-detail-section" aria-labelledby="evidence-title">
             <div className="service-detail-section__heading">
-              <p>Evidence</p><h2 id="evidence-title">{formatMiddleDotSpacing(service.evidenceTitle)}</h2>
+              <h2 id="evidence-title">{formatMiddleDotSpacing(service.evidenceTitle)}</h2>
             </div>
             <div className="service-evidence-grid">
               {service.evidence.map((item) => {
@@ -106,7 +117,7 @@ function ServiceDetailPage() {
 
           <section className="service-detail-section" aria-labelledby="information-title">
             <div className="service-detail-section__heading">
-              <p>Information</p><h2 id="information-title">사용 기술 및 확인 항목</h2>
+              <h2 id="information-title">사용 기술 및 확인 항목</h2>
             </div>
             <div className="service-info-panel">
               {service.sideInfo.map((info, index) => (
@@ -119,7 +130,7 @@ function ServiceDetailPage() {
                   <ul>
                     {info.items.map((item) => (
                       <li key={item}>
-                        {index > 0 && <i className="bi bi-check2" aria-hidden="true" />}
+                        <i className={`bi ${index > 0 ? "bi-check2" : getTechnologyIcon(item)}`} aria-hidden="true" />
                         <span>{formatMiddleDotSpacing(item)}</span>
                       </li>
                     ))}
@@ -131,7 +142,7 @@ function ServiceDetailPage() {
 
           <section className="service-detail-section service-other" aria-labelledby="other-title">
             <div className="service-detail-section__heading service-other__heading">
-              <div><p>Explore</p><h2 id="other-title">다른 개발 역량</h2></div>
+              <div><h2 id="other-title">다른 개발 역량</h2></div>
               <Link to="/#services" className="btn btn-outline service-all-link">개발 역량 전체 보기</Link>
             </div>
             <div className="service-other-grid">
