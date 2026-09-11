@@ -307,3 +307,55 @@ a {
   }
 
 }
+
+.hero .hero-content .hero-summary {
+  margin-top: 32px;
+}
+.hero .hero-content .hero-summary .hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: 360px;
+  gap: 0;
+  margin: 0;
+  padding: 8px 0;
+}
+.hero .hero-content .hero-summary .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 4px 12px;
+  min-width: 0;
+  text-align: center;
+}
+.hero .hero-content .hero-summary .stat-item + .stat-item {
+  border-left: 1px solid var(--theme-border-default);
+}
+.hero .hero-content .hero-summary .hero-stats .stat-item .stat-number {
+  font-family: var(--font-ui);
+  font-size: 2rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.hero .hero-content .hero-summary .hero-stats .stat-item .stat-label {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  color: var(--default-color);
+  word-break: keep-all;
+  line-height: 1.5;
+}
+@media (max-width: 575px) {
+  .hero .hero-content .hero-summary .stat-item { padding-inline: 8px; }
+}
+.hero .hero-image .hero-resume-card {
+  text-decoration: none;
+  cursor: pointer;
+}
+.hero .hero-image .hero-resume-card:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
