@@ -43,13 +43,7 @@
   align-items: center;
   gap: 28px;
   margin: 0 0 22px;
-  padding: 20px;
-  border: 1px solid var(--flow-border);
-  border-radius: 20px;
-  background:
-    radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--accent-color), transparent 94%), transparent 65%),
-    var(--surface-color);
-  box-shadow: 0 12px 40px var(--theme-shadow-soft);
+  padding: 0;
   font-family: var(--font-ui);
 }
 
@@ -363,13 +357,12 @@
 
 @media (max-width: 991px) {
   .about .expertise-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .backend-diagram { grid-template-columns: minmax(0, 1fr); padding: 24px; }
+  .backend-diagram { grid-template-columns: minmax(0, 1fr); }
   .backend-diagram__preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .backend-flow { grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1.15fr) 56px minmax(0, 1fr); }
 }
 
 @media (max-width: 575px) {
-  .backend-diagram { padding: 16px; border-radius: 16px; }
   .backend-diagram__preview { grid-template-columns: minmax(0, 1fr); }
   .backend-flow { grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1.15fr) 38px minmax(0, 1fr); }
   .backend-flow__node { padding: 12px 4px; }
