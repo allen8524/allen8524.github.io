@@ -1,12 +1,10 @@
 .testimonials {
-  background: var(--background-color) !important;
+  background: var(--background-color);
 }
 
 .testimonials::before {
-  display: none !important;
-  background: none !important;
-  opacity: 0 !important;
-  content: none !important;
+  display: none;
+  content: none;
 }
 
 .testimonials .troubleshooting-showcase {
@@ -28,8 +26,8 @@
   border: 0;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
   border-radius: 0;
-  background: transparent !important;
-  box-shadow: none !important;
+  background: transparent;
+  box-shadow: none;
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -105,7 +103,7 @@
 
 .testimonials .trouble-card-flow::before,
 .testimonials .trouble-card-flow li::before {
-  display: none !important;
+  display: none;
 }
 
 .testimonials .trouble-card-flow li {

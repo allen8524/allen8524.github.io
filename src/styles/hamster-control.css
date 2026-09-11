@@ -61,11 +61,11 @@
 
   /* ScrollHamster uses a 168px source box, so center the scaled wheel explicitly. */
   .header-hamster-control .header-hamster .wheel-and-hamster {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) scale(var(--hamster-scale)) !important;
-    transform-origin: center !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--hamster-scale));
+    transform-origin: center;
   }
 
   .hamster-toggle {

@@ -30,8 +30,6 @@ const revealGroupsByScope: Record<RevealScope, RevealGroup[]> = {
     { container: "#resume", selector: ".timeline-item, .resume-item", stagger: 70 },
     { container: "#portfolio", selector: ".portfolio-card, .portfolio-item", stagger: 80 },
     { container: "#services", selector: ".service-item", stagger: 80 },
-    { container: "#testimonials", selector: ".trouble-nav-item", stagger: 70 },
-    { selector: "#testimonials .trouble-stage" },
     { container: "#contact", selector: ".contact-info-card, .contact-form, .info-item", stagger: 80 },
   ],
   project: [

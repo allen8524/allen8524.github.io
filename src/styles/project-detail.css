@@ -471,7 +471,7 @@
   .project-detail-links--count-2 { grid-template-columns: 1fr; }
   .project-flow-list { gap: 14px; }
   .project-flow-list li { grid-column: auto; min-height: 64px; padding: 16px 18px 16px 26px; }
-  .project-flow-list li i { display: none !important; }
+  .project-flow-list li i { display: none; }
   .project-gallery-grid { grid-template-columns: 1fr; }
   .project-gallery-item { padding-right: 5px; }
   .project-gallery-fan__sheet--1 { transform: rotate(1deg) translate(1px, 1px); }
