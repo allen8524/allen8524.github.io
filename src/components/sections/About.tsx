@@ -3,14 +3,14 @@ import { createPortal } from "react-dom";
 
 const sourceRoot = "https://github.com/allen8524/cineflow-spring-boot/blob/42ae7478688882621cec036167400ab3568686f4/src/main/";
 const diagramDetails = {
-  request: { title: "좌석 선택 요청", purpose: "회차마다 좌석 상태가 달라, 조회 기준을 상영 회차로 통일했습니다. Spring MVC의 GET 요청에 scheduleId를 전달합니다.", file: "java/com/cineflow/controller/BookingController.java" },
-  client: { title: "회차에서 좌석으로", purpose: "예매 단계가 바뀌어도 선택한 회차가 이어지도록 설계했습니다. Thymeleaf로 회차 정보를 좌석 선택 화면에 반영합니다.", file: "resources/templates/booking/seat.html" },
-  api: { title: "BookingController", purpose: "잘못된 회차로 좌석을 조회하지 않도록 Controller에서 먼저 검증합니다. 유효하지 않으면 예매 시작 화면으로 돌려보냅니다.", file: "java/com/cineflow/controller/BookingController.java" },
-  auth: { title: "Spring Security", purpose: "비회원 예매는 열어두고 개인 내역과 관리 기능은 보호해야 했습니다. Spring Security로 URL별 로그인·ADMIN 권한을 구분했습니다.", file: "java/com/cineflow/config/SecurityConfig.java" },
-  table: { title: "상영관 좌석 템플릿", purpose: "여러 회차에서 같은 좌석 배치를 재사용하도록 JPA 엔티티를 템플릿과 상태로 분리했습니다. 표는 실제 초기 데이터 기준입니다.", file: "java/com/cineflow/config/DataInitializer.java" },
-  service: { title: "SeatService", purpose: "좌석 배치·가격 구성 로직을 한곳에서 관리하도록 SeatService로 분리했습니다. 조회 결과는 SeatRowDto로 묶어 전달합니다.", file: "java/com/cineflow/service/SeatService.java" },
-  database: { title: "회차별 좌석 상태", purpose: "회차별 예약·선점 상태를 독립적으로 관리하도록 schedule_seats를 설계했습니다. 같은 회차·좌석의 중복 레코드는 DB 유일 제약으로 막습니다.", file: "java/com/cineflow/domain/ScheduleSeat.java" },
-  response: { title: "Thymeleaf 화면 반환", purpose: "서버에서 조회한 좌석과 가격을 바로 화면에 반영하도록 Thymeleaf를 사용했습니다. 모델 데이터를 좌석 선택 HTML로 렌더링합니다.", file: "java/com/cineflow/controller/BookingController.java" },
+  request: { title: "좌석 선택 요청", purpose: "같은 좌석도 회차마다 예약 상태가 달라, 조회 기준의 일관성을 우선했습니다. Spring MVC 요청에 회차 ID를 전달하도록 설계했습니다.", file: "java/com/cineflow/controller/BookingController.java" },
+  client: { title: "회차에서 좌석으로", purpose: "여러 단계로 나뉜 예매에서는 선택 정보가 이어지는 것이 중요했습니다. 회차 정보를 다음 화면에 전달하고 Thymeleaf로 반영했습니다.", file: "resources/templates/booking/seat.html" },
+  api: { title: "BookingController", purpose: "잘못된 회차로 처리가 이어지지 않도록 입력 검증을 우선했습니다. Controller에서 회차를 확인하고, 유효하지 않으면 시작 화면으로 돌려보냅니다.", file: "java/com/cineflow/controller/BookingController.java" },
+  auth: { title: "Spring Security", purpose: "비회원 접근과 개인 정보 보호가 함께 필요했습니다. 접근 정책을 한곳에서 관리하도록 Spring Security로 URL별 인증·권한을 구분했습니다.", file: "java/com/cineflow/config/SecurityConfig.java" },
+  table: { title: "상영관 좌석 템플릿", purpose: "여러 회차가 같은 좌석 배치를 사용하므로 데이터 재사용을 우선했습니다. JPA로 고정 좌석 정보와 회차별 상태를 분리했습니다.", file: "java/com/cineflow/config/DataInitializer.java" },
+  service: { title: "SeatService", purpose: "좌석 배치와 가격 규칙이 바뀔 때 수정 범위를 줄이고자 했습니다. 조합 로직은 SeatService에 모으고, 화면에는 DTO로 전달했습니다.", file: "java/com/cineflow/service/SeatService.java" },
+  database: { title: "회차별 좌석 상태", purpose: "같은 회차에 동일 좌석 레코드가 중복되면 상태 관리가 모호해집니다. 데이터 일관성을 위해 회차·좌석 조합에 DB 유일 제약을 적용했습니다.", file: "java/com/cineflow/domain/ScheduleSeat.java" },
+  response: { title: "Thymeleaf 화면 반환", purpose: "서버 중심의 예매 흐름에서는 화면 구성도 같은 모델을 사용하는 편이 단순했습니다. Thymeleaf로 좌석·가격 데이터를 HTML에 반영했습니다.", file: "java/com/cineflow/controller/BookingController.java" },
 } as const;
 type DiagramPart = keyof typeof diagramDetails;
 
