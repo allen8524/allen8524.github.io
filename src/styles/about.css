@@ -395,3 +395,53 @@
   .backend-flow__response { grid-area: 7 / 1 / 8 / 4; }
   .backend-flow__table { display: none; }
 }
+
+.backend-diagram__caption {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  color: var(--flow-muted);
+  font-size: 0.875rem;
+}
+.backend-diagram__caption strong { color: var(--accent-color); font-size: 1rem; }
+.backend-diagram__caption strong span { margin-left: 8px; color: var(--heading-color); font-weight: 400; }
+.backend-inspect { cursor: pointer; }
+.backend-inspect:hover,
+.backend-inspect.is-active { border-color: var(--accent-color); }
+.backend-inspect:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
+.backend-flow__table-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+.backend-flow__seed-note { display: block; margin-top: 8px; color: var(--flow-muted); font-size: 0.75rem; }
+.backend-design-detail {
+  --flow-muted: var(--default-color);
+  --flow-border: color-mix(in srgb, var(--accent-color), transparent 70%);
+  position: fixed;
+  z-index: 10000;
+  width: min(360px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  box-shadow: 0 12px 36px var(--theme-shadow-soft);
+  font-family: var(--font-ui);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid var(--flow-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent-color), var(--theme-surface-1) 96%);
+}
+.backend-design-detail strong { display: block; color: var(--heading-color); font-size: 1rem; }
+.backend-design-detail p { margin: 6px 0 0; color: var(--flow-muted); font-size: 0.9375rem; line-height: 1.7; word-break: keep-all; }
+.backend-design-detail a { flex-shrink: 0; padding: 8px 0; font-size: 0.875rem; }
+@media (max-width: 575px) {
+  .backend-design-detail { align-items: flex-start; flex-direction: column; gap: 8px; padding: 16px; }
+  .backend-flow__table { grid-area: 6 / 1 / 7 / 6; margin-top: 18px; }
+  .backend-flow { grid-template-rows: auto 36px auto 28px auto auto; }
+}
+@media (max-width: 380px) {
+  .backend-flow { grid-template-rows: auto 28px auto 36px auto 28px auto auto; }
+  .backend-flow__table { display: block; grid-area: 8 / 1 / 9 / 4; }
+}
