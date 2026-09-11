@@ -8,9 +8,9 @@ type PageMetadata = {
 };
 
 export const DEFAULT_PAGE_METADATA = {
-  title: "황민서 | Java · Spring Boot · Laravel 백엔드 개발자",
+  title: "백엔드 개발자 포트폴리오 | 황민서 · Java Spring Boot",
   description:
-    "신입 백엔드 개발자 황민서의 포트폴리오입니다. Spring Boot, Laravel, PHP 기반 웹 프로젝트와 데이터 분석, 모바일·게임 프로젝트를 정리했습니다.",
+    "신입 백엔드 개발자 황민서의 백엔드 포트폴리오입니다. Java, Spring Boot, JPA, Spring Security, Laravel, PHP, MySQL 기반 프로젝트의 설계와 구현 경험을 소개합니다.",
   image: "https://allen8524.github.io/assets/img/profile/profile_face.png",
   url: "https://allen8524.github.io/",
 } as const;

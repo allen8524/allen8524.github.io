@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="P0bTAZLPHibaCvju4rtYvk_z9PnPULYfCp473AL-r9g" />
     <meta name="theme-color" content="#25303f" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <script>
       (() => {
         const storageKey = "portfolio-theme";
@@ -29,14 +31,17 @@
     </script>
     <meta
       name="description"
-      content="신입 백엔드 개발자 황민서의 포트폴리오입니다. Spring Boot, Laravel, PHP 기반 웹 프로젝트와 데이터 분석, 모바일·게임 프로젝트를 정리했습니다."
+      content="신입 백엔드 개발자 황민서의 백엔드 포트폴리오입니다. Java, Spring Boot, JPA, Spring Security, Laravel, PHP, MySQL 기반 프로젝트의 설계와 구현 경험을 소개합니다."
     />
+    <link rel="canonical" href="https://allen8524.github.io/" />
     <meta property="og:title" content="황민서 포트폴리오 | 신입 백엔드 개발자" />
     <meta
       property="og:description"
       content="Spring Boot, Laravel, PHP 기반 백엔드 프로젝트와 데이터 흐름 중심 구현 경험을 정리한 포트폴리오입니다."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="황민서 백엔드 개발자 포트폴리오" />
     <meta property="og:url" content="https://allen8524.github.io/" />
     <meta property="og:image" content="https://allen8524.github.io/assets/img/profile/profile_face.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +51,49 @@
       content="Spring Boot, Laravel, PHP 기반 백엔드 프로젝트와 데이터 흐름 중심 구현 경험을 정리한 포트폴리오입니다."
     />
     <meta name="twitter:image" content="https://allen8524.github.io/assets/img/profile/profile_face.png" />
-    <title>황민서 포트폴리오 | 신입 백엔드 개발자 · Spring Boot · Laravel</title>
+    <title>백엔드 개발자 포트폴리오 | 황민서 · Java Spring Boot</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://allen8524.github.io/#profile",
+            "url": "https://allen8524.github.io/",
+            "name": "황민서 백엔드 개발자 포트폴리오",
+            "description": "Java, Spring Boot, JPA, Spring Security, Laravel, PHP, MySQL 기반 백엔드 프로젝트 포트폴리오",
+            "inLanguage": "ko-KR",
+            "mainEntity": { "@id": "https://allen8524.github.io/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://allen8524.github.io/#person",
+            "name": "황민서",
+            "url": "https://allen8524.github.io/",
+            "image": "https://allen8524.github.io/assets/img/profile/profile_face.png",
+            "jobTitle": "백엔드 개발자",
+            "description": "요청 처리, 상태 관리, 데이터 연동을 중심으로 웹 서비스를 구현하는 신입 백엔드 개발자",
+            "email": "mailto:minseo8524@gmail.com",
+            "sameAs": [
+              "https://github.com/allen8524",
+              "https://allen8524.tistory.com/"
+            ],
+            "knowsAbout": [
+              "Java",
+              "Spring Boot",
+              "Spring Data JPA",
+              "Spring Security",
+              "Laravel",
+              "PHP",
+              "MySQL",
+              "REST API",
+              "백엔드 개발"
+            ]
+          }
+        ]
+      }
+    </script>
 
     <link rel="icon" href="/assets/img/favicon/favicon.ico?v=3" sizes="any" />
     <link
@@ -68,7 +115,24 @@
     />
   </head>
   <body class="index-page">
-    <div id="root"></div>
+    <div id="root">
+      <main class="seo-static-content">
+        <h1>백엔드 개발자 황민서 포트폴리오</h1>
+        <p>
+          Java와 Spring Boot를 중심으로 요청 처리, 상태 관리, 데이터베이스 연동을 구현한
+          신입 백엔드 개발자 포트폴리오입니다.
+        </p>
+        <h2>백엔드 프로젝트</h2>
+        <ul>
+          <li>Spring Boot, JPA, Spring Security, MySQL 기반 영화 예매 관리 시스템</li>
+          <li>Laravel, MySQL 기반 e스포츠 경기·뉴스·순위 관리 서비스</li>
+          <li>PHP, MySQL 기반 쇼핑몰 주문·결제·판매 관리 서비스</li>
+        </ul>
+        <p>
+          프로젝트별 데이터 모델, 인증과 권한, 예매·주문 상태 흐름, 문제 해결 과정을 확인할 수 있습니다.
+        </p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

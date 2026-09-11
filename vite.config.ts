@@ -6,7 +6,12 @@ export default defineConfig({
   plugins: [
     react(),
     viteStaticCopy({
-      targets: [{ src: "assets", dest: "." }],
+      targets: [
+        { src: "assets", dest: "." },
+        { src: "robots.txt", dest: "." },
+        { src: "sitemap.xml", dest: "." },
+        { src: ".nojekyll", dest: "." },
+      ],
     }),
   ],
   base: "/",
