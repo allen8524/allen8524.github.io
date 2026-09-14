@@ -10,6 +10,7 @@ export default defineConfig({
         { src: "assets", dest: "." },
         { src: "robots.txt", dest: "." },
         { src: "sitemap.xml", dest: "." },
+        { src: "sitemap.txt", dest: "." },
         { src: ".nojekyll", dest: "." },
       ],
     }),
