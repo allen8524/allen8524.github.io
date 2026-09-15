@@ -9,9 +9,7 @@ import "./styles/troubleshooting.css";
 import "./styles/theme-toggle.css";
 import "./styles/footer-wave.css";
 import "./styles/scroll-top-jelly.css";
-import "./styles/scroll-top-solid.css";
 import "./styles/hamster-control.css";
-import "./styles/hamster-knob-face.css";
 import "./styles/topbar.css";
 import "./styles/contact.css";
 

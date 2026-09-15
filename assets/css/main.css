@@ -99,7 +99,6 @@
 
 /* Fonts */
 :root {
-  --font-display: "NY Irvin", "NY Irvin Text", "Adobe Caslon", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
   --font-hero: "Adobe Caslon", "Adobe Caslon Pro", "Rosario", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
   --font-heading: "GT Walsheim", "GT Walsheim Pro", "Brandon Grotesque", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
   --font-subheading: "Neutraface", "Neutraface Text", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
@@ -107,12 +106,9 @@
   --font-ui: "Effra", "Myriad Pro", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
   --font-button: "Museo Sans Rounded", "Museo Sans", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
   --font-label: "Myriad Pro", "Effra", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
-  --font-accent: "Rosario", "Adobe Caslon", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
-  --font-editorial: "Adobe Caslon", "Adobe Caslon Pro", Georgia, "Times New Roman", "Nanum Myeongjo", Batang, serif;
   --font-card-title: "Brandon Grotesque", "GT Walsheim", "Neutraface", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
   --font-card-body: "Museo Sans", "Adelle Sans", "Myriad Pro", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
   --font-nav: "Brandon Grotesque", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
-  --font-brand: "Brandon Grotesque", "GT Walsheim", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
   --default-font: var(--font-body);
   --heading-font: var(--font-heading);
   --nav-font: var(--font-nav);
@@ -125,12 +121,10 @@
 
   /* Theme surfaces */
   --theme-page-bg: #25303f;
-  --theme-section-bg: #25303f;
   --theme-section-alt-bg: #293341;
   --theme-sidebar-bg: #1c2737;
   --theme-surface-1: #293443;
   --theme-surface-2: #151f2b;
-  --theme-surface-3: #38485f;
   --theme-surface-raised: #4b607f;
   --theme-surface-deep: #0b1326;
   --theme-surface-inset: #091223;
@@ -145,7 +139,6 @@
   --theme-text-primary: #f3f4f6;
   --theme-text-heading: #f9fafb;
   --theme-text-bright: #ffffff;
-  --theme-text-secondary: rgba(243, 244, 246, 0.72);
   --theme-text-muted: rgba(243, 244, 246, 0.52);
   --theme-text-inverse: #1f2937;
 
@@ -159,10 +152,6 @@
   /* Theme shadows and overlays */
   --theme-shadow-soft: rgba(0, 0, 0, 0.16);
   --theme-shadow-medium: rgba(0, 0, 0, 0.28);
-  --theme-shadow-strong: rgba(0, 0, 0, 0.4);
-  --theme-overlay-soft: rgba(0, 0, 0, 0.08);
-  --theme-overlay-medium: rgba(0, 0, 0, 0.22);
-  --theme-overlay-strong: rgba(0, 0, 0, 0.42);
   --theme-media-overlay: rgba(5, 13, 24, 0.82);
   --theme-modal-shadow: rgba(0, 0, 0, 0.45);
   --theme-shadow-card: rgba(16, 27, 54, 0.26);
@@ -172,16 +161,7 @@
 
   /* Legacy shell roles retained for route compatibility */
   --theme-shell-page-bg: #f4fafd;
-  --theme-shell-surface: #ffffff;
-  --theme-shell-item-bg: #f9fcfe;
   --theme-shell-text: #272829;
-  --theme-shell-heading: #173b6c;
-  --theme-shell-muted: #3d4d5f;
-  --theme-shell-border: #e4edf4;
-  --theme-shell-accent: #149ddd;
-  --theme-shell-accent-hover: #0d83b9;
-  --theme-shell-accent-border: rgba(20, 157, 221, 0.16);
-  --theme-shell-shadow: rgba(5, 13, 24, 0.08);
 
   /* Brand accent */
   --theme-accent: #22e7a1;
@@ -197,12 +177,10 @@
 
   /* Theme surfaces */
   --theme-page-bg: #f4f7fb;
-  --theme-section-bg: #f4f7fb;
   --theme-section-alt-bg: #e9eef5;
   --theme-sidebar-bg: #ffffff;
   --theme-surface-1: #ffffff;
   --theme-surface-2: #f1f5f9;
-  --theme-surface-3: #ffffff;
   --theme-surface-raised: #ffffff;
   --theme-surface-deep: #e2e8f0;
   --theme-surface-inset: #edf2f7;
@@ -217,7 +195,6 @@
   --theme-text-primary: #344054;
   --theme-text-heading: #182230;
   --theme-text-bright: #ffffff;
-  --theme-text-secondary: rgba(52, 64, 84, 0.72);
   --theme-text-muted: rgba(52, 64, 84, 0.54);
   --theme-text-inverse: #ffffff;
 
@@ -231,10 +208,6 @@
   /* Theme shadows and overlays */
   --theme-shadow-soft: rgba(24, 34, 48, 0.08);
   --theme-shadow-medium: rgba(24, 34, 48, 0.13);
-  --theme-shadow-strong: rgba(24, 34, 48, 0.2);
-  --theme-overlay-soft: rgba(24, 34, 48, 0.05);
-  --theme-overlay-medium: rgba(24, 34, 48, 0.14);
-  --theme-overlay-strong: rgba(24, 34, 48, 0.32);
   --theme-media-overlay: rgba(24, 34, 48, 0.68);
   --theme-modal-shadow: rgba(24, 34, 48, 0.2);
   --theme-shadow-card: rgba(24, 34, 48, 0.12);
@@ -244,16 +217,7 @@
 
   /* Legacy shell roles retained for route compatibility */
   --theme-shell-page-bg: #f4fafd;
-  --theme-shell-surface: #ffffff;
-  --theme-shell-item-bg: #f9fcfe;
   --theme-shell-text: #272829;
-  --theme-shell-heading: #173b6c;
-  --theme-shell-muted: #3d4d5f;
-  --theme-shell-border: #e4edf4;
-  --theme-shell-accent: #149ddd;
-  --theme-shell-accent-hover: #0d83b9;
-  --theme-shell-accent-border: rgba(20, 157, 221, 0.16);
-  --theme-shell-shadow: rgba(5, 13, 24, 0.08);
 
   /* Brand accent */
   --theme-accent: #087f5b;
@@ -261,8 +225,6 @@
   --theme-accent-soft: rgba(8, 127, 91, 0.12);
   --theme-accent-contrast: #065f46;
   --theme-accent-contrast-soft: #0f766e;
-  --nav-nested-background-color: rgba(24, 34, 48, 0.06);
-  --nav-nested-active-background-color: rgba(24, 34, 48, 0.03);
 }
 
 :root {
@@ -273,14 +235,6 @@
   --accent-color: var(--theme-accent);
   --surface-color: var(--theme-surface-1);
   --contrast-color: var(--theme-text-inverse);
-  --nav-color: var(--theme-text-primary);
-  --nav-hover-color: var(--theme-accent);
-  --nav-mobile-background-color: var(--theme-surface-3);
-  --nav-dropdown-background-color: var(--theme-surface-3);
-  --nav-dropdown-color: var(--theme-text-primary);
-  --nav-dropdown-hover-color: var(--theme-accent);
-  --nav-nested-background-color: rgba(33, 37, 41, 0.1);
-  --nav-nested-active-background-color: rgba(33, 37, 41, 0.03);
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -288,22 +242,6 @@
 .light-background {
   --background-color: var(--theme-section-alt-bg);
   --surface-color: var(--theme-surface-raised);
-}
-
-.dark-background {
-  --background-color: var(--theme-sidebar-bg);
-  --default-color: var(--theme-text-bright);
-  --heading-color: var(--theme-text-bright);
-  --surface-color: var(--theme-surface-2);
-  --contrast-color: var(--theme-text-bright);
-}
-
-:root[data-theme="light"] .dark-background {
-  --background-color: var(--theme-sidebar-bg);
-  --default-color: var(--theme-text-primary);
-  --heading-color: var(--theme-text-heading);
-  --surface-color: var(--theme-surface-2);
-  --contrast-color: var(--theme-text-inverse);
 }
 
 /* Smooth scroll */
@@ -341,58 +279,6 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: var(--theme-text-bright);
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .sent-message {
-  display: none;
-  color: var(--theme-text-bright);
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -405,53 +291,10 @@ h6 {
   position: relative;
 }
 
-.footer h3 {
-  font-size: 36px;
-  font-weight: 300;
-  position: relative;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
-
 .footer p {
   font-size: 15;
   padding: 0;
   margin: 0 0 30px 0;
-}
-
-.footer .social-links {
-  margin: 0 0 30px 0;
-}
-
-.footer .social-links a {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  line-height: 1;
-  margin: 0 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-.footer .social-links a:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-  text-decoration: none;
-}
-
-.footer .copyright {
-  padding-top: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.footer .credits {
-  font-size: 13px;
-  padding-top: 5px;
 }
 
 /*--------------------------------------------------------------
@@ -521,45 +364,6 @@ h6 {
   visibility: visible;
   opacity: 1;
   bottom: 15px;
-}
-
-/*--------------------------------------------------------------
-# Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
-.page-title {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 120px 0;
-  text-align: center;
-  position: relative;
-}
-
-.page-title h1 {
-  font-size: 3.5rem;
-  font-weight: 300;
-  margin-bottom: 10px;
-}
-
-.page-title .breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-.page-title .breadcrumbs ol li+li {
-  padding-left: 10px;
-}
-
-.page-title .breadcrumbs ol li+li::before {
-  content: "/";
-  display: inline-block;
-  padding-right: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
 /*--------------------------------------------------------------
@@ -765,41 +569,6 @@ section,
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.875rem;
   }
-}
-
-.hero .hero-content .hero-actions .btn-primary {
-  padding: 14px 32px;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  border-radius: 6px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid var(--accent-color);
-}
-
-.hero .hero-content .hero-actions .btn-primary:hover {
-  background: color-mix(in srgb, var(--accent-color), black 10%);
-  border-color: color-mix(in srgb, var(--accent-color), black 10%);
-  transform: translateY(-2px);
-}
-
-.hero .hero-content .hero-actions .btn-secondary {
-  padding: 14px 32px;
-  background: transparent;
-  color: var(--heading-color);
-  border-radius: 6px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
-}
-
-.hero .hero-content .hero-actions .btn-secondary:hover {
-  background: transparent;
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-  transform: translateY(-2px);
 }
 
 .hero .hero-content .hero-stats {
@@ -1067,20 +836,6 @@ section,
     max-width: 320px;
   }
 
-  .hero .hero-content .hero-actions .btn-primary,
-  .hero .hero-content .hero-actions .btn-secondary {
-    text-align: center;
-  }
-
-  .hero .hero-content .hero-actions .btn-primary {
-    grid-column: 1 / -1;
-    width: 100%;
-  }
-
-  .hero .hero-content .hero-actions .btn-secondary {
-    width: 100%;
-  }
-
   .hero .hero-content .hero-stats .stat-item .stat-label {
     font-size: 0.78rem;
     line-height: 1.5;
@@ -1243,19 +998,6 @@ section,
   --surface-soft: color-mix(in srgb, var(--surface-color), var(--accent-color) 1%);
 }
 
-.skills .intro-content {
-  margin-bottom: var(--section-spacing);
-}
-
-.skills .intro-content .lead-text {
-  font-size: 22px;
-  line-height: 1.8;
-  color: var(--text-light);
-  font-weight: 300;
-  margin: 0;
-  font-family: var(--heading-font);
-}
-
 .skills .skills-container {
   padding-right: 40px;
 }
@@ -1324,14 +1066,6 @@ section,
   overflow: hidden;
 }
 
-.skills .skills-container .skill-category .skills-list .skill-row .progress .progress-bar {
-  width: 0%;
-  height: 100%;
-  background: var(--accent-color);
-  border-radius: 1px;
-  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .skills .skills-sidebar {
   padding-left: 40px;
 }
@@ -1368,14 +1102,6 @@ section,
   justify-content: center;
   gap: 8px;
   margin-bottom: 20px;
-}
-
-.skills .skills-sidebar .expertise-highlight .experience-number .purecounter {
-  font-size: 56px;
-  font-weight: 200;
-  color: var(--accent-color);
-  line-height: 1;
-  font-family: var(--heading-font);
 }
 
 .skills .skills-sidebar .expertise-highlight .experience-number .experience-label {
@@ -1503,10 +1229,6 @@ section,
     --category-spacing: 40px;
   }
 
-  .skills .intro-content .lead-text {
-    font-size: 20px;
-  }
-
   .skills .skills-container .skill-category .category-header .category-title {
     font-size: 22px;
   }
@@ -1518,10 +1240,6 @@ section,
   .skills .skills-sidebar .expertise-highlight {
     padding: 32px 24px;
 }
-
-  .skills .skills-sidebar .expertise-highlight .experience-number .purecounter {
-    font-size: 48px;
-  }
 
   .skills .skills-sidebar .technologies-section .tech-stack .tech-item {
     padding: 12px;
@@ -1703,22 +1421,6 @@ section,
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 1rem;
-}
-
-.resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements .achievement-tag {
-  background: var(--surface-color);
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .resume .education-skills .education-grid .education-card {
@@ -1972,11 +1674,6 @@ section,
 
   .resume .section-intro h2 {
     font-size: 1.4rem;
-  }
-
-  .resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements .achievement-tag {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
   }
 
   .resume .education-skills .education-grid .education-card {
@@ -2464,275 +2161,9 @@ section,
   max-width: 660px;
 }
 
-.testimonials .troubleshooting-lab {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-  gap: 1.2rem;
-  align-items: start;
-}
-
-.testimonials .trouble-nav {
-  display: grid;
-  gap: 0.65rem;
-  align-content: start;
-}
-
-.testimonials .trouble-nav-item {
-  text-align: left;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 83%);
-  background: linear-gradient(145deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 5%), color-mix(in srgb, var(--surface-color), var(--theme-surface-deep) 20%));
-  border-radius: 14px;
-  padding: 0.85rem 0.9rem;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.testimonials .trouble-nav-item:hover {
-  transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 50%);
-}
-
-.testimonials .trouble-nav-item.active {
-  border-color: color-mix(in srgb, var(--accent-color), transparent 38%);
-  box-shadow: 0 12px 24px var(--theme-shadow-card);
-}
-
-.testimonials .trouble-nav-label,
-.testimonials .trouble-nav-keyword,
-.testimonials .trouble-nav-stack {
-  display: block;
-}
-
-.testimonials .trouble-nav-label {
-  font-size: 0.94rem;
-  font-weight: 700;
-  color: var(--heading-color);
-}
-
-.testimonials .trouble-nav-keyword {
-  margin-top: 0.35rem;
-  font-size: 0.8rem;
-  color: color-mix(in srgb, var(--accent-color), var(--theme-accent-contrast) 30%);
-}
-
-.testimonials .trouble-nav-stack {
-  margin-top: 0.3rem;
-  font-size: 0.73rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
-}
-
-.testimonials .trouble-stage {
-  min-width: 0;
-  align-self: start;
-}
-
-.testimonials .trouble-stage > .tab-pane {
-  display: none;
-}
-
-.testimonials .trouble-stage > .tab-pane.active {
-  display: grid;
-}
-
-.testimonials .trouble-panel {
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 20px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%);
-  background:
-    linear-gradient(160deg, color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 2%), color-mix(in srgb, var(--surface-color), var(--theme-surface-inset) 12%));
-  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--theme-highlight-base), transparent 96%), 0 14px 36px var(--theme-shadow-panel);
-}
-
-.testimonials .trouble-case {
-  border-radius: 16px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-  background: color-mix(in srgb, var(--surface-color), var(--theme-code-bg) 10%);
-  padding: 1rem;
-}
-
-.testimonials .trouble-case-stack {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--accent-color), var(--theme-accent-contrast-soft) 26%);
-  font-weight: 700;
-}
-
-.testimonials .trouble-case h3 {
-  margin: 0.35rem 0 0;
-  font-size: 1.16rem;
-}
-
-.testimonials .trouble-case-head p {
-  margin: 0.48rem 0 0;
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-
-.testimonials .trouble-flow {
-  margin: 1.05rem 0 0;
-  padding: 0;
-  list-style: none;
-  position: relative;
-}
-
-.testimonials .trouble-flow::before {
-  content: "";
-  position: absolute;
-  left: 0.43rem;
-  top: 0.4rem;
-  bottom: 0.4rem;
-  width: 1px;
-  background: color-mix(in srgb, var(--accent-color), transparent 70%);
-}
-
-.testimonials .trouble-flow li {
-  position: relative;
-  padding: 0 0 0.95rem 1.55rem;
-}
-
-.testimonials .trouble-flow li:last-child {
-  padding-bottom: 0;
-}
-
-.testimonials .trouble-flow li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.25rem;
-  width: 0.86rem;
-  height: 0.86rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), var(--theme-highlight-base) 20%) 0 35%, color-mix(in srgb, var(--accent-color), transparent 55%) 36% 100%);
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 35%);
-}
-
-.testimonials .trouble-flow span {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--accent-color), var(--heading-color) 30%);
-  margin-bottom: 0.28rem;
-}
-
-.testimonials .trouble-flow p {
-  margin: 0;
-  font-size: 0.87rem;
-  line-height: 1.62;
-}
-
-.testimonials .trouble-flow code {
-  font-size: 0.85em;
-  padding: 0.08rem 0.28rem;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--surface-color), var(--theme-shadow-base) 10%);
-}
-
-.testimonials .trouble-evidence {
-  border-radius: 16px;
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color), transparent 93%), color-mix(in srgb, var(--surface-color), var(--theme-accent-surface-deep) 12%));
-  padding: 0.95rem;
-}
-
-.testimonials .trouble-evidence h4 {
-  margin: 0;
-  font-size: 0.92rem;
-}
-
-.testimonials .trouble-evidence-note {
-  margin: 0.5rem 0 0;
-  font-size: 0.82rem;
-  line-height: 1.58;
-}
-
-.testimonials .trouble-pipeline {
-  margin-top: 0.8rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.28rem;
-}
-
-.testimonials .trouble-pipeline span {
-  display: inline-flex;
-  padding: 0.26rem 0.55rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  background: color-mix(in srgb, var(--surface-color), var(--theme-highlight-base) 4%);
-}
-
-.testimonials .trouble-pipeline code {
-  font-size: 0.74rem;
-  color: color-mix(in srgb, var(--default-color), transparent 12%);
-}
-
-.testimonials .trouble-pipeline i {
-  font-size: 0.95rem;
-  color: color-mix(in srgb, var(--accent-color), transparent 24%);
-}
-
-.testimonials .trouble-tags {
-  margin: 0.8rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.35rem;
-}
-
-.testimonials .trouble-tags li {
-  font-size: 0.78rem;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  border-radius: 8px;
-  padding: 0.36rem 0.5rem;
-  background: color-mix(in srgb, var(--surface-color), var(--theme-surface-recessed) 8%);
-}
-
-@media (max-width: 1199.98px) {
-  .testimonials .trouble-panel {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .testimonials .troubleshooting-lab {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonials .trouble-nav {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 767.98px) {
   .testimonials {
     padding: 88px 0 82px;
-  }
-
-  .testimonials .trouble-nav {
-    display: flex;
-    overflow-x: auto;
-    gap: 0.55rem;
-    padding-bottom: 0.2rem;
-  }
-
-  .testimonials .trouble-nav-item {
-    min-width: 210px;
-    flex: 0 0 auto;
-  }
-
-  .testimonials .trouble-panel {
-    padding: 0.8rem;
-  }
-
-  .testimonials .trouble-case,
-  .testimonials .trouble-evidence {
-    padding: 0.85rem;
   }
 }
 
@@ -2924,57 +2355,22 @@ section,
 /*--------------------------------------------------------------
 # Typography System
 --------------------------------------------------------------*/
-.header .logo h1,
-.footer .sitename {
-  font-family: var(--font-brand);
-}
-
-.page-title h1 {
-  font-family: var(--font-display);
-}
-
 .hero .hero-content h1,
-.about .intro-header h2,
-.portfolio-details .hero-section .project-header .project-title,
-.service-details .service-content .service-hero h2 {
+.about .intro-header h2 {
   font-family: var(--font-hero);
 }
 
 .section-title h2,
-.resume .section-intro h2,
-.about .bottom-section .collaboration-text h3,
-.contact .form-header h3,
-.portfolio-details .content-section .main-content h2,
-.portfolio-details .process-timeline .timeline-header h2,
-.portfolio-details .tools-section h2,
-.portfolio-details .impact-metrics .metrics-container .metrics-header h2,
-.service-details .service-content .service-description h3,
-.service-details .service-content .process-section h3 {
+.resume .section-intro h2 {
   font-family: var(--font-heading);
 }
 
-.service-details .service-sidebar .testimonial-block blockquote {
-  font-family: var(--font-editorial);
-}
-
 .about .expertise-grid .expertise-item .expertise-content h4,
-.stats .achievement .achievement-content h4,
 .skills .skills-sidebar .technologies-section .tech-title,
 .skills .skills-sidebar .achievements-section .achievements-title,
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h4,
 .resume .education-skills .education-grid .certification-section h4,
-.portfolio-details .tools-section .tools-grid .tool-category h5,
-.service-details .service-content .service-description .features-list .feature-item h4,
-.service-details .service-content .process-section .process-steps .step h4,
-.service-details .service-sidebar .service-info h4,
-.service-details .service-sidebar .cta-block h4,
-.service-details .service-sidebar .testimonial-block .testimonial-author .author-info h5,
-.hero .hero-content .hero-stats .stat-item .stat-number,
-.stats .stat-item .stat-number,
-.skills .skills-sidebar .expertise-highlight .experience-number .purecounter,
-.portfolio-details .process-timeline .timeline-steps .timeline-item .step-marker .step-number,
-.portfolio-details .impact-metrics .metrics-container .metrics-grid .metric-card .metric-value,
-.service-details .service-content .process-section .process-steps .step .step-number {
+.hero .hero-content .hero-stats .stat-item .stat-number {
   font-family: var(--font-subheading);
 }
 
@@ -2985,50 +2381,26 @@ section,
 .resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-name,
 .portfolio .portfolio-title,
 .services .service-content h3,
-.contact .info-item .info-content h4,
-.testimonials .author-details h4,
-.portfolio-details .process-timeline .timeline-steps .timeline-item .step-content h4,
-.portfolio-details .project-nav .nav-wrapper .nav-link.prev-project .nav-content .nav-title,
-.portfolio-details .project-nav .nav-wrapper .nav-link.next-project .nav-content .nav-title {
+.contact .info-item .info-content h4 {
   font-family: var(--font-card-title);
 }
 
 body,
 .hero .hero-content .hero-description,
-.about .content-area .story-block .lead-text,
-.about .content-area .story-block p,
-.about .bottom-section .collaboration-text p,
 .resume .section-intro p,
-.testimonials .testimonial-body p,
-.contact .info-item .info-content p,
-.portfolio-details .hero-section .project-header .project-summary,
-.portfolio-details .content-section .main-content p,
-.portfolio-details .tools-section p,
-.portfolio-details .impact-metrics .metrics-container .metrics-header p,
-.service-details .service-content .service-hero .lead,
-.service-details .service-content .service-description>p,
-.starter-section p {
+.contact .info-item .info-content p {
   font-family: var(--font-body);
 }
 
-.stats .achievement .achievement-content p,
 .skills .skills-sidebar .expertise-highlight .highlight-description,
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content p,
 .resume .education-skills .education-grid .education-card .education-details p,
 .portfolio .portfolio-description,
-.services .service-content p,
-.portfolio-details .process-timeline .timeline-steps .timeline-item .step-content p,
-.service-details .service-content .service-description .features-list .feature-item p,
-.service-details .service-content .process-section .process-steps .step p,
-.service-details .service-sidebar .cta-block p {
+.services .service-content p {
   font-family: var(--font-card-body);
 }
 
-.page-title .breadcrumbs ol,
 .hero .hero-content .hero-stats .stat-item .stat-label,
-.about .profile-section .profile-meta .location,
-.about .profile-section .profile-meta .status,
-.stats .stat-item .stat-label,
 .skills .skills-container .skill-category .category-header .category-subtitle,
 .skills .skills-sidebar .expertise-highlight .experience-number .experience-label,
 .skills .skills-sidebar .achievements-section .achievement-list .achievement-item .achievement-date,
@@ -3037,26 +2409,12 @@ body,
 .resume .education-skills .education-grid .education-card .education-header .degree-info .graduation-year,
 .resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-provider,
 .portfolio .portfolio-meta,
-.testimonials .author-details .role,
-.testimonials .author-details .company,
 .contact .contact-details .detail-item .detail-content .detail-label,
 .footer,
-.footer p,
-.footer .copyright,
-.footer .credits,
-.portfolio-details .hero-section .project-header .project-meta .category,
-.portfolio-details .hero-section .project-header .project-meta .year,
-.portfolio-details .content-section .project-specs .spec-item h5,
-.portfolio-details .impact-metrics .metrics-container .metrics-grid .metric-card .metric-label,
-.portfolio-details .project-nav .nav-wrapper .nav-link.prev-project .nav-content .nav-direction,
-.portfolio-details .project-nav .nav-wrapper .nav-link.next-project .nav-content .nav-direction,
-.service-details .service-sidebar .testimonial-block .testimonial-author .author-info span {
+.footer p {
   font-family: var(--font-label);
 }
 
-.php-email-form .error-message,
-.php-email-form .sent-message,
-.php-email-form .loading,
 .skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-name,
 .skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-percentage,
 .skills .skills-sidebar .technologies-section .tech-stack .tech-item span,
@@ -3064,24 +2422,13 @@ body,
 .contact .form-wrapper .form-group label,
 .contact .form-wrapper .form-group input,
 .contact .form-wrapper .form-group select,
-.contact .form-wrapper .form-group textarea,
-.portfolio-details .content-section .project-specs .spec-item p,
-.service-details .service-sidebar .service-info .info-list li,
-.service-details .service-sidebar .service-info .info-list li strong {
+.contact .form-wrapper .form-group textarea {
   font-family: var(--font-ui);
 }
 
-.hero .hero-content .hero-actions .btn-primary,
-.hero .hero-content .hero-actions .btn-secondary,
-.about .bottom-section .action-buttons .btn-custom,
-.resume .professional-journey .experience-timeline .timeline-item .timeline-content .key-achievements .achievement-tag,
 .resume .education-skills .education-grid .education-card .education-details .honors .honor-badge,
 .portfolio .portfolio-filters li,
 .services .read-more,
-.contact .form-wrapper .submit-btn,
-.portfolio-details .hero-section .project-header .project-tags .tag,
-.portfolio-details .tools-section .tools-grid .tool-category .tool-list .tool-item,
-.portfolio-details .project-nav .nav-wrapper .nav-link.all-projects,
-.service-details .service-sidebar .cta-block .btn {
+.contact .form-wrapper .submit-btn {
   font-family: var(--font-button);
 }

@@ -24,7 +24,7 @@ function Resume() {
               </div>
               <div className="resume-panel-body">
                 <div className="experience-timeline resume-timeline">
-                  {resumeActivities.map((activity, index) => (
+              {resumeActivities.map((activity) => (
                     <div className="timeline-item" key={activity.id}>
                       <div className="timeline-dot"></div>
                       <div className="timeline-content">

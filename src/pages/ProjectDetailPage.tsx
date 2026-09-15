@@ -17,7 +17,6 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import NotFoundPage from "./NotFoundPage";
 import "../styles/project-detail.css";
 import "../styles/project-gallery-fan.css";
-import "../styles/project-detail-density.css";
 import "../styles/detail-hero-glow.css";
 
 function ProjectDetailPage() {
