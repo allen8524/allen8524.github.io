@@ -13,6 +13,8 @@ const reduceMotionQuery = "(prefers-reduced-motion: reduce)";
 function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
   const isClosingRef = useRef(false);
 
   const handleClose = useCallback(() => {
@@ -47,11 +49,47 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         handleClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     };
 
+    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const appRoot = document.getElementById("root");
+    const wasRootInert = appRoot?.inert ?? false;
+
+    if (appRoot) {
+      appRoot.inert = true;
+    }
+
     document.body.classList.add("preview-open");
     window.addEventListener("keydown", handleKeyDown);
+    const focusFrameId = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
 
     const animationContext = gsap.context(() => {
       if (window.matchMedia(reduceMotionQuery).matches) {
@@ -67,9 +105,16 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
     });
 
     return () => {
+      window.cancelAnimationFrame(focusFrameId);
       document.body.classList.remove("preview-open");
       window.removeEventListener("keydown", handleKeyDown);
       animationContext.revert();
+
+      if (appRoot) {
+        appRoot.inert = wasRootInert;
+      }
+
+      previousFocusRef.current?.focus();
     };
   }, [handleClose]);
 
@@ -83,7 +128,7 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
       onClick={handleClose}
     >
       <div ref={dialogRef} className="image-preview__dialog" onClick={(event) => event.stopPropagation()}>
-        <button type="button" className="image-preview__close" aria-label="미리보기 닫기" onClick={handleClose}>
+        <button ref={closeButtonRef} type="button" className="image-preview__close" aria-label="미리보기 닫기" onClick={handleClose}>
           <i className="bi bi-x-lg" />
         </button>
         <img src={image} alt={alt} />

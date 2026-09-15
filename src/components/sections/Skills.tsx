@@ -6,7 +6,7 @@ function Skills() {
   return (
     <section id="skills" className="skills section">
       <div className="container section-title">
-        <h1>{formatMiddleDotSpacing(skillsSection.title)}</h1>
+        <h2>{formatMiddleDotSpacing(skillsSection.title)}</h2>
         <p>{formatMiddleDotSpacing(skillsSection.description)}</p>
       </div>
 

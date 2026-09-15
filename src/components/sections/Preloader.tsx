@@ -14,9 +14,11 @@ function Preloader() {
     };
 
     window.addEventListener("load", finishLoading);
+    const fallbackTimer = window.setTimeout(finishLoading, 8000);
 
     return () => {
       window.removeEventListener("load", finishLoading);
+      window.clearTimeout(fallbackTimer);
     };
   }, []);
 

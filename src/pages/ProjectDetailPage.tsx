@@ -15,6 +15,10 @@ import { projects } from "../data/projects";
 import { DEFAULT_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import NotFoundPage from "./NotFoundPage";
+import "../styles/project-detail.css";
+import "../styles/project-gallery-fan.css";
+import "../styles/project-detail-density.css";
+import "../styles/detail-hero-glow.css";
 
 function ProjectDetailPage() {
   const { projectId } = useParams();

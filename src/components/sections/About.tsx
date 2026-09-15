@@ -134,7 +134,7 @@ function About() {
         <div className="row justify-content-center">
           <div className="col-xl-11">
             <div className="intro-header text-center">
-              <h1>화면 뒤의 처리 구조를 설계합니다.</h1>
+              <h2>화면 뒤의 처리 구조를 설계합니다.</h2>
               <p className="subtitle">요청 처리 · 상태 관리 · 데이터 연동</p>
             </div>
 

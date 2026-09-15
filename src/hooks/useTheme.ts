@@ -46,7 +46,9 @@ export function useTheme() {
 
   useEffect(() => {
     applyTheme(theme);
+  }, [theme]);
 
+  useEffect(() => {
     const handleStorage = (event: StorageEvent) => {
       if (event.key !== STORAGE_KEY) {
         return;
@@ -57,7 +59,7 @@ export function useTheme() {
 
     window.addEventListener("storage", handleStorage);
     return () => window.removeEventListener("storage", handleStorage);
-  }, [theme, updateTheme]);
+  }, [updateTheme]);
 
   return { theme, toggleTheme };
 }

@@ -52,10 +52,12 @@ function Header() {
       return undefined;
     }
 
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => Boolean(section));
+    let animationFrame: number | null = null;
+
     const updateActiveSection = () => {
-      const sections = navItems
-        .map((item) => document.getElementById(item.id))
-        .filter((section): section is HTMLElement => Boolean(section));
       let current = sections[0];
 
       for (const section of sections) {
@@ -67,13 +69,23 @@ function Header() {
       setActiveSection(current?.id ?? "hero");
     };
 
+    const scheduleActiveSectionUpdate = () => {
+      if (animationFrame !== null) return;
+
+      animationFrame = window.requestAnimationFrame(() => {
+        updateActiveSection();
+        animationFrame = null;
+      });
+    };
+
     updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("scroll", scheduleActiveSectionUpdate, { passive: true });
+    window.addEventListener("resize", scheduleActiveSectionUpdate);
 
     return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("scroll", scheduleActiveSectionUpdate);
+      window.removeEventListener("resize", scheduleActiveSectionUpdate);
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
     };
   }, [isHome]);
 
@@ -108,7 +120,7 @@ function Header() {
           </div>
 
           <Link to="/" className="logo d-flex align-items-center justify-content-center">
-            <h1 className="sitename">황민서</h1>
+            <span className="sitename">황민서</span>
           </Link>
         </div>
 

@@ -582,7 +582,6 @@ section,
   position: relative;
 }
 
-.section-title h1,
 .section-title h2 {
   font-size: 32px;
   font-weight: 300;
@@ -591,7 +590,6 @@ section,
   position: relative;
 }
 
-.section-title h1:before,
 .section-title h2:before {
   content: "";
   position: absolute;
@@ -605,7 +603,6 @@ section,
   margin: auto;
 }
 
-.section-title h1::after,
 .section-title h2::after {
   content: "";
   position: absolute;
@@ -1115,7 +1112,7 @@ section,
   margin-bottom: 80px;
 }
 
-.about .intro-header h1 {
+.about .intro-header h2 {
   font-size: 3.5rem;
   font-weight: 300;
   margin-bottom: 1rem;
@@ -1188,7 +1185,7 @@ section,
     margin-bottom: 60px;
   }
 
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: 3.5rem;
   }
 
@@ -1205,7 +1202,7 @@ section,
 }
 
 @media (max-width: 768px) {
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: 3.5rem;
   }
 
@@ -1216,19 +1213,19 @@ section,
 }
 
 @media (max-width: 576px) {
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: 3.5rem;
   }
 }
 
 @media (max-width: 420px) {
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: 3.5rem;
   }
 }
 
 @media (max-width: 360px) {
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: 3.5rem;
   }
 }
@@ -2937,7 +2934,7 @@ section,
 }
 
 .hero .hero-content h1,
-.about .intro-header h1,
+.about .intro-header h2,
 .portfolio-details .hero-section .project-header .project-title,
 .service-details .service-content .service-hero h2 {
   font-family: var(--font-hero);

@@ -5,9 +5,12 @@ import Footer from "../components/sections/Footer";
 import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
 import { getServiceDetail, services } from "../data/services";
+import { DEFAULT_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { formatMiddleDotSpacing } from "../utils/typography";
 import NotFoundPage from "./NotFoundPage";
+import "../styles/service-detail.css";
+import "../styles/detail-hero-glow.css";
 
 function getTechnologyIcon(technology: string) {
   const value = technology.toLocaleLowerCase();
@@ -25,6 +28,18 @@ function getTechnologyIcon(technology: string) {
 function ServiceDetailPage() {
   const { serviceId } = useParams();
   const service = serviceId ? getServiceDetail(serviceId) : undefined;
+  const metadataImage = service?.image
+    ? /^https?:\/\//i.test(service.image)
+      ? service.image
+      : new URL(service.image.replace(/^\/+/, ""), DEFAULT_PAGE_METADATA.url).href
+    : DEFAULT_PAGE_METADATA.image;
+
+  usePageMetadata({
+    title: service ? `${service.title} | 황민서 포트폴리오` : DEFAULT_PAGE_METADATA.title,
+    description: service?.summary ?? DEFAULT_PAGE_METADATA.description,
+    image: metadataImage,
+    url: service ? `https://allen8524.github.io/#/services/${service.id}` : DEFAULT_PAGE_METADATA.url,
+  });
 
   useScrollReveal({ scope: "service", deps: [serviceId] });
 
@@ -143,7 +158,7 @@ function ServiceDetailPage() {
           <section className="service-detail-section service-other" aria-labelledby="other-title">
             <div className="service-detail-section__heading service-other__heading">
               <div><h2 id="other-title">다른 개발 역량</h2></div>
-              <Link to="/#services" className="btn btn-outline service-all-link">개발 역량 전체 보기</Link>
+              <Link to="/?section=services" className="btn btn-outline service-all-link">개발 역량 전체 보기</Link>
             </div>
             <div className="service-other-grid">
               {otherServices.map((item) => <Link className="service-other-card" to={`/services/${item.id}`} key={item.id}><div><h3>{formatMiddleDotSpacing(item.title)}</h3><p>{formatMiddleDotSpacing(item.summary)}</p></div><i className="bi bi-arrow-right" aria-hidden="true" /></Link>)}

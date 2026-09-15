@@ -25,7 +25,7 @@ function Contact() {
   return (
     <section id="contact" className="contact section">
       <div className="container section-title">
-        <h1>연락처</h1>
+        <h2>연락처</h2>
         <p>문의나 협업 제안은 이메일로 보내주세요.</p>
       </div>
 

@@ -212,7 +212,7 @@ a {
   --about-title-size-sm: 2.15rem;
 }
 
-.section-title h1 {
+.section-title h2 {
   font-size: var(--section-title-size);
   font-weight: 300;
   line-height: 1.18;
@@ -222,7 +222,7 @@ a {
   text-wrap: balance;
 }
 
-.about .intro-header h1 {
+.about .intro-header h2 {
   font-size: var(--about-title-size);
   font-weight: 300;
   line-height: 1.18;
@@ -280,32 +280,32 @@ a {
 }
 
 @media (max-width: 1200px) and (min-width: 993px) {
-  .section-title h1 {
+  .section-title h2 {
     font-size: var(--section-title-size-lg);
   }
 
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: var(--about-title-size-lg);
   }
 }
 
 @media (max-width: 992px) {
-  .section-title h1 {
+  .section-title h2 {
     font-size: var(--section-title-size-md);
   }
 
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: var(--about-title-size-md);
   }
 
 }
 
 @media (max-width: 768px) {
-  .section-title h1 {
+  .section-title h2 {
     font-size: var(--section-title-size-sm);
   }
 
-  .about .intro-header h1 {
+  .about .intro-header h2 {
     font-size: var(--about-title-size-sm);
   }
 

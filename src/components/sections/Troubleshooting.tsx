@@ -143,7 +143,7 @@ function Troubleshooting() {
   return (
     <section id="testimonials" className="testimonials section">
       <div className="container section-title">
-        <h1>트러블슈팅</h1>
+        <h2>트러블슈팅</h2>
         <p>문제 · 원인 · 해결 · 결과 중심 정리</p>
       </div>
 

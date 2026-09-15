@@ -15,7 +15,11 @@ function ProjectFilter({ activeFilter, filters, onChange }: ProjectFilterProps) 
             key={filter.value}
             className={activeFilter === filter.value ? "filter-active" : undefined}
           >
-            <button type="button" onClick={() => onChange(filter.value)}>
+            <button
+              type="button"
+              aria-pressed={activeFilter === filter.value}
+              onClick={() => onChange(filter.value)}
+            >
               {filter.label}
             </button>
           </li>

@@ -29,8 +29,21 @@ function updateMetaTag(attribute: MetaAttribute, key: string, content: string) {
   meta.setAttribute("content", content);
 }
 
+function updateCanonicalUrl(url: string) {
+  let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.appendChild(canonical);
+  }
+
+  canonical.href = url;
+}
+
 function applyMetadata({ description, image, title, url }: Required<PageMetadata>) {
   document.title = title;
+  updateCanonicalUrl(url);
   updateMetaTag("name", "description", description);
   updateMetaTag("property", "og:title", title);
   updateMetaTag("property", "og:description", description);

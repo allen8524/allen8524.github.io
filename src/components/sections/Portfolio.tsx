@@ -21,7 +21,7 @@ function Portfolio() {
   return (
     <section id="portfolio" className="portfolio section">
       <div className="container section-title">
-        <h1>프로젝트</h1>
+        <h2>프로젝트</h2>
         <p>백엔드 중심 구현 흐름과 GitHub 근거 정리</p>
       </div>
 

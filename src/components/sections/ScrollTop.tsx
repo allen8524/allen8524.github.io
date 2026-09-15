@@ -6,15 +6,25 @@ function ScrollTop() {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
+    let animationFrame: number | null = null;
+
     const updateScrollTop = () => {
       setIsActive(window.scrollY > 100);
+      animationFrame = null;
+    };
+
+    const scheduleScrollTopUpdate = () => {
+      if (animationFrame === null) {
+        animationFrame = window.requestAnimationFrame(updateScrollTop);
+      }
     };
 
     updateScrollTop();
-    window.addEventListener("scroll", updateScrollTop, { passive: true });
+    window.addEventListener("scroll", scheduleScrollTopUpdate, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", updateScrollTop);
+      window.removeEventListener("scroll", scheduleScrollTopUpdate);
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
     };
   }, []);
 

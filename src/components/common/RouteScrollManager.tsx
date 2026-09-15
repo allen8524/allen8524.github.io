@@ -38,7 +38,8 @@ function RouteScrollManager() {
     }
 
     const timeoutId = window.setTimeout(() => {
-      const sectionId = getSectionId(location.hash);
+      const requestedSection = new URLSearchParams(location.search).get("section") ?? "";
+      const sectionId = getSectionId(location.hash) || getSectionId(requestedSection);
 
       if (sectionId) {
         const section = document.getElementById(sectionId);

@@ -1,20 +1,24 @@
+import { lazy, Suspense } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import RouteScrollManager from "./components/common/RouteScrollManager";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
-import ProjectDetailPage from "./pages/ProjectDetailPage";
-import ServiceDetailPage from "./pages/ServiceDetailPage";
+
+const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
 
 function App() {
   return (
     <HashRouter>
       <RouteScrollManager />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
-        <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
+          <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </HashRouter>
   );
 }
