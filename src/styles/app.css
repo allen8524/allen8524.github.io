@@ -8,6 +8,13 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+  --section-title-size: 3.5rem;
+
+  --section-title-size-lg: 2.65rem;
+
+  --section-title-size-md: 2.6rem;
+
+  --section-title-size-sm: 2.15rem;
 }
 
 body {
@@ -332,20 +339,6 @@ a {
     padding: 20px 0;
     gap: 24px;
   }
-}
-
-:root {
-  --section-title-size: 3.5rem;
-  --about-title-size: 3.5rem;
-
-  --section-title-size-lg: 2.65rem;
-  --about-title-size-lg: 2.65rem;
-
-  --section-title-size-md: 2.6rem;
-  --about-title-size-md: 2.6rem;
-
-  --section-title-size-sm: 2.15rem;
-  --about-title-size-sm: 2.15rem;
 }
 
 .section-title h2 {

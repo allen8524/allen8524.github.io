@@ -1,21 +1,5 @@
 #scroll-top.jelly-scroll-top {
   --jelly-bg: var(--accent-color);
-  --jelly-hover: var(--theme-accent-hover);
-  --jelly-text: var(--contrast-color);
-  --jelly-shadow: color-mix(in srgb, var(--accent-color), transparent 62%);
-
-  --blob-1-x: -18px;
-  --blob-1-y: -16px;
-  --blob-1-scale: 1;
-  --blob-1-delay: 0ms;
-  --blob-2-x: 18px;
-  --blob-2-y: -14px;
-  --blob-2-scale: 1;
-  --blob-2-delay: 50ms;
-  --blob-3-x: -8px;
-  --blob-3-y: 20px;
-  --blob-3-scale: 1;
-  --blob-3-delay: 100ms;
 
   position: fixed;
   right: 22px;
@@ -25,16 +9,9 @@
   place-items: center;
   width: 54px;
   height: 54px;
-  padding: 0;
-  overflow: visible;
-  isolation: isolate;
   border: 0;
   border-radius: 18px;
-  background: var(--jelly-bg);
-  color: var(--jelly-text);
   box-shadow: 0 0.3rem 1rem var(--jelly-shadow);
-  cursor: pointer;
-  filter: url(#scroll-top-jelly-goo);
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -97,7 +74,6 @@
   top: 4px;
   right: 10%;
   left: 10%;
-  z-index: 1;
   height: 40%;
   border-radius: 14px 14px 50% 50%;
   background: linear-gradient(
@@ -235,6 +211,27 @@
 
 /* Keep the control flat in both themes while preserving its motion. */
 #scroll-top.jelly-scroll-top {
+  --jelly-text: var(--contrast-color);
+  --jelly-shadow: color-mix(in srgb, var(--accent-color), transparent 62%);
+
+  --blob-1-x: -18px;
+  --blob-1-y: -16px;
+  --blob-1-scale: 1;
+  --blob-1-delay: 0ms;
+  --blob-2-x: 18px;
+  --blob-2-y: -14px;
+  --blob-2-scale: 1;
+  --blob-2-delay: 50ms;
+  --blob-3-x: -8px;
+  --blob-3-y: 20px;
+  --blob-3-scale: 1;
+  --blob-3-delay: 100ms;
+  padding: 0;
+  overflow: visible;
+  isolation: isolate;
+  color: var(--jelly-text);
+  cursor: pointer;
+  filter: url(#scroll-top-jelly-goo);
   --jelly-hover: var(--jelly-bg);
   background: var(--jelly-bg);
 }
@@ -246,5 +243,6 @@
 }
 
 .jelly-scroll-top__gloss {
+  z-index: 1;
   display: none;
 }

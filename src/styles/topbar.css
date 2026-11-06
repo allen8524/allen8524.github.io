@@ -45,7 +45,6 @@
 @media (min-width: 1200px) {
   .site-topbar .header-hamster-control {
     --hamster-size: 32px;
-    --hamster-scale: 0.190476;
     --hamster-visual-overhang: 0px;
     display: flex;
     align-items: center;

@@ -50,11 +50,6 @@
   background: color-mix(in srgb, var(--accent-color), transparent 90%);
   color: var(--accent-color);
 }
-.service-detail-hero__content > .service-feature-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-}
 .service-feature-icon svg {
   width: 25px;
   height: 25px;
@@ -123,14 +118,6 @@
   color: var(--heading-color);
   word-break: keep-all;
 }
-.service-detail-section__heading h2::before,
-.service-detail-section__heading h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .service-detail-section__heading h2::before {
   width: 160px;
   height: 1px;
@@ -144,6 +131,11 @@
 
 .service-detail-section__heading h2::before,
 .service-detail-section__heading h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: none;
 }
 .service-detail-page h3 {
@@ -318,29 +310,14 @@
   align-items: center;
   gap: 20px;
 }
-.service-all-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  border: 1px solid var(--service-border);
-  border-radius: 999px;
-  padding: 10px 24px;
-  color: var(--accent-color);
-  font-size: 0.875rem;
-  text-decoration: none;
-  background: transparent;
-}
 a.service-evidence-card,
-a.service-other-card,
-.service-all-link {
+a.service-other-card {
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease;
 }
 a.service-evidence-card:hover,
-a.service-other-card:hover,
-.service-all-link:hover {
+a.service-other-card:hover {
   border-color: var(--accent-color);
   background: color-mix(in srgb, var(--accent-color), var(--surface-color) 96%);
   color: var(--heading-color);

@@ -284,14 +284,10 @@
 
 .backend-flow__table-row {
   display: grid;
-  grid-template-columns: 16px minmax(0, 1fr);
   gap: 4px;
   padding-block: 6px;
   border-bottom: 1px solid var(--theme-border-subtle);
   color: var(--flow-muted);
-  font-family: monospace;
-  font-size: 0.75rem;
-  overflow-wrap: anywhere;
 }
 
 .backend-flow__table-row:last-child { border-bottom: 0; }
@@ -324,7 +320,7 @@
 }
 
 @media (max-width: 380px) {
-  .backend-flow { grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1fr); grid-template-rows: auto 28px auto 36px auto 28px auto; }
+  .backend-flow { grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1fr); }
   .backend-flow__client { grid-area: 1 / 1 / 2 / 4; }
   .backend-flow__request { grid-area: 2 / 1; justify-self: center; align-self: stretch; width: 1px; height: auto; }
   .backend-flow__request::after { top: auto; bottom: 0; right: -3px; border-inline: 3.5px solid transparent; border-bottom: 0; border-top: 5px solid var(--accent-color); }
@@ -338,14 +334,16 @@
   .backend-flow__database { grid-area: 5 / 3; }
   .backend-flow__result { grid-area: 6 / 1; }
   .backend-flow__response { grid-area: 7 / 1 / 8 / 4; }
-  .backend-flow__table { display: none; }
 }
 
 .backend-inspect { cursor: pointer; }
 .backend-inspect:hover,
 .backend-inspect.is-active { border-color: var(--accent-color); }
 .backend-inspect:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
-.backend-flow__table-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+.backend-flow__table-row {
+  font-family: monospace;
+  font-size: 0.75rem;
+  overflow-wrap: anywhere; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
 .backend-flow__seed-note { display: block; margin-top: 8px; color: var(--flow-muted); font-size: 0.75rem; }
 .backend-design-detail {
   --flow-muted: var(--default-color);
