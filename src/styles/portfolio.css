@@ -24,13 +24,24 @@
 }
 
 .portfolio .portfolio-image--portrait {
+  container-type: inline-size;
   background: color-mix(in srgb, var(--accent-color), var(--surface-color) 94%);
-  padding: 16px;
 }
 
 .portfolio .portfolio-image--portrait img {
-  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56.25cqw;
+  height: 100cqw;
+  max-width: none;
+  object-fit: cover;
   object-position: center;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.portfolio .portfolio-image--portrait:hover img {
+  transform: translate(-50%, -50%) rotate(90deg) scale(1.05);
 }
 
 .portfolio .portfolio-content {
