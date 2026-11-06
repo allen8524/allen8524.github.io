@@ -151,6 +151,13 @@
   height: 3px;
   background: var(--accent-color);
 }
+
+.project-section-heading h2::before,
+.project-section-heading h2::after,
+.project-explore-heading h2::before,
+.project-explore-heading h2::after {
+  display: none;
+}
 .project-implementation-card,
 .project-result-card {
   position: relative;

@@ -163,6 +163,11 @@
   height: 3px;
   background: var(--accent-color);
 }
+
+.service-detail-section__heading h2::before,
+.service-detail-section__heading h2::after {
+  display: none;
+}
 .service-detail-page h3 {
   margin: 0;
   font-family: var(--font-subheading);
