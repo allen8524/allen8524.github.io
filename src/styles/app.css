@@ -288,6 +288,7 @@ a {
   .services .service-item {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     width: 100%;
     min-height: 210px;
     gap: 20px;
@@ -301,7 +302,7 @@ a {
 
   .services .service-content {
     display: flex;
-    flex: 1;
+    flex: 0 1 auto;
     flex-direction: column;
     min-width: 0;
   }
