@@ -5,8 +5,6 @@ export const resumeSection = {
 
 export const resumeJourney = {
   title: "활동 및 경험",
-  description: "스터디, 학내 활동, 프로젝트를 통한 CS 기초와 백엔드 중심 구현",
-  kicker: "주요 경험 요약",
 } as const;
 
 export const resumeActivities = [
@@ -85,7 +83,6 @@ export const resumeActivities = [
 
 export const resumeEducation = {
   title: "학력 및 자격",
-  description: "학력과 자격, 수상 이력 중심의 학습",
   schools: [
     {
       id: "university",

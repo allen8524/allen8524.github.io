@@ -19,8 +19,6 @@ function Resume() {
                   <i className="bi bi-briefcase-fill"></i>
                 </div>
                 <h2>{formatMiddleDotSpacing(resumeJourney.title)}</h2>
-                <p>{formatMiddleDotSpacing(resumeJourney.description)}</p>
-                <span className="section-kicker">{formatMiddleDotSpacing(resumeJourney.kicker)}</span>
               </div>
               <div className="resume-panel-body">
                 <div className="experience-timeline resume-timeline">
@@ -53,7 +51,6 @@ function Resume() {
                   <i className="bi bi-mortarboard-fill"></i>
                 </div>
                 <h2>{formatMiddleDotSpacing(resumeEducation.title)}</h2>
-                <p>{formatMiddleDotSpacing(resumeEducation.description)}</p>
               </div>
               <div className="resume-panel-body">
                 <div className="education-grid resume-education-list">
