@@ -26,8 +26,7 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
     position: relative;
     width: 12em;
     height: 12em;
-    font-size: 14px;
-    transform: scale(var(--hamster-scale, 0.6));
+    font-size: calc(var(--hamster-size, 104px) / 12);
     transform-origin: center;
   }
 
@@ -49,11 +48,7 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
 
   .wheel {
     z-index: 2;
-    background: radial-gradient(
-      100% 100% at center,
-      hsla(0, 0%, 60%, 0) 47.8%,
-      hsl(0, 0%, 60%) 48%
-    );
+    border: max(1px, 0.25em) solid hsl(0, 0%, 60%);
   }
 
   .hamster {
