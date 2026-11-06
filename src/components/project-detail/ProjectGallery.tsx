@@ -57,7 +57,6 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
                   onClick={() => setPreviewImage(image)}
                 >
                   <img src={image.src} alt={imageAlt} loading="lazy" onLoad={(event) => handleImageLoad(image.src, event)} />
-                  <span className="project-gallery-item__preview"><i className="bi bi-arrows-fullscreen" aria-hidden="true" /> 미리보기</span>
                 </button>
               </div>
               <figcaption>{imageAlt}</figcaption>
