@@ -35,7 +35,7 @@ export const resumeActivities = [
   },
   {
     id: "sangsangirum-work",
-    year: "2026.07 – 2026.08",
+    year: "2026.07 – 2026.12",
     title: "국가근로장학생",
     organization: "상상이룸센터(노원진로직업체험지원센터)",
     summaries: [
