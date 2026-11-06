@@ -25,7 +25,6 @@ function Services() {
     <section id="services" className="services section">
       <div className="container section-title">
         <h2>개발 역량</h2>
-        <p>프로젝트에서 직접 구현한 백엔드 중심 기능 범위</p>
       </div>
 
       <div className="container">

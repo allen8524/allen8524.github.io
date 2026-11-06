@@ -7,7 +7,6 @@ function Resume() {
     <section id="resume" className="resume section">
       <div className="container section-title">
         <h2>{formatMiddleDotSpacing(resumeSection.title)}</h2>
-        <p>{formatMiddleDotSpacing(resumeSection.description)}</p>
       </div>
 
       <div className="container">

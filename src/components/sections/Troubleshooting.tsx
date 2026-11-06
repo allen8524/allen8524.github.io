@@ -134,7 +134,6 @@ function Troubleshooting() {
     <section id="testimonials" className="testimonials section">
       <div className="container section-title">
         <h2>트러블슈팅</h2>
-        <p>문제 · 원인 · 해결 · 결과 중심 정리</p>
       </div>
 
       <div className="container">
