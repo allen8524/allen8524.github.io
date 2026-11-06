@@ -233,9 +233,17 @@
   padding: 0;
   list-style: none;
 }
+.service-process-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: start;
+  align-items: center;
+  gap: 12px;
+}
+
 .service-process-number {
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   color: var(--accent-color);
   font-family: var(--font-ui);
   font-size: 1.5rem;
@@ -243,7 +251,8 @@
   font-variant-numeric: tabular-nums;
 }
 .service-process-description {
-  margin: 10px 0 0;
+  grid-column: 1 / -1;
+  margin: 0;
   color: var(--service-muted);
   font-size: 0.9rem;
   word-break: keep-all;
