@@ -50,6 +50,7 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
 
         <div className="portfolio-content">
           <h3 className="portfolio-title">{projectTitle}</h3>
+          <div className="portfolio-summary-row">
           {project.descriptionItems && project.descriptionItems.length > 0 ? (
             <ul className="portfolio-description-list">
               {project.descriptionItems.map((item) => (
@@ -59,12 +60,6 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
           ) : (
             <p className="portfolio-description">{formatMiddleDotSpacing(project.description)}</p>
           )}
-          <div className="portfolio-proof-list">
-            <div className="portfolio-proof-item">
-              <span className="portfolio-proof-label">사용 기술</span>
-              <p>{project.techStack.map(formatMiddleDotSpacing).join(" · ")}</p>
-            </div>
-          </div>
           <div className="portfolio-cta">
             <Link to={project.detailUrl} className="portfolio-link primary">
               상세보기
@@ -72,6 +67,13 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
             <a href={project.githubUrl} className="portfolio-link secondary" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
+          </div>
+          </div>
+          <div className="portfolio-proof-list">
+            <div className="portfolio-proof-item">
+              <span className="portfolio-proof-label">사용 기술</span>
+              <p>{project.techStack.map(formatMiddleDotSpacing).join(" · ")}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -90,6 +90,36 @@
   justify-content: flex-end;
 }
 
+.portfolio .portfolio-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.portfolio .portfolio-summary-row > :first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.portfolio .portfolio-summary-row .portfolio-cta {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+@media (max-width: 1399px) {
+  .portfolio .portfolio-summary-row {
+    flex-wrap: wrap;
+  }
+
+  .portfolio .portfolio-summary-row > :first-child {
+    flex-basis: 100%;
+  }
+
+  .portfolio .portfolio-summary-row .portfolio-cta {
+    margin-left: auto;
+  }
+}
+
 .portfolio .portfolio-filters {
   display: flex;
   align-items: center;
