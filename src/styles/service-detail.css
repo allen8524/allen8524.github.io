@@ -304,6 +304,7 @@
   color: var(--accent-color);
   flex-shrink: 0;
 }
+.service-info-group--technologies ul,
 .service-info-group--checklist ul {
   display: grid;
   gap: 10px;
