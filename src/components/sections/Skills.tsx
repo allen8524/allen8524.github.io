@@ -18,7 +18,6 @@ function Skills() {
                 <div className="skill-category" key={category.id}>
                   <div className="category-header">
                     <h3 className="category-title">{formatMiddleDotSpacing(category.title)}</h3>
-                    <p className="category-subtitle">{formatMiddleDotSpacing(category.subtitle)}</p>
                   </div>
                   <div className="skills-list">
                     {category.skills.map((skill) => (

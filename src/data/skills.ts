@@ -8,7 +8,6 @@ export const skillCategories = [
     id: "backend",
     delay: 200,
     title: "백엔드",
-    subtitle: "인증 · 주문 · 예매 기능 구현",
     skills: [
       {
         id: "java-spring-boot",
@@ -26,7 +25,6 @@ export const skillCategories = [
     id: "database-data",
     delay: 250,
     title: "데이터베이스 · 데이터 처리",
-    subtitle: "DB 설계 · 데이터 분석",
     skills: [
       {
         id: "mysql-h2-oracle",
@@ -49,7 +47,6 @@ export const skillCategories = [
     id: "frontend-mobile-tools",
     delay: 300,
     title: "프론트엔드 · 모바일 · 도구",
-    subtitle: "웹 · 앱 · 게임 구현",
     skills: [
       {
         id: "html-css-js",
