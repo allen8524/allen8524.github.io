@@ -268,12 +268,6 @@ function ServiceDetailPage() {
               <div>
                 <h2 id="other-title">다른 개발 역량</h2>
               </div>
-              <Link
-                to="/?section=services"
-                className="btn btn-outline service-all-link"
-              >
-                개발 역량 전체 보기
-              </Link>
             </div>
             <div className="service-other-grid">
               {otherServices.map((item) => (
