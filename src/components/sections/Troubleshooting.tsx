@@ -8,9 +8,7 @@ type TroubleFlow = {
 type TroubleCase = {
   id: string;
   label: string;
-  keyword: string;
   heading: string;
-  pipeline: string[];
   flow: TroubleFlow[];
 };
 
@@ -18,9 +16,7 @@ const troubleCases: TroubleCase[] = [
   {
     id: "shopping",
     label: "쇼핑몰 판매관리",
-    keyword: "주문 흐름 정합성",
     heading: "장바구니 → 주문 저장 기준 통일",
-    pipeline: ["cart.php", "order.php", "order_ok.php"],
     flow: [
       {
         label: "문제",
@@ -34,7 +30,8 @@ const troubleCases: TroubleCase[] = [
         label: "해결",
         description: (
           <>
-            <code>cart.php</code> → <code>order.php</code> → <code>order_ok.php</code> 흐름 재정렬
+            <code>cart.php</code> → <code>order.php</code> →{" "}
+            <code>order_ok.php</code> 흐름 재정렬
           </>
         ),
       },
@@ -47,9 +44,7 @@ const troubleCases: TroubleCase[] = [
   {
     id: "esports",
     label: "e스포츠 포털/관리",
-    keyword: "순위 반영 지연 개선",
     heading: "경기 결과 → 순위표 갱신 기준 정리",
-    pipeline: ["routes/web.php", "admin/matches", "rank update"],
     flow: [
       {
         label: "문제",
@@ -76,9 +71,7 @@ const troubleCases: TroubleCase[] = [
   {
     id: "bakery",
     label: "베이커리 판매관리",
-    keyword: "누락 데이터 예외 대응",
     heading: "제품 조회 키와 null 분기 정리",
-    pipeline: ["Controllers", "Views", "Migrations"],
     flow: [
       {
         label: "문제",
@@ -101,9 +94,7 @@ const troubleCases: TroubleCase[] = [
   {
     id: "cineflow",
     label: "CineFlow",
-    keyword: "예매 상태 정합성",
     heading: "상영일정 · 좌석 · 결제 · 조회 흐름 연결",
-    pipeline: ["BookingController", "BookingService", "Booking", "bookingId"],
     flow: [
       {
         label: "문제",
@@ -117,7 +108,8 @@ const troubleCases: TroubleCase[] = [
         label: "해결",
         description: (
           <>
-            <code>BookingController</code> · <code>BookingService</code>에서 <code>bookingId</code> 기준 연결
+            <code>BookingController</code> · <code>BookingService</code>에서{" "}
+            <code>bookingId</code> 기준 연결
           </>
         ),
       },
@@ -142,32 +134,30 @@ function Troubleshooting() {
             {troubleCases.map((item) => (
               <article className="trouble-card" key={item.id}>
                 <header className="trouble-card-head">
-                  <div className="trouble-card-title-row">
-                    <h3>{item.label}</h3>
-                    <span>{item.keyword}</span>
-                  </div>
+                  <p className="trouble-card-project">{item.label}</p>
+                  <h3>{item.heading}</h3>
                 </header>
 
-                <p className="trouble-card-title">{item.heading}</p>
-
                 <ol className="trouble-card-flow">
-                  {item.flow.map((flow) => (
-                    <li key={flow.label}>
-                      <span>{flow.label}</span>
-                      <p>{flow.description}</p>
-                    </li>
-                  ))}
+                  {item.flow
+                    .filter((flow) => flow.label !== "원인")
+                    .map((flow) => (
+                      <li key={flow.label}>
+                        <span>{flow.label}</span>
+                        <div className="trouble-card-description">
+                          <p>{flow.description}</p>
+                          {flow.label === "문제" && (
+                            <p className="trouble-card-cause">
+                              {
+                                item.flow.find((step) => step.label === "원인")
+                                  ?.description
+                              }
+                            </p>
+                          )}
+                        </div>
+                      </li>
+                    ))}
                 </ol>
-
-                <div className="trouble-card-pipeline" aria-label={`${item.label} 처리 흐름`}>
-                  {item.pipeline.map((node, pipelineIndex) => (
-                    <span key={`${item.id}-${node}`}>
-                      <code>{node}</code>
-                      {pipelineIndex < item.pipeline.length - 1 && <i className="bi bi-arrow-right-short" aria-hidden="true" />}
-                    </span>
-                  ))}
-                </div>
-
               </article>
             ))}
           </div>
