@@ -11,7 +11,7 @@ function Resume() {
 
       <div className="container">
         <div className="row align-items-start justify-content-center resume-content-row">
-          <div className="col-lg-5 resume-column">
+          <div className="col-lg-6 resume-column">
             <div className="professional-journey resume-panel">
               <div className="section-intro resume-panel-header">
                 <div className="icon-wrapper resume-panel-icon">
@@ -42,7 +42,7 @@ function Resume() {
             </div>
           </div>
 
-          <div className="col-lg-7 resume-column">
+          <div className="col-lg-6 resume-column">
             <div className="education-skills resume-panel">
               <div className="section-intro resume-panel-header">
                 <div className="icon-wrapper resume-panel-icon">
