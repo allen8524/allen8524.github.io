@@ -312,6 +312,7 @@ a {
 }
 
 .hero .hero-content h1 {
+  margin-bottom: 0;
   margin-left: auto;
   text-align: right;
 }
@@ -319,7 +320,7 @@ a {
   margin-left: auto;
 }
 .hero .hero-content .hero-summary {
-  margin-top: 32px;
+  margin-top: 0.4rem;
 }
 .hero .hero-content .hero-summary .hero-stats {
   display: grid;
