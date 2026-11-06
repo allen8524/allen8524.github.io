@@ -1,6 +1,5 @@
 export const resumeSection = {
   title: "이력 및 활동",
-  description: "학습 과정, 활동 기간, 자격 · 수상",
 } as const;
 
 export const resumeJourney = {
@@ -76,7 +75,6 @@ export const resumeEducation = {
     {
       id: "university",
       primary: true,
-      delay: 300,
       icon: "bi bi-award",
       name: "컴퓨터소프트웨어학과",
       institution: "인덕대학교",
@@ -85,7 +83,6 @@ export const resumeEducation = {
     {
       id: "high-school",
       primary: false,
-      delay: 350,
       icon: "bi bi-laptop",
       name: "자동화기계과",
       institution: "인덕과학기술고등학교",

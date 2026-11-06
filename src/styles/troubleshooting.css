@@ -42,17 +42,6 @@
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
 }
 
-.testimonials .trouble-card-stack {
-  margin: 0 0 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 38%);
-  font-family: var(--font-label);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
 .testimonials .trouble-card-title-row {
   display: flex;
   gap: 14px;
@@ -172,30 +161,6 @@
   color: color-mix(in srgb, var(--accent-color), transparent 22%);
   font-size: 0.9rem;
   line-height: 1;
-}
-
-.testimonials .trouble-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 10px;
-  margin: 12px 0 0;
-  padding: 14px 0 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
-  list-style: none;
-}
-
-.testimonials .trouble-card-tags li {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  font-family: var(--font-label);
-  font-size: 0.76rem;
-  font-weight: 400;
-  line-height: 1.35;
-  word-break: keep-all;
-}
-
-.testimonials .trouble-card-tags li::before {
-  color: var(--accent-color);
-  content: "#";
 }
 
 @media (max-width: 991px) {

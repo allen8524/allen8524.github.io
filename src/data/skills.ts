@@ -1,12 +1,10 @@
 export const skillsSection = {
   title: "사용 기술 및 경험",
-  description: "프로젝트에 적용한 주요 기술과 구현 경험",
 } as const;
 
 export const skillCategories = [
   {
     id: "backend",
-    delay: 200,
     title: "백엔드",
     skills: [
       {
@@ -23,7 +21,6 @@ export const skillCategories = [
   },
   {
     id: "database-data",
-    delay: 250,
     title: "데이터베이스 · 데이터 처리",
     skills: [
       {
@@ -45,7 +42,6 @@ export const skillCategories = [
   },
   {
     id: "frontend-mobile-tools",
-    delay: 300,
     title: "프론트엔드 · 모바일 · 도구",
     skills: [
       {

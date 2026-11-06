@@ -28,8 +28,8 @@ function Resume() {
                 <div className="resume-activity-grid">
                   {(
                     [
-                      { kind: "activity", title: "활동" },
-                      { kind: "experience", title: "경험" },
+                      { kind: "activity" },
+                      { kind: "experience" },
                     ] as const
                   ).map((group) => (
                     <div className="resume-activity-group" key={group.kind}>

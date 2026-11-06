@@ -11,7 +11,6 @@ export default defineConfig({
         { src: "assets/files/**/*", dest: "assets/files", rename: { stripBase: 2 } },
         { src: "robots.txt", dest: "." },
         { src: "sitemap.xml", dest: "." },
-        { src: "sitemap.txt", dest: "." },
         { src: ".nojekyll", dest: "." },
       ],
     }),

@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://allen8524.github.io/sitemap.xml
-Sitemap: https://allen8524.github.io/sitemap.txt

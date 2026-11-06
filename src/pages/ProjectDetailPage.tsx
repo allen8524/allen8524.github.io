@@ -16,9 +16,6 @@ import { DEFAULT_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import NotFoundPage from "./NotFoundPage";
 import "../styles/project-detail.css";
-import "../styles/project-gallery-fan.css";
-import "../styles/detail-hero-glow.css";
-import "../styles/project-refresh.css";
 
 function ProjectDetailPage() {
   const { projectId } = useParams();
