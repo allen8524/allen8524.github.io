@@ -1274,7 +1274,7 @@ section,
 .resume .resume-panel {
   width: 100%;
   border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
   background: color-mix(in srgb, var(--surface-color), transparent 6%);
   padding: 2rem;
 }
@@ -1371,7 +1371,7 @@ section,
   margin-bottom: 1rem;
   padding: 1.2rem 1.25rem 1.15rem 1.1rem;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
   background: color-mix(in srgb, var(--surface-color), transparent 8%);
 }
 
@@ -1431,7 +1431,7 @@ section,
   padding: 1.5rem;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
 .resume .education-skills .education-grid .education-card.primary {
@@ -1525,7 +1525,7 @@ section,
   margin-top: 1.35rem;
   padding: 1.25rem;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 94%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
   background: color-mix(in srgb, var(--surface-color), transparent 10%);
 }
 

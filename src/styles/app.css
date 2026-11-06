@@ -122,6 +122,22 @@ a {
   }
 }
 
+.resume :is(.resume-panel, .timeline-item, .education-card, .certification-section) {
+  position: relative;
+}
+
+.resume :is(.resume-panel, .timeline-item, .education-card, .certification-section)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%));
+  pointer-events: none;
+}
+
 .services {
   padding: 84px 0;
 }
