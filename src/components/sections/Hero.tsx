@@ -1,7 +1,3 @@
-import { recentAchievements } from "../../data/awards";
-import { projects } from "../../data/projects";
-import { resumeActivities } from "../../data/resume";
-
 function Hero() {
   return (
     <section id="hero" className="hero section">
@@ -14,22 +10,6 @@ function Hero() {
                 <span className="accent-text">백엔드 개발자</span>
               </h1>
 
-              <div className="hero-summary">
-              <div className="hero-stats">
-                <div className="stat-item">
-                  <span className="stat-number">{projects.length}</span>
-                  <span className="stat-label">프로젝트</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">{recentAchievements.length}</span>
-                  <span className="stat-label">수상 경험</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">{resumeActivities.length}</span>
-                  <span className="stat-label">교내 활동</span>
-                </div>
-              </div>
-              </div>
             </div>
           </div>
 
