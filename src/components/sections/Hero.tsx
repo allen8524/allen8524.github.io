@@ -14,11 +14,6 @@ function Hero() {
                 <span className="accent-text">백엔드 개발자</span>
               </h1>
 
-              <p className="hero-description portfolio-intro-text">
-                <span>Spring Boot · Laravel · PHP 기반 웹 프로젝트</span>
-                <span>예매 · 주문 · 게시판 · 관리자 및 DB 연동 구현</span>
-              </p>
-
               <div className="hero-summary">
               <div className="hero-stats">
                 <div className="stat-item">
