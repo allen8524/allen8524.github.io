@@ -1,4 +1,10 @@
 /* Full-width activity panel, followed by schools and awards side by side. */
+.resume .timeline-item::before,
+.resume .education-card::before,
+.resume .certification-section::before {
+  display: none;
+}
+
 .resume .resume-content-row {
   --bs-gutter-y: 28px;
 }
