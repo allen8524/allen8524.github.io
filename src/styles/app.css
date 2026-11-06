@@ -311,6 +311,13 @@ a {
 
 }
 
+.hero .hero-content h1 {
+  margin-left: auto;
+  text-align: right;
+}
+.hero .hero-content h1 .accent-text {
+  margin-left: auto;
+}
 .hero .hero-content .hero-summary {
   margin-top: 32px;
 }
@@ -320,9 +327,8 @@ a {
   width: 100%;
   max-width: 360px;
   gap: 0;
-  margin: 0;
+  margin: 0 0 0 auto;
   padding: 8px 0;
-  transform: translateX(-40px);
 }
 .hero .hero-content .hero-summary .stat-item {
   display: flex;
