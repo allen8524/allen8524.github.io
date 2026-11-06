@@ -11,7 +11,6 @@ type TroubleCase = {
   keyword: string;
   heading: string;
   pipeline: string[];
-  tags: string[];
   flow: TroubleFlow[];
 };
 
@@ -22,7 +21,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "주문 흐름 정합성",
     heading: "장바구니 → 주문 저장 기준 통일",
     pipeline: ["cart.php", "order.php", "order_ok.php"],
-    tags: ["장바구니 기준 정렬", "주문번호 중심 저장", "관리자 조회 일치"],
     flow: [
       {
         label: "문제",
@@ -52,7 +50,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "순위 반영 지연 개선",
     heading: "경기 결과 → 순위표 갱신 기준 정리",
     pipeline: ["routes/web.php", "admin/matches", "rank update"],
-    tags: ["JSON 응답 통일", "finished 정렬", "순위표 동기화"],
     flow: [
       {
         label: "문제",
@@ -82,7 +79,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "누락 데이터 예외 대응",
     heading: "제품 조회 키와 null 분기 정리",
     pipeline: ["Controllers", "Views", "Migrations"],
-    tags: ["조회 키 통일", "null 분기 처리", "화면 응답 유지"],
     flow: [
       {
         label: "문제",
@@ -108,7 +104,6 @@ const troubleCases: TroubleCase[] = [
     keyword: "예매 상태 정합성",
     heading: "상영일정 · 좌석 · 결제 · 조회 흐름 연결",
     pipeline: ["BookingController", "BookingService", "Booking", "bookingId"],
-    tags: ["예매 상태 연결", "좌석 선택 기준 유지", "조회 · 취소 흐름 일치"],
     flow: [
       {
         label: "문제",
@@ -174,11 +169,6 @@ function Troubleshooting() {
                   ))}
                 </div>
 
-                <ul className="trouble-card-tags">
-                  {item.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
               </article>
             ))}
           </div>
