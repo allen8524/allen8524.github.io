@@ -69,11 +69,14 @@ a {
 
 .reveal-item {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(12px);
   transition:
-    opacity 600ms ease,
-    transform 600ms ease;
+    opacity 320ms ease,
+    transform 320ms ease;
   will-change: opacity, transform;
+  transition-property: opacity, transform, border-color, background-color, box-shadow !important;
+  transition-duration: 320ms !important;
+  transition-delay: 0ms !important;
 }
 
 .reveal-item.is-visible {
@@ -87,6 +90,7 @@ a {
     opacity: 1;
     transform: none;
     transition: none;
+    transition-duration: 0ms !important;
     will-change: auto;
   }
 }
