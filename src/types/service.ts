@@ -18,6 +18,7 @@ export type ServiceFeature = {
   icon: ServiceIconKey;
   title: string;
   description?: string;
+  source?: { label: string; url: string };
 };
 
 export type ServiceStep = {

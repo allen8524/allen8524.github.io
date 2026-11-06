@@ -133,6 +133,24 @@ function ServiceDetailPage() {
                     {feature.description && (
                       <p>{formatMiddleDotSpacing(feature.description)}</p>
                     )}
+                    {feature.source && (
+                      <a
+                        className="service-source-link"
+                        href={feature.source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {feature.source.label}
+                        <i
+                          className="bi bi-arrow-up-right"
+                          aria-hidden="true"
+                        />
+                        <span className="visually-hidden">
+                          {" "}
+                          구현 코드 새 창에서 열기
+                        </span>
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}

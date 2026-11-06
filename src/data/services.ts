@@ -4,209 +4,436 @@ export const services: ServiceDetail[] = [
   {
     id: "auth",
     title: "인증 · 권한 관리",
-    summary: "로그인 · 세션 · 관리자 접근 분리",
+    summary: "Spring Security · 세션 인증 · BCrypt · 관리자 권한 제어",
     icon: "shield",
     image: "assets/img/portfolio/cineflow-admin.png",
     imageAlt: "CineFlow 관리자 접근 권한 분리 화면",
     features: [
       {
         icon: "shield",
-        title: "로그인 · 로그아웃 · 세션 만료 기준 정리",
-        description: "인증 상태가 변경되는 시점과 이동 경로를 구분했습니다.",
+        title: "SecurityFilterChain · 세션 인증",
+        description:
+          'formLogin으로 로그인 요청을 처리하고, /mypage와 예매 API는 authenticated(), /admin/**는 hasRole("ADMIN")으로 제한했습니다.',
+        source: {
+          label: "SecurityConfig.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/config/SecurityConfig.java",
+        },
       },
       {
         icon: "user",
-        title: "사용자 · 관리자 라우트와 메뉴 분리",
-        description: "역할에 따라 접근 가능한 화면과 메뉴 노출 범위를 분리했습니다.",
+        title: "UserDetailsService · BCrypt",
+        description:
+          "UserService의 loadUserByUsername으로 계정을 조회하고, AuthenticatedUser에 역할을 매핑했습니다. 비밀번호는 BCryptPasswordEncoder로 해시합니다.",
+        source: {
+          label: "UserService.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/service/UserService.java",
+        },
       },
       {
         icon: "bug",
-        title: "비로그인 · 권한 없음 · 직접 URL 접근 제한",
-        description: "화면 숨김뿐 아니라 직접 경로 접근까지 제한했습니다.",
+        title: "CSRF 보호 · 로그아웃 세션 정리",
+        description:
+          "H2 콘솔을 제외한 요청에 기본 CSRF 보호를 유지했습니다. 로그아웃 시 세션을 무효화하고 JSESSIONID 쿠키를 삭제하며, 접근 거부 화면을 분리했습니다.",
+        source: {
+          label: "SecurityConfig.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/config/SecurityConfig.java",
+        },
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "역할 나누기", description: "회원, 비회원, 관리자 범위 분리." },
-      { title: "라우트 보호", description: "권한이 필요한 화면에 인증 조건 적용." },
-      { title: "차단 확인", description: "정상 이동과 예외 접근 함께 점검." },
+      {
+        title: "계정 조회",
+        description:
+          "UserDetailsService → DB 사용자 조회 → 역할을 GrantedAuthority로 변환.",
+      },
+      {
+        title: "요청 인가",
+        description:
+          "SecurityFilterChain에서 인증 필요 경로와 ADMIN 전용 경로 구분.",
+      },
+      {
+        title: "세션 종료",
+        description:
+          "logout 시 invalidateHttpSession과 deleteCookies로 인증 상태 정리.",
+      },
     ],
     evidenceTitle: "적용 프로젝트",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "예매 권한 · 관리자 접근 분리" },
-      { icon: "controller", title: "e스포츠 포털", description: "Laravel 관리자 미들웨어" },
+      {
+        icon: "film",
+        title: "CineFlow",
+        description: "Spring Security · BCrypt · 세션 인증",
+      },
+      {
+        icon: "controller",
+        title: "e스포츠 포털",
+        description: "auth·admin 미들웨어 · 세션 재발급",
+      },
       { icon: "cart", title: "쇼핑몰", description: "PHP 세션 로그인" },
     ],
     sideInfo: [
       {
         title: "주요 적용 기술",
-        items: ["Spring Security", "Laravel Middleware", "PHP Session", "Access Control"],
+        items: [
+          "Spring Security · formLogin",
+          "UserDetailsService · GrantedAuthority",
+          "BCryptPasswordEncoder",
+          "CSRF · HttpSession",
+        ],
       },
       {
         title: "확인 항목",
-        items: ["로그인/로그아웃", "세션 만료", "권한 없는 접근"],
+        items: [
+          "보호 경로의 비로그인 접근",
+          "ADMIN 역할 없는 관리자 접근",
+          "로그아웃 후 세션·쿠키 정리",
+        ],
       },
     ],
     relatedProjects: [
-      { label: "CineFlow 영화 예매 관리 시스템", description: "Spring Security", projectId: "cineflow" },
-      { label: "e스포츠 포털 및 경기관리 웹사이트", description: "관리자 미들웨어", projectId: "esports" },
-      { label: "쇼핑몰 판매관리 사이트", description: "PHP 세션", projectId: "shopping" },
+      {
+        label: "CineFlow 영화 예매 관리 시스템",
+        description: "Spring Security",
+        projectId: "cineflow",
+      },
+      {
+        label: "e스포츠 포털 및 경기관리 웹사이트",
+        description: "관리자 미들웨어",
+        projectId: "esports",
+      },
+      {
+        label: "쇼핑몰 판매관리 사이트",
+        description: "PHP 세션",
+        projectId: "shopping",
+      },
     ],
   },
   {
     id: "order",
     title: "예매 · 주문 흐름 관리",
-    summary: "예매번호 · 주문번호 기준 저장 흐름 연결",
+    summary: "Spring @Transactional · JPA 비관적 잠금 · 예매 상태 전이",
     icon: "ticket",
     image: "assets/img/portfolio/cineflow-booking-gallery.png",
     imageAlt: "CineFlow 빠른예매와 좌석 선택 진행 화면",
     features: [
       {
         icon: "ticket",
-        title: "예매번호 · 주문번호 기준 저장 · 조회",
-        description: "고유 번호를 기준으로 저장 데이터와 조회 결과를 연결했습니다.",
+        title: "@Transactional · 예매 일괄 저장",
+        description:
+          "BookingService.completeBooking에서 예매·좌석 내역 저장, 좌석 예약 상태 변경과 결제 결과 기록을 같은 트랜잭션 안에서 처리했습니다.",
+        source: {
+          label: "BookingService.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/service/BookingService.java",
+        },
       },
       {
-        icon: "cart",
-        title: "주문 마스터 · 상세 항목 분리 저장",
-        description: "주문 단위 정보와 상품별 상세 항목을 분리해 저장했습니다.",
+        icon: "database",
+        title: "PESSIMISTIC_WRITE · 좌석 잠금",
+        description:
+          "ScheduleSeatRepository에 @Lock(PESSIMISTIC_WRITE)을 적용하고, 예약 처리 전에 좌석을 잠가 동일 좌석의 동시 예약을 제어했습니다.",
+        source: {
+          label: "ScheduleSeatRepository.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/repository/ScheduleSeatRepository.java",
+        },
       },
       {
         icon: "bug",
-        title: "결제 완료 · 조회 · 취소 값 유지",
-        description: "진행 단계가 바뀌어도 예매와 결제 상태가 유지되도록 구성했습니다.",
+        title: "취소 권한 · 좌석 상태 복원",
+        description:
+          "cancelBooking에서 취소 권한과 가능 상태를 확인한 뒤 결제 취소 처리, 예약 좌석 해제와 잔여 좌석 수 갱신을 연결했습니다.",
+        source: {
+          label: "BookingService.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/service/BookingService.java",
+        },
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "기준값 선택", description: "예매번호, 주문번호, 제품 ID 중 중심 키 지정." },
-      { title: "단계값 전달", description: "좌석, 결제수단, 주문 항목을 저장 단계까지 유지." },
-      { title: "조회 기준 통일", description: "사용자와 관리자 조회 기준 일치." },
+      {
+        title: "좌석 잠금",
+        description:
+          "요청 좌석을 정규화하고 예약 가능 여부를 확인한 뒤 DB 잠금 획득.",
+      },
+      {
+        title: "예매 저장",
+        description: "예매·좌석 내역과 결제 결과를 트랜잭션 안에서 함께 기록.",
+      },
+      {
+        title: "취소 처리",
+        description: "권한·취소 조건 검증 후 좌석 해제와 예매 상태 변경.",
+      },
     ],
     evidenceTitle: "적용 프로젝트",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "예매번호 · 좌석 · 결제 연결" },
-      { icon: "cart", title: "쇼핑몰", description: "주문번호 · 주문 상세 저장" },
-      { icon: "shop", title: "베이커리", description: "제품 ID · 재고 · 판매 확인" },
+      {
+        icon: "film",
+        title: "CineFlow",
+        description: "예매번호 · 좌석 · 결제 연결",
+      },
+      {
+        icon: "cart",
+        title: "쇼핑몰",
+        description: "주문번호 · 주문 상세 저장",
+      },
+      {
+        icon: "shop",
+        title: "베이커리",
+        description: "제품 ID · 재고 · 판매 확인",
+      },
     ],
     sideInfo: [
       {
         title: "주요 적용 기술",
-        items: ["JPA", "MySQL", "PHP", "Laravel"],
+        items: [
+          "Spring @Transactional",
+          "JPA · PESSIMISTIC_WRITE",
+          "Booking · BookingSeat 엔티티",
+          "BookingStatus · PaymentStatus",
+        ],
       },
       {
         title: "확인 항목",
-        items: ["예매번호", "주문번호", "좌석", "결제 결과"],
+        items: [
+          "동일 좌석 예약 충돌",
+          "회원 예매 소유자 확인",
+          "취소 후 좌석·예매 상태 일치",
+        ],
       },
     ],
     relatedProjects: [
-      { label: "CineFlow 영화 예매 관리 시스템", description: "예매 기준", projectId: "cineflow" },
-      { label: "쇼핑몰 판매관리 사이트", description: "주문 기준", projectId: "shopping" },
-      { label: "베이커리 판매관리 웹사이트", description: "제품 기준", projectId: "bakery" },
+      {
+        label: "CineFlow 영화 예매 관리 시스템",
+        description: "예매 기준",
+        projectId: "cineflow",
+      },
+      {
+        label: "쇼핑몰 판매관리 사이트",
+        description: "주문 기준",
+        projectId: "shopping",
+      },
+      {
+        label: "베이커리 판매관리 웹사이트",
+        description: "제품 기준",
+        projectId: "bakery",
+      },
     ],
   },
   {
     id: "board",
     title: "관리자 데이터 운영",
-    summary: "영화 · 경기 · 뉴스 · 제품 · 재고 CRUD 운영",
+    summary: "Spring MVC · Laravel FormRequest · 파일 검증 · 상태 기반 노출",
     icon: "document",
     image: "assets/img/portfolio/cineflow-admin-gallery.png",
     imageAlt: "CineFlow 관리자 상영일정 데이터 운영 화면",
     features: [
       {
         icon: "document",
-        title: "등록 · 목록 · 수정 · 삭제 동작 분리",
-        description: "관리 기능별 요청과 처리 흐름을 각각 분리했습니다.",
+        title: "Spring MVC · 관리자 CRUD",
+        description:
+          "AdminManagementController에서 영화·극장·상영관·상영일정의 요청을 분리하고, 서비스 계층을 통해 저장·수정·삭제를 처리했습니다.",
+        source: {
+          label: "AdminManagementController.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/controller/AdminManagementController.java",
+        },
       },
       {
         icon: "search",
-        title: "필수값 · 날짜 · 상태값 · 이미지 조건 확인",
-        description: "저장 전 입력값과 데이터 상태를 검증하도록 구성했습니다.",
+        title: "Laravel Validation · 이미지 검증",
+        description:
+          "ProductController의 Request::validate로 제품 입력을 검증했습니다. 이미지는 image·mimes 규칙과 최대 2048KB 제한을 적용했습니다.",
+        source: {
+          label: "ProductController.php",
+          url: "https://github.com/allen8524/bakery-sales-management-laravel/blob/main/app/Http/Controllers/ProductController.php",
+        },
       },
       {
-        icon: "trophy",
-        title: "공개 여부 · 종료 경기 · 재고 표시 조건 정리",
-        description: "데이터 상태에 따라 사용자 화면의 노출 범위를 구분했습니다.",
+        icon: "controller",
+        title: "Laravel Middleware · 경기 상태 분기",
+        description:
+          "경기 변경 요청에 auth·admin 미들웨어를 적용하고, finished 상태와 점수에 따라 승리 팀을 산출해 저장했습니다.",
+        source: {
+          label: "MatchController.php",
+          url: "https://github.com/allen8524/esports-portal-management/blob/main/app/Http/Controllers/MatchController.php",
+        },
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "대상 정의", description: "영화, 경기, 뉴스, 제품 단위 분리." },
-      { title: "입력 규칙", description: "필수 필드와 수정 가능 값 제한." },
-      { title: "노출 확인", description: "필요한 화면에만 저장값 표시." },
+      {
+        title: "요청 분리",
+        description:
+          "Spring MVC 컨트롤러와 Laravel 라우트에서 운영 기능별 요청 정의.",
+      },
+      {
+        title: "입력 검증",
+        description: "필수값·경기 상태·이미지 형식과 크기를 저장 전에 검증.",
+      },
+      {
+        title: "상태 반영",
+        description:
+          "저장 결과를 Thymeleaf·Blade 관리자 화면과 사용자 조회에 반영.",
+      },
     ],
     evidenceTitle: "적용 프로젝트",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "영화 · 극장 · 상영일정 운영" },
-      { icon: "controller", title: "e스포츠 포털", description: "뉴스 · 팀 · 선수 · 경기 운영" },
-      { icon: "shop", title: "베이커리", description: "제품 · 재고 · 판매 운영" },
+      {
+        icon: "film",
+        title: "CineFlow",
+        description: "영화 · 극장 · 상영일정 운영",
+      },
+      {
+        icon: "controller",
+        title: "e스포츠 포털",
+        description: "뉴스 · 팀 · 선수 · 경기 운영",
+      },
+      {
+        icon: "shop",
+        title: "베이커리",
+        description: "제품 · 재고 · 판매 운영",
+      },
     ],
     sideInfo: [
       {
         title: "주요 적용 기술",
-        items: ["Thymeleaf", "Laravel Blade", "MySQL", "Bootstrap"],
+        items: [
+          "Spring MVC · Thymeleaf",
+          "Laravel Request Validation",
+          "auth · admin Middleware",
+          "Blade · Eloquent",
+        ],
       },
       {
         title: "확인 항목",
-        items: ["필수 입력", "수정 범위", "공개 여부"],
+        items: [
+          "직접 URL로 관리자 기능 접근",
+          "이미지 형식·파일 크기 제한",
+          "종료 경기의 승리 팀 입력",
+        ],
       },
     ],
     relatedProjects: [
-      { label: "CineFlow 영화 예매 관리 시스템", description: "영화 운영", projectId: "cineflow" },
-      { label: "e스포츠 포털 및 경기관리 웹사이트", description: "콘텐츠 운영", projectId: "esports" },
-      { label: "베이커리 판매관리 웹사이트", description: "제품 운영", projectId: "bakery" },
+      {
+        label: "CineFlow 영화 예매 관리 시스템",
+        description: "영화 운영",
+        projectId: "cineflow",
+      },
+      {
+        label: "e스포츠 포털 및 경기관리 웹사이트",
+        description: "콘텐츠 운영",
+        projectId: "esports",
+      },
+      {
+        label: "베이커리 판매관리 웹사이트",
+        description: "제품 운영",
+        projectId: "bakery",
+      },
     ],
   },
   {
     id: "database",
     title: "DB 설계 및 데이터 처리",
-    summary: "JPA · Flyway · MySQL · CSV 분석 데이터 정리",
+    summary: "JPA 연관관계 · Flyway SQL · pandas 전처리 · PCA·회귀",
     icon: "database",
-    image: "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
+    image:
+      "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
     imageAlt: "Cine21 영화 데이터 상관관계 분석 결과 화면",
     features: [
       {
         icon: "database",
-        title: "PK · FK · 상태값 · 조회 조건 분리",
-        description: "저장과 조회에 필요한 기준값과 테이블 관계를 정리했습니다.",
+        title: "JPA 엔티티 · 인덱스 설계",
+        description:
+          "Booking 엔티티의 테이블·연관관계를 매핑하고, 예매 코드의 unique 제약과 상태·상영일정·사용자 조회용 인덱스를 정의했습니다.",
+        source: {
+          label: "Booking.java",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/domain/Booking.java",
+        },
       },
       {
         icon: "database",
-        title: "Flyway 변경 이력 · 초기 데이터 관리",
-        description: "환경이 달라도 같은 DB 구조와 초기 데이터를 재현하도록 관리했습니다.",
+        title: "Flyway · 버전별 스키마 관리",
+        description:
+          "V1 초기 스키마부터 인덱스·인증·회원 예매 연결·관리자 구조 변경을 SQL 마이그레이션으로 구분해 관리했습니다.",
+        source: {
+          label: "Flyway migration SQL",
+          url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/resources/db/migration/V2__indexes_and_constraints.sql",
+        },
       },
       {
         icon: "chart",
-        title: "CSV 정제 후 PCA · 회귀분석 수행",
-        description: "결측값과 이상치를 처리한 뒤 분석 모델과 시각화를 수행했습니다.",
+        title: "pandas · MinMaxScaler · PCA",
+        description:
+          "결측값을 처리하고 IQR 기준으로 이상치를 정리한 뒤 MinMaxScaler로 정규화했습니다. PCA와 LinearRegression으로 분석 결과를 산출했습니다.",
+        source: {
+          label: "hms_project_202212004.py",
+          url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/src/hms_project_202212004.py",
+        },
       },
     ],
     processTitle: "구현 기준",
     processSteps: [
-      { title: "키 정의", description: "기능에 필요한 기준 키 선정." },
-      { title: "관계 설계", description: "조회와 저장 기준에 맞춰 테이블 연결." },
-      { title: "입력 정제", description: "결측값, 이상치, 스케일 차이 처리." },
+      {
+        title: "관계 정의",
+        description: "예매·사용자·상영일정 연결과 조회용 키·인덱스 설계.",
+      },
+      {
+        title: "변경 기록",
+        description: "스키마 변경을 Flyway 버전별 SQL로 관리.",
+      },
+      {
+        title: "분석 처리",
+        description: "결측·이상치 처리 → 정규화 → PCA·선형회귀 수행.",
+      },
     ],
     evidenceTitle: "적용 프로젝트",
     evidence: [
       { icon: "film", title: "CineFlow", description: "JPA · Flyway" },
-      { icon: "controller", title: "e스포츠 포털", description: "MySQL JOIN · 집계" },
-      { icon: "chart", title: "Movie PCA", description: "CSV 전처리 · PCA · 회귀분석" },
+      {
+        icon: "controller",
+        title: "e스포츠 포털",
+        description: "MySQL JOIN · 집계",
+      },
+      {
+        icon: "chart",
+        title: "Movie PCA",
+        description: "CSV 전처리 · PCA · 회귀분석",
+      },
     ],
     sideInfo: [
       {
         title: "주요 적용 기술",
-        items: ["JPA/Flyway", "MySQL JOIN", "pandas", "scikit-learn"],
+        items: [
+          "JPA · @Entity · @Index",
+          "Flyway · SQL migration",
+          "pandas · MinMaxScaler",
+          "PCA · LinearRegression",
+        ],
       },
       {
         title: "확인 항목",
-        items: ["PK/FK", "마이그레이션", "CSV 품질"],
+        items: [
+          "예매 코드 unique 제약",
+          "스키마 변경 이력 재현",
+          "결측값·이상치·스케일 처리",
+        ],
       },
     ],
     relatedProjects: [
-      { label: "CineFlow 영화 예매 관리 시스템", description: "JPA/Flyway", projectId: "cineflow" },
-      { label: "e스포츠 포털 및 경기관리 웹사이트", description: "JOIN · 집계", projectId: "esports" },
-      { label: "Cine21 영화 데이터 PCA · 회귀 분석", description: "CSV 분석", projectId: "movie-analysis" },
+      {
+        label: "CineFlow 영화 예매 관리 시스템",
+        description: "JPA/Flyway",
+        projectId: "cineflow",
+      },
+      {
+        label: "e스포츠 포털 및 경기관리 웹사이트",
+        description: "JOIN · 집계",
+        projectId: "esports",
+      },
+      {
+        label: "Cine21 영화 데이터 PCA · 회귀 분석",
+        description: "CSV 분석",
+        projectId: "movie-analysis",
+      },
     ],
   },
 ];

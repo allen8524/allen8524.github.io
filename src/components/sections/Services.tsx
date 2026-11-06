@@ -31,15 +31,21 @@ function Services() {
         <div className="row g-5">
           {services.map((service) => (
             <div className="col-lg-6" key={service.id}>
-              <Link className="service-item" to={`/services/${service.id}`} aria-label={`${formatMiddleDotSpacing(service.title)} 상세 보기`}>
+              <Link
+                className="service-item"
+                to={`/services/${service.id}`}
+                aria-label={`${formatMiddleDotSpacing(service.title)} 상세 보기`}
+              >
                 <div className="service-icon">
                   <i className={`bi ${serviceBootstrapIcons[service.icon]}`} />
                 </div>
                 <div className="service-content">
-                  <h3>
-                    {formatMiddleDotSpacing(service.title)}
-                  </h3>
+                  <h3>{formatMiddleDotSpacing(service.title)}</h3>
                   <p>{formatMiddleDotSpacing(service.summary)}</p>
+                  <span className="service-detail-cue">
+                    적용 기술 · 구현 코드 보기{" "}
+                    <i className="bi bi-arrow-up-right" aria-hidden="true" />
+                  </span>
                 </div>
               </Link>
             </div>

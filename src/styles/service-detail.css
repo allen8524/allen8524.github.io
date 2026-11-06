@@ -201,6 +201,18 @@
 .service-feature-card__content {
   min-width: 0;
 }
+
+.service-source-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--accent-color);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
 .service-feature-card p,
 .service-evidence-card p,
 .service-other-card p {
