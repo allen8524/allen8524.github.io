@@ -4,6 +4,7 @@ import App from "./App";
 import "./styles/global.css";
 import "./styles/app.css";
 import "./styles/about.css";
+import "./styles/resume-layout.css";
 import "./styles/portfolio.css";
 import "./styles/troubleshooting.css";
 import "./styles/theme-toggle.css";

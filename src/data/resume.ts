@@ -10,6 +10,7 @@ export const resumeJourney = {
 export const resumeActivities = [
   {
     id: "indev",
+    kind: "activity",
     year: "2026.05 – 2026.12",
     title: "인덕대학교 전공동아리 - INDEV",
     summaries: [
@@ -19,6 +20,7 @@ export const resumeActivities = [
   },
   {
     id: "library-work",
+    kind: "experience",
     year: "2026.03 – 2026.06",
     title: "인덕대학교 도서관",
     summaries: [
@@ -28,6 +30,7 @@ export const resumeActivities = [
   },
   {
     id: "sangsangirum-work",
+    kind: "experience",
     year: "2026.07 – 2026.12",
     title: "상상이룸센터(노원진로직업체험지원센터)",
     summaries: [
@@ -37,6 +40,7 @@ export const resumeActivities = [
   },
   {
     id: "codeattack",
+    kind: "activity",
     year: "2025.03 – 2026.09",
     title: "인덕대학교 스터디 - CodeAttack",
     summaries: [
@@ -46,6 +50,7 @@ export const resumeActivities = [
   },
   {
     id: "devup",
+    kind: "activity",
     year: "2025.04 – 2025.12",
     title: "인덕대학교 스터디 - DevUp",
     summaries: [
@@ -55,6 +60,7 @@ export const resumeActivities = [
   },
   {
     id: "ifp",
+    kind: "activity",
     year: "2022.03 – 2022.12",
     title: "인덕대학교 전공동아리 - IFP",
     summaries: [

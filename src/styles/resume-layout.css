@@ -1,0 +1,50 @@
+/* Full-width activity panel, followed by schools and awards side by side. */
+.resume .resume-content-row {
+  --bs-gutter-y: 28px;
+}
+
+.resume .resume-panel-header {
+  justify-content: center;
+}
+
+.resume .resume-activity-grid,
+.resume .resume-education-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 28px;
+}
+
+.resume .resume-school-list {
+  display: grid;
+  gap: 16px;
+}
+
+.resume .resume-group-title {
+  margin: 0 0 20px;
+  color: var(--heading-color);
+  font-family: var(--font-subheading);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.resume .resume-activity-group {
+  min-width: 0;
+}
+
+.resume .education-skills .education-grid .education-card,
+.resume .education-skills .education-grid .certification-section {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .resume .resume-activity-grid,
+  .resume .resume-education-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .resume .resume-content-row {
+    --bs-gutter-y: 20px;
+  }
+}
