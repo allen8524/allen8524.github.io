@@ -26,6 +26,8 @@ const selectors: Record<RevealScope, string> = {
     ".form-wrapper",
   ].join(","),
   project: [
+    ".project-breadcrumb",
+    ".project-result-card",
     ".project-detail-hero__content",
     ".project-detail-hero__image",
     ".project-section-heading",
