@@ -2357,7 +2357,7 @@ section,
 --------------------------------------------------------------*/
 .hero .hero-content h1,
 .about .intro-header h2 {
-  font-family: var(--font-hero);
+  font-family: var(--font-heading);
 }
 
 .section-title h2,

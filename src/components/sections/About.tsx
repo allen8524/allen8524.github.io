@@ -135,7 +135,6 @@ function About() {
           <div className="col-xl-11">
             <div className="intro-header text-center">
               <h2>화면 뒤의 처리 구조를 설계합니다.</h2>
-              <p className="subtitle">요청 처리 · 상태 관리 · 데이터 연동</p>
             </div>
 
             <div className="main-content-wrapper">
