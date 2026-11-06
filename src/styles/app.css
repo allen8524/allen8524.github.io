@@ -132,9 +132,9 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%));
+  background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%)) top / 100% 3px no-repeat;
   pointer-events: none;
 }
 
