@@ -102,7 +102,6 @@ function ServiceDetailPage() {
             aria-labelledby="service-title"
           >
             <div className="service-detail-hero__content">
-              <ServiceFeatureIcon icon={service.icon} />
               <h1 id="service-title">
                 {formatMiddleDotSpacing(service.title)}
               </h1>
