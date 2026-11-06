@@ -288,7 +288,6 @@ a {
   .services .service-item {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
     width: 100%;
     min-height: 210px;
     gap: 20px;
@@ -302,7 +301,7 @@ a {
 
   .services .service-content {
     display: flex;
-    flex: 0 1 auto;
+    flex: 1;
     flex-direction: column;
     min-width: 0;
   }
@@ -310,23 +309,27 @@ a {
 
 @media (min-width: 1200px) {
   .services > .container {
-    max-width: min(1320px, calc(100% - 48px));
+    max-width: min(1120px, calc(100% - 48px));
   }
 
   .services .row {
-    justify-content: center;
-    --bs-gutter-x: 3rem;
-    --bs-gutter-y: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 64px;
+    row-gap: 32px;
+    margin: 0;
   }
 
   .services .col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   .services .service-item {
-    min-height: 216px;
-    padding: 28px 8px;
+    min-height: 160px;
+    padding: 20px 0;
     gap: 24px;
   }
 }
