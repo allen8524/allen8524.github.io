@@ -106,9 +106,6 @@ function ServiceDetailPage() {
               <h1 id="service-title">
                 {formatMiddleDotSpacing(service.title)}
               </h1>
-              <p className="service-detail-summary">
-                {formatMiddleDotSpacing(service.summary)}
-              </p>
               <ul className="service-detail-keywords" aria-label="핵심 기술">
                 {keywords.map((keyword) => (
                   <li key={keyword}>
