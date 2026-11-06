@@ -23,6 +23,16 @@
   object-position: center top;
 }
 
+.portfolio .portfolio-image--portrait {
+  background: color-mix(in srgb, var(--accent-color), var(--surface-color) 94%);
+  padding: 16px;
+}
+
+.portfolio .portfolio-image--portrait img {
+  object-fit: contain;
+  object-position: center;
+}
+
 .portfolio .portfolio-content {
   display: flex;
   flex: 1;

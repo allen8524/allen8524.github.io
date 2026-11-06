@@ -13,7 +13,7 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
   return (
     <div className={`col-lg-6 portfolio-item filter-${project.filter}`}>
       <div className="portfolio-card">
-        <div className="portfolio-image">
+        <div className={`portfolio-image${project.type === "game" || project.type === "mobile-app" ? " portfolio-image--portrait" : ""}`}>
           <img src={project.image} className="img-fluid" alt={projectTitle} loading="lazy" />
           <div className="portfolio-overlay">
             <div className="portfolio-actions">
