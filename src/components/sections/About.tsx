@@ -144,41 +144,6 @@ function About() {
                   <BackendDiagram />
                 </div>
 
-                <div className="about-principles">
-                  <div className="content-area">
-                    <div className="expertise-grid">
-                      <div className="expertise-item">
-                        <div className="expertise-icon">
-                          <i className="bi bi-database-check" />
-                        </div>
-                        <div className="expertise-content">
-                          <h4>데이터 구조 우선</h4>
-                          <p>기능 구현 전에 필요한 데이터와 테이블 관계, 조회 기준을 먼저 확인합니다.</p>
-                        </div>
-                      </div>
-
-                      <div className="expertise-item">
-                        <div className="expertise-icon">
-                          <i className="bi bi-diagram-3" />
-                        </div>
-                        <div className="expertise-content">
-                          <h4>상태 흐름 연결</h4>
-                          <p>요청부터 저장, 조회, 수정까지 데이터 상태가 이어지는 과정을 기준으로 구현합니다.</p>
-                        </div>
-                      </div>
-
-                      <div className="expertise-item">
-                        <div className="expertise-icon">
-                          <i className="bi bi-search" />
-                        </div>
-                        <div className="expertise-content">
-                          <h4>문제 원인 추적</h4>
-                          <p>화면 오류만 수정하지 않고 요청값, 서비스 로직, DB 상태를 순서대로 확인합니다.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
