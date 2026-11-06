@@ -29,7 +29,6 @@ function Resume() {
                           <span className="timeline-year">{formatMiddleDotSpacing(activity.year)}</span>
                         </div>
                         <h3>{formatMiddleDotSpacing(activity.title)}</h3>
-                        <h4>{formatMiddleDotSpacing(activity.organization)}</h4>
                         <ul className="timeline-summary-list">
                           {activity.summaries.map((summary) => (
                             <li key={summary}>{formatMiddleDotSpacing(summary)}</li>
