@@ -36,16 +36,13 @@ function Services() {
                 to={`/services/${service.id}`}
                 aria-label={`${formatMiddleDotSpacing(service.title)} 상세 보기`}
               >
-                <div className="service-icon">
-                  <i className={`bi ${serviceBootstrapIcons[service.icon]}`} />
+                <div className="service-icon" aria-hidden="true">
+                  <i className={`bi ${serviceBootstrapIcons[service.icon]} service-icon-original`} />
+                  <i className="bi bi-arrow-up-right service-icon-arrow" />
                 </div>
                 <div className="service-content">
                   <h3>{formatMiddleDotSpacing(service.title)}</h3>
                   <p>{formatMiddleDotSpacing(service.summary)}</p>
-                  <span className="service-detail-cue">
-                    적용 기술 · 구현 코드 보기{" "}
-                    <i className="bi bi-arrow-up-right" aria-hidden="true" />
-                  </span>
                 </div>
               </Link>
             </div>

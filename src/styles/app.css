@@ -201,13 +201,53 @@ a {
   background: color-mix(in srgb, var(--accent-color), var(--surface-color) 97%);
 }
 
-.services .service-detail-cue {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  color: var(--accent-color);
-  font-size: 0.85rem;
+.services a.service-item .service-icon {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.services a.service-item .service-icon i {
+  grid-area: 1 / 1;
+  transition: opacity 200ms ease, transform 240ms ease;
+}
+
+.services a.service-item .service-icon-arrow {
+  opacity: 0;
+  transform: translate(-12px, 12px) scale(0.75);
+}
+
+.services a.service-item:is(:hover, :focus-visible) .service-icon {
+  background: var(--accent-color);
+}
+
+.services a.service-item:is(:hover, :focus-visible) .service-icon-original {
+  opacity: 0;
+  transform: translate(12px, -12px) scale(0.75);
+}
+
+.services a.service-item:is(:hover, :focus-visible) .service-icon-arrow {
+  opacity: 1;
+  color: var(--contrast-color);
+  transform: translate(0, 0) scale(1);
+}
+
+@media (hover: none) {
+  .services a.service-item .service-icon .service-icon-arrow {
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    font-size: 12px;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services a.service-item .service-icon i {
+    transition: none;
+  }
 }
 
 .services a.service-item:focus-visible {
