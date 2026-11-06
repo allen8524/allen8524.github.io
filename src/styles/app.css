@@ -309,12 +309,12 @@ a {
 
 @media (min-width: 1200px) {
   .services > .container {
-    max-width: min(1040px, calc(100% - 64px));
+    max-width: min(1320px, calc(100% - 48px));
   }
 
   .services .row {
     justify-content: center;
-    --bs-gutter-x: 1.5rem;
+    --bs-gutter-x: 3rem;
     --bs-gutter-y: 1.5rem;
   }
 
@@ -325,7 +325,8 @@ a {
 
   .services .service-item {
     min-height: 216px;
-    padding: 28px;
+    padding: 28px 8px;
+    gap: 24px;
   }
 }
 
