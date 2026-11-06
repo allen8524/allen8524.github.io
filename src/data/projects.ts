@@ -23,10 +23,8 @@ export const projects: Project[] = [
     description:
       "영화 탐색, 빠른예매, 좌석 선택, 결제, 예매 조회 · 취소 흐름 구현. 관리자 화면에서 영화 · 극장 · 상영일정 · 예매 데이터 운영",
     descriptionItems: [
-      "Spring Boot 영화 예매 웹 서비스",
       "빠른예매 · 좌석 선택 · 결제 흐름 구현",
-      "회원 · 비회원 예매 조회 분기",
-      "관리자 영화 · 극장 · 상영일정 운영",
+      "회원 · 비회원 예매 조회 및 관리자 운영",
     ],
     image: "assets/img/portfolio/cineflow-main-thumb.png",
     previewImage: "assets/img/portfolio/cineflow-main-hero.png",
@@ -54,10 +52,8 @@ export const projects: Project[] = [
     description:
       "finished 경기만 순위에 반영. 팀별 승 · 패 · 승률 · 득실차 집계, 관리자 인증 · 미들웨어, slug 기반 뉴스 상세 라우팅 구현",
     descriptionItems: [
-      "Laravel 경기 · 뉴스 관리 웹사이트",
-      "finished 경기 기준 순위 집계",
+      "경기 결과 기반 순위 집계 · 뉴스 상세 구현",
       "팀 · 선수 · 경기 데이터 관리자 CRUD",
-      "slug 기반 뉴스 상세 페이지",
     ],
     image: "assets/img/portfolio/esports_main.png",
     previewImage: "assets/img/portfolio/esports_main.png",
@@ -82,10 +78,8 @@ export const projects: Project[] = [
     description:
       "상품 조회, 장바구니, 주문 · 결제, 관리자 주문 관리 구현. 주문번호 기준으로 주문 마스터와 상세 데이터 연결",
     descriptionItems: [
-      "PHP 쇼핑몰 판매관리 사이트",
       "상품 조회 · 장바구니 · 주문 처리",
-      "주문번호 기준 주문 마스터 · 상세 저장",
-      "관리자 주문 관리 화면",
+      "주문번호 기반 데이터 저장 · 관리자 주문 관리",
     ],
     image: "assets/img/portfolio/shopping_main.png",
     previewImage: "assets/img/portfolio/shopping_main.png",
@@ -105,10 +99,8 @@ export const projects: Project[] = [
     description:
       "제품 등록, 재고 관리, 판매 내역, 매입 · 매출 장부 확인 구현. 제품 ID 기준으로 재고와 판매 상태 연결",
     descriptionItems: [
-      "Laravel 베이커리 판매관리 웹사이트",
-      "제품 등록 · 재고 관리",
-      "판매 내역과 매입 · 매출 장부 확인",
-      "제품 ID 기준 재고 · 판매 상태 연결",
+      "제품 등록 · 재고 및 판매 상태 관리",
+      "판매 내역 · 매입 및 매출 장부 조회",
     ],
     image:
       "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
@@ -130,10 +122,8 @@ export const projects: Project[] = [
     description:
       "2025년 12월 서울 공공자전거 시간대별 이용정보를 전처리하고, 다중선형회귀로 이용건수를 예측했으며 로지스틱 회귀 · KNN으로 고수요 여부를 분류하고 K-means로 대여소 이용 유형을 군집화한 데이터 분석 프로젝트",
     descriptionItems: [
-      "서울 공공자전거 시간대별 이용정보 전처리",
-      "시간대 · 요일 · 연령대 · 대여구분별 이용 패턴 시각화",
-      "다중선형회귀 기반 이용건수 예측, 로지스틱 회귀 · KNN 기반 고수요 여부 분류",
-      "K-means 군집분석으로 대여소 유형 분류",
+      "공공자전거 이용 데이터 전처리 · 패턴 시각화",
+      "회귀 기반 수요 예측 · 고수요 및 대여소 유형 분류",
     ],
     image: "assets/img/portfolio/seoul-bike-hourly-usage.png",
     previewImage: "assets/img/portfolio/seoul-bike-regression.png",
@@ -160,10 +150,8 @@ export const projects: Project[] = [
     description:
       "결측값 · 이상치 처리, 정규화, PCA, 상관분석, 선형회귀 수행. PC1 설명분산비, R², MSE와 시각화 결과 정리",
     descriptionItems: [
-      "Cine21 영화 CSV 전처리",
-      "결측값 · 이상치 처리와 정규화",
-      "PCA · 상관분석 · 회귀분석 수행",
-      "분석 결과 시각화 정리",
+      "영화 데이터 결측값 · 이상치 처리 및 정규화",
+      "PCA · 회귀분석 및 결과 시각화",
     ],
     image:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
@@ -185,10 +173,8 @@ export const projects: Project[] = [
     description:
       "캐릭터 선택, 자동 공격, 적 스폰, 레벨업 보상, 생존 · 사망 결과 처리 구현. Object Pooling으로 반복 생성 비용 절감",
     descriptionItems: [
-      "Unity Android 생존 게임",
-      "플레이어 이동 · 자동 공격 구현",
-      "적 스폰 · 레벨업 보상 처리",
-      "Object Pooling으로 생성 비용 절감",
+      "이동 · 자동 공격 · 적 스폰 · 레벨업 구현",
+      "Object Pooling으로 반복 생성 비용 절감",
     ],
     image: "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
     previewImage:
@@ -209,10 +195,8 @@ export const projects: Project[] = [
     description:
       "BMI 계산 · 입력 검증 · 성별 기준 분기 구현. 운동 정보 WebView, 로컬 영상 재생, 운동 계획 설정 화면 연결",
     descriptionItems: [
-      "UIKit 기반 iOS 건강관리 앱",
       "BMI 계산 · 입력 검증 · 성별 기준 분기",
-      "WebView 운동 정보 화면",
-      "AVKit 로컬 영상 재생",
+      "WebView 운동 정보 · AVKit 영상 재생",
     ],
     image: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
     previewImage: "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",

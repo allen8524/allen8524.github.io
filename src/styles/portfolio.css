@@ -60,6 +60,26 @@
   flex: 1;
 }
 
+.portfolio .portfolio-proof-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.portfolio .portfolio-proof-label {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.portfolio .portfolio-proof-item p {
+  margin: 0;
+  min-width: 0;
+}
+
+.portfolio .portfolio-cta {
+  justify-content: flex-end;
+}
+
 .portfolio .portfolio-filters {
   display: flex;
   align-items: center;

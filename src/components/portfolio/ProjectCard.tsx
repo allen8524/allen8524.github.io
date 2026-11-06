@@ -49,10 +49,6 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
         </div>
 
         <div className="portfolio-content">
-          <div className="portfolio-meta">
-            <span className="portfolio-category">{formatMiddleDotSpacing(project.category)}</span>
-            <span className="portfolio-year">{project.year}</span>
-          </div>
           <h3 className="portfolio-title">{projectTitle}</h3>
           {project.descriptionItems && project.descriptionItems.length > 0 ? (
             <ul className="portfolio-description-list">
