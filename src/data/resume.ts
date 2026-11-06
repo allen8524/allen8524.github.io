@@ -81,7 +81,6 @@ export const resumeEducation = {
       name: "컴퓨터소프트웨어학과",
       institution: "인덕대학교",
       year: "2022.03 – 2027.02",
-      honors: ["학점 4.0"],
     },
     {
       id: "high-school",
@@ -91,7 +90,6 @@ export const resumeEducation = {
       name: "자동화기계과",
       institution: "인덕과학기술고등학교",
       year: "2019.03 – 2022.01",
-      honors: [],
     },
   ],
 } as const;
