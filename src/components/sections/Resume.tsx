@@ -33,10 +33,10 @@ function Resume() {
                     ] as const
                   ).map((group) => (
                     <div className="resume-activity-group" key={group.kind}>
-                      <h3 className="resume-group-title">{group.title}</h3>
                       <div className="experience-timeline resume-timeline">
                         {resumeActivities
                           .filter((activity) => activity.kind === group.kind)
+                          .sort((a, b) => a.year.slice(0, 7).localeCompare(b.year.slice(0, 7)))
                           .map((activity) => (
                             <div className="timeline-item" key={activity.id}>
                               <div className="timeline-dot"></div>
