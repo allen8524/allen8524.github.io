@@ -91,6 +91,37 @@ a {
   }
 }
 
+.index-page .main > .section {
+  padding-block: 48px;
+}
+
+.index-page .main > .hero {
+  min-height: auto;
+  padding-block: 64px;
+}
+
+.index-page .about .main-content-wrapper {
+  margin-bottom: 0;
+}
+
+.index-page .section-title {
+  padding-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+  .index-page .main > .section {
+    padding-block: 32px;
+  }
+
+  .index-page .main > .hero {
+    padding-block: 48px;
+  }
+
+  .index-page .section-title {
+    padding-bottom: 28px;
+  }
+}
+
 .services {
   padding: 84px 0;
 }
