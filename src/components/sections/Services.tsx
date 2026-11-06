@@ -40,10 +40,6 @@ function Services() {
                     <Link to={`/services/${service.id}`}>{formatMiddleDotSpacing(service.title)}</Link>
                   </h3>
                   <p>{formatMiddleDotSpacing(service.summary)}</p>
-                  <Link to={`/services/${service.id}`} className="read-more">
-                    <span>자세히 보기</span>
-                    <i className="bi bi-arrow-right" />
-                  </Link>
                 </div>
               </div>
             </div>
