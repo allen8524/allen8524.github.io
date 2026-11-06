@@ -15,9 +15,7 @@ export const resumeActivities = [
     organization: "팀 프로젝트 및 CS",
     summaries: [
       "AI 기반 소상공인 직원 · 스케줄 관리 플랫폼",
-      "매출 패턴 · 직원 선호도 기반 스케줄 자동 생성",
-      "구인 공고 자동 작성",
-      "인건비 시뮬레이션 기능 기획 · 구현",
+      "스케줄 자동 생성 · 인건비 시뮬레이션 기획 및 구현",
     ],
   },
   {
@@ -26,7 +24,6 @@ export const resumeActivities = [
     title: "국가근로장학생",
     organization: "인덕대학교 도서관",
     summaries: [
-      "인덕대학교 도서관 국가근로 근무",
       "자료 정리 및 이용자 응대 보조",
       "업무 흐름에 맞춘 문서 · 운영 지원",
     ],
@@ -38,9 +35,7 @@ export const resumeActivities = [
     organization: "상상이룸센터(노원진로직업체험지원센터)",
     summaries: [
       "청소년 진로체험 프로그램 운영 보조",
-      "활동 재료 준비 및 정리",
-      "참여자 안내와 공간 환경 관리",
-      "행정자료 정리 및 운영 지원",
+      "참여자 안내 · 활동 재료 및 행정자료 정리",
     ],
   },
   {
@@ -51,8 +46,6 @@ export const resumeActivities = [
     summaries: [
       "정보처리산업기사 및 IT 자격증 스터디",
       "자료구조 · 운영체제 · 네트워크 CS 학습",
-      "백준 알고리즘 문제 풀이",
-      "정기 발표와 학습 자료 정리",
     ],
   },
   {
@@ -62,9 +55,7 @@ export const resumeActivities = [
     organization: "코딩테스트 및 알고리즘 스터디",
     summaries: [
       "백준 기반 알고리즘 문제 풀이",
-      "구현 · 정렬 · 탐색 · 자료구조 유형 학습",
-      "풀이 과정 정리와 코드 공유",
-      "스터디원과 접근 방식 비교 및 개선",
+      "풀이 공유 · 코드 리뷰를 통한 접근 방식 개선",
     ],
   },
   {
@@ -73,10 +64,8 @@ export const resumeActivities = [
     title: "인덕대학교 전공동아리 - IFP",
     organization: "알고리즘 · 기초 프로그래밍",
     summaries: [
-      "Notion 기반 학습 자료 정리 · 공유",
       "알고리즘 · 기초 프로그래밍 학습",
-      "코드 리뷰와 문제 풀이 공유",
-      "협업 중심 스터디 참여",
+      "Notion 학습 자료 정리 · 문제 풀이 및 코드 리뷰",
     ],
   },
 ] as const;
