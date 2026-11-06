@@ -75,7 +75,6 @@ export const skillsHighlight = {
   title: "학습 및 프로젝트 집중 기간",
   years: 4,
   label: "년+",
-  description: "CS 스터디와 개인 프로젝트로 백엔드 구현 경험을 쌓았습니다.",
 } as const;
 
 export const technologies = [

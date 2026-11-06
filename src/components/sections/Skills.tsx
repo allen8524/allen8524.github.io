@@ -46,7 +46,6 @@ function Skills() {
                   <span>{skillsHighlight.years}</span>
                   <span className="experience-label">{formatMiddleDotSpacing(skillsHighlight.label)}</span>
                 </div>
-                <p className="highlight-description">{formatMiddleDotSpacing(skillsHighlight.description)}</p>
               </div>
 
               <div className="technologies-section">
