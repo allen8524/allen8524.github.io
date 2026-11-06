@@ -106,7 +106,13 @@
   margin-top: 0;
 }
 
-@media (max-width: 1399px) {
+@media (min-width: 768px) and (max-width: 1399px) {
+  .portfolio .portfolio-summary-row .portfolio-cta {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
   .portfolio .portfolio-summary-row {
     flex-wrap: wrap;
   }
