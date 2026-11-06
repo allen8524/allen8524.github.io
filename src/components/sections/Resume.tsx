@@ -106,7 +106,6 @@ function Resume() {
                   </div>
 
                   <div className="certification-section">
-                    <h4>자격증 및 수상</h4>
                     <div className="certifications">
                       {resumeAwards.map((award) => (
                         <div className="cert-item" key={award.id}>
