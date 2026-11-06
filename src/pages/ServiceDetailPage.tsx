@@ -89,14 +89,6 @@ function ServiceDetailPage() {
       <Header />
       <main className="main service-detail-page">
         <div className="service-detail-container">
-          <nav className="service-breadcrumb" aria-label="현재 위치">
-            <Link to="/?section=services">
-              <i className="bi bi-arrow-left" aria-hidden="true" />
-              개발 역량
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span>{formatMiddleDotSpacing(service.title)}</span>
-          </nav>
           <section
             className="service-detail-hero"
             aria-labelledby="service-title"

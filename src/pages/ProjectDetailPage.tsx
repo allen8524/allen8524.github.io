@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ProjectDetailHero from "../components/project-detail/ProjectDetailHero";
 import ProjectGallery from "../components/project-detail/ProjectGallery";
 import ProjectImplementation from "../components/project-detail/ProjectImplementation";
@@ -62,11 +62,6 @@ function ProjectDetailPage() {
       <main className="main">
         <section id="portfolio-details" className="portfolio-details section">
           <div className="project-detail-container">
-            <nav className="project-breadcrumb" aria-label="현재 위치">
-              <Link to="/?section=portfolio"><i className="bi bi-arrow-left" aria-hidden="true" />프로젝트</Link>
-              <span aria-hidden="true">/</span>
-              <span>{project.title}</span>
-            </nav>
             <ProjectDetailHero detail={detail} project={project} />
             <ProjectOverview detail={detail} />
             <ProjectImplementation detail={detail} />
