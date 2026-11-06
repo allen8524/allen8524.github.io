@@ -138,6 +138,27 @@ a {
   pointer-events: none;
 }
 
+@media (min-width: 1201px) {
+  .hero .hero-image .hero-profile-shell .hero-card-stack {
+    inset: 0 0 auto;
+    aspect-ratio: 1;
+  }
+
+  .hero .hero-image .hero-card-stack .floating-card.card-1 {
+    top: 12%;
+    left: -44%;
+  }
+
+  .hero .hero-image .hero-card-stack .floating-card.card-2 {
+    left: -37%;
+    bottom: 12%;
+  }
+
+  .hero .hero-image .hero-card-stack .floating-card.card-3 {
+    right: -37%;
+  }
+}
+
 .services {
   padding: 84px 0;
 }

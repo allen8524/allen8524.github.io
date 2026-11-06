@@ -32,7 +32,6 @@ function Hero() {
                       <span>신입 백엔드 개발자 포지션 지원</span>
                     </div>
                   </div>
-                </div>
                 <div className="hero-card-stack">
                   <div className="floating-card card-1">
                     <i className="bi bi-server" />
@@ -51,6 +50,7 @@ function Hero() {
                     <i className="bi bi-download" aria-hidden="true" />
                     <span>이력서 다운로드</span>
                   </a>
+                </div>
                 </div>
               </div>
             </div>
