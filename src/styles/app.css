@@ -168,37 +168,8 @@ a {
 }
 
 .services a.service-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
   color: inherit;
   text-decoration: none;
-  border: 1px solid var(--theme-border-default);
-  border-radius: 14px;
-  background: var(--surface-color);
-  transition: border-color 180ms ease, background-color 180ms ease;
-}
-
-@media (max-width: 767px) {
-  .services a.service-item {
-    padding: 24px 20px;
-  }
-
-  .services a.service-item .service-icon {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    margin: 0;
-  }
-
-  .services a.service-item .service-icon i {
-    font-size: 24px;
-  }
-}
-
-.services a.service-item:hover {
-  border-color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), var(--surface-color) 97%);
 }
 
 .services a.service-item .service-icon {
