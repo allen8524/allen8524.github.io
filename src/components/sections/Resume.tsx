@@ -66,9 +66,8 @@ function Resume() {
                           <span className="graduation-year">{formatMiddleDotSpacing(school.year)}</span>
                         </div>
                       </div>
-                      <div className="education-details">
-                        <p>{formatMiddleDotSpacing(school.description)}</p>
-                        {school.honors.length > 0 && (
+                      {school.honors.length > 0 && (
+                        <div className="education-details">
                           <div className="honors">
                             {school.honors.map((honor) => (
                               <span className="honor-badge" key={honor}>
@@ -76,8 +75,8 @@ function Resume() {
                               </span>
                             ))}
                           </div>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
                   ))}
 

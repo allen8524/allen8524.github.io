@@ -81,8 +81,6 @@ export const resumeEducation = {
       name: "컴퓨터소프트웨어학과",
       institution: "인덕대학교",
       year: "2022.03 – 2027.02",
-      description:
-        "백엔드 웹 프로젝트를 중심으로 예매 · 주문 · 콘텐츠 관리 기능을 구현하고, 데이터 분석 · 모바일 · 게임 프로젝트로 구현 범위를 확장했습니다.",
       honors: ["학점 4.0"],
     },
     {
@@ -93,7 +91,6 @@ export const resumeEducation = {
       name: "자동화기계과",
       institution: "인덕과학기술고등학교",
       year: "2019.03 – 2022.01",
-      description: "기초 공학 역량을 바탕으로 문제 해결 중심의 학습 태도를 갖추었습니다.",
       honors: [],
     },
   ],
