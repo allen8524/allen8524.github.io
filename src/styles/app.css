@@ -167,6 +167,21 @@ a {
   padding: 84px 0;
 }
 
+.services a.service-item {
+  color: inherit;
+  text-decoration: none;
+}
+
+.services a.service-item:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.services a.service-item:hover h3 {
+  color: var(--accent-color);
+}
+
 .services .row {
   --bs-gutter-y: 2rem;
 }
