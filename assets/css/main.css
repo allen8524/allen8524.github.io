@@ -1283,8 +1283,9 @@ section,
   margin-bottom: 1.5rem;
   min-height: auto;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
 
 .resume .resume-panel-body {
@@ -1303,7 +1304,8 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .resume .section-intro .icon-wrapper i {
