@@ -268,29 +268,23 @@ function ServiceDetailPage() {
             </section>
           </div>
 
-          <section
+          <nav
             className="project-detail-section service-other"
             aria-labelledby="other-title"
           >
-            <div className="project-section-heading">
-              <h2 id="other-title">다른 개발 역량</h2>
-            </div>
-            <div className="service-other-grid">
+            <h2 id="other-title">다른 개발 역량</h2>
+            <ul className="service-other-list" role="list">
               {otherServices.map((item) => (
-                <Link
-                  className="service-other-card"
-                  to={`/services/${item.id}`}
-                  key={item.id}
-                >
-                  <div>
-                    <h3>{formatMiddleDotSpacing(item.title)}</h3>
-                    <p>{formatMiddleDotSpacing(item.summary)}</p>
-                  </div>
-                  <i className="bi bi-arrow-right" aria-hidden="true" />
-                </Link>
+                <li key={item.id}>
+                  <Link to={`/services/${item.id}`}>
+                    <ServiceFeatureIcon icon={item.icon} />
+                    <span>{formatMiddleDotSpacing(item.title)}</span>
+                    <i className="bi bi-arrow-right" aria-hidden="true" />
+                  </Link>
+                </li>
               ))}
-            </div>
-          </section>
+            </ul>
+          </nav>
         </div>
       </main>
       <Footer />
