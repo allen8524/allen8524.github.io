@@ -267,6 +267,10 @@
   text-align: start;
 }
 
+.project-case-study :is(.project-flow-section, .project-implementation-section) .project-section-heading {
+  text-align: center;
+}
+
 .project-case-study .project-section-heading h2 {
   padding: 0;
   font-size: clamp(1.35rem, 2vw, 1.6rem);
