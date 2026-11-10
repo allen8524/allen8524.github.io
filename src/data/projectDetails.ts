@@ -16,38 +16,37 @@ export const projectDetails: ProjectDetail[] = [
         title: "좌석 잠금으로 중복 예매 방지",
         icon: "lock",
         description:
-          "예매를 확정할 때 해당 회차의 좌석에 잠금을 겁니다. 좌석 상태와 예매 및 결제 기록을 한 트랜잭션에서 저장합니다.",
+          "좌석 상태와 예매 · 결제 기록을 한 트랜잭션에 저장합니다.",
       },
       {
         title: "회원 · 비회원 조회 기준 분리",
         icon: "people",
         description:
-          "회원은 계정으로, 비회원은 예매번호와 연락처로 조회합니다.",
+          "회원은 계정, 비회원은 예매번호와 연락처로 조회합니다.",
       },
       {
-        title: "운영 데이터와 DB 변경 관리",
+        title: "Flyway로 DB 변경 관리",
         icon: "database",
         description:
-          "예매가 연결된 데이터는 수정 범위를 제한하고, 스키마와 초기 데이터 변경은 Flyway로 관리합니다.",
+          "스키마와 초기 데이터 변경 이력을 관리합니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "외부 영화 API 응답 실패",
+        title: "TMDB 응답 실패",
         cause:
-          "영화 목록과 상세 화면이 TMDB 응답에 의존했습니다.",
+          "영화 정보가 TMDB 응답에 의존했습니다.",
         solution:
-          "TMDB 응답이 없으면 로컬 초기 데이터를 사용하도록 했습니다.",
+          "로컬 초기 데이터로 화면을 유지합니다.",
       },
     ],
     results: [
       {
-        value: "예매 완료 화면과 잘못된 회차 처리 검증",
-        description: "컨트롤러 테스트에서 예매 ID로 완료 화면을 조회하는 경우와 잘못된 회차로 좌석 선택을 요청하는 경우를 확인합니다.",
+        value: "예매 완료 · 잘못된 회차 처리 검증",
+        description: "예매 ID로 완료 화면을 조회하는 동작을 테스트했습니다.",
       },
       {
-        value: "관리자 화면에서 회차별 예매 내역 조회",
-        description: "상영일정을 선택하면 해당 회차에 연결된 예매를 확인할 수 있습니다.",
+        value: "관리자 회차별 예매 조회",
       },
     ],
     resultLinks: [
@@ -89,36 +88,34 @@ export const projectDetails: ProjectDetail[] = [
         title: "종료 경기 기준 순위 집계",
         icon: "trophy",
         description:
-          "종료된 경기의 홈과 원정 기록을 팀별로 합쳐 승패, 승률, 득실차를 계산합니다.",
+          "홈 · 원정 기록을 합쳐 팀별 승률과 득실차를 계산합니다.",
       },
       {
         title: "운영 영역 접근 분리",
         icon: "shield-lock",
         description:
-          "인증과 관리자 미들웨어로 경기 관리 기능의 접근을 제한합니다.",
+          "관리자 미들웨어로 경기 관리 접근을 제한합니다.",
       },
       {
         title: "뉴스 식별자와 라우팅 기준",
         icon: "link-45deg",
         description:
-          "뉴스 제목과 별도로 slug를 관리해 목록과 상세 URL을 연결합니다.",
+          "slug로 뉴스 목록과 상세 URL을 연결합니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "경기 결과와 순위표 갱신 기준 불일치",
-        cause: "경기 결과를 저장한 뒤 사용자와 관리자 화면의 순위가 일치하지 않았습니다.",
-        solution: "순위 갱신 기준을 종료된 경기로 통일했습니다.",
+        title: "경기 결과 저장 후 순위 불일치",
+        cause: "사용자와 관리자 화면의 순위 집계 기준이 달랐습니다.",
+        solution: "종료된 경기만 순위에 반영합니다.",
       },
     ],
     results: [
       {
-        value: "예정 경기 일정과 종료 경기 점수 조회",
-        description: "경기 목록에서 팀과 시작 시간을 확인하고, 종료된 경기의 최종 점수를 볼 수 있습니다.",
+        value: "경기 일정과 최종 점수 조회",
       },
       {
-        value: "리그와 스테이지별 승률 및 득실차 비교",
-        description: "선택한 리그와 스테이지에 속한 종료 경기만 집계에 반영합니다.",
+        value: "리그 · 스테이지별 승률과 득실차 비교",
       },
     ],
     resultLinks: [
@@ -144,33 +141,32 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "주문과 상품 내역을 한 트랜잭션으로 저장",
+        title: "주문과 상품 내역 동시 저장",
         icon: "database",
         description:
-          "주문자 정보는 jumun에 한 번만, 옵션과 수량은 jumuns에 상품별로 기록합니다. 한 상품이라도 저장에 실패하면 주문 전체를 롤백합니다.",
+          "jumun과 jumuns 중 하나라도 저장에 실패하면 주문 전체를 롤백합니다.",
       },
       {
         title: "사용자 · 관리자 조회 기준 통일",
         icon: "receipt",
         description:
-          "사용자와 관리자가 같은 주문번호로 상품 내역을 조회합니다.",
+          "양쪽 화면에서 같은 주문번호를 사용합니다.",
       },
     ],
     troubleshooting: [
       {
         title: "주문서로 이동할 때 상품 정보 누락",
-        cause: "장바구니에서 넘긴 상품 정보와 주문 저장에 필요한 항목이 달랐습니다.",
-        solution: "저장 시 상품 ID·옵션·수량을 검증하고 DB 가격으로 주문 금액을 계산합니다.",
+        cause: "장바구니와 주문 저장에 필요한 항목이 달랐습니다.",
+        solution: "상품 ID · 옵션 · 수량을 검증하고 DB 가격으로 계산합니다.",
       },
     ],
     results: [
       {
         value: "주문번호로 상품별 옵션과 수량 조회",
-        description: "사용자 주문 내역과 관리자 주문 화면이 같은 주문번호를 기준으로 상세 내역을 불러옵니다.",
       },
       {
         value: "주문 저장 성공 시 장바구니 초기화",
-        description: "주문과 상품 내역이 모두 저장된 뒤에만 장바구니 쿠키를 만료시킵니다.",
+        description: "저장 성공 후 장바구니 쿠키를 만료시킵니다.",
       },
     ],
     resultLinks: [
@@ -200,24 +196,22 @@ export const projectDetails: ProjectDetail[] = [
         title: "거래 장부를 기준으로 재고 계산",
         icon: "boxes",
         description:
-          "제품 ID로 상품과 장부를 연결하고, 매입 및 매출 수량을 반영해 재고를 계산합니다.",
+          "제품 ID로 장부를 연결해 매입 · 매출을 재고에 반영합니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "거래 이력이 없는 제품의 재고·판매 조회",
-        cause: "장부 기록이 없는 제품의 거래 조회에서 빈 값이 반환됐습니다.",
-        solution: "제품을 먼저 조회하고 연결된 거래가 없는 경우를 따로 처리합니다.",
+        title: "거래 없는 제품 조회",
+        cause: "거래 기록이 없으면 조회 결과가 비었습니다.",
+        solution: "제품부터 조회하고 빈 거래 내역을 별도로 처리합니다.",
       },
     ],
     results: [
       {
-        value: "품절과 재고 부족 상품을 대시보드에 구분 표시",
-        description: "매입과 매출을 반영한 잔여 수량을 기준으로 확인이 필요한 상품을 표시합니다.",
+        value: "대시보드에서 품절 · 재고 부족 구분",
       },
       {
-        value: "기간별 거래 조회와 상품 종류별 판매 비교",
-        description: "거래 장부에서 기간을 지정하고, 차트에서 상품 종류별 판매 분포를 확인할 수 있습니다.",
+        value: "기간별 거래 조회 · 상품별 판매 비교",
       },
     ],
     resultLinks: [
@@ -259,30 +253,29 @@ export const projectDetails: ProjectDetail[] = [
         title: "PC1 기반 평점 회귀 분석",
         icon: "graph-up",
         description:
-          "여러 수치 지표를 PC1로 압축해 선형회귀로 평점을 얼마나 설명할 수 있는지 확인했습니다.",
+          "수치 지표를 PC1로 압축해 평점 예측에 사용했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "관객 수 이상치와 스케일 영향",
+        title: "관객 수 이상치 영향",
         cause:
-          "관객 수 이상치가 정규화와 회귀 결과를 크게 바꿀 수 있었습니다.",
+          "이상치가 정규화와 회귀에 영향을 줬습니다.",
         solution:
-          "IQR로 이상치 영향을 줄인 뒤 MinMax 정규화로 변수 범위를 맞췄습니다.",
+          "IQR로 이상치를 처리하고 MinMax로 정규화했습니다.",
       },
     ],
     results: [
       {
         value: "PC1 설명분산비 53.95%",
-        description: "첫 번째 주성분이 전처리한 입력 지표 전체 변동의 약 54%를 설명했습니다.",
       },
       {
-        value: "평점과 관객 수의 상관관계",
-        description: "전문가 평점·관객 평점·관객 수를 히트맵으로 비교했습니다.",
+        value: "전문가 · 관객 평점과 관객 수 비교",
+        description: "상관관계를 히트맵으로 표시했습니다.",
       },
       {
         value: "선형회귀 R² 0.2752 · MSE 0.0572",
-        description: "PC1을 입력으로 사용한 회귀 모델이 평점 변동의 약 28%를 설명했습니다.",
+        description: "평점 변동의 약 28%를 설명했습니다.",
       },
     ],
     resultLinks: [
@@ -329,42 +322,41 @@ export const projectDetails: ProjectDetail[] = [
         title: "이용건수 예측과 고수요 분류",
         icon: "graph-up",
         description:
-          "이용건수는 다중선형회귀로 예측하고, 고수요 여부는 로지스틱 회귀와 KNN으로 분류했습니다.",
+          "다중선형회귀로 예측하고, 로지스틱 회귀와 KNN으로 분류했습니다.",
       },
       {
         title: "분석 기준 데이터셋 고정",
         icon: "database",
         description:
-          "시각화와 모델링에 같은 전처리 데이터와 대여소 집합을 사용했습니다.",
+          "시각화와 모델에 같은 전처리 데이터를 사용했습니다.",
       },
       {
         title: "대여소 특성 군집화",
         icon: "diagram-3",
         description:
-          "이동거리·이용시간과 출퇴근·주말 이용 비율로 대여소 유형을 나눴습니다.",
+          "거리 · 시간과 출퇴근 · 주말 이용 비율로 군집화했습니다.",
       },
     ],
     troubleshooting: [
       {
-        title: "대용량 원본 CSV 저장소 관리",
+        title: "대용량 원본 CSV",
         cause:
-          "원본 데이터 규모가 커 GitHub 저장소에 그대로 포함하기 어려웠습니다.",
+          "원본 CSV의 용량이 컸습니다.",
         solution:
-          "저장소에는 샘플 데이터와 분석 결과 CSV를 정리하고 원본 전체 파일은 제외했습니다.",
+          "저장소에는 샘플과 분석 결과만 포함했습니다.",
       },
     ],
     results: [
       {
         value: "이용 피크 오전 8시와 오후 5~6시",
-        description: "시간대별 이용건수를 집계한 결과, 출퇴근 시간에 이용이 집중됐습니다.",
       },
       {
         value: "이용건수 예측과 고수요 분류 성능",
-        description: "다중선형회귀 R² 0.5431. 고수요 분류 정확도는 로지스틱 회귀 0.8969, KNN 0.9013입니다.",
+        description: "회귀 R² 0.5431 · 분류 정확도 로지스틱 회귀 0.8969, KNN 0.9013",
       },
       {
         value: "K-means로 대여소를 세 유형으로 분류",
-        description: "출근형, 장거리·장시간형, 퇴근형 고수요 대여소로 나눴습니다.",
+        description: "출근형 · 장거리/장시간형 · 퇴근형 고수요",
       },
     ],
     resultLinks: [
@@ -421,27 +413,25 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "오브젝트 풀링으로 적과 투사체 재사용",
+        title: "적과 투사체 풀링",
         icon: "arrow-repeat",
         description:
-          "PoolManager가 비활성 적과 투사체를 재사용하고, 쓸 수 있는 항목이 없을 때만 새로 생성합니다.",
+          "PoolManager는 비활성 객체가 없을 때만 새로 생성합니다.",
       },
       {
         title: "생존 루프 상태 연결",
         icon: "lightning-charge",
         description:
-          "플레이어가 이동하는 동안 주변 적을 탐색해 자동 공격하고, 처치 경험치를 레벨업 보상으로 연결합니다.",
+          "주변 적을 자동 공격하고 처치 경험치로 레벨업합니다.",
       },
     ],
     troubleshooting: [],
     results: [
       {
         value: "자동 공격과 레벨업 장비 선택",
-        description: "가까운 적을 자동으로 공격하며, 적을 처치해 모은 경험치로 무기나 장비를 강화할 수 있습니다.",
       },
       {
-        value: "생존 성공과 사망에 따른 결과 화면",
-        description: "제한 시간까지 살아남으면 성공 화면을, 체력이 소진되면 사망 결과를 표시합니다.",
+        value: "생존 · 사망 결과 화면 분기",
       },
     ],
     resultLinks: [
@@ -495,30 +485,28 @@ export const projectDetails: ProjectDetail[] = [
         title: "BMI 계산 전 입력값 검증",
         icon: "shield-check",
         description:
-          "키와 체중을 검증한 뒤 BMI를 계산하고, 학습용 판정 기준에 따라 문구와 색상을 바꿉니다.",
+          "키와 체중을 검증하고, BMI 판정에 따라 색상을 바꿉니다.",
       },
       {
         title: "네트워크 · 로컬 콘텐츠 분리",
         icon: "play-circle",
         description:
-          "운동 정보는 WebView에서 탐색하고, 시범 영상은 앱에 포함된 파일로 재생합니다.",
+          "운동 정보는 WebView, 시범 영상은 앱 파일로 제공합니다.",
       },
       {
         title: "입력 컨트롤과 운동 계획 연결",
         icon: "sliders",
         description:
-          "강도·시간·세트 수를 조절하면 운동 계획 요약이 바로 갱신됩니다.",
+          "강도 · 시간 · 세트 수를 조절할 수 있습니다.",
       },
     ],
     troubleshooting: [],
     results: [
       {
-        value: "빈 입력과 숫자 변환 오류에 안내 표시",
-        description: "키나 체중이 비어 있거나 숫자로 변환되지 않으면 BMI 계산을 진행하지 않습니다.",
+        value: "빈 입력 · 숫자 입력 오류 안내",
       },
       {
         value: "운동 설정 변경 시 계획 요약 갱신",
-        description: "강도, 운동 시간, 세트 수를 조절하면 바뀐 값이 계획 요약에 바로 반영됩니다.",
       },
     ],
     resultLinks: [

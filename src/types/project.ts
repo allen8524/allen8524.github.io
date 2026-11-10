@@ -59,6 +59,6 @@ export type ProjectDetail = {
   deploymentUrl?: string;
   results: Array<{
     value: string;
-    description: string;
+    description?: string;
   }>;
 };
