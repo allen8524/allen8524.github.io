@@ -5,7 +5,7 @@ export const services: ServiceDetail[] = [
     id: "auth",
     title: "인증 · 권한 관리",
     summary: "Spring Security · 세션 인증 · BCrypt · 관리자 권한 제어",
-    introduction: "로그인 세션을 관리하고 사용자와 관리자의 접근 범위를 구분합니다.",
+    introduction: "로그인 세션 관리와 사용자 · 관리자 접근 권한 분리",
     icon: "shield",
     relatedIcons: ["user", "document"],
     image: "assets/img/portfolio/cineflow-login.png",
@@ -15,7 +15,7 @@ export const services: ServiceDetail[] = [
         icon: "shield",
         title: "관리자 경로 접근 제한",
         description:
-          "마이페이지와 예매 API는 로그인한 사용자에게 열고, 관리자 경로는 ADMIN 역할이 있는 계정만 접근할 수 있게 했습니다.",
+          "마이페이지와 예매 API는 로그인 필수, 관리자 경로는 ADMIN 역할만 허용",
         source: {
           label: "SecurityConfig.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/config/SecurityConfig.java",
@@ -25,7 +25,7 @@ export const services: ServiceDetail[] = [
         icon: "user",
         title: "계정 조회와 비밀번호 검증",
         description:
-          "로그인 ID로 계정과 역할을 불러오고, 입력한 비밀번호를 저장된 BCrypt 해시와 대조합니다.",
+          "로그인 ID로 계정과 역할 조회, BCrypt 해시로 비밀번호 검증",
         source: {
           label: "UserService.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/service/UserService.java",
@@ -35,7 +35,7 @@ export const services: ServiceDetail[] = [
         icon: "bug",
         title: "로그아웃 후 인증 상태 정리",
         description:
-          "로그아웃하면 서버 세션을 무효화하고 JSESSIONID 쿠키를 삭제한 뒤 로그인 화면으로 돌아갑니다.",
+          "로그아웃 시 서버 세션 무효화, JSESSIONID 삭제 후 로그인 화면 이동",
         source: {
           label: "SecurityConfig.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/config/SecurityConfig.java",
@@ -103,7 +103,7 @@ export const services: ServiceDetail[] = [
     id: "order",
     title: "예매 · 주문 흐름 관리",
     summary: "Spring @Transactional · JPA 비관적 잠금 · 예매 상태 전이",
-    introduction: "좌석 선택부터 예매 확정과 취소까지, 좌석과 결제 상태를 함께 관리합니다.",
+    introduction: "좌석 선택부터 예매 확정 · 취소까지 좌석과 결제 상태 관리",
     icon: "ticket",
     relatedIcons: ["cart", "box"],
     image: "assets/img/portfolio/cineflow-booking-gallery.png",
@@ -113,7 +113,7 @@ export const services: ServiceDetail[] = [
         icon: "ticket",
         title: "@Transactional · 예매 일괄 저장",
         description:
-          "BookingService.completeBooking에서 예매·좌석 내역 저장, 좌석 예약 상태 변경과 결제 결과 기록을 같은 트랜잭션 안에서 처리했습니다.",
+          "BookingService에서 예매 · 좌석 상태 · 결제 결과를 한 트랜잭션으로 처리",
         source: {
           label: "BookingService.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/service/BookingService.java",
@@ -123,7 +123,7 @@ export const services: ServiceDetail[] = [
         icon: "database",
         title: "PESSIMISTIC_WRITE · 좌석 잠금",
         description:
-          "ScheduleSeatRepository에 @Lock(PESSIMISTIC_WRITE)을 적용하고, 예약 처리 전에 좌석을 잠가 동일 좌석의 동시 예약을 제어했습니다.",
+          "예약 처리 전 @Lock(PESSIMISTIC_WRITE)로 좌석 잠금",
         source: {
           label: "ScheduleSeatRepository.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/repository/ScheduleSeatRepository.java",
@@ -133,7 +133,7 @@ export const services: ServiceDetail[] = [
         icon: "bug",
         title: "취소 권한 · 좌석 상태 복원",
         description:
-          "cancelBooking에서 취소 권한과 가능 상태를 확인한 뒤 결제 취소 처리, 예약 좌석 해제와 잔여 좌석 수 갱신을 연결했습니다.",
+          "취소 권한과 상태 확인 후 결제 취소 · 좌석 해제 · 잔여 수량 갱신",
         source: {
           label: "BookingService.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/service/BookingService.java",
@@ -145,16 +145,16 @@ export const services: ServiceDetail[] = [
       {
         title: "좌석 잠금",
         description:
-          "요청 좌석을 잠근 뒤 예약 가능 여부를 확인합니다.",
+          "좌석 잠금 후 예약 가능 여부 확인",
       },
       {
         title: "예매 저장",
-        description: "예매·좌석 내역과 결제 결과를 한 트랜잭션으로 저장합니다.",
+        description: "예매 · 좌석 내역과 결제 결과를 한 트랜잭션으로 저장",
       },
     ],
     alternateProcess: {
       title: "예매 취소",
-      description: "취소 권한과 조건을 확인한 뒤 결제를 취소하고 좌석을 해제합니다.",
+      description: "취소 권한과 조건 확인 후 결제 취소 및 좌석 해제",
     },
     evidenceTitle: "적용 프로젝트",
     evidence: [
@@ -215,7 +215,7 @@ export const services: ServiceDetail[] = [
     id: "board",
     title: "관리자 데이터 운영",
     summary: "Spring MVC · Laravel FormRequest · 파일 검증 · 상태 기반 노출",
-    introduction: "관리자 요청을 분리하고, 검증한 데이터와 운영 상태를 화면에 반영합니다.",
+    introduction: "관리자 요청 분리와 운영 데이터 검증 · 반영",
     icon: "document",
     relatedIcons: ["user", "chart"],
     image: "assets/img/portfolio/cineflow-admin-gallery.png",
@@ -225,7 +225,7 @@ export const services: ServiceDetail[] = [
         icon: "document",
         title: "Spring MVC · 관리자 CRUD",
         description:
-          "AdminManagementController에서 영화·극장·상영관·상영일정의 요청을 분리하고, 서비스 계층을 통해 저장·수정·삭제를 처리했습니다.",
+          "영화 · 극장 · 상영관 · 상영일정 요청 분리, 서비스 계층에서 저장 · 수정 · 삭제",
         source: {
           label: "AdminManagementController.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/controller/AdminManagementController.java",
@@ -235,7 +235,7 @@ export const services: ServiceDetail[] = [
         icon: "search",
         title: "Laravel Validation · 이미지 검증",
         description:
-          "ProductController의 Request::validate로 제품 입력을 검증했습니다. 이미지는 image·mimes 규칙과 최대 2048KB 제한을 적용했습니다.",
+          "Request::validate로 제품 입력과 이미지 형식 · 2048KB 제한 검증",
         source: {
           label: "ProductController.php",
           url: "https://github.com/allen8524/bakery-sales-management-laravel/blob/main/app/Http/Controllers/ProductController.php",
@@ -245,7 +245,7 @@ export const services: ServiceDetail[] = [
         icon: "controller",
         title: "Laravel Middleware · 경기 상태 분기",
         description:
-          "경기 변경 요청에 auth·admin 미들웨어를 적용하고, finished 상태와 점수에 따라 승리 팀을 산출해 저장했습니다.",
+          "auth · admin으로 경기 변경 제한, 종료 경기의 점수로 승리 팀 저장",
         source: {
           label: "MatchController.php",
           url: "https://github.com/allen8524/esports-portal-management/blob/main/app/Http/Controllers/MatchController.php",
@@ -328,7 +328,7 @@ export const services: ServiceDetail[] = [
     id: "database",
     title: "DB 설계 및 데이터 처리",
     summary: "JPA 연관관계 · Flyway SQL · pandas 전처리 · PCA·회귀",
-    introduction: "서비스 데이터의 관계와 변경 이력을 설계하고, 분석 데이터는 비교 가능한 형태로 정리합니다.",
+    introduction: "DB 관계 · 변경 이력 설계와 분석 데이터 전처리",
     icon: "database",
     relatedIcons: ["box", "chart"],
     image:
@@ -339,7 +339,7 @@ export const services: ServiceDetail[] = [
         icon: "database",
         title: "JPA 엔티티 · 인덱스 설계",
         description:
-          "Booking 엔티티의 테이블·연관관계를 매핑하고, 예매 코드의 unique 제약과 상태·상영일정·사용자 조회용 인덱스를 정의했습니다.",
+          "Booking 연관관계 매핑, 예매 코드 고유 제약과 조회용 인덱스 정의",
         source: {
           label: "Booking.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/domain/Booking.java",
@@ -349,7 +349,7 @@ export const services: ServiceDetail[] = [
         icon: "database",
         title: "Flyway · 버전별 스키마 관리",
         description:
-          "V1 초기 스키마부터 인덱스·인증·회원 예매 연결·관리자 구조 변경을 SQL 마이그레이션으로 구분해 관리했습니다.",
+          "초기 스키마부터 인덱스 · 인증 · 관리자 구조 변경까지 SQL 마이그레이션으로 관리",
         source: {
           label: "Flyway migration SQL",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/resources/db/migration/V2__indexes_and_constraints.sql",
@@ -359,7 +359,7 @@ export const services: ServiceDetail[] = [
         icon: "chart",
         title: "pandas · MinMaxScaler · PCA",
         description:
-          "결측값을 처리하고 IQR 기준으로 이상치를 정리한 뒤 MinMaxScaler로 정규화했습니다. PCA와 LinearRegression으로 분석 결과를 산출했습니다.",
+          "결측값 · IQR 이상치 처리와 MinMax 정규화 후 PCA · 선형회귀 분석",
         source: {
           label: "hms_project_202212004.py",
           url: "https://github.com/allen8524/movie-pca-rating-analysis/blob/main/src/hms_project_202212004.py",

@@ -4,7 +4,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "cineflow",
     introduction:
-      "관객은 상영회차를 고르고 좌석 선택부터 결제·예매 조회까지 진행할 수 있고, 관리자는 영화·극장·상영일정·예매를 한곳에서 관리할 수 있는 영화 예매 서비스입니다.",
+      "좌석 선택 · 결제 · 예매 조회와 영화 · 극장 · 상영일정 관리를 지원하는 영화 예매 서비스",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
     flowIcons: ["film", "calendar-event", "grid-3x3-gap", "credit-card", "check-circle"],
@@ -13,37 +13,37 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "좌석 잠금으로 중복 예매 방지",
+        title: "중복 예매 방지",
         icon: "lock",
         description:
-          "좌석 상태와 예매 · 결제 기록을 한 트랜잭션에 저장합니다.",
+          "예매 확정 시 해당 회차의 좌석 잠금\n한 트랜잭션에서 좌석 상태와 예매 · 결제 기록 관리",
       },
       {
         title: "회원 · 비회원 조회 기준 분리",
         icon: "people",
         description:
-          "회원은 계정, 비회원은 예매번호와 연락처로 조회합니다.",
+          "회원은 계정, 비회원은 예매번호와 연락처로 조회",
       },
       {
         title: "Flyway로 DB 변경 관리",
         icon: "database",
         description:
-          "스키마와 초기 데이터 변경 이력을 관리합니다.",
+          "스키마와 초기 데이터 변경 이력 관리",
       },
     ],
     troubleshooting: [
       {
         title: "TMDB 응답 실패",
         cause:
-          "영화 정보가 TMDB 응답에 의존했습니다.",
+          "영화 정보가 TMDB 응답에 의존",
         solution:
-          "로컬 초기 데이터로 화면을 유지합니다.",
+          "로컬 초기 데이터로 화면 유지",
       },
     ],
     results: [
       {
         value: "예매 완료 · 잘못된 회차 처리 검증",
-        description: "예매 ID로 완료 화면을 조회하는 동작을 테스트했습니다.",
+        description: "예매 ID 기반 완료 화면 조회 테스트",
       },
       {
         value: "관리자 회차별 예매 조회",
@@ -76,7 +76,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "esports",
     introduction:
-      "팬은 선수, 경기 일정과 결과, 순위, 뉴스를 확인하고, 관리자는 경기 결과와 포털 콘텐츠를 관리할 수 있는 e스포츠 웹사이트입니다.",
+      "선수 · 경기 · 순위 · 뉴스 조회와 콘텐츠 관리를 지원하는 e스포츠 포털",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/esports_main.png",
     flowIcons: ["pencil-square", "check-circle", "calculator", "sort-down", "trophy"],
@@ -88,26 +88,26 @@ export const projectDetails: ProjectDetail[] = [
         title: "종료 경기 기준 순위 집계",
         icon: "trophy",
         description:
-          "홈 · 원정 기록을 합쳐 팀별 승률과 득실차를 계산합니다.",
+          "홈 · 원정 기록을 합산해 팀별 승률과 득실차 계산",
       },
       {
         title: "운영 영역 접근 분리",
         icon: "shield-lock",
         description:
-          "관리자 미들웨어로 경기 관리 접근을 제한합니다.",
+          "관리자 미들웨어로 경기 관리 접근 제한",
       },
       {
         title: "뉴스 식별자와 라우팅 기준",
         icon: "link-45deg",
         description:
-          "slug로 뉴스 목록과 상세 URL을 연결합니다.",
+          "slug로 뉴스 목록과 상세 URL 연결",
       },
     ],
     troubleshooting: [
       {
         title: "경기 결과 저장 후 순위 불일치",
-        cause: "사용자와 관리자 화면의 순위 집계 기준이 달랐습니다.",
-        solution: "종료된 경기만 순위에 반영합니다.",
+        cause: "사용자 · 관리자 화면의 순위 집계 기준 차이",
+        solution: "종료된 경기만 순위에 반영",
       },
     ],
     results: [
@@ -132,7 +132,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "shopping",
     introduction:
-      "고객은 상품과 옵션을 골라 주문하고, 관리자는 상품과 주문을 관리할 수 있는 PHP 쇼핑몰입니다. 결제 단계는 학습용으로 구현했습니다.",
+      "상품 주문과 관리자 기능을 갖춘 PHP 쇼핑몰 · 학습용 결제",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/shopping_main.png",
     flowIcons: ["bag", "cart3", "clipboard", "database", "receipt"],
@@ -144,20 +144,20 @@ export const projectDetails: ProjectDetail[] = [
         title: "주문과 상품 내역 동시 저장",
         icon: "database",
         description:
-          "jumun과 jumuns 중 하나라도 저장에 실패하면 주문 전체를 롤백합니다.",
+          "jumun 또는 jumuns 저장 실패 시 주문 전체 롤백",
       },
       {
         title: "사용자 · 관리자 조회 기준 통일",
         icon: "receipt",
         description:
-          "양쪽 화면에서 같은 주문번호를 사용합니다.",
+          "사용자 · 관리자 화면에서 동일한 주문번호 사용",
       },
     ],
     troubleshooting: [
       {
         title: "주문서로 이동할 때 상품 정보 누락",
-        cause: "장바구니와 주문 저장에 필요한 항목이 달랐습니다.",
-        solution: "상품 ID · 옵션 · 수량을 검증하고 DB 가격으로 계산합니다.",
+        cause: "장바구니 전달 항목과 주문 저장 항목 불일치",
+        solution: "상품 ID · 옵션 · 수량 검증 후 DB 가격으로 금액 계산",
       },
     ],
     results: [
@@ -166,7 +166,7 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         value: "주문 저장 성공 시 장바구니 초기화",
-        description: "저장 성공 후 장바구니 쿠키를 만료시킵니다.",
+        description: "저장 성공 후 장바구니 쿠키 만료",
       },
     ],
     resultLinks: [
@@ -183,7 +183,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "bakery",
     introduction:
-      "소규모 베이커리의 상품과 입출고를 기록하고, 재고와 판매 현황을 한곳에서 확인할 수 있는 매장 관리 웹사이트입니다.",
+      "베이커리 상품 · 입출고 기록과 재고 · 판매 현황 관리",
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
@@ -196,14 +196,14 @@ export const projectDetails: ProjectDetail[] = [
         title: "거래 장부를 기준으로 재고 계산",
         icon: "boxes",
         description:
-          "제품 ID로 장부를 연결해 매입 · 매출을 재고에 반영합니다.",
+          "제품 ID로 장부 연결 후 매입 · 매출을 재고에 반영",
       },
     ],
     troubleshooting: [
       {
         title: "거래 없는 제품 조회",
-        cause: "거래 기록이 없으면 조회 결과가 비었습니다.",
-        solution: "제품부터 조회하고 빈 거래 내역을 별도로 처리합니다.",
+        cause: "거래 기록이 없을 때 조회 결과 누락",
+        solution: "제품을 먼저 조회하고 빈 거래 내역은 별도 처리",
       },
     ],
     results: [
@@ -240,7 +240,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "movie-analysis",
     introduction:
-      "Cine21 영화 데이터에서 평점과 관객 수의 관계를 살펴보고, 여러 수치 지표를 압축한 주성분으로 평점을 얼마나 설명할 수 있는지 비교했습니다.",
+      "Cine21 데이터 기반 평점 · 관객 수 상관분석 및 PCA 회귀분석",
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/poster_202212004_hwang_minseo.png",
@@ -253,16 +253,16 @@ export const projectDetails: ProjectDetail[] = [
         title: "PC1 기반 평점 회귀 분석",
         icon: "graph-up",
         description:
-          "수치 지표를 PC1로 압축해 평점 예측에 사용했습니다.",
+          "수치 지표를 PC1로 압축해 평점 예측에 활용",
       },
     ],
     troubleshooting: [
       {
         title: "관객 수 이상치 영향",
         cause:
-          "이상치가 정규화와 회귀에 영향을 줬습니다.",
+          "이상치로 인한 정규화 범위와 회귀 결과 변화",
         solution:
-          "IQR로 이상치를 처리하고 MinMax로 정규화했습니다.",
+          "IQR 이상치 처리 후 MinMax 정규화",
       },
     ],
     results: [
@@ -271,11 +271,11 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         value: "전문가 · 관객 평점과 관객 수 비교",
-        description: "상관관계를 히트맵으로 표시했습니다.",
+        description: "상관관계를 히트맵으로 시각화",
       },
       {
         value: "선형회귀 R² 0.2752 · MSE 0.0572",
-        description: "평점 변동의 약 28%를 설명했습니다.",
+        description: "평점 변동의 약 28% 설명",
       },
     ],
     resultLinks: [
@@ -310,7 +310,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "seoul-bike",
     introduction:
-      "서울 공공자전거 이용 기록으로 수요가 집중되는 시간대를 살펴보고, 이용건수 예측과 고수요 분류, 대여소 유형 분석을 진행했습니다.",
+      "서울 공공자전거 이용량 예측 · 고수요 분류 · 대여소 유형 분석",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/seoul-bike-hourly-usage.png",
     flowIcons: ["database", "filter", "bar-chart", "diagram-3", "save"],
@@ -322,28 +322,28 @@ export const projectDetails: ProjectDetail[] = [
         title: "이용건수 예측과 고수요 분류",
         icon: "graph-up",
         description:
-          "다중선형회귀로 예측하고, 로지스틱 회귀와 KNN으로 분류했습니다.",
+          "이용량은 다중선형회귀, 고수요는 로지스틱 회귀와 KNN 적용",
       },
       {
         title: "분석 기준 데이터셋 고정",
         icon: "database",
         description:
-          "시각화와 모델에 같은 전처리 데이터를 사용했습니다.",
+          "시각화와 모델에 동일한 전처리 데이터 사용",
       },
       {
         title: "대여소 특성 군집화",
         icon: "diagram-3",
         description:
-          "거리 · 시간과 출퇴근 · 주말 이용 비율로 군집화했습니다.",
+          "이동거리 · 시간과 출퇴근 · 주말 이용 비율로 군집화",
       },
     ],
     troubleshooting: [
       {
         title: "대용량 원본 CSV",
         cause:
-          "원본 CSV의 용량이 컸습니다.",
+          "전체 CSV를 저장소에 담기 어려운 용량",
         solution:
-          "저장소에는 샘플과 분석 결과만 포함했습니다.",
+          "저장소에 샘플과 분석 결과만 포함",
       },
     ],
     results: [
@@ -403,7 +403,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "undead-survivor",
     introduction:
-      "몰려오는 적을 피하며 제한 시간 동안 살아남는 Android 액션 게임입니다. 플레이어는 이동을 조작하고, 자동 공격과 레벨업 보상으로 성장합니다.",
+      "자동 공격과 레벨업으로 제한 시간 동안 생존하는 Android 액션 게임",
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
@@ -416,13 +416,13 @@ export const projectDetails: ProjectDetail[] = [
         title: "적과 투사체 풀링",
         icon: "arrow-repeat",
         description:
-          "PoolManager는 비활성 객체가 없을 때만 새로 생성합니다.",
+          "PoolManager에서 비활성 객체가 없을 때만 새로 생성",
       },
       {
         title: "생존 루프 상태 연결",
         icon: "lightning-charge",
         description:
-          "주변 적을 자동 공격하고 처치 경험치로 레벨업합니다.",
+          "주변 적 자동 공격 후 처치 경험치로 레벨업",
       },
     ],
     troubleshooting: [],
@@ -472,7 +472,7 @@ export const projectDetails: ProjectDetail[] = [
   {
     projectId: "healthyup",
     introduction:
-      "키와 체중으로 BMI를 계산한 뒤, 운동 정보를 찾아보고 영상과 운동 계획을 한 앱에서 확인할 수 있는 iOS 앱입니다.",
+      "BMI 계산과 운동 정보 · 영상 · 계획을 제공하는 iOS 앱",
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
@@ -485,19 +485,19 @@ export const projectDetails: ProjectDetail[] = [
         title: "BMI 계산 전 입력값 검증",
         icon: "shield-check",
         description:
-          "키와 체중을 검증하고, BMI 판정에 따라 색상을 바꿉니다.",
+          "키 · 체중 검증 후 BMI 판정별 색상 표시",
       },
       {
         title: "네트워크 · 로컬 콘텐츠 분리",
         icon: "play-circle",
         description:
-          "운동 정보는 WebView, 시범 영상은 앱 파일로 제공합니다.",
+          "운동 정보는 WebView, 시범 영상은 앱 파일로 제공",
       },
       {
         title: "입력 컨트롤과 운동 계획 연결",
         icon: "sliders",
         description:
-          "강도 · 시간 · 세트 수를 조절할 수 있습니다.",
+          "강도 · 시간 · 세트 수 조절",
       },
     ],
     troubleshooting: [],

@@ -374,6 +374,10 @@
   text-wrap: pretty;
 }
 
+.project-design-entry p {
+  white-space: pre-line;
+}
+
 .project-results-list,
 .project-troubleshooting-details {
   margin: 0;
