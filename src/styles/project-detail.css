@@ -264,19 +264,6 @@
 .project-result-card strong { display: block; color: var(--heading-color); font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.3; }
 .project-result-card p { margin: 12px 0 0; color: var(--project-muted); font-size: 0.91rem; line-height: 1.65; }
 
-/* 9. Troubleshooting */
-.project-troubleshooting-header,
-.project-troubleshooting-list { margin: 0; padding: 0; list-style: none; }
-.project-troubleshooting-header { gap: 24px; padding: 0 0 10px; border-bottom: 1px solid var(--project-divider); color: var(--accent-color); font-size: 0.75rem; font-weight: 700; }
-.project-troubleshooting-list li { display: grid; align-items: start; border-bottom: 1px solid var(--project-divider); }
-.project-troubleshooting-number { color: var(--accent-color); font-size: 0.82rem; font-weight: 800; }
-.project-troubleshooting-list h3 { margin: 0; color: var(--heading-color); font-size: 1.1rem; line-height: 1.55; }
-.project-troubleshooting-solution__content { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 11px; align-items: start; }
-.project-troubleshooting-solution__content i { padding-top: 0.28em; color: var(--accent-color); font-size: 0.95rem; }
-.project-troubleshooting-list p { margin: 0; color: color-mix(in srgb, var(--default-color), transparent 6%); font-size: 0.95rem; line-height: 1.7; }
-.project-troubleshooting-list p strong { color: var(--accent-color); font-size: 0.8rem; }
-.project-troubleshooting-mobile-label { display: none; }
-
 /* 10. Result links */
 .project-output-section--single { margin-top: 32px; }
 .project-output-section--single .project-section-heading { margin-bottom: 18px; }
@@ -421,8 +408,6 @@
   .project-implementation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-implementation-grid .project-implementation-card { grid-column: auto; }
   .project-flow-list li { grid-column: auto; }
-  .project-troubleshooting-header,
-  .project-troubleshooting-list li { grid-template-columns: 50px minmax(210px, 260px) minmax(0, 1fr); gap: 18px; }
   .project-nav .nav-link { gap: 22px; padding: 20px; }
   .project-nav .prev-project { grid-template-columns: minmax(0, 1fr) minmax(180px, 38%); }
   .project-nav .next-project { grid-template-columns: minmax(180px, 38%) minmax(0, 1fr); }
@@ -457,12 +442,6 @@
   .project-gallery-item--portrait,
   .project-gallery-item--long-page,
   .project-gallery-item--last-odd { grid-column: 1 / -1; }
-  .project-troubleshooting-list li { grid-template-columns: 42px minmax(0, 1fr); gap: 9px 14px; }
-  .project-troubleshooting-header { display: none; }
-  .project-troubleshooting-problem,
-  .project-troubleshooting-solution { grid-column: 2; }
-  .project-troubleshooting-mobile-label { display: block; margin-bottom: 5px; color: var(--accent-color); font-size: 0.72rem; font-weight: 700; }
-  .project-troubleshooting-solution { margin-top: 7px; }
   .project-nav { grid-template-columns: 1fr; }
   .project-nav .prev-project,
   .project-nav .next-project { grid-template-columns: 1fr; grid-template-areas: "body" "thumbnail"; gap: 24px; }
@@ -522,33 +501,8 @@
 /* Detail density: keep supporting information compact without extra sequence labels. */
 
 .project-flow-list > li > span,
-.project-implementation-card > span,
-.project-troubleshooting-number {
+.project-implementation-card > span {
   display: none;
-}
-
-.project-troubleshooting-header {
-  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
-}
-
-.project-troubleshooting-header > span:first-child {
-  display: none;
-}
-
-.project-troubleshooting-list li {
-  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
-}
-
-@media (max-width: 767px) {
-  .project-troubleshooting-list li {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
-  }
-
-  .project-troubleshooting-problem,
-  .project-troubleshooting-solution {
-    grid-column: 1;
-  }
 }
 
 /* Project gallery fan-stack layer correction */
@@ -870,23 +824,45 @@
 .project-result-card strong {
   font-weight: 400;
 }
-.project-troubleshooting-header {
-  display: none;
-}
+.project-troubleshooting-section .project-section-heading { margin-bottom: 16px; }
 .project-troubleshooting-list {
   display: grid;
   gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .project-troubleshooting-list li {
   padding: 24px;
   border: 1px solid var(--project-border);
   border-radius: var(--project-radius);
   background: var(--project-card-bg);
-  gap: 20px;
+
 }
 .project-troubleshooting-list h3 {
+  margin: 0 0 12px;
+  color: var(--heading-color);
   font-family: var(--font-subheading);
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+.project-troubleshooting-details {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: baseline;
+  gap: 6px 12px;
+  margin: 0;
+}
+.project-troubleshooting-details dt {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+}
+.project-troubleshooting-details dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 .project-detail-links a {
   border-radius: 999px;
