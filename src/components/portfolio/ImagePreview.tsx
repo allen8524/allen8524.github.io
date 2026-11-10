@@ -16,6 +16,7 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const isClosingRef = useRef(false);
+  const closeTweenRef = useRef<gsap.core.Tween | null>(null);
 
   const handleClose = useCallback(() => {
     if (isClosingRef.current) {
@@ -29,18 +30,11 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
       return;
     }
 
-    gsap.to(dialogRef.current, {
+    closeTweenRef.current = gsap.to(overlayRef.current, {
       opacity: 0,
-      y: 14,
-      scale: 0.97,
-      duration: 0.18,
+      duration: 0.15,
       ease: "power2.in",
-    });
-
-    gsap.to(overlayRef.current, {
-      opacity: 0,
-      duration: 0.2,
-      ease: "power2.in",
+      overwrite: "auto",
       onComplete: onClose,
     });
   }, [onClose]);
@@ -99,8 +93,16 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
       gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power2.out" });
       gsap.fromTo(
         dialogRef.current,
-        { opacity: 0, y: 20, scale: 0.96 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "power3.out" },
+        { opacity: 0, y: 8, scale: 0.98, filter: "blur(3px)" },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          clearProps: "filter",
+          duration: 0.22,
+          ease: "power3.out",
+        },
       );
     });
 
@@ -108,6 +110,7 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
       window.cancelAnimationFrame(focusFrameId);
       document.body.classList.remove("preview-open");
       window.removeEventListener("keydown", handleKeyDown);
+      closeTweenRef.current?.kill();
       animationContext.revert();
 
       if (appRoot) {
