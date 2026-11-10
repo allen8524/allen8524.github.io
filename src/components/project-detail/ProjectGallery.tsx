@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type { SyntheticEvent } from "react";
 import type { ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
@@ -6,7 +6,6 @@ import ImagePreview from "../portfolio/ImagePreview";
 import ProjectSectionHeading from "./ProjectSectionHeading";
 
 type ProjectGalleryProps = { detail: ProjectDetail };
-type GalleryImage = NonNullable<ProjectDetail["gallery"]>[number];
 type ImageLayout = "long-page" | "portrait" | "landscape" | "standard";
 
 function getImageLayout(image: HTMLImageElement): ImageLayout {
@@ -19,11 +18,24 @@ function getImageLayout(image: HTMLImageElement): ImageLayout {
 }
 
 function ProjectGallery({ detail }: ProjectGalleryProps) {
-  const [previewImage, setPreviewImage] = useState<GalleryImage | null>(null);
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
+  const thumbnails = useRef<Array<HTMLImageElement | null>>([]);
+  const closePreview = useCallback(() => setPreviewIndex(null), []);
   const [layouts, setLayouts] = useState<Record<string, ImageLayout>>({});
-  const gallery = detail.gallery?.filter((image) => image.src !== detail.heroImage);
+  const gallery = useMemo(
+    () => detail.gallery?.filter((image) => image.src !== detail.heroImage),
+    [detail.gallery, detail.heroImage],
+  );
+  const previewGallery = useMemo(() => (
+    gallery && previewIndex !== null ? {
+      initialIndex: previewIndex,
+      items: gallery.map((item) => ({ src: item.src, alt: formatMiddleDotSpacing(item.alt) })),
+      getThumbnail: (index: number) => thumbnails.current[index],
+    } : undefined
+  ), [gallery, previewIndex]);
 
   if (!gallery?.length) return null;
+  const previewImage = previewIndex === null ? undefined : gallery[previewIndex];
 
   const handleImageLoad = (src: string, event: SyntheticEvent<HTMLImageElement>) => {
     const layout = getImageLayout(event.currentTarget);
@@ -54,9 +66,15 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
                   type="button"
                   className="project-detail-image-button project-gallery-fan__front"
                   aria-label={`${imageAlt} 이미지 확대`}
-                  onClick={() => setPreviewImage(image)}
+                  onClick={() => setPreviewIndex(index)}
                 >
-                  <img src={image.src} alt={imageAlt} loading="lazy" onLoad={(event) => handleImageLoad(image.src, event)} />
+                  <img
+                    ref={(element) => { thumbnails.current[index] = element; }}
+                    src={image.src}
+                    alt={imageAlt}
+                    loading="lazy"
+                    onLoad={(event) => handleImageLoad(image.src, event)}
+                  />
                 </button>
               </div>
               <figcaption>{imageAlt}</figcaption>
@@ -64,7 +82,14 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
           );
         })}
       </div>
-      {previewImage && <ImagePreview alt={formatMiddleDotSpacing(previewImage.alt)} image={previewImage.src} onClose={() => setPreviewImage(null)} />}
+      {previewImage && previewGallery && (
+        <ImagePreview
+          alt={formatMiddleDotSpacing(previewImage.alt)}
+          image={previewImage.src}
+          gallery={previewGallery}
+          onClose={closePreview}
+        />
+      )}
     </section>
   );
 }
