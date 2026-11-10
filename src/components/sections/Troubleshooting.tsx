@@ -7,12 +7,35 @@ type TroubleFlow = {
 
 type TroubleCase = {
   id: string;
-  label: string;
+  label?: string;
   heading: string;
   flow: TroubleFlow[];
 };
 
 const troubleCases: TroubleCase[] = [
+  {
+    id: "shopping",
+    heading: "장바구니 → 주문 저장 기준 통일",
+    flow: [
+      {
+        label: "문제",
+        description: "주문서 이동 시 상품 정보 누락",
+      },
+      {
+        label: "해결",
+        description: (
+          <>
+            <code>cart.php</code> → <code>order.php</code> →{" "}
+            <code>order_ok.php</code> 흐름 재정렬
+          </>
+        ),
+      },
+      {
+        label: "결과",
+        description: "사용자 주문 내역 · 관리자 조회 기준 일치",
+      },
+    ],
+  },
   {
     id: "esports",
     label: "e스포츠 포털/관리",
@@ -103,35 +126,34 @@ function Troubleshooting() {
       <div className="container">
         <div className="troubleshooting-showcase">
           <div className="trouble-card-grid">
-            {troubleCases.map((item) => (
-              <article className="trouble-card" key={item.id}>
-                <header className="trouble-card-head">
-                  <p className="trouble-card-project">{item.label}</p>
-                  <h3>{item.heading}</h3>
-                </header>
+            {troubleCases.map((item) => {
+              const cause = item.flow.find((step) => step.label === "원인");
 
-                <ol className="trouble-card-flow">
-                  {item.flow
-                    .filter((flow) => flow.label !== "원인")
-                    .map((flow) => (
-                      <li key={flow.label}>
-                        <span>{flow.label}</span>
-                        <div className="trouble-card-description">
-                          <p>{flow.description}</p>
-                          {flow.label === "문제" && (
-                            <p className="trouble-card-cause">
-                              {
-                                item.flow.find((step) => step.label === "원인")
-                                  ?.description
-                              }
-                            </p>
-                          )}
-                        </div>
-                      </li>
-                    ))}
-                </ol>
-              </article>
-            ))}
+              return (
+                <article className="trouble-card" key={item.id}>
+                  <header className="trouble-card-head">
+                    {item.label && <p className="trouble-card-project">{item.label}</p>}
+                    <h3>{item.heading}</h3>
+                  </header>
+
+                  <ol className="trouble-card-flow">
+                    {item.flow
+                      .filter((flow) => flow.label !== "원인")
+                      .map((flow) => (
+                        <li key={flow.label}>
+                          <span>{flow.label}</span>
+                          <div className="trouble-card-description">
+                            <p>{flow.description}</p>
+                            {flow.label === "문제" && cause && (
+                              <p className="trouble-card-cause">{cause.description}</p>
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                  </ol>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
