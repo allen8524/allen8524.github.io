@@ -41,6 +41,12 @@
   transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.jelly-scroll-top__icon i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
 .jelly-scroll-top__blob {
   position: absolute;
   top: 50%;
@@ -67,23 +73,6 @@
 .jelly-scroll-top__blob--3 {
   width: 0.85rem;
   height: 0.85rem;
-}
-
-.jelly-scroll-top__gloss {
-  position: absolute;
-  top: 4px;
-  right: 10%;
-  left: 10%;
-  height: 40%;
-  border-radius: 14px 14px 50% 50%;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--theme-highlight-base), transparent 68%) 0%,
-    color-mix(in srgb, var(--theme-highlight-base), transparent 94%) 100%
-  );
-  opacity: 0.9;
-  pointer-events: none;
-  transition: opacity 300ms ease;
 }
 
 .jelly-scroll-top__svg {
@@ -130,10 +119,6 @@
   transition-delay: var(--blob-3-delay);
 }
 
-#scroll-top.jelly-scroll-top:hover .jelly-scroll-top__gloss {
-  opacity: 0.68;
-}
-
 #scroll-top.jelly-scroll-top.active:active {
   box-shadow: 0 0.2rem 0.65rem var(--jelly-shadow);
   transform: translateY(0) scaleX(0.92) scaleY(1.08);
@@ -148,10 +133,6 @@
 #scroll-top.jelly-scroll-top:active .jelly-scroll-top__blob {
   transform: translate(-50%, -50%) scale(0);
   transition-duration: 150ms;
-}
-
-#scroll-top.jelly-scroll-top:active .jelly-scroll-top__gloss {
-  opacity: 0.3;
 }
 
 #scroll-top.jelly-scroll-top:focus-visible {
@@ -172,10 +153,6 @@
   background: var(--accent-color);
 }
 
-:root[data-theme="light"] .jelly-scroll-top__gloss {
-  display: none;
-}
-
 @media (max-width: 575px) {
   #scroll-top.jelly-scroll-top {
     right: 16px;
@@ -189,8 +166,7 @@
 @media (prefers-reduced-motion: reduce) {
   #scroll-top.jelly-scroll-top,
   .jelly-scroll-top__icon,
-  .jelly-scroll-top__blob,
-  .jelly-scroll-top__gloss {
+  .jelly-scroll-top__blob {
     transition: none;
   }
 
@@ -240,9 +216,4 @@
 #scroll-top.jelly-scroll-top.active:active,
 #scroll-top.jelly-scroll-top .jelly-scroll-top__blob {
   background: var(--jelly-bg);
-}
-
-.jelly-scroll-top__gloss {
-  z-index: 1;
-  display: none;
 }

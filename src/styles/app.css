@@ -70,10 +70,6 @@ a {
   background: var(--accent-color);
 }
 
-.scroll-top {
-  border: 0;
-}
-
 .reveal-item {
   opacity: 0;
   transform: translateY(12px);

@@ -1,19 +1,11 @@
-import { useCallback, useMemo, useState } from "react";
-import ImagePreview, { type PreviewImage } from "../portfolio/ImagePreview";
+import { useMemo, useState } from "react";
 import ProjectCard from "../portfolio/ProjectCard";
 import ProjectFilter from "../portfolio/ProjectFilter";
 import { projectFilters, projects } from "../../data/projects";
 import type { ProjectFilterOption } from "../../data/projects";
-import type { Project } from "../../types/project";
-import { formatMiddleDotSpacing } from "../../utils/typography";
 
 function Portfolio() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilterOption["value"]>("all");
-  const [previewImages, setPreviewImages] = useState<PreviewImage[] | null>(null);
-  const closePreview = useCallback(() => setPreviewImages(null), []);
-  const openPreview = (project: Project, thumbnail: HTMLImageElement | null) => {
-    setPreviewImages([{ src: project.image, alt: formatMiddleDotSpacing(project.title), thumbnail }]);
-  };
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "all") {
@@ -34,14 +26,10 @@ function Portfolio() {
 
         <div className="row gy-5 portfolio-container">
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} onPreview={openPreview} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
-
-      {previewImages && (
-        <ImagePreview images={previewImages} onClose={closePreview} />
-      )}
     </section>
   );
 }
