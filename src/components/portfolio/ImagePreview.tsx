@@ -53,12 +53,13 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
   const galleryImages = useRef<Array<HTMLImageElement | null>>([]);
   const galleryIndex = useRef(initialIndex);
   const [currentIndex, setCurrentIndex] = useState(galleryIndex.current);
+  const [controlsVisible, setControlsVisible] = useState(false);
   const galleryMotion = useRef<gsap.core.Timeline | null>(null);
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
 
   const moveGallery = useCallback((direction: number) => {
     const count = images.length;
-    if (count < 2 || isClosingRef.current || galleryMotion.current?.isActive()) return;
+    if (count < 2 || !closeButtonRef.current || isClosingRef.current || galleryMotion.current?.isActive()) return;
 
     const previous = galleryIndex.current;
     const next = (previous + direction + count) % count;
@@ -87,6 +88,8 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
     }
 
     isClosingRef.current = true;
+    setControlsVisible(false);
+    dialogRef.current?.focus({ preventScroll: true });
 
     if (window.matchMedia(reduceMotionQuery).matches) {
       onClose();
@@ -164,7 +167,7 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
 
     document.body.classList.add("preview-open");
     window.addEventListener("keydown", handleKeyDown);
-    const focusFrameId = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+    dialogRef.current?.focus({ preventScroll: true });
 
     const selected = galleryImages.current[initialIndex];
     const animationContext = gsap.context(() => {
@@ -173,26 +176,35 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
       gsap.fromTo(backdropRef.current, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" });
     });
     const animateSelected = () => {
-      if (!selected || isClosingRef.current || window.matchMedia(reduceMotionQuery).matches) return;
+      if (isClosingRef.current) return;
+      if (!selected || window.matchMedia(reduceMotionQuery).matches) {
+        setControlsVisible(true);
+        return;
+      }
+
       animationContext.add(() => {
         const source = getThumbnailTransform(images[initialIndex]?.thumbnail, selected);
-        const opening = gsap.timeline();
+        const opening = gsap.timeline({ onComplete: () => setControlsVisible(true) });
         galleryMotion.current = opening;
         if (source) {
           opening.fromTo(selected, { ...source, opacity: 1 }, {
             x: 0, y: 0, scale: 1, clipPath: galleryOpenMask, duration: 0.62, ease: "back.out(0.75)",
           });
         } else {
-          opening.fromTo(selected, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+          opening.fromTo(selected, { opacity: 0 }, { opacity: 1, duration: 0.4 });
         }
       });
     };
-    if (selected?.complete) animateSelected();
-    else selected?.addEventListener("load", animateSelected, { once: true });
+    if (!selected || selected.complete || window.matchMedia(reduceMotionQuery).matches) {
+      animateSelected();
+    } else {
+      selected.addEventListener("load", animateSelected, { once: true });
+      selected.addEventListener("error", animateSelected, { once: true });
+    }
 
     return () => {
       selected?.removeEventListener("load", animateSelected);
-      window.cancelAnimationFrame(focusFrameId);
+      selected?.removeEventListener("error", animateSelected);
       document.body.classList.remove("preview-open");
       window.removeEventListener("keydown", handleKeyDown);
       closeTimelineRef.current?.kill();
@@ -207,6 +219,10 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
     };
   }, [images, initialIndex, handleClose, moveGallery]);
 
+  useLayoutEffect(() => {
+    if (controlsVisible) closeButtonRef.current?.focus({ preventScroll: true });
+  }, [controlsVisible]);
+
   const previewContent = (
     <div
       ref={overlayRef}
@@ -217,10 +233,12 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
       onClick={handleClose}
     >
       <div ref={backdropRef} className="image-preview__backdrop" />
-      <div ref={dialogRef} className="image-preview__dialog" onClick={(event) => event.stopPropagation()}>
-        <button ref={closeButtonRef} type="button" className="image-preview__close" aria-label="미리보기 닫기" onClick={handleClose}>
-          <i className="bi bi-x-lg" />
-        </button>
+      <div ref={dialogRef} className="image-preview__dialog" tabIndex={-1} onClick={(event) => event.stopPropagation()}>
+        {controlsVisible && (
+          <button ref={closeButtonRef} type="button" className="image-preview__close" aria-label="미리보기 닫기" onClick={handleClose}>
+            <i className="bi bi-x-lg" />
+          </button>
+        )}
         <div
           className="image-preview__stage"
           onPointerDown={(event) => {
@@ -256,7 +274,7 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
             );
           })}
         </div>
-        {images.length > 1 && (
+        {controlsVisible && images.length > 1 && (
           <>
             <button type="button" className="image-preview__nav image-preview__nav--previous" aria-label="이전 이미지" onClick={() => moveGallery(-1)}>
               <i className="bi bi-chevron-left" aria-hidden="true" />

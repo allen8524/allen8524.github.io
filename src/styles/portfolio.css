@@ -172,6 +172,10 @@
   height: min(720px, calc(100dvh - 96px));
 }
 
+.image-preview__dialog:focus {
+  outline: none;
+}
+
 .image-preview__close {
   position: absolute;
   top: 12px;
