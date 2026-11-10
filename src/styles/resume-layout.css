@@ -6,6 +6,7 @@
 }
 
 .resume .resume-content-row {
+  --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 28px;
 }
 
@@ -44,5 +45,18 @@
 
   .resume .resume-content-row {
     --bs-gutter-y: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .resume .resume-content-row {
+    gap: 3rem 0;
+    --bs-gutter-x: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume .resume-content-row {
+    --bs-gutter-x: 0;
   }
 }

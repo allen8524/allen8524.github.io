@@ -22,11 +22,10 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 300;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: var(--theme-text-muted);
   transition: all 0.4s ease;
   position: relative;
-  padding: 12px 0;
-  font-family: var(--heading-font);
+  font-family: var(--font-button);
 }
 
 .portfolio .portfolio-filters li::after {
@@ -265,10 +264,6 @@
   font-family: var(--font-card-body);
 }
 
-.portfolio .portfolio-filters li {
-  font-family: var(--font-button);
-}
-
 .portfolio .portfolio-container {
   align-items: stretch;
 }
@@ -411,7 +406,7 @@
 
 .portfolio .portfolio-filters button {
   display: inline-flex;
-  padding: 0;
+  padding: 12px 0;
   border: 0;
   background: transparent;
   color: inherit;

@@ -83,7 +83,7 @@
 }
 
 #scroll-top.jelly-scroll-top.active:hover {
-  background: var(--jelly-hover);
+  background: var(--jelly-bg);
   box-shadow: 0 0.45rem 1.25rem var(--jelly-shadow);
   transform: translateY(0) scaleX(1.08) scaleY(0.92);
 }
@@ -138,19 +138,6 @@
 #scroll-top.jelly-scroll-top:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--accent-color), var(--theme-text-bright) 35%);
   outline-offset: 4px;
-}
-
-/* Keep the light theme jelly visually flat: one solid green without gloss or tone shifts. */
-:root[data-theme="light"] #scroll-top.jelly-scroll-top {
-  --jelly-bg: var(--accent-color);
-  --jelly-hover: var(--accent-color);
-  background: var(--accent-color);
-}
-
-:root[data-theme="light"] #scroll-top.jelly-scroll-top.active:hover,
-:root[data-theme="light"] #scroll-top.jelly-scroll-top.active:active,
-:root[data-theme="light"] .jelly-scroll-top__blob {
-  background: var(--accent-color);
 }
 
 @media (max-width: 575px) {
@@ -208,12 +195,5 @@
   color: var(--jelly-text);
   cursor: pointer;
   filter: url(#scroll-top-jelly-goo);
-  --jelly-hover: var(--jelly-bg);
-  background: var(--jelly-bg);
-}
-
-#scroll-top.jelly-scroll-top.active:hover,
-#scroll-top.jelly-scroll-top.active:active,
-#scroll-top.jelly-scroll-top .jelly-scroll-top__blob {
   background: var(--jelly-bg);
 }

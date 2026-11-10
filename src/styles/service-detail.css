@@ -131,13 +131,9 @@
   display: grid;
   align-content: start;
   justify-items: center;
-  gap: 6px;
   min-width: 0;
   color: inherit;
   text-decoration: none;
-}
-
-.service-evidence-card {
   grid-template-columns: 24px minmax(0, 1fr) 24px;
   width: min(100%, 22rem);
   margin-inline: auto;

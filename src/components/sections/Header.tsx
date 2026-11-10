@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "../common/ThemeToggle";
 
@@ -14,6 +14,7 @@ const navItems = [
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuToggle = useRef<HTMLButtonElement>(null);
   const [activeSection, setActiveSection] = useState("hero");
   const navigate = useNavigate();
   const location = useLocation();
@@ -77,6 +78,12 @@ function Header() {
     <>
       <header
         id="header"
+        onKeyDown={(event) => {
+          if (event.key === "Escape" && isOpen) {
+            setIsOpen(false);
+            menuToggle.current?.focus();
+          }
+        }}
         className={`site-topbar${isOpen ? " is-open" : ""}`}
       >
         <button
@@ -84,6 +91,8 @@ function Header() {
           className={`site-topbar-menu-toggle bi ${isOpen ? "bi-x" : "bi-list"}`}
           aria-label="메뉴 열기/닫기"
           aria-expanded={isOpen}
+          aria-controls="navmenu"
+          ref={menuToggle}
           onClick={() => setIsOpen((current) => !current)}
         />
 

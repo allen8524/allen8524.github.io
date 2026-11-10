@@ -641,15 +641,6 @@
   .project-detail-links--count-2 { grid-template-columns: 1fr; }
   .project-gallery-grid { grid-template-columns: 1fr; }
   .project-gallery-item { padding-right: 5px; }
-  .project-gallery-fan__sheet--1 { transform: rotate(1deg) translate(1px, 1px); }
-  .project-gallery-fan__sheet--2 { transform: rotate(2deg) translate(2px, 2px); }
-  .project-gallery-fan__sheet--3 { transform: rotate(3deg) translate(3px, 3px); }
-  .project-gallery-item:hover .project-gallery-fan__sheet--1,
-  .project-gallery-item:focus-within .project-gallery-fan__sheet--1 { transform: rotate(1deg) translate(1px, 1px); }
-  .project-gallery-item:hover .project-gallery-fan__sheet--2,
-  .project-gallery-item:focus-within .project-gallery-fan__sheet--2 { transform: rotate(2deg) translate(2px, 2px); }
-  .project-gallery-item:hover .project-gallery-fan__sheet--3,
-  .project-gallery-item:focus-within .project-gallery-fan__sheet--3 { transform: rotate(3deg) translate(3px, 3px); }
   .project-gallery-item--landscape,
   .project-gallery-item--standard,
   .project-gallery-item--portrait,

@@ -112,6 +112,7 @@
 
   /* Theme typography */
   --theme-text-primary: #f3f4f6;
+  --theme-text-muted: #aeb8c6;
   --theme-text-heading: #f9fafb;
   --theme-text-bright: #ffffff;
   --theme-text-inverse: #1f2937;
@@ -152,6 +153,7 @@
 
   /* Theme typography */
   --theme-text-primary: #344054;
+  --theme-text-muted: #596579;
   --theme-text-heading: #182230;
   --theme-text-bright: #ffffff;
   --theme-text-inverse: #ffffff;
@@ -732,7 +734,7 @@ section,
   font-weight: 300;
   color: var(--heading-color);
   margin-bottom: 8px;
-  font-family: var(--heading-font);
+  font-family: var(--font-card-title);
 }
 
 .skills .skills-container .skill-category .skills-list .skill-row {
@@ -754,13 +756,14 @@ section,
   font-size: 18px;
   color: var(--default-color);
   font-weight: 300;
+  font-family: var(--font-ui);
 }
 
 .skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-percentage {
   font-size: 14px;
   color: var(--accent-color);
   font-weight: 500;
-  font-family: var(--default-font);
+  font-family: var(--font-ui);
 }
 
 .skills .skills-sidebar {
@@ -790,7 +793,7 @@ section,
   font-weight: 300;
   color: var(--heading-color);
   margin-bottom: 20px;
-  font-family: var(--heading-font);
+  font-family: var(--font-card-title);
 }
 
 .skills .skills-sidebar .expertise-highlight .experience-number {
@@ -805,6 +808,7 @@ section,
   font-size: 18px;
   color: var(--text-light);
   font-weight: 300;
+  font-family: var(--font-label);
 }
 
 .skills .skills-sidebar .technologies-section {
@@ -816,7 +820,7 @@ section,
   font-weight: 400;
   color: var(--heading-color);
   margin-bottom: 24px;
-  font-family: var(--heading-font);
+  font-family: var(--font-subheading);
 }
 
 .skills .skills-sidebar .technologies-section .tech-stack {
@@ -850,6 +854,7 @@ section,
   font-size: 14px;
   color: var(--default-color);
   font-weight: 400;
+  font-family: var(--font-ui);
 }
 
 .skills .skills-sidebar .achievements-section .achievements-title {
@@ -857,7 +862,7 @@ section,
   font-weight: 400;
   color: var(--heading-color);
   margin-bottom: 24px;
-  font-family: var(--heading-font);
+  font-family: var(--font-subheading);
 }
 
 .skills .skills-sidebar .achievements-section .achievement-list .achievement-item {
@@ -881,6 +886,7 @@ section,
   letter-spacing: 0.5px;
   min-width: 40px;
   margin-top: 2px;
+  font-family: var(--font-label);
 }
 
 .skills .skills-sidebar .achievements-section .achievement-list .achievement-item .achievement-text {
@@ -946,11 +952,6 @@ section,
   padding-bottom: 26px;
 }
 
-.resume .resume-content-row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-}
-
 .resume .resume-column {
   display: flex;
 }
@@ -1008,6 +1009,7 @@ section,
   color: var(--heading-color);
   margin-bottom: 0;
   letter-spacing: -0.02em;
+  font-family: var(--font-heading);
 }
 
 .resume .section-intro p {
@@ -1015,6 +1017,7 @@ section,
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   margin: 0;
+  font-family: var(--font-body);
 }
 
 .resume .professional-journey .experience-timeline {
@@ -1068,6 +1071,7 @@ section,
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  font-family: var(--font-label);
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h3 {
@@ -1076,6 +1080,7 @@ section,
   color: var(--heading-color);
   margin-bottom: 0.25rem;
   letter-spacing: -0.01em;
+  font-family: var(--font-card-title);
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h4 {
@@ -1083,6 +1088,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   font-weight: 500;
   margin-bottom: 1rem;
+  font-family: var(--font-subheading);
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content p {
@@ -1090,6 +1096,7 @@ section,
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 1rem;
+  font-family: var(--font-card-body);
 }
 
 .resume .education-skills .education-grid .education-card {
@@ -1144,6 +1151,7 @@ section,
   color: var(--heading-color);
   margin-bottom: 0.25rem;
   letter-spacing: -0.01em;
+  font-family: var(--font-card-title);
 }
 
 .resume .education-skills .education-grid .education-card .education-header .degree-info .institution {
@@ -1151,6 +1159,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 0.5rem;
   font-weight: 500;
+  font-family: var(--font-label);
 }
 
 .resume .education-skills .education-grid .education-card .education-header .degree-info .graduation-year {
@@ -1158,6 +1167,7 @@ section,
   color: var(--accent-color);
   font-weight: 500;
   letter-spacing: 0.02em;
+  font-family: var(--font-label);
 }
 
 .resume .education-skills .education-grid .certification-section {
@@ -1174,6 +1184,7 @@ section,
   color: var(--heading-color);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
+  font-family: var(--font-subheading);
 }
 
 .resume .education-skills .education-grid .certification-section .certifications .cert-item {
@@ -1204,19 +1215,16 @@ section,
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--heading-color);
+  font-family: var(--font-card-title);
 }
 
 .resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-provider {
   font-size: 0.85rem;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-family: var(--font-label);
 }
 
 @media (max-width: 992px) {
-
-  .resume .resume-content-row {
-    gap: 3rem 0;
-    --bs-gutter-x: 0.9rem;
-  }
 
   .resume .resume-panel {
     padding: 1.6rem;
@@ -1250,10 +1258,6 @@ section,
 @media (max-width: 768px) {
   .resume .section-title {
     padding-bottom: 22px;
-  }
-
-  .resume .resume-content-row {
-    --bs-gutter-x: 0;
   }
 
   .resume .resume-panel {
@@ -1401,6 +1405,7 @@ section,
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 30px;
+  font-family: var(--font-card-body);
 }
 
 @media (max-width: 768px) {
@@ -1441,50 +1446,15 @@ section,
   font-family: var(--font-heading);
 }
 
-.section-title h2,
-.resume .section-intro h2 {
+.section-title h2 {
   font-family: var(--font-heading);
 }
 
-.skills .skills-sidebar .technologies-section .tech-title,
-.skills .skills-sidebar .achievements-section .achievements-title,
-.resume .professional-journey .experience-timeline .timeline-item .timeline-content h4,
-.resume .education-skills .education-grid .certification-section h4 {
-  font-family: var(--font-subheading);
-}
-
-.skills .skills-container .skill-category .category-header .category-title,
-.skills .skills-sidebar .expertise-highlight .highlight-title,
-.resume .professional-journey .experience-timeline .timeline-item .timeline-content h3,
-.resume .education-skills .education-grid .education-card .education-header .degree-info h3,
-.resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-name,
-.services .service-content h3 {
-  font-family: var(--font-card-title);
-}
-
-body,
-.resume .section-intro p {
+body {
   font-family: var(--font-body);
 }
 
-.resume .professional-journey .experience-timeline .timeline-item .timeline-content p,
-.services .service-content p {
-  font-family: var(--font-card-body);
-}
-
-.skills .skills-sidebar .expertise-highlight .experience-number .experience-label,
-.skills .skills-sidebar .achievements-section .achievement-list .achievement-item .achievement-date,
-.resume .professional-journey .experience-timeline .timeline-item .timeline-content .position-meta .timeline-year,
-.resume .education-skills .education-grid .education-card .education-header .degree-info .institution,
-.resume .education-skills .education-grid .education-card .education-header .degree-info .graduation-year,
-.resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-provider,
 .footer,
 .footer p {
   font-family: var(--font-label);
-}
-
-.skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-name,
-.skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-percentage,
-.skills .skills-sidebar .technologies-section .tech-stack .tech-item span {
-  font-family: var(--font-ui);
 }
