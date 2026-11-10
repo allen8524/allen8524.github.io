@@ -12,9 +12,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "결제 직전에 좌석을 다시 확인",
+        title: "같은 회차의 같은 좌석을 두 번 팔지 않게",
         description:
-          "결제 직전 회차 ID와 좌석 코드로 잠금을 걸어 중복 예약을 막습니다. 예매와 결제 기록은 좌석 상태와 함께 한 트랜잭션에서 저장합니다.",
+          "좌석을 선택한 뒤에도 다른 관객이 먼저 예약할 수 있습니다. 예매 확정 직전에 회차 ID와 좌석 코드로 잠금을 걸고, 예매·결제 기록과 좌석 상태를 한 트랜잭션에서 저장합니다.",
       },
       {
         title: "회원 · 비회원 조회 기준 분리",
@@ -38,10 +38,11 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        value: "완료 화면에 예매번호와 좌석 표시",
+        value: "예매 ID로 완료 화면의 예매 확인",
+        description: "컨트롤러 테스트에서 예매 ID로 해당 예매를 표시하는 동작과 잘못된 회차를 되돌리는 동작을 검증합니다.",
       },
       {
-        value: "회차별 상영일정과 예매 내역 조회",
+        value: "관리자가 회차별 예매 내역을 확인",
       },
     ],
     resultLinks: [
@@ -79,9 +80,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "종료 상태 기반 순위 집계",
+        title: "끝난 경기만 순위에 반영",
         description:
-          "종료 경기의 홈·원정 기록을 합쳐 팀별 승·패·승률·득실차를 계산합니다.",
+          "홈과 원정으로 흩어진 종료 경기 기록을 팀 기준으로 합쳐, 어느 쪽으로 출전했든 같은 방식으로 승·패·승률·득실차를 계산합니다.",
       },
       {
         title: "운영 영역 접근 분리",
@@ -103,10 +104,10 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        value: "경기 일정과 종료 경기 스코어 조회",
+        value: "예정 경기와 종료 경기의 스코어 구분",
       },
       {
-        value: "리그·스테이지별 순위 조회와 정렬",
+        value: "같은 리그·스테이지에서 승률과 득실차 비교",
       },
     ],
     resultLinks: [
@@ -131,9 +132,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "주문 단위와 상품 단위 분리",
+        title: "여러 상품을 한 주문으로 저장",
         description:
-          "주문 정보는 jumun, 상품별 옵션과 수량은 jumuns에 기록합니다. 일부만 저장되는 일을 막기 위해 두 테이블을 한 트랜잭션으로 묶었습니다.",
+          "주문자 정보는 jumun에 한 번만, 옵션과 수량은 jumuns에 상품별로 기록합니다. 한 상품이라도 저장에 실패하면 주문 전체를 롤백합니다.",
       },
       {
         title: "사용자 · 관리자 조회 기준 통일",
@@ -150,10 +151,10 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        value: "한 주문번호로 여러 상품 조회",
+        value: "한 주문번호에서 상품별 옵션과 수량 확인",
       },
       {
-        value: "저장 성공 후 장바구니 비우기",
+        value: "주문이 저장된 경우에만 장바구니 비우기",
       },
     ],
     resultLinks: [
@@ -179,9 +180,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "제품 중심 데이터 연결",
+        title: "장부의 입출고 기록으로 재고 계산",
         description:
-          "제품 ID로 장부를 연결해 매입·매출 기록에서 재고를 계산합니다.",
+          "상품과 장부를 제품 ID로 연결했습니다. 매입과 매출 기록에서 재고를 계산하고, 같은 제품의 거래 내역을 장부에서 확인할 수 있습니다.",
       },
     ],
     troubleshooting: [
@@ -193,10 +194,10 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        value: "대시보드에서 재고 부족·소진 상품 확인",
+        value: "대시보드에서 품절과 재고 부족 상품 구분",
       },
       {
-        value: "기간별 장부와 종류별 판매 차트",
+        value: "기간별 거래와 상품 종류별 판매 비교",
       },
     ],
     resultLinks: [
@@ -234,7 +235,7 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "첫 번째 주성분으로 평점을 설명",
+        title: "지표를 하나로 줄이면 평점을 얼마나 설명할까",
         description:
           "여러 수치 지표를 PC1로 압축해 선형회귀로 평점을 얼마나 설명할 수 있는지 확인했습니다.",
       },
@@ -258,7 +259,7 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         value: "선형회귀 R² 0.2752 · MSE 0.0572",
-        description: "PC1 기반 회귀가 평점 변동의 약 28%를 설명했습니다.",
+        description: "PC1 하나로 설명한 평점 변동은 약 28%였습니다.",
       },
     ],
     resultLinks: [
@@ -301,7 +302,7 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "예측과 분류 역할 분리",
+        title: "이용건수 예측과 고수요 판단을 분리",
         description:
           "이용건수는 다중선형회귀로 예측하고, 고수요 여부는 로지스틱 회귀와 KNN으로 분류했습니다.",
       },
@@ -338,6 +339,7 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         value: "KNN 정확도 0.9013",
+        description: "같은 고수요 분류에서 로지스틱 회귀보다 0.44%p 높았습니다.",
       },
       {
         value: "K-means로 대여소 유형 분류",
@@ -397,7 +399,7 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "적과 투사체를 풀에서 재사용",
+        title: "적과 투사체를 등장할 때마다 만들지 않도록",
         description:
           "PoolManager가 비활성 적과 투사체를 재사용하고, 쓸 수 있는 항목이 없을 때만 새로 생성합니다.",
       },
@@ -410,10 +412,10 @@ export const projectDetails: ProjectDetail[] = [
     troubleshooting: [],
     results: [
       {
-        value: "자동 공격과 레벨업 보상 선택",
+        value: "이동만 조작하고, 처치 경험치로 장비 선택",
       },
       {
-        value: "생존 성공·사망 결과 화면",
+        value: "제한 시간 생존과 사망에 따라 다른 결과 표시",
       },
     ],
     resultLinks: [
@@ -463,7 +465,7 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "검증 우선 계산 흐름",
+        title: "잘못된 키·체중 입력은 계산 전에 처리",
         description:
           "키와 체중을 검증한 뒤 BMI를 계산하고, 학습용 판정 기준에 따라 문구와 색상을 바꿉니다.",
       },
@@ -481,10 +483,10 @@ export const projectDetails: ProjectDetail[] = [
     troubleshooting: [],
     results: [
       {
-        value: "BMI 결과와 잘못된 입력 안내",
+        value: "숫자로 읽을 수 없는 입력에는 안내 표시",
       },
       {
-        value: "운동 영상 재생과 계획 설정",
+        value: "강도·시간·세트 수를 바꾸면 계획 요약 갱신",
       },
     ],
     resultLinks: [
