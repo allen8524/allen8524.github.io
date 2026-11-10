@@ -1,3 +1,185 @@
+.contact {
+  padding: 120px 0 100px;
+}
+
+.contact .info-item .info-icon {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact .info-item .info-icon i {
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+.contact .info-item .info-content h4 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--heading-color);
+  letter-spacing: -0.3px;
+}
+
+.contact .info-item .info-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  margin: 0;
+  max-width: 440px;
+}
+
+.contact .contact-details .detail-item {
+  display: flex;
+  margin-bottom: 36px;
+}
+
+.contact .contact-details .detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact .contact-details .detail-item .detail-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact .contact-details .detail-item .detail-icon i {
+  font-size: 18px;
+  color: var(--accent-color);
+}
+
+.contact .contact-details .detail-item .detail-content {
+  flex: 1;
+}
+
+.contact .contact-details .detail-item .detail-content .detail-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.contact .contact-details .detail-item .detail-content .detail-value {
+  display: block;
+  font-size: 16px;
+  color: var(--default-color);
+  line-height: 1.6;
+}
+
+.contact .form-wrapper .form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--heading-color);
+  margin-bottom: 12px;
+  letter-spacing: 0.2px;
+}
+
+.contact .form-wrapper .form-group input {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.contact .form-wrapper .form-group input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.contact .form-wrapper .form-group input::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+}
+
+.contact .form-wrapper .submit-btn {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.contact .form-wrapper .submit-btn i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.contact .form-wrapper .submit-btn:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 10%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 80px 0 60px;
+  }
+
+  .contact .info-item {
+    margin-bottom: 40px;
+  }
+
+  .contact .info-item .info-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 24px;
+  }
+
+  .contact .info-item .info-icon i {
+    font-size: 20px;
+  }
+
+  .contact .info-item .info-content h4 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .contact .contact-details .detail-item {
+    margin-bottom: 32px;
+  }
+
+}
+
+.contact .info-item .info-content h4 {
+  font-family: var(--font-card-title);
+}
+
+.contact .info-item .info-content p {
+  font-family: var(--font-body);
+}
+
+.contact .contact-details .detail-item .detail-content .detail-label {
+  font-family: var(--font-label);
+}
+
+.contact .contact-details .detail-item .detail-content .detail-value,
+.contact .form-wrapper .form-group label,
+.contact .form-wrapper .form-group input {
+  font-family: var(--font-ui);
+}
+
+.contact .form-wrapper .submit-btn {
+  font-family: var(--font-button);
+}
+
 .contact.section {
   padding: 72px 0 80px;
   background: var(--background-color);

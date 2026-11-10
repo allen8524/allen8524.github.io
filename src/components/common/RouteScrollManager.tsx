@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 const validSectionIdPattern = /^[a-zA-Z0-9_-]+$/;
 
 function scrollToTopInstant() {
-  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 }
@@ -45,7 +45,7 @@ function RouteScrollManager() {
         const section = document.getElementById(sectionId);
 
         if (section) {
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
+          section.scrollIntoView({ block: "start" });
           return;
         }
       }

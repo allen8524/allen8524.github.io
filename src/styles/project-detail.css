@@ -623,13 +623,11 @@
 
 /* 14. Responsive */
 @media (max-width: 1279px) {
-  .project-detail-container { width: min(1280px, calc(100% - 48px)); }
   .project-detail-hero { gap: 30px; padding: 38px; }
   .project-detail-hero h1 { font-size: clamp(2.37rem, calc(3.6vw - 0.33rem), 2.92rem); }
 }
 
 @media (max-width: 991px) {
-  .project-detail-container { width: min(1280px, calc(100% - 48px)); }
   .project-detail-hero { grid-template-columns: 1fr; }
   .project-detail-hero__image { max-width: 760px; }
   .project-nav .nav-link { gap: 22px; padding: 20px; }
@@ -638,9 +636,6 @@
 }
 
 @media (max-width: 767px) {
-  .portfolio-details { padding-top: 36px; }
-  .project-detail-container { width: min(1280px, calc(100% - 40px)); }
-  .project-detail-section { margin-top: 28px; }
   .project-detail-hero { padding: 30px 26px; }
   .project-detail-hero__role { grid-template-columns: 1fr; gap: 2px; }
   .project-detail-links--count-2 { grid-template-columns: 1fr; }
@@ -674,7 +669,6 @@
 }
 
 @media (max-width: 574px) {
-  .project-detail-container { width: min(1280px, calc(100% - 36px)); }
   .project-detail-hero { gap: 28px; padding: 28px 20px; }
   .project-detail-hero::before { left: 20px; }
   .project-detail-hero h1 { font-size: clamp(2.02rem, calc(12vw - 0.33rem), 2.67rem); }
@@ -688,7 +682,6 @@
 }
 
 @media (max-width: 374px) {
-  .project-detail-container { width: calc(100% - 32px); }
   .project-detail-hero { padding-inline: 17px; }
   .project-detail-hero__actions a { width: 100%; }
 }

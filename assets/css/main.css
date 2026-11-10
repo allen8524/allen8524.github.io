@@ -208,7 +208,11 @@
   --surface-color: var(--theme-surface-raised);
 }
 
-/* Smooth scroll */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
@@ -1351,266 +1355,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Portfolio Section
---------------------------------------------------------------*/
-.portfolio .filters-wrapper {
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.portfolio .portfolio-filters {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  gap: 40px;
-  position: relative;
-}
-
-@media (max-width: 768px) {
-  .portfolio .portfolio-filters {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-.portfolio .portfolio-filters li {
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 300;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  transition: all 0.4s ease;
-  position: relative;
-  padding: 12px 0;
-  font-family: var(--heading-font);
-}
-
-.portfolio .portfolio-filters li::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 1px;
-  background: var(--accent-color);
-  transition: width 0.4s ease;
-}
-
-.portfolio .portfolio-filters li:hover {
-  color: var(--heading-color);
-}
-
-.portfolio .portfolio-filters li.filter-active {
-  color: var(--heading-color);
-}
-
-.portfolio .portfolio-filters li.filter-active::after {
-  width: 100%;
-}
-
-.portfolio .portfolio-container {
-  position: relative;
-}
-
-.portfolio .portfolio-card {
-  background: transparent;
-  border: none;
-  transition: all 0.4s ease;
-  height: 100%;
-}
-
-.portfolio .portfolio-card:hover {
-  transform: translateY(-8px);
-}
-
-.portfolio .portfolio-image {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 32px;
-  flex-shrink: 0;
-}
-
-.portfolio .portfolio-image img {
-  transition: all 0.6s ease;
-}
-
-@media (max-width: 768px) {
-  .portfolio .portfolio-image img {
-    height: 250px;
-  }
-}
-
-.portfolio .portfolio-image .portfolio-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: color-mix(in srgb, var(--theme-shadow-base), transparent 30%);
-  opacity: 0;
-  transition: all 0.4s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.portfolio .portfolio-image .portfolio-actions {
-  display: flex;
-  gap: 16px;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-}
-
-.portfolio .portfolio-image .action-btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface-color);
-  color: var(--heading-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 18px;
-}
-
-.portfolio .portfolio-image .action-btn:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transform: scale(1.1);
-}
-
-.portfolio .portfolio-image:hover .portfolio-overlay {
-  opacity: 1;
-}
-
-.portfolio .portfolio-image:hover .portfolio-actions {
-  transform: translateY(0);
-}
-
-.portfolio .portfolio-image:hover img {
-  transform: scale(1.05);
-}
-
-.portfolio .portfolio-content {
-  flex-grow: 1;
-  gap: 18px;
-}
-
-.portfolio .portfolio-title {
-  font-size: 24px;
-  font-weight: 300;
-  color: var(--heading-color);
-  margin-bottom: 16px;
-  font-family: var(--heading-font);
-  line-height: 1.3;
-}
-
-@media (max-width: 768px) {
-  .portfolio .portfolio-title {
-    font-size: 20px;
-  }
-}
-
-.portfolio .portfolio-description {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0;
-  flex-grow: 0;
-}
-
-.portfolio .portfolio-proof-list {
-  display: grid;
-  gap: 14px;
-  padding-top: 18px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-}
-
-.portfolio .portfolio-proof-item p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--heading-color);
-}
-
-.portfolio .portfolio-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: auto;
-}
-
-.portfolio .portfolio-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 112px;
-  padding: 12px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.portfolio .portfolio-link.primary {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.portfolio .portfolio-link.secondary {
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 82%);
-  color: var(--heading-color);
-  background: transparent;
-}
-
-.portfolio .portfolio-link:hover {
-  transform: translateY(-2px);
-}
-
-.portfolio .portfolio-link.primary:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 12%);
-  color: var(--contrast-color);
-}
-
-.portfolio .portfolio-link.secondary:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-}
-
-
-@media (max-width: 992px) {
-  .portfolio {
-    padding: 80px 0;
-  }
-
-  .portfolio .filters-wrapper {
-    margin-bottom: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  .portfolio {
-    padding: 60px 0;
-  }
-
-  .portfolio .filters-wrapper {
-    margin-bottom: 40px;
-  }
-
-  .portfolio .portfolio-card:hover {
-    transform: none;
-  }
-
-  .portfolio .portfolio-link {
-    width: 100%;
-  }
-
-}
-
-/*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
 
@@ -1716,169 +1460,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-.contact {
-  padding: 120px 0 100px;
-}
-
-.contact .info-item .info-icon {
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contact .info-item .info-icon i {
-  font-size: 24px;
-  color: var(--accent-color);
-}
-
-.contact .info-item .info-content h4 {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 16px;
-  color: var(--heading-color);
-  letter-spacing: -0.3px;
-}
-
-.contact .info-item .info-content p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
-  margin: 0;
-  max-width: 440px;
-}
-
-.contact .contact-details .detail-item {
-  display: flex;
-  margin-bottom: 36px;
-}
-
-.contact .contact-details .detail-item:last-child {
-  margin-bottom: 0;
-}
-
-.contact .contact-details .detail-item .detail-icon {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contact .contact-details .detail-item .detail-icon i {
-  font-size: 18px;
-  color: var(--accent-color);
-}
-
-.contact .contact-details .detail-item .detail-content {
-  flex: 1;
-}
-
-.contact .contact-details .detail-item .detail-content .detail-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.contact .contact-details .detail-item .detail-content .detail-value {
-  display: block;
-  font-size: 16px;
-  color: var(--default-color);
-  line-height: 1.6;
-}
-
-.contact .form-wrapper .form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--heading-color);
-  margin-bottom: 12px;
-  letter-spacing: 0.2px;
-}
-
-.contact .form-wrapper .form-group input {
-  width: 100%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  border-radius: 8px;
-  font-size: 15px;
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.contact .form-wrapper .form-group input:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.contact .form-wrapper .form-group input::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.contact .form-wrapper .submit-btn {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.3px;
-}
-
-.contact .form-wrapper .submit-btn i {
-  font-size: 16px;
-  transition: transform 0.3s ease;
-}
-
-.contact .form-wrapper .submit-btn:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 10%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
-}
-
-@media (max-width: 768px) {
-  .contact {
-    padding: 80px 0 60px;
-  }
-
-  .contact .info-item {
-    margin-bottom: 40px;
-  }
-
-  .contact .info-item .info-icon {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 24px;
-  }
-
-  .contact .info-item .info-icon i {
-    font-size: 20px;
-  }
-
-  .contact .info-item .info-content h4 {
-    font-size: 20px;
-    margin-bottom: 12px;
-  }
-
-  .contact .contact-details .detail-item {
-    margin-bottom: 32px;
-  }
-
-}
-
-/*--------------------------------------------------------------
 # Typography System
 --------------------------------------------------------------*/
 .hero .hero-content h1 {
@@ -1905,20 +1486,16 @@ section,
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h3,
 .resume .education-skills .education-grid .education-card .education-header .degree-info h3,
 .resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-name,
-.portfolio .portfolio-title,
-.services .service-content h3,
-.contact .info-item .info-content h4 {
+.services .service-content h3 {
   font-family: var(--font-card-title);
 }
 
 body,
-.resume .section-intro p,
-.contact .info-item .info-content p {
+.resume .section-intro p {
   font-family: var(--font-body);
 }
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content p,
-.portfolio .portfolio-description,
 .services .service-content p {
   font-family: var(--font-card-body);
 }
@@ -1929,7 +1506,6 @@ body,
 .resume .education-skills .education-grid .education-card .education-header .degree-info .institution,
 .resume .education-skills .education-grid .education-card .education-header .degree-info .graduation-year,
 .resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-provider,
-.contact .contact-details .detail-item .detail-content .detail-label,
 .footer,
 .footer p {
   font-family: var(--font-label);
@@ -1937,16 +1513,6 @@ body,
 
 .skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-name,
 .skills .skills-container .skill-category .skills-list .skill-row .skill-info .skill-percentage,
-.skills .skills-sidebar .technologies-section .tech-stack .tech-item span,
-.contact .contact-details .detail-item .detail-content .detail-value,
-.contact .form-wrapper .form-group label,
-.contact .form-wrapper .form-group input,
-.contact .form-wrapper .form-group select,
-.contact .form-wrapper .form-group textarea {
+.skills .skills-sidebar .technologies-section .tech-stack .tech-item span {
   font-family: var(--font-ui);
-}
-
-.portfolio .portfolio-filters li,
-.contact .form-wrapper .submit-btn {
-  font-family: var(--font-button);
 }

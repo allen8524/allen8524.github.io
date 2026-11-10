@@ -68,7 +68,7 @@ function Header() {
 
     if (isHome) {
       window.setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById(sectionId)?.scrollIntoView();
       }, 0);
     }
   };
