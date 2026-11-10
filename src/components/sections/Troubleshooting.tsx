@@ -14,34 +14,6 @@ type TroubleCase = {
 
 const troubleCases: TroubleCase[] = [
   {
-    id: "shopping",
-    label: "쇼핑몰 판매관리",
-    heading: "장바구니 → 주문 저장 기준 통일",
-    flow: [
-      {
-        label: "문제",
-        description: "주문서 이동 시 상품 정보 누락",
-      },
-      {
-        label: "원인",
-        description: "장바구니 기준과 주문 저장 기준 분리",
-      },
-      {
-        label: "해결",
-        description: (
-          <>
-            <code>cart.php</code> → <code>order.php</code> →{" "}
-            <code>order_ok.php</code> 흐름 재정렬
-          </>
-        ),
-      },
-      {
-        label: "결과",
-        description: "사용자 주문 내역 · 관리자 조회 기준 일치",
-      },
-    ],
-  },
-  {
     id: "esports",
     label: "e스포츠 포털/관리",
     heading: "경기 결과 → 순위표 갱신 기준 정리",
