@@ -71,7 +71,6 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
           </div>
           <div className="portfolio-proof-list">
             <div className="portfolio-proof-item">
-              <span className="portfolio-proof-label">사용 기술</span>
               <p>{project.techStack.map(formatMiddleDotSpacing).join(" · ")}</p>
             </div>
           </div>
