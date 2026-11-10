@@ -9,6 +9,8 @@ type ImagePreviewProps = {
 };
 
 const reduceMotionQuery = "(prefers-reduced-motion: reduce)";
+const closedMask = "inset(49% 0% 49% 0% round 8px)";
+const openMask = "inset(0% 0% 0% 0% round 8px)";
 
 function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
   const overlayRef = useRef<HTMLDivElement | null>(null);
@@ -16,7 +18,7 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const isClosingRef = useRef(false);
-  const closeTweenRef = useRef<gsap.core.Tween | null>(null);
+  const closeTimelineRef = useRef<gsap.core.Timeline | null>(null);
 
   const handleClose = useCallback(() => {
     if (isClosingRef.current) {
@@ -30,13 +32,21 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
       return;
     }
 
-    closeTweenRef.current = gsap.to(overlayRef.current, {
-      opacity: 0,
-      duration: 0.15,
-      ease: "power2.in",
-      overwrite: "auto",
-      onComplete: onClose,
-    });
+    const dialog = dialogRef.current;
+    const overlay = overlayRef.current;
+    if (!dialog || !overlay) {
+      onClose();
+      return;
+    }
+
+    gsap.killTweensOf([dialog, overlay]);
+    if (!dialog.style.clipPath) {
+      gsap.set(dialog, { clipPath: openMask });
+    }
+
+    closeTimelineRef.current = gsap.timeline({ onComplete: onClose })
+      .to(dialog, { clipPath: closedMask, duration: 0.24, ease: "power3.inOut" }, 0)
+      .to(overlay, { opacity: 0, duration: 0.18, ease: "power2.in" }, 0.1);
   }, [onClose]);
 
   useEffect(() => {
@@ -90,18 +100,15 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
         return;
       }
 
-      gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power2.out" });
+      gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.24, ease: "power2.out" });
       gsap.fromTo(
         dialogRef.current,
-        { opacity: 0, y: 8, scale: 0.98, filter: "blur(3px)" },
+        { clipPath: closedMask },
         {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          filter: "blur(0px)",
-          clearProps: "filter",
-          duration: 0.22,
-          ease: "power3.out",
+          clipPath: openMask,
+          clearProps: "clipPath",
+          duration: 0.36,
+          ease: "power3.inOut",
         },
       );
     });
@@ -110,7 +117,7 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
       window.cancelAnimationFrame(focusFrameId);
       document.body.classList.remove("preview-open");
       window.removeEventListener("keydown", handleKeyDown);
-      closeTweenRef.current?.kill();
+      closeTimelineRef.current?.kill();
       animationContext.revert();
 
       if (appRoot) {
