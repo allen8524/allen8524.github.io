@@ -35,9 +35,9 @@ export const projectDetails: ProjectDetail[] = [
       {
         title: "외부 영화 API 응답 실패",
         cause:
-          "TMDB 응답이 없으면 영화 목록과 상세 화면을 표시하기 어려웠습니다.",
+          "영화 목록과 상세 화면이 TMDB 응답에 의존했습니다.",
         solution:
-          "로컬 초기 데이터로 영화 목록과 상세 화면을 유지합니다.",
+          "TMDB 응답이 없으면 로컬 초기 데이터를 사용하도록 했습니다.",
       },
     ],
     results: [
