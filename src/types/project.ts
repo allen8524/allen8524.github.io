@@ -32,7 +32,7 @@ export type Project = {
 
 export type ProjectDetail = {
   projectId: ProjectId;
-  introduction?: string;
+  introduction: string;
   developmentType: string;
   teamRole?: string;
   heroImage: string;
@@ -48,7 +48,7 @@ export type ProjectDetail = {
     cause: string;
     solution: string;
   }>;
-  resultLinks?: Array<{
+  resultLinks: Array<{
     label: string;
     url: string;
   }>;
@@ -57,7 +57,7 @@ export type ProjectDetail = {
     alt: string;
   }>;
   deploymentUrl?: string;
-  analysisResults?: Array<{
+  results: Array<{
     label: string;
     value: string;
     description?: string;

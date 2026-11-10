@@ -28,11 +28,9 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
           <span><i className="bi bi-calendar3" aria-hidden="true" />{formatMiddleDotSpacing(project.year)}</span>
         </div>
         <h1>{projectTitle}</h1>
-        {detail.introduction && (
-          <p className="project-detail-hero__introduction">
-            {formatMiddleDotSpacing(detail.introduction)}
-          </p>
-        )}
+        <p className="project-detail-hero__introduction">
+          {formatMiddleDotSpacing(detail.introduction)}
+        </p>
         {detail.teamRole && (
           <p className="project-detail-hero__role">
             <span>담당 영역</span>
