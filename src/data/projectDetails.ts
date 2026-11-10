@@ -38,11 +38,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        label: "예매",
         value: "완료 화면에 예매번호와 좌석 표시",
       },
       {
-        label: "운영",
         value: "회차별 상영일정과 예매 내역 조회",
       },
     ],
@@ -105,11 +103,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        label: "경기",
         value: "경기 일정과 종료 경기 스코어 조회",
       },
       {
-        label: "순위",
         value: "리그·스테이지별 순위 조회와 정렬",
       },
     ],
@@ -154,11 +150,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        label: "주문",
         value: "한 주문번호로 여러 상품 조회",
       },
       {
-        label: "저장 처리",
         value: "저장 성공 후 장바구니 비우기",
       },
     ],
@@ -199,11 +193,9 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        label: "재고",
         value: "대시보드에서 재고 부족·소진 상품 확인",
       },
       {
-        label: "판매",
         value: "기간별 장부와 종류별 판매 차트",
       },
     ],
@@ -258,17 +250,14 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        label: "PCA",
         value: "PC1 설명분산비 53.95%",
       },
       {
-        label: "상관분석",
         value: "평점과 관객 수의 상관관계",
         description: "전문가 평점·관객 평점·관객 수를 히트맵으로 비교했습니다.",
       },
       {
-        label: "선형회귀",
-        value: "R² 0.2752 · MSE 0.0572",
+        value: "선형회귀 R² 0.2752 · MSE 0.0572",
         description: "PC1 기반 회귀가 평점 변동의 약 28%를 설명했습니다.",
       },
     ],
@@ -338,25 +327,20 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        label: "피크 시간",
-        value: "오전 8시, 오후 17~18시",
+        value: "이용 피크 오전 8시, 오후 5~6시",
       },
       {
-        label: "다중선형회귀",
-        value: "R² = 0.5431",
+        value: "다중선형회귀 R² 0.5431",
         description: "시간대별 이용건수 변동의 약 54.3%를 설명",
       },
       {
-        label: "로지스틱 회귀",
-        value: "정확도 0.8969",
+        value: "로지스틱 회귀 정확도 0.8969",
       },
       {
-        label: "KNN",
-        value: "정확도 0.9013",
+        value: "KNN 정확도 0.9013",
       },
       {
-        label: "K-means",
-        value: "퇴근형 고수요 대여소",
+        value: "K-means로 대여소 유형 분류",
         description: "대여소를 출근형, 장거리 · 장시간형, 퇴근형 고수요 유형으로 구분",
       },
     ],
@@ -426,11 +410,9 @@ export const projectDetails: ProjectDetail[] = [
     troubleshooting: [],
     results: [
       {
-        label: "전투",
         value: "자동 공격과 레벨업 보상 선택",
       },
       {
-        label: "플레이 결과",
         value: "생존 성공·사망 결과 화면",
       },
     ],
@@ -499,11 +481,9 @@ export const projectDetails: ProjectDetail[] = [
     troubleshooting: [],
     results: [
       {
-        label: "BMI",
         value: "BMI 결과와 잘못된 입력 안내",
       },
       {
-        label: "운동",
         value: "운동 영상 재생과 계획 설정",
       },
     ],

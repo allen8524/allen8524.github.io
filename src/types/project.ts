@@ -56,7 +56,6 @@ export type ProjectDetail = {
   }>;
   deploymentUrl?: string;
   results: Array<{
-    label: string;
     value: string;
     description?: string;
   }>;

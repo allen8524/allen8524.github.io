@@ -22,17 +22,14 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
 
       <section className="project-detail-section project-results-section">
         <ProjectSectionHeading title="주요 결과" />
-        <dl className="project-results-list">
+        <ul className="project-results-list" role="list">
           {detail.results.map((result) => (
-            <div className="project-result-entry" key={result.label}>
-              <dt>{format(result.label)}</dt>
-              <dd>
-                <strong>{format(result.value)}</strong>
-                {result.description && <p>{format(result.description)}</p>}
-              </dd>
-            </div>
+            <li className="project-result-entry" key={result.value}>
+              <strong>{format(result.value)}</strong>
+              {result.description && <p>{format(result.description)}</p>}
+            </li>
           ))}
-        </dl>
+        </ul>
       </section>
     </>
   );

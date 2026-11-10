@@ -337,11 +337,9 @@
   margin: 0;
 }
 
-.project-result-entry {
-  display: grid;
-  grid-template-columns: minmax(7rem, 1fr) minmax(0, 3fr);
-  align-items: baseline;
-  gap: 4px 20px;
+.project-results-list {
+  padding: 0;
+  list-style: none;
 }
 
 .project-result-entry + .project-result-entry {
@@ -350,14 +348,12 @@
   border-top: 1px solid var(--project-divider);
 }
 
-.project-result-entry dt,
 .project-troubleshooting-details dt {
   color: var(--project-muted);
   font-size: 0.88rem;
   font-weight: 600;
 }
 
-.project-result-entry dd,
 .project-troubleshooting-details dd {
   margin: 0;
 }
@@ -390,15 +386,11 @@
   }
 
   .project-results-list:has(> .project-result-entry:nth-child(2):last-child) .project-result-entry {
-    display: block;
     margin: 0;
     padding-top: 0;
     border-top: 0;
   }
 
-  .project-results-list:has(> .project-result-entry:nth-child(2):last-child) dt {
-    margin-bottom: 6px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -424,7 +416,6 @@
   .project-flow-list li { display: list-item; }
   .project-flow-list li::marker { color: var(--project-muted); }
   .project-flow-list span { display: none; }
-  .project-result-entry { grid-template-columns: 1fr; }
 }
 
 /* 10. Result links */
