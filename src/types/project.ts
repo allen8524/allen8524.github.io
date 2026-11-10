@@ -40,8 +40,6 @@ export type ProjectDetail = {
   implementationPoints: Array<{
     title: string;
     description: string;
-    problem?: string;
-    verification?: string;
   }>;
   troubleshooting: Array<{
     title: string;

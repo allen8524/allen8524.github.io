@@ -14,12 +14,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
           {detail.implementationPoints.map((point) => (
             <article className="project-design-entry" key={point.title}>
               <h3>{format(point.title)}</h3>
-              {point.problem && <p><strong>문제</strong> {format(point.problem)}</p>}
-              <p>
-                {point.problem && <><strong>설계</strong>{" "}</>}
-                {format(point.description)}
-              </p>
-              {point.verification && <p><strong>확인 방법</strong> {format(point.verification)}</p>}
+              <p>{format(point.description)}</p>
             </article>
           ))}
         </div>

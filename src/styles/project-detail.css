@@ -332,15 +332,6 @@
   font-size: 1.24rem;
 }
 
-.project-design-entry p + p {
-  margin-top: 8px;
-}
-
-.project-design-entry p strong {
-  margin-inline-end: 0.45em;
-  color: var(--heading-color);
-}
-
 .project-results-list,
 .project-troubleshooting-details {
   margin: 0;
