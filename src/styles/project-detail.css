@@ -332,6 +332,7 @@
 .project-design-entry > i {
   display: block;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .project-troubleshooting-list {
