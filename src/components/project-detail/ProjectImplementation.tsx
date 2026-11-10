@@ -30,7 +30,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
                 <i className="bi bi-check2" aria-hidden="true" />
                 {format(result.value)}
               </strong>
-              {result.description && <p>{format(result.description)}</p>}
+              <p>{format(result.description)}</p>
             </li>
           ))}
         </ul>

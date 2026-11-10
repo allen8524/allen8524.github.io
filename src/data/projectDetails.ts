@@ -47,6 +47,7 @@ export const projectDetails: ProjectDetail[] = [
       },
       {
         value: "관리자 화면에서 회차별 예매 내역 조회",
+        description: "상영일정을 선택하면 해당 회차에 연결된 예매를 확인할 수 있습니다.",
       },
     ],
     resultLinks: [
@@ -113,9 +114,11 @@ export const projectDetails: ProjectDetail[] = [
     results: [
       {
         value: "예정 경기 일정과 종료 경기 점수 조회",
+        description: "경기 목록에서 팀과 시작 시간을 확인하고, 종료된 경기의 최종 점수를 볼 수 있습니다.",
       },
       {
         value: "리그와 스테이지별 승률 및 득실차 비교",
+        description: "선택한 리그와 스테이지에 속한 종료 경기만 집계에 반영합니다.",
       },
     ],
     resultLinks: [
@@ -163,9 +166,11 @@ export const projectDetails: ProjectDetail[] = [
     results: [
       {
         value: "주문번호로 상품별 옵션과 수량 조회",
+        description: "사용자 주문 내역과 관리자 주문 화면이 같은 주문번호를 기준으로 상세 내역을 불러옵니다.",
       },
       {
         value: "주문 저장 성공 시 장바구니 초기화",
+        description: "주문과 상품 내역이 모두 저장된 뒤에만 장바구니 쿠키를 만료시킵니다.",
       },
     ],
     resultLinks: [
@@ -208,9 +213,11 @@ export const projectDetails: ProjectDetail[] = [
     results: [
       {
         value: "품절과 재고 부족 상품을 대시보드에 구분 표시",
+        description: "매입과 매출을 반영한 잔여 수량을 기준으로 확인이 필요한 상품을 표시합니다.",
       },
       {
         value: "기간별 거래 조회와 상품 종류별 판매 비교",
+        description: "거래 장부에서 기간을 지정하고, 차트에서 상품 종류별 판매 분포를 확인할 수 있습니다.",
       },
     ],
     resultLinks: [
@@ -267,6 +274,7 @@ export const projectDetails: ProjectDetail[] = [
     results: [
       {
         value: "PC1 설명분산비 53.95%",
+        description: "첫 번째 주성분이 전처리한 입력 지표 전체 변동의 약 54%를 설명했습니다.",
       },
       {
         value: "평점과 관객 수의 상관관계",
@@ -348,6 +356,7 @@ export const projectDetails: ProjectDetail[] = [
     results: [
       {
         value: "이용 피크 오전 8시와 오후 5~6시",
+        description: "시간대별 이용건수를 집계한 결과, 출퇴근 시간에 이용이 집중됐습니다.",
       },
       {
         value: "이용건수 예측과 고수요 분류 성능",
@@ -428,9 +437,11 @@ export const projectDetails: ProjectDetail[] = [
     results: [
       {
         value: "자동 공격과 레벨업 장비 선택",
+        description: "가까운 적을 자동으로 공격하며, 적을 처치해 모은 경험치로 무기나 장비를 강화할 수 있습니다.",
       },
       {
         value: "생존 성공과 사망에 따른 결과 화면",
+        description: "제한 시간까지 살아남으면 성공 화면을, 체력이 소진되면 사망 결과를 표시합니다.",
       },
     ],
     resultLinks: [
@@ -503,9 +514,11 @@ export const projectDetails: ProjectDetail[] = [
     results: [
       {
         value: "빈 입력과 숫자 변환 오류에 안내 표시",
+        description: "키나 체중이 비어 있거나 숫자로 변환되지 않으면 BMI 계산을 진행하지 않습니다.",
       },
       {
         value: "운동 설정 변경 시 계획 요약 갱신",
+        description: "강도, 운동 시간, 세트 수를 조절하면 바뀐 값이 계획 요약에 바로 반영됩니다.",
       },
     ],
     resultLinks: [
