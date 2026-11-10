@@ -18,7 +18,12 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
               <article className="project-implementation-card" key={point.title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{format(point.title)}</h3>
-                <p>{format(point.description)}</p>
+                {point.problem && <p><strong>문제</strong> {format(point.problem)}</p>}
+                <p>
+                  {point.problem && <><strong>설계</strong>{" "}</>}
+                  {format(point.description)}
+                </p>
+                {point.verification && <p><strong>검증</strong> {format(point.verification)}</p>}
               </article>
             ))}
           </div>

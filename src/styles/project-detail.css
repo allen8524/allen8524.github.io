@@ -101,6 +101,14 @@
   line-height: 1.1;
 }
 
+.project-detail-hero__introduction {
+  max-width: 36rem;
+  margin: 16px 0 0;
+  color: var(--project-muted);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
 .project-detail-hero__role {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -814,6 +822,10 @@
 .project-implementation-card p {
   grid-column: 1 / -1;
   font-size: 0.9rem;
+}
+.project-implementation-card p strong {
+  margin-inline-end: 0.3em;
+  color: var(--heading-color);
 }
 .project-flow-list li {
   background: var(--project-card-bg);

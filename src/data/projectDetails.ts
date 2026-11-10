@@ -3,6 +3,8 @@ import type { ProjectDetail } from "../types/project";
 export const projectDetails: ProjectDetail[] = [
   {
     projectId: "cineflow",
+    introduction:
+      "관객은 상영회차를 고르고 좌석 선택부터 결제·예매 조회까지 진행할 수 있고, 관리자는 영화·극장·상영일정·예매를 한곳에서 관리할 수 있는 영화 예매 서비스입니다.",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
     dataFlow: [
@@ -10,9 +12,13 @@ export const projectDetails: ProjectDetail[] = [
     ],
     implementationPoints: [
       {
-        title: "예매 상태 일관성",
+        title: "결제 직전에 좌석을 다시 확인",
+        problem:
+          "좌석을 고른 뒤 결제를 완료하기 전까지 같은 좌석의 예약 상태가 바뀔 수 있습니다.",
         description:
-          "좌석 선택부터 결제 · 예매 완료까지 동일한 상영일정과 좌석 상태를 기준으로 하나의 서비스 흐름으로 연결했습니다.",
+          "상영회차 ID와 좌석 코드를 기준으로 선택한 좌석에 잠금을 걸고, 예매·결제 기록과 좌석 상태를 한 트랜잭션에서 저장했습니다. 검증에 실패하면 입력값과 오류 메시지를 유지한 채 결제 화면으로 돌아갑니다.",
+        verification:
+          "컨트롤러 테스트에서 유효하지 않은 상영회차는 예매 화면으로 돌아가고, 예매 ID가 전달되면 완료 화면에 해당 예매가 표시되는지 확인합니다.",
       },
       {
         title: "회원 · 비회원 조회 기준 분리",
@@ -38,6 +44,10 @@ export const projectDetails: ProjectDetail[] = [
       {
         label: "GitHub Actions 테스트",
         url: "https://github.com/allen8524/cineflow-spring-boot/actions",
+      },
+      {
+        label: "예매 화면 테스트 코드",
+        url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/test/java/com/cineflow/controller/BookingControllerPageTest.java",
       },
     ],
     gallery: [

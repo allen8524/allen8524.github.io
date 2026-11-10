@@ -32,6 +32,7 @@ export type Project = {
 
 export type ProjectDetail = {
   projectId: ProjectId;
+  introduction?: string;
   developmentType: string;
   teamRole?: string;
   heroImage: string;
@@ -39,6 +40,8 @@ export type ProjectDetail = {
   implementationPoints: Array<{
     title: string;
     description: string;
+    problem?: string;
+    verification?: string;
   }>;
   troubleshooting: Array<{
     title: string;
