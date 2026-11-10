@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import ScrollHamster from "../common/ScrollHamster";
 import ThemeToggle from "../common/ThemeToggle";
-
-const HAMSTER_VISIBILITY_STORAGE_KEY = "portfolio-hamster-visible";
 
 const navItems = [
   { id: "hero", label: "홈", icon: "bi-house" },
@@ -15,36 +12,12 @@ const navItems = [
   { id: "contact", label: "연락처", icon: "bi-envelope" },
 ];
 
-function getInitialHamsterVisibility() {
-  if (typeof window === "undefined") {
-    return true;
-  }
-
-  try {
-    return window.localStorage.getItem(HAMSTER_VISIBILITY_STORAGE_KEY) !== "false";
-  } catch {
-    return true;
-  }
-}
-
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-  const [isHamsterVisible, setIsHamsterVisible] = useState(getInitialHamsterVisibility);
   const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(
-        HAMSTER_VISIBILITY_STORAGE_KEY,
-        String(isHamsterVisible),
-      );
-    } catch {
-      // Keep the toggle functional even when storage access is blocked.
-    }
-  }, [isHamsterVisible]);
 
   useEffect(() => {
     if (!isHome) {
@@ -124,49 +97,6 @@ function Header() {
           </Link>
         </div>
 
-        <div
-          className={`header-hamster-control${isHamsterVisible ? "" : " is-disabled"}`}
-        >
-          <div className="hamster-toggle">
-            <label
-              className="hamster-toggle__lever"
-              title={isHamsterVisible ? "햄스터 끄기" : "햄스터 켜기"}
-            >
-              <input
-                id="hamster-switch"
-                className="hamster-toggle__input"
-                type="checkbox"
-                role="switch"
-                checked={isHamsterVisible}
-                aria-label={isHamsterVisible ? "햄스터 숨기기" : "햄스터 표시하기"}
-                aria-controls="header-hamster-visual"
-                onChange={(event) => setIsHamsterVisible(event.target.checked)}
-              />
-
-              <span className="hamster-toggle__handle-wrapper" aria-hidden="true">
-                <span className="hamster-toggle__handle">
-                  <span className="hamster-toggle__handle-knob">
-                    <span className="hamster-toggle__knob-face" />
-                  </span>
-                  <span className="hamster-toggle__handle-bar-wrapper">
-                    <span className="hamster-toggle__handle-bar" />
-                  </span>
-                </span>
-              </span>
-
-              <span className="hamster-toggle__base" aria-hidden="true">
-                <span className="hamster-toggle__base-inside" />
-              </span>
-            </label>
-          </div>
-          <div id="header-hamster-visual" className="header-hamster-visual">
-            {isHamsterVisible ? (
-              <div className="header-hamster">
-                <ScrollHamster />
-              </div>
-            ) : null}
-          </div>
-        </div>
         <div className="header-navigation-stack">
           <nav id="navmenu" className="site-topbar-nav" aria-label="주 메뉴">
             <ul>

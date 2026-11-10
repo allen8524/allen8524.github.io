@@ -56,7 +56,7 @@ React와 TypeScript로 구성한 개인 개발 포트폴리오입니다.
 - 이미지 갤러리와 미리보기 모달
 - Scroll Reveal·GSAP 기반 화면 전환 효과
 - 반응형 상단 내비게이션과 현재 섹션 표시
-- 라이트·다크 테마와 햄스터 표시 토글
+- 라이트·다크 테마 토글
 - ScrollTop, Preloader, 404 페이지
 - Pull Request 빌드 검사와 main 브랜치 자동 배포
 
@@ -96,7 +96,6 @@ React와 TypeScript로 구성한 개인 개발 포트폴리오입니다.
 - TypeScript 5.8
 - Vite 7
 - React Router 7
-- styled-components
 - GSAP
 
 ### UI
