@@ -692,20 +692,12 @@
   .portfolio-details *::before,
   .portfolio-details *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
   .portfolio-details .reveal-item { opacity: 1 !important; transform: none !important; }
-  .project-gallery-fan__sheet,
-  .project-gallery-fan__front { transition: none !important; }
   .project-nav-thumb-effect,
   .project-nav-thumb-effect__overlay,
   .project-nav-thumb-effect__leaf { animation: none !important; transition: none; }
   .project-nav .nav-link:hover .project-nav-thumb-effect { transform: none; }
   .project-nav .nav-link:hover .project-nav-thumb-effect__image,
   .project-nav .nav-link:focus-visible .project-nav-thumb-effect__image { transform: none; }
-  .project-gallery-item:hover .project-gallery-fan__sheet--1,
-  .project-gallery-item:focus-within .project-gallery-fan__sheet--1 { transform: rotate(2deg) translate(3px, 2px); }
-  .project-gallery-item:hover .project-gallery-fan__sheet--2,
-  .project-gallery-item:focus-within .project-gallery-fan__sheet--2 { transform: rotate(4deg) translate(5px, 4px); }
-  .project-gallery-item:hover .project-gallery-fan__sheet--3,
-  .project-gallery-item:focus-within .project-gallery-fan__sheet--3 { transform: rotate(6deg) translate(7px, 6px); }
 }
 
 /* Project gallery fan-stack layer correction */
@@ -810,6 +802,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .project-gallery-fan__sheet,
+  .project-gallery-fan__front { transition: none !important; }
+
   .project-gallery-item:hover .project-gallery-fan__sheet--1,
   .project-gallery-item:focus-within .project-gallery-fan__sheet--1 {
     transform: translate(4px, 4px) rotate(0.35deg);
