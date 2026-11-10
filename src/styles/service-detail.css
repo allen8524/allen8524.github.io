@@ -161,18 +161,16 @@
 }
 
 .service-other {
-  display: grid;
-  grid-template-columns: minmax(10rem, 1fr) minmax(0, 2fr);
-  align-items: start;
-  gap: 24px clamp(24px, 5vw, 72px);
+  max-width: 48rem;
+  margin-inline: auto;
   padding-top: 24px;
   border-top: 1px solid var(--project-divider);
   text-align: start;
 }
 
 .service-other h2 {
-  align-self: center;
-  margin: 0;
+  margin: 0 0 8px;
+  padding-inline: 12px;
   font-family: var(--font-subheading);
   font-size: 1.25rem;
   font-weight: 600;
@@ -235,14 +233,5 @@ a.service-evidence-card:hover h3 {
   .service-process-list {
     grid-template-columns: 1fr;
     gap: 22px;
-  }
-
-  .service-other {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 8px;
-  }
-
-  .service-other h2 {
-    padding: 0 12px;
   }
 }
