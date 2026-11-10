@@ -8,11 +8,6 @@
   min-width: 0;
 }
 
-.about .content-area {
-  padding-left: 0;
-  margin-top: 0;
-}
-
 .backend-diagram {
   --flow-border: color-mix(in srgb, var(--accent-color), transparent 78%);
   --flow-muted: color-mix(in srgb, var(--default-color), var(--background-color) 15%);

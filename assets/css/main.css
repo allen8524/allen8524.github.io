@@ -97,8 +97,6 @@
   font-display: swap;
 }
 
-/* Fonts */
-
 /* Theme foundation */
 :root,
 :root[data-theme="dark"] {
@@ -107,16 +105,8 @@
   /* Theme surfaces */
   --theme-page-bg: #25303f;
   --theme-section-alt-bg: #293341;
-  --theme-sidebar-bg: #1c2737;
   --theme-surface-1: #293443;
-  --theme-surface-2: #151f2b;
   --theme-surface-raised: #4b607f;
-  --theme-surface-deep: #0b1326;
-  --theme-surface-inset: #091223;
-  --theme-surface-recessed: #091120;
-  --theme-code-bg: #050a14;
-  --theme-accent-surface-deep: #060d1b;
-  --theme-image-canvas: #ffffff;
   --theme-highlight-base: #ffffff;
   --theme-shadow-base: #000000;
 
@@ -124,13 +114,11 @@
   --theme-text-primary: #f3f4f6;
   --theme-text-heading: #f9fafb;
   --theme-text-bright: #ffffff;
-  --theme-text-muted: rgba(243, 244, 246, 0.52);
   --theme-text-inverse: #1f2937;
 
   /* Theme borders */
   --theme-border-subtle: rgba(243, 244, 246, 0.1);
   --theme-border-default: rgba(243, 244, 246, 0.16);
-  --theme-border-strong: rgba(243, 244, 246, 0.28);
   --theme-border-accent: color-mix(in srgb, var(--theme-accent), transparent 62%);
 
   /* Theme shadows and overlays */
@@ -138,8 +126,6 @@
   --theme-shadow-medium: rgba(0, 0, 0, 0.28);
   --theme-media-overlay: rgba(5, 13, 24, 0.82);
   --theme-modal-shadow: rgba(0, 0, 0, 0.45);
-  --theme-shadow-card: rgba(16, 27, 54, 0.26);
-  --theme-shadow-panel: rgba(8, 18, 37, 0.24);
   --theme-ambient-glow-primary: rgba(78, 99, 255, 0.15);
   --theme-ambient-glow-secondary: rgba(25, 45, 80, 0.22);
 
@@ -149,10 +135,7 @@
 
   /* Brand accent */
   --theme-accent: #22e7a1;
-  --theme-accent-hover: color-mix(in srgb, var(--theme-accent), transparent 25%);
   --theme-accent-soft: color-mix(in srgb, var(--theme-accent), transparent 82%);
-  --theme-accent-contrast: #dbeafe;
-  --theme-accent-contrast-soft: #cbd5ff;
 
 }
 
@@ -162,16 +145,8 @@
   /* Theme surfaces */
   --theme-page-bg: #f4f7fb;
   --theme-section-alt-bg: #e9eef5;
-  --theme-sidebar-bg: #ffffff;
   --theme-surface-1: #ffffff;
-  --theme-surface-2: #f1f5f9;
   --theme-surface-raised: #ffffff;
-  --theme-surface-deep: #e2e8f0;
-  --theme-surface-inset: #edf2f7;
-  --theme-surface-recessed: #e7edf4;
-  --theme-code-bg: #e9eef5;
-  --theme-accent-surface-deep: #e6f4ef;
-  --theme-image-canvas: #ffffff;
   --theme-highlight-base: #ffffff;
   --theme-shadow-base: #000000;
 
@@ -179,13 +154,11 @@
   --theme-text-primary: #344054;
   --theme-text-heading: #182230;
   --theme-text-bright: #ffffff;
-  --theme-text-muted: rgba(52, 64, 84, 0.54);
   --theme-text-inverse: #ffffff;
 
   /* Theme borders */
   --theme-border-subtle: rgba(24, 34, 48, 0.08);
   --theme-border-default: rgba(24, 34, 48, 0.13);
-  --theme-border-strong: rgba(24, 34, 48, 0.24);
   --theme-border-accent: rgba(8, 127, 91, 0.38);
 
   /* Theme shadows and overlays */
@@ -193,8 +166,6 @@
   --theme-shadow-medium: rgba(24, 34, 48, 0.13);
   --theme-media-overlay: rgba(24, 34, 48, 0.68);
   --theme-modal-shadow: rgba(24, 34, 48, 0.2);
-  --theme-shadow-card: rgba(24, 34, 48, 0.12);
-  --theme-shadow-panel: rgba(24, 34, 48, 0.1);
   --theme-ambient-glow-primary: rgba(8, 127, 91, 0.08);
   --theme-ambient-glow-secondary: rgba(76, 110, 245, 0.08);
 
@@ -204,10 +175,7 @@
 
   /* Brand accent */
   --theme-accent: #087f5b;
-  --theme-accent-hover: #06694b;
   --theme-accent-soft: rgba(8, 127, 91, 0.12);
-  --theme-accent-contrast: #065f46;
-  --theme-accent-contrast-soft: #0f766e;
 }
 
 :root {
@@ -284,7 +252,6 @@ h6 {
 }
 
 .footer p {
-  font-size: 15;
   padding: 0;
   margin: 0 0 30px 0;
 }
@@ -752,11 +719,6 @@ section,
     margin-bottom: 60px;
   }
 
-  .about .content-area {
-    padding-left: 0;
-    margin-top: 2rem;
-  }
-
 
 }
 
@@ -764,10 +726,8 @@ section,
 # Skills Section
 --------------------------------------------------------------*/
 .skills {
-  --section-spacing: 80px;
   --category-spacing: 60px;
   --skill-spacing: 24px;
-  --progress-height: 2px;
   --border-light: color-mix(in srgb, var(--default-color), transparent 92%);
   --text-light: color-mix(in srgb, var(--default-color), transparent 35%);
   --surface-soft: color-mix(in srgb, var(--surface-color), var(--accent-color) 1%);
@@ -825,13 +785,6 @@ section,
   color: var(--accent-color);
   font-weight: 500;
   font-family: var(--default-font);
-}
-
-.skills .skills-container .skill-category .skills-list .skill-row .progress {
-  height: var(--progress-height);
-  background: var(--border-light);
-  border-radius: 1px;
-  overflow: hidden;
 }
 
 .skills .skills-sidebar {
@@ -986,7 +939,6 @@ section,
 
 @media (max-width: 768px) {
   .skills {
-    --section-spacing: 60px;
     --category-spacing: 40px;
   }
 
@@ -1575,13 +1527,6 @@ section,
   gap: 14px;
   padding-top: 18px;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-}
-
-.portfolio .portfolio-proof-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: color-mix(in srgb, var(--default-color), transparent 42%);
 }
 
 .portfolio .portfolio-proof-item p {

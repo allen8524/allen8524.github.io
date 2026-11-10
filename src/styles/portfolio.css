@@ -87,11 +87,6 @@
   gap: 12px;
 }
 
-.portfolio .portfolio-proof-label {
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
 .portfolio .portfolio-proof-item p {
   margin: 0;
   min-width: 0;

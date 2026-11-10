@@ -1,10 +1,6 @@
 /* Shared with the homepage: quiet surfaces, light headings and green accents. */
 .service-details-page {
-  --service-page-background: var(--background-color);
-  --service-card-background: var(--surface-color);
-  --service-card-raised: var(--surface-color);
   --service-border: color-mix(in srgb, var(--accent-color), transparent 80%);
-  --service-divider: color-mix(in srgb, var(--accent-color), transparent 85%);
   --service-muted: color-mix(in srgb, var(--default-color), transparent 28%);
   --service-radius: 12px;
 }

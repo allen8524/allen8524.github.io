@@ -452,8 +452,6 @@
   .project-gallery-item:focus-within .project-gallery-fan__sheet--2 { transform: rotate(2deg) translate(2px, 2px); }
   .project-gallery-item:hover .project-gallery-fan__sheet--3,
   .project-gallery-item:focus-within .project-gallery-fan__sheet--3 { transform: rotate(3deg) translate(3px, 3px); }
-  .project-gallery-item:hover .project-gallery-fan__front,
-  .project-gallery-item:focus-within .project-gallery-fan__front { transform: none; }
   .project-gallery-item--landscape,
   .project-gallery-item--standard,
   .project-gallery-item--portrait,
@@ -519,17 +517,10 @@
   .project-gallery-item:focus-within .project-gallery-fan__sheet--2 { transform: rotate(4deg) translate(5px, 4px); }
   .project-gallery-item:hover .project-gallery-fan__sheet--3,
   .project-gallery-item:focus-within .project-gallery-fan__sheet--3 { transform: rotate(6deg) translate(7px, 6px); }
-  .project-gallery-item:hover .project-gallery-fan__front,
-  .project-gallery-item:focus-within .project-gallery-fan__front { transform: none; }
 }
 
 /* Detail density: keep supporting information compact without extra sequence labels. */
-.project-responsibility-list > li {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0;
-}
 
-.project-responsibility-list > li > span,
 .project-flow-list > li > span,
 .project-implementation-card > span,
 .project-troubleshooting-number {
