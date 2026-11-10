@@ -38,8 +38,8 @@ const selectors: Record<RevealScope, string> = {
   ].join(","),
   service: [
     ".service-breadcrumb",
-    ".service-detail-hero__content",
-    ".service-detail-hero__image",
+    ".project-detail-hero__content",
+    ".project-detail-hero__image",
     ".service-detail-section__heading",
     ".service-feature-card",
     ".service-process-list > li",

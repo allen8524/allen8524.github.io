@@ -830,7 +830,8 @@
 .project-detail-hero__content, .project-detail-hero__image { position: relative; z-index: 2; }
 
 /* Project detail foundations follow the homepage; gallery and leaf motion stay intact. */
-.portfolio-details-page {
+.portfolio-details-page,
+.service-details-page {
   --project-page-bg: var(--background-color);
   --project-hero-bg: var(--surface-color);
   --project-card-bg: var(--surface-color);

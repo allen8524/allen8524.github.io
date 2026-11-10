@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import DetailHero from "../components/common/DetailHero";
 import ServiceFeatureIcon from "../components/service-detail/ServiceFeatureIcon";
 import Footer from "../components/sections/Footer";
 import Header from "../components/sections/Header";
@@ -12,6 +13,7 @@ import {
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { formatMiddleDotSpacing } from "../utils/typography";
 import NotFoundPage from "./NotFoundPage";
+import "../styles/project-detail.css";
 import "../styles/service-detail.css";
 
 function getTechnologyIcon(technology: string) {
@@ -69,6 +71,7 @@ function ServiceDetailPage() {
     .filter((item) => item.id !== service.id)
     .slice(0, 3);
   const ProcessList = service.processOrdered === false ? "ul" : "ol";
+  const [technologies, ...checklists] = service.sideInfo;
   const findEvidenceProject = (title: string) => {
     const normalizedTitle = title.toLocaleLowerCase();
     const meaningfulTokens = normalizedTitle
@@ -87,189 +90,181 @@ function ServiceDetailPage() {
   return (
     <>
       <Header />
-      <main className="main service-detail-page">
-        <div className="service-detail-container">
-          <section
-            className="service-detail-hero"
-            aria-labelledby="service-title"
+      <main className="main portfolio-details service-detail-page">
+        <div className="project-detail-container">
+          <DetailHero
+            key={service.id}
+            image={service.image}
+            imageAlt={service.imageAlt}
+            previewAddress={`portfolio / services / ${service.id}`}
+            labelledBy="service-title"
+            caption={formatMiddleDotSpacing(service.imageAlt)}
           >
-            <div className="service-detail-hero__content">
-              <h1 id="service-title">
-                {formatMiddleDotSpacing(service.title)}
-              </h1>
-              <p className="service-detail-summary">
-                {formatMiddleDotSpacing(service.introduction)}
-              </p>
-            </div>
-            <figure className="service-detail-hero__image">
-              <img src={service.image} alt={service.imageAlt} />
-              <figcaption>
-                {formatMiddleDotSpacing(service.imageAlt)}
-              </figcaption>
-            </figure>
-          </section>
-
-          <section
-            className="service-detail-section"
-            aria-labelledby="capabilities-title"
-          >
-            <div className="service-detail-section__heading">
-              <h2 id="capabilities-title">핵심 역량</h2>
-            </div>
-            <div className="service-feature-grid">
-              {service.features.map((feature) => (
-                <article className="service-feature-card" key={feature.title}>
-                  <ServiceFeatureIcon icon={feature.icon} />
-                  <div className="service-feature-card__content">
-                    <h3>{formatMiddleDotSpacing(feature.title)}</h3>
-                    {feature.description && (
-                      <p>{formatMiddleDotSpacing(feature.description)}</p>
-                    )}
-                    {feature.source && (
-                      <a
-                        className="service-source-link"
-                        href={feature.source.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {feature.source.label}
-                        <i
-                          className="bi bi-arrow-up-right"
-                          aria-hidden="true"
-                        />
-                        <span className="visually-hidden">
-                          {" "}
-                          구현 코드 새 창에서 열기
-                        </span>
-                      </a>
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section
-            className="service-detail-section"
-            aria-labelledby="process-title"
-          >
-            <div className="service-detail-section__heading">
-              <h2 id="process-title">
-                {formatMiddleDotSpacing(service.processTitle)}
-              </h2>
-            </div>
-            <ProcessList className="service-process-list" role="list">
-              {service.processSteps.map((step, index) => (
-                <li key={step.title}>
-                  {service.processOrdered !== false && (
-                    <span className="service-process-number" aria-hidden="true">
-                      {index + 1}
+            <h1 id="service-title">{formatMiddleDotSpacing(service.title)}</h1>
+            <p className="project-detail-hero__introduction">
+              {formatMiddleDotSpacing(service.introduction)}
+            </p>
+            {technologies && (
+              <div className="project-detail-tech-groups" aria-label="주요 적용 기술">
+                <div className="project-detail-tech-chip-list">
+                  {technologies.items.map((item) => (
+                    <span className="project-detail-tech-chip" key={item}>
+                      <i className={`bi ${getTechnologyIcon(item)}`} aria-hidden="true" />
+                      {formatMiddleDotSpacing(item)}
                     </span>
-                  )}
-                  <h3 className="service-process-title">
-                    {formatMiddleDotSpacing(step.title)}
-                  </h3>
-                  <p className="service-process-description">
-                    {formatMiddleDotSpacing(step.description)}
-                  </p>
-                </li>
-              ))}
-            </ProcessList>
-            {service.alternateProcess && (
-              <div className="service-alternate-process">
-                <h3>{formatMiddleDotSpacing(service.alternateProcess.title)}</h3>
-                <p className="service-process-description">
-                  {formatMiddleDotSpacing(service.alternateProcess.description)}
-                </p>
+                  ))}
+                </div>
               </div>
             )}
-          </section>
+          </DetailHero>
 
-          <section
-            className="service-detail-section"
-            aria-labelledby="evidence-title"
-          >
-            <div className="service-detail-section__heading">
-              <h2 id="evidence-title">
-                {formatMiddleDotSpacing(service.evidenceTitle)}
-              </h2>
-            </div>
-            <div className="service-evidence-grid">
-              {service.evidence.map((item) => {
-                const project = findEvidenceProject(item.title);
-                const content = (
-                  <>
-                    <ServiceFeatureIcon icon={item.icon} />
-                    <div>
-                      <h3>{formatMiddleDotSpacing(item.title)}</h3>
-                      {item.description && (
-                        <p>{formatMiddleDotSpacing(item.description)}</p>
+          <div className="project-case-study service-case-study">
+            <section
+              className="project-detail-section service-process-section"
+              aria-labelledby="process-title"
+            >
+              <div className="project-section-heading">
+                <h2 id="process-title">
+                  {formatMiddleDotSpacing(service.processTitle)}
+                </h2>
+              </div>
+              <ProcessList className="service-process-list" role="list">
+                {service.processSteps.map((step, index) => (
+                  <li key={step.title}>
+                    {service.processOrdered !== false && (
+                      <span className="service-process-number" aria-hidden="true">
+                        {index + 1}
+                      </span>
+                    )}
+                    <h3 className="service-process-title">
+                      {formatMiddleDotSpacing(step.title)}
+                    </h3>
+                    <p className="service-process-description">
+                      {formatMiddleDotSpacing(step.description)}
+                    </p>
+                  </li>
+                ))}
+              </ProcessList>
+              {service.alternateProcess && (
+                <div className="service-alternate-process">
+                  <h3>{formatMiddleDotSpacing(service.alternateProcess.title)}</h3>
+                  <p className="service-process-description">
+                    {formatMiddleDotSpacing(service.alternateProcess.description)}
+                  </p>
+                </div>
+              )}
+            </section>
+
+            <section
+              className="project-detail-section service-feature-section"
+              aria-labelledby="capabilities-title"
+            >
+              <div className="project-section-heading">
+                <h2 id="capabilities-title">핵심 역량</h2>
+              </div>
+              <div className="service-feature-grid">
+                {service.features.map((feature) => (
+                  <article className="service-feature-card" key={feature.title}>
+                    <ServiceFeatureIcon icon={feature.icon} />
+                    <div className="service-feature-card__content">
+                      <h3>{formatMiddleDotSpacing(feature.title)}</h3>
+                      {feature.description && (
+                        <p>{formatMiddleDotSpacing(feature.description)}</p>
+                      )}
+                      {feature.source && (
+                        <a
+                          className="service-source-link"
+                          href={feature.source.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {feature.source.label}
+                          <i
+                            className="bi bi-arrow-up-right"
+                            aria-hidden="true"
+                          />
+                          <span className="visually-hidden">
+                            {" "}
+                            구현 코드 새 창에서 열기
+                          </span>
+                        </a>
                       )}
                     </div>
-                    {project && (
-                      <i className="bi bi-arrow-right" aria-hidden="true" />
-                    )}
-                  </>
-                );
-                return project ? (
-                  <Link
-                    className="service-evidence-card"
-                    to={`/projects/${project.projectId}`}
-                    aria-label={`${item.title} 프로젝트 상세 보기`}
-                    key={item.title}
-                  >
-                    {content}
-                  </Link>
-                ) : (
-                  <article className="service-evidence-card" key={item.title}>
-                    {content}
                   </article>
-                );
-              })}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
 
-          <section
-            className="service-detail-section"
-            aria-labelledby="information-title"
-          >
-            <div className="service-detail-section__heading">
-              <h2 id="information-title">사용 기술 및 확인 항목</h2>
-            </div>
-            <div className="service-info-panel">
-              {service.sideInfo.map((info, index) => (
-                <div
-                  className={`service-info-group service-info-group--${index === 0 ? "technologies" : "checklist"}`}
-                  aria-labelledby={`service-info-${index}`}
-                  key={info.title}
-                >
-                  <h3 id={`service-info-${index}`}>
-                    {formatMiddleDotSpacing(info.title)}
-                  </h3>
-                  <ul>
-                    {info.items.map((item) => (
-                      <li key={item}>
-                        <i
-                          className={`bi ${index > 0 ? "bi-check2" : getTechnologyIcon(item)}`}
-                          aria-hidden="true"
-                        />
-                        <span>{formatMiddleDotSpacing(item)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <section
+              className="project-detail-section service-evidence-section"
+              aria-labelledby="evidence-title"
+            >
+              <div className="project-section-heading">
+                <h2 id="evidence-title">
+                  {formatMiddleDotSpacing(service.evidenceTitle)}
+                </h2>
+              </div>
+              <div className="service-evidence-grid">
+                {service.evidence.map((item) => {
+                  const project = findEvidenceProject(item.title);
+                  const content = (
+                    <>
+                      <ServiceFeatureIcon icon={item.icon} />
+                      <div>
+                        <h3>{formatMiddleDotSpacing(item.title)}</h3>
+                        {item.description && (
+                          <p>{formatMiddleDotSpacing(item.description)}</p>
+                        )}
+                      </div>
+                      {project && (
+                        <i className="bi bi-arrow-right" aria-hidden="true" />
+                      )}
+                    </>
+                  );
+                  return project ? (
+                    <Link
+                      className="service-evidence-card"
+                      to={`/projects/${project.projectId}`}
+                      aria-label={`${item.title} 프로젝트 상세 보기`}
+                      key={item.title}
+                    >
+                      {content}
+                    </Link>
+                  ) : (
+                    <article className="service-evidence-card" key={item.title}>
+                      {content}
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+
+            <section
+              className="project-detail-section service-checklist-section"
+              aria-labelledby="information-title"
+            >
+              <div className="project-section-heading">
+                <h2 id="information-title">확인 항목</h2>
+              </div>
+              {checklists.map((info) => (
+                <ul className="service-checklist" role="list" key={info.title}>
+                  {info.items.map((item) => (
+                    <li key={item}>
+                      <i className="bi bi-check2" aria-hidden="true" />
+                      <span>{formatMiddleDotSpacing(item)}</span>
+                    </li>
+                  ))}
+                </ul>
               ))}
-            </div>
-          </section>
+            </section>
+          </div>
 
           <section
-            className="service-detail-section service-other"
+            className="project-detail-section service-other"
             aria-labelledby="other-title"
           >
-            <div className="service-detail-section__heading service-other__heading">
-              <div>
-                <h2 id="other-title">다른 개발 역량</h2>
-              </div>
+            <div className="project-section-heading">
+              <h2 id="other-title">다른 개발 역량</h2>
             </div>
             <div className="service-other-grid">
               {otherServices.map((item) => (
