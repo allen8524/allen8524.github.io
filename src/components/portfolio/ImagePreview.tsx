@@ -9,12 +9,13 @@ type ImagePreviewProps = {
 };
 
 const reduceMotionQuery = "(prefers-reduced-motion: reduce)";
-const closedMask = "inset(49% 0% 49% 0% round 8px)";
-const openMask = "inset(0% 0% 0% 0% round 8px)";
+const closedMask = "inset(30% 38% round 120px)";
+const openMask = "inset(0% 0% round 8px)";
 
 function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const isClosingRef = useRef(false);
@@ -34,19 +35,22 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
 
     const dialog = dialogRef.current;
     const overlay = overlayRef.current;
-    if (!dialog || !overlay) {
+    const previewImage = imageRef.current;
+    if (!dialog || !overlay || !previewImage) {
       onClose();
       return;
     }
 
-    gsap.killTweensOf([dialog, overlay]);
+    gsap.killTweensOf([dialog, overlay, previewImage, closeButtonRef.current]);
     if (!dialog.style.clipPath) {
       gsap.set(dialog, { clipPath: openMask });
     }
 
     closeTimelineRef.current = gsap.timeline({ onComplete: onClose })
-      .to(dialog, { clipPath: closedMask, duration: 0.24, ease: "power3.inOut" }, 0)
-      .to(overlay, { opacity: 0, duration: 0.18, ease: "power2.in" }, 0.1);
+      .to(closeButtonRef.current, { opacity: 0, duration: 0.12 }, 0)
+      .to(dialog, { clipPath: closedMask, duration: 0.48, ease: "power4.inOut" }, 0)
+      .to(previewImage, { scale: 0.9, filter: "brightness(1)", duration: 0.48, ease: "power4.inOut" }, 0)
+      .to(overlay, { opacity: 0, duration: 0.28, ease: "power2.in" }, 0.23);
   }, [onClose]);
 
   useEffect(() => {
@@ -100,17 +104,22 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
         return;
       }
 
-      gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.24, ease: "power2.out" });
-      gsap.fromTo(
-        dialogRef.current,
-        { clipPath: closedMask },
-        {
+      gsap.timeline()
+        .fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.42, ease: "power2.out" }, 0)
+        .fromTo(imageRef.current, { scale: 0.9 }, { scale: 1, duration: 0.68, ease: "expo.inOut" }, 0)
+        .fromTo(dialogRef.current, { clipPath: closedMask }, {
           clipPath: openMask,
           clearProps: "clipPath",
-          duration: 0.36,
-          ease: "power3.inOut",
-        },
-      );
+          duration: 0.62,
+          ease: "expo.inOut",
+        }, 0.06)
+        .fromTo(imageRef.current, { filter: "brightness(1)" }, {
+          filter: "brightness(1.12)",
+          duration: 0.19,
+          ease: "power1.in",
+        }, 0.14)
+        .to(imageRef.current, { filter: "brightness(1)", clearProps: "filter,transform", duration: 0.35 }, 0.33)
+        .fromTo(closeButtonRef.current, { opacity: 0 }, { opacity: 1, duration: 0.18 }, 0.47);
     });
 
     return () => {
@@ -141,7 +150,7 @@ function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
         <button ref={closeButtonRef} type="button" className="image-preview__close" aria-label="미리보기 닫기" onClick={handleClose}>
           <i className="bi bi-x-lg" />
         </button>
-        <img src={image} alt={alt} />
+        <img ref={imageRef} src={image} alt={alt} />
       </div>
     </div>
   );
