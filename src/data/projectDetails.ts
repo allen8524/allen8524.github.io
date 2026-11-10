@@ -1,12 +1,11 @@
-import type { ProjectDetail } from "../types/project";
+import type { Project, ProjectDetail } from "../types/project";
 
-export const projectDetails: ProjectDetail[] = [
+const projectDetails: Array<Omit<ProjectDetail, "heroImage"> & { heroImage?: string }> = [
   {
     projectId: "cineflow",
     introduction:
       "좌석 선택 · 결제 · 예매 조회와 영화 · 극장 · 상영일정 관리를 지원하는 영화 예매 서비스",
     developmentType: "개인 프로젝트",
-    heroImage: "assets/img/portfolio/cineflow-main-hero.png",
     flowIcons: ["film", "calendar-event", "grid-3x3-gap", "credit-card", "check-circle"],
     dataFlow: [
       "영화 선택 → 상영회차 선택 → 좌석 선택 → 결제 → 예매 완료",
@@ -60,8 +59,8 @@ export const projectDetails: ProjectDetail[] = [
       },
     ],
     gallery: [
-      { src: "assets/img/portfolio/cineflow-main.png", alt: "CineFlow 메인 화면" },
-      { src: "assets/img/portfolio/cineflow-booking.png", alt: "CineFlow 예매 화면" },
+      { src: "assets/img/portfolio/cineflow-main.webp", alt: "CineFlow 메인 화면" },
+      { src: "assets/img/portfolio/cineflow-booking.webp", alt: "CineFlow 예매 화면" },
       { src: "assets/img/portfolio/cineflow-admin.png", alt: "CineFlow 관리자 화면" },
       {
         src: "assets/img/portfolio/cineflow-booking-gallery.png",
@@ -78,7 +77,6 @@ export const projectDetails: ProjectDetail[] = [
     introduction:
       "선수 · 경기 · 순위 · 뉴스 조회와 콘텐츠 관리를 지원하는 e스포츠 포털",
     developmentType: "개인 프로젝트",
-    heroImage: "assets/img/portfolio/esports_main.png",
     flowIcons: ["pencil-square", "check-circle", "calculator", "sort-down", "trophy"],
     dataFlow: [
       "경기 결과 입력 → 종료 상태 확인 → 팀 기록 계산 → 순위 정렬 → 순위표 갱신",
@@ -134,7 +132,6 @@ export const projectDetails: ProjectDetail[] = [
     introduction:
       "상품 주문과 관리자 기능을 갖춘 PHP 쇼핑몰 · 학습용 결제",
     developmentType: "개인 프로젝트",
-    heroImage: "assets/img/portfolio/shopping_main.png",
     flowIcons: ["bag", "cart3", "clipboard", "database", "receipt"],
     dataFlow: [
       "상품 선택 → 장바구니 → 주문서 작성 → 주문 저장 → 주문 조회",
@@ -185,8 +182,6 @@ export const projectDetails: ProjectDetail[] = [
     introduction:
       "베이커리 상품 · 입출고 기록과 재고 · 판매 현황 관리",
     developmentType: "개인 프로젝트",
-    heroImage:
-      "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
     flowIcons: ["box-seam", "boxes", "receipt", "journal-text", "bar-chart"],
     dataFlow: [
       "제품 등록 → 재고 연결 → 판매 기록 → 장부 집계 → 통계 확인",
@@ -405,8 +400,6 @@ export const projectDetails: ProjectDetail[] = [
     introduction:
       "자동 공격과 레벨업으로 제한 시간 동안 생존하는 Android 액션 게임",
     developmentType: "개인 프로젝트",
-    heroImage:
-      "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
     flowIcons: ["person", "lightning-charge", "arrow-up-circle", "heart", "flag"],
     dataFlow: [
       "캐릭터 선택 → 전투 루프 → 경험치 · 레벨업 → 생존 판정 → 결과 화면",
@@ -474,8 +467,6 @@ export const projectDetails: ProjectDetail[] = [
     introduction:
       "BMI 계산과 운동 정보 · 영상 · 계획을 제공하는 iOS 앱",
     developmentType: "개인 프로젝트",
-    heroImage:
-      "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
     flowIcons: ["pencil-square", "shield-check", "calculator", "clipboard-data", "play-circle"],
     dataFlow: [
       "키 · 체중 입력 → 입력값 검증 → BMI 판정 → 결과 표시 → 운동 콘텐츠 이동",
@@ -548,6 +539,9 @@ export const projectDetails: ProjectDetail[] = [
   },
 ];
 
-export function getProjectDetail(projectId: string) {
-  return projectDetails.find((detail) => detail.projectId === projectId);
+export function getProjectDetail(project: Project): ProjectDetail | undefined {
+  const detail = projectDetails.find((item) => item.projectId === project.id);
+  if (!detail) return undefined;
+
+  return { ...detail, heroImage: detail.heroImage ?? project.previewImage };
 }

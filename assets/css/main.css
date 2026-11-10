@@ -1716,40 +1716,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Testimonials Section
---------------------------------------------------------------*/
-.testimonials {
-  position: relative;
-  padding: 102px 0 96px;
-  overflow: hidden;
-}
-
-.testimonials::before {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 22%, var(--theme-ambient-glow-primary), transparent 44%),
-    radial-gradient(circle at 85% 80%, var(--theme-ambient-glow-secondary), transparent 48%);
-  pointer-events: none;
-}
-
-.testimonials .section-title {
-  position: relative;
-  margin-bottom: 2.2rem;
-}
-
-.testimonials .section-title p {
-  margin: 0.75rem auto 0;
-  max-width: 660px;
-}
-
-@media (max-width: 767.98px) {
-  .testimonials {
-    padding: 88px 0 82px;
-  }
-}
-
-/*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
 .contact {

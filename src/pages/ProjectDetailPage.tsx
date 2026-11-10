@@ -20,7 +20,7 @@ import "../styles/project-detail.css";
 function ProjectDetailPage() {
   const { projectId } = useParams();
   const project = projects.find((item) => item.id === projectId);
-  const detail = projectId ? getProjectDetail(projectId) : undefined;
+  const detail = project ? getProjectDetail(project) : undefined;
   const metadataImage = detail?.heroImage
     ? /^https?:\/\//i.test(detail.heroImage)
       ? detail.heroImage
