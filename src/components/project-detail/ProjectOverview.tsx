@@ -22,7 +22,6 @@ function ProjectOverview({ detail }: ProjectOverviewProps) {
       <ol className="project-flow-list" role="list">
         {flowSteps.map((step, index) => (
           <li key={`${index}-${step}`}>
-            {index > 0 && <span aria-hidden="true">→</span>}
             {format(step)}
           </li>
         ))}

@@ -244,6 +244,8 @@
 
 /* Project case study */
 .project-case-study {
+  display: grid;
+  gap: 28px;
   max-width: 1040px;
   margin: clamp(44px, 7vw, 80px) auto 0;
   color: var(--default-color);
@@ -251,21 +253,12 @@
 }
 
 .project-case-study > .project-detail-section {
-  display: grid;
-  grid-template-columns: minmax(140px, 1fr) minmax(0, 4fr);
-  align-items: start;
-  gap: 24px 36px;
   margin: 0;
-  padding-top: 28px;
-  border-top: 1px solid var(--project-divider);
-}
-
-.project-case-study > .project-detail-section + .project-detail-section {
-  margin-top: 36px;
+  min-width: 0;
 }
 
 .project-case-study .project-section-heading {
-  margin: 0;
+  margin: 0 0 16px;
   text-align: start;
 }
 
@@ -281,22 +274,45 @@
 }
 
 .project-flow-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .project-flow-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
+  position: relative;
+  padding: 20px 6px 0;
+  text-align: center;
+  word-break: keep-all;
 }
 
-.project-flow-list span {
-  color: var(--accent-color);
+.project-flow-list li::before {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: calc(50% - 4px);
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  background: var(--background-color);
+  content: "";
+}
+
+.project-flow-list li:not(:last-child)::after {
+  position: absolute;
+  inset-block-start: 4px;
+  inset-inline-start: 50%;
+  width: 100%;
+  border-top: 1px solid var(--project-divider);
+  content: "";
+}
+
+.project-flow-list li:last-child::before {
+  background: var(--accent-color);
 }
 
 .project-design-list,
@@ -379,44 +395,76 @@
   gap: 6px 12px;
 }
 
-@media (min-width: 768px) {
-  .project-results-list:has(> .project-result-entry:nth-child(2):last-child) {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+@media (min-width: 900px) {
+  .project-case-study {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    grid-template-areas:
+      "flow flow"
+      "design results"
+      "design troubleshooting";
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(24px, 4vw, 48px);
   }
 
-  .project-results-list:has(> .project-result-entry:nth-child(2):last-child) .project-result-entry {
-    margin: 0;
-    padding-top: 0;
-    border-top: 0;
+  .project-case-study > .project-flow-section {
+    grid-area: flow;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--project-divider);
   }
 
+  .project-case-study > .project-implementation-section {
+    grid-area: design;
+    padding-inline-end: clamp(24px, 4vw, 48px);
+    border-inline-end: 1px solid var(--project-divider);
+  }
+
+  .project-case-study > .project-results-section { grid-area: results; }
+
+  .project-case-study > .project-troubleshooting-section {
+    grid-area: troubleshooting;
+    padding-top: 24px;
+    border-top: 1px solid var(--project-divider);
+  }
+
+  .project-case-study:not(:has(> .project-troubleshooting-section)) {
+    grid-template-areas: "flow flow" "design results";
+    grid-template-rows: auto 1fr;
+  }
 }
 
-@media (max-width: 767px) {
-  .project-case-study > .project-detail-section {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-    padding-top: 22px;
-  }
-
+@media (max-width: 899px) {
   .project-case-study > .project-detail-section + .project-detail-section {
-    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid var(--project-divider);
   }
-
 }
 
 @media (max-width: 575px) {
   .project-flow-list {
-    display: grid;
-    padding-inline-start: 1.4em;
-    list-style: decimal;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
   }
 
-  .project-flow-list li { display: list-item; }
-  .project-flow-list li::marker { color: var(--project-muted); }
-  .project-flow-list span { display: none; }
+  .project-flow-list li {
+    padding: 0 0 8px 20px;
+    text-align: start;
+  }
+
+  .project-flow-list li:last-child { padding-bottom: 0; }
+
+  .project-flow-list li::before {
+    inset-block-start: 10px;
+    inset-inline-start: 0;
+  }
+
+  .project-flow-list li:not(:last-child)::after {
+    inset-block-start: 14px;
+    inset-inline-start: 4px;
+    width: 0;
+    height: 100%;
+    border-top: 0;
+    border-inline-start: 1px solid var(--project-divider);
+  }
 }
 
 /* 10. Result links */
