@@ -272,7 +272,7 @@ function ServiceDetailPage() {
             className="project-detail-section service-other"
             aria-labelledby="other-title"
           >
-            <h2 id="other-title">다른 개발 역량</h2>
+            <h2 id="other-title">개발 역량 더 보기</h2>
             <ul className="service-other-list" role="list">
               {otherServices.map((item) => (
                 <li key={item.id}>

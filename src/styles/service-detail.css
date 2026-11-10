@@ -171,8 +171,8 @@
 }
 
 .service-other h2 {
+  align-self: center;
   margin: 0;
-  padding-block: 14px;
   font-family: var(--font-subheading);
   font-size: 1.25rem;
   font-weight: 600;
