@@ -44,10 +44,6 @@ const troubleCases: TroubleCase[] = [
         description: "사용자 화면 · 관리자 화면 순위 상태 불일치",
       },
       {
-        label: "원인",
-        description: "Ajax 응답 형식과 순위 집계 조건 불일치",
-      },
-      {
         label: "해결",
         description: (
           <>
@@ -70,10 +66,6 @@ const troubleCases: TroubleCase[] = [
         description: "재고 · 판매 조회 시 빈 값 또는 예외 발생",
       },
       {
-        label: "원인",
-        description: "제품 · 재고 · 판매 연결 키 불일치",
-      },
-      {
         label: "해결",
         description: "제품 중심 조회 조건 통일, null 분기 추가",
       },
@@ -90,10 +82,6 @@ const troubleCases: TroubleCase[] = [
       {
         label: "문제",
         description: "좌석 · 결제 단계에서 선택값 기준 분리",
-      },
-      {
-        label: "원인",
-        description: "영화 · 상영일정 · 좌석 · 결제 파라미터 분산",
       },
       {
         label: "해결",
@@ -122,33 +110,24 @@ function Troubleshooting() {
       <div className="container">
         <div className="troubleshooting-showcase">
           <div className="trouble-card-grid">
-            {troubleCases.map((item) => {
-              const cause = item.flow.find((step) => step.label === "원인");
+            {troubleCases.map((item) => (
+              <article className="trouble-card" key={item.id}>
+                <header className="trouble-card-head">
+                  <h3>{item.heading}</h3>
+                </header>
 
-              return (
-                <article className="trouble-card" key={item.id}>
-                  <header className="trouble-card-head">
-                    <h3>{item.heading}</h3>
-                  </header>
-
-                  <ol className="trouble-card-flow">
-                    {item.flow
-                      .filter((flow) => flow.label !== "원인")
-                      .map((flow) => (
-                        <li key={flow.label}>
-                          {flow.label !== "문제" && <span>{flow.label}</span>}
-                          <div className="trouble-card-description">
-                            <p>{flow.description}</p>
-                            {flow.label === "문제" && cause && (
-                              <p className="trouble-card-cause">{cause.description}</p>
-                            )}
-                          </div>
-                        </li>
-                      ))}
-                  </ol>
-                </article>
-              );
-            })}
+                <ol className="trouble-card-flow">
+                  {item.flow.map((flow) => (
+                    <li key={flow.label}>
+                      <span>{flow.label}</span>
+                      <div className="trouble-card-description">
+                        <p>{flow.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            ))}
           </div>
         </div>
       </div>
