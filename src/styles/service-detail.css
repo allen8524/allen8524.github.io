@@ -131,8 +131,9 @@
 }
 
 .service-evidence-card {
-  grid-template-columns: auto minmax(0, max-content) auto;
-  justify-content: center;
+  grid-template-columns: 24px minmax(0, 1fr) 24px;
+  width: min(100%, 22rem);
+  margin-inline: auto;
   align-items: center;
   gap: 10px;
 }

@@ -7,14 +7,14 @@ export const services: ServiceDetail[] = [
     summary: "Spring Security · 세션 인증 · BCrypt · 관리자 권한 제어",
     introduction: "로그인 세션을 관리하고 사용자와 관리자의 접근 범위를 구분합니다.",
     icon: "shield",
-    image: "assets/img/portfolio/cineflow-admin.png",
-    imageAlt: "CineFlow 관리자 접근 권한 분리 화면",
+    image: "assets/img/portfolio/cineflow-login.png",
+    imageAlt: "CineFlow 로그인 화면",
     features: [
       {
         icon: "shield",
-        title: "SecurityFilterChain · 세션 인증",
+        title: "관리자 경로 접근 제한",
         description:
-          'formLogin으로 로그인 요청을 처리하고, /mypage와 예매 API는 authenticated(), /admin/**는 hasRole("ADMIN")으로 제한했습니다.',
+          "마이페이지와 예매 API는 로그인한 사용자에게 열고, 관리자 경로는 ADMIN 역할이 있는 계정만 접근할 수 있게 했습니다.",
         source: {
           label: "SecurityConfig.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/config/SecurityConfig.java",
@@ -22,9 +22,9 @@ export const services: ServiceDetail[] = [
       },
       {
         icon: "user",
-        title: "UserDetailsService · BCrypt",
+        title: "계정 조회와 비밀번호 검증",
         description:
-          "UserService의 loadUserByUsername으로 계정을 조회하고, AuthenticatedUser에 역할을 매핑했습니다. 비밀번호는 BCryptPasswordEncoder로 해시합니다.",
+          "로그인 ID로 계정과 역할을 불러오고, 입력한 비밀번호를 저장된 BCrypt 해시와 대조합니다.",
         source: {
           label: "UserService.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/service/UserService.java",
@@ -32,32 +32,20 @@ export const services: ServiceDetail[] = [
       },
       {
         icon: "bug",
-        title: "CSRF 보호 · 로그아웃 세션 정리",
+        title: "로그아웃 후 인증 상태 정리",
         description:
-          "H2 콘솔을 제외한 요청에 기본 CSRF 보호를 유지했습니다. 로그아웃 시 세션을 무효화하고 JSESSIONID 쿠키를 삭제하며, 접근 거부 화면을 분리했습니다.",
+          "로그아웃하면 서버 세션을 무효화하고 JSESSIONID 쿠키를 삭제한 뒤 로그인 화면으로 돌아갑니다.",
         source: {
           label: "SecurityConfig.java",
           url: "https://github.com/allen8524/cineflow-spring-boot/blob/main/src/main/java/com/cineflow/config/SecurityConfig.java",
         },
       },
     ],
-    processTitle: "구현 기준",
+    processTitle: "인증 흐름",
     processSteps: [
-      {
-        title: "계정 조회",
-        description:
-          "UserDetailsService → DB 사용자 조회 → 역할을 GrantedAuthority로 변환.",
-      },
-      {
-        title: "요청 인가",
-        description:
-          "SecurityFilterChain에서 인증 필요 경로와 ADMIN 전용 경로 구분.",
-      },
-      {
-        title: "세션 종료",
-        description:
-          "logout 시 invalidateHttpSession과 deleteCookies로 인증 상태 정리.",
-      },
+      { title: "로그인" },
+      { title: "접근 권한 확인" },
+      { title: "로그아웃" },
     ],
     evidenceTitle: "적용 프로젝트",
     evidence: [

@@ -42,7 +42,7 @@ export type ServiceDetail = {
   imageAlt: string;
   features: ServiceFeature[];
   processTitle: string;
-  processSteps: ServiceStep[];
+  processSteps: { title: string; description?: string }[];
   processOrdered?: boolean;
   alternateProcess?: ServiceStep;
   evidenceTitle: string;

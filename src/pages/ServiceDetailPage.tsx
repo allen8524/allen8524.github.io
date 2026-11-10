@@ -139,9 +139,11 @@ function ServiceDetailPage() {
                     <h3 className="service-process-title">
                       {formatMiddleDotSpacing(step.title)}
                     </h3>
-                    <p className="service-process-description">
-                      {formatMiddleDotSpacing(step.description)}
-                    </p>
+                    {step.description && (
+                      <p className="service-process-description">
+                        {formatMiddleDotSpacing(step.description)}
+                      </p>
+                    )}
                   </li>
                 ))}
               </ProcessList>
