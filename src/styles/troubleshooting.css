@@ -22,12 +22,6 @@
 .testimonials .trouble-card-head {
   margin-bottom: 24px;
 }
-.testimonials .trouble-card-project {
-  margin: 0 0 8px;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-}
 .testimonials .trouble-card h3 {
   margin: 0;
   font-family: var(--font-heading);

@@ -7,7 +7,6 @@ type TroubleFlow = {
 
 type TroubleCase = {
   id: string;
-  label?: string;
   heading: string;
   flow: TroubleFlow[];
 };
@@ -38,7 +37,6 @@ const troubleCases: TroubleCase[] = [
   },
   {
     id: "esports",
-    label: "e스포츠 포털/관리",
     heading: "경기 결과 → 순위표 갱신 기준 정리",
     flow: [
       {
@@ -65,7 +63,6 @@ const troubleCases: TroubleCase[] = [
   },
   {
     id: "bakery",
-    label: "베이커리 판매관리",
     heading: "제품 조회 키와 null 분기 정리",
     flow: [
       {
@@ -88,7 +85,6 @@ const troubleCases: TroubleCase[] = [
   },
   {
     id: "cineflow",
-    label: "CineFlow",
     heading: "상영일정 · 좌석 · 결제 · 조회 흐름 연결",
     flow: [
       {
@@ -132,7 +128,6 @@ function Troubleshooting() {
               return (
                 <article className="trouble-card" key={item.id}>
                   <header className="trouble-card-head">
-                    {item.label && <p className="trouble-card-project">{item.label}</p>}
                     <h3>{item.heading}</h3>
                   </header>
 
