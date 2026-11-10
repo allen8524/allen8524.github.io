@@ -8,7 +8,7 @@ function ProjectTroubleshooting({ detail }: { detail: ProjectDetail }) {
   if (!detail.troubleshooting.length) return null;
 
   return (
-    <section className="project-detail-section project-troubleshooting-section project-detail-section--secondary">
+    <section className="project-detail-section project-troubleshooting-section">
       <ProjectSectionHeading title="트러블슈팅" />
       <ol className="project-troubleshooting-list">
         {detail.troubleshooting.map((item) => (

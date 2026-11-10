@@ -10,9 +10,9 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
     <>
       <section className="project-detail-section project-implementation-section">
         <ProjectSectionHeading title="핵심 설계" />
-        <div className="project-implementation-grid">
-          {detail.implementationPoints.map((point, index) => (
-            <article className={`project-implementation-card${index === 0 ? " project-implementation-card--featured" : ""}`} key={point.title}>
+        <div className="project-design-list">
+          {detail.implementationPoints.map((point) => (
+            <article className="project-design-entry" key={point.title}>
               <h3>{format(point.title)}</h3>
               {point.problem && <p><strong>문제</strong> {format(point.problem)}</p>}
               <p>
@@ -27,15 +27,17 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
 
       <section className="project-detail-section project-results-section">
         <ProjectSectionHeading title="주요 결과" />
-        <div className={`project-results-grid${detail.results.length === 2 ? " project-results-grid--pair" : ""}`}>
+        <dl className="project-results-list">
           {detail.results.map((result) => (
-            <article className="project-result-card" key={result.label}>
-              <span>{format(result.label)}</span>
-              <strong>{format(result.value)}</strong>
-              {result.description && <p>{format(result.description)}</p>}
-            </article>
+            <div className="project-result-entry" key={result.label}>
+              <dt>{format(result.label)}</dt>
+              <dd>
+                <strong>{format(result.value)}</strong>
+                {result.description && <p>{format(result.description)}</p>}
+              </dd>
+            </div>
           ))}
-        </div>
+        </dl>
       </section>
     </>
   );

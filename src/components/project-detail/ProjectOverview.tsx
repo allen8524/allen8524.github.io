@@ -13,19 +13,17 @@ function ProjectOverview({ detail }: ProjectOverviewProps) {
   const flowSteps = primaryFlow
     ? primaryFlow.split("→").map((step) => step.trim()).filter(Boolean).slice(0, 5)
     : [];
-  const flowCountClass = `project-flow-list--count-${flowSteps.length}`;
 
   if (!flowSteps.length) return null;
 
   return (
-    <section className="project-detail-section project-flow-section project-detail-section--secondary">
+    <section className="project-detail-section project-flow-section">
       <ProjectSectionHeading title="핵심 흐름" />
-      <ol className={`project-flow-list ${flowCountClass}`}>
+      <ol className="project-flow-list" role="list">
         {flowSteps.map((step, index) => (
           <li key={`${index}-${step}`}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <strong>{format(step)}</strong>
-            {index < flowSteps.length - 1 && <i className="bi bi-arrow-right" aria-hidden="true" />}
+            {index > 0 && <span aria-hidden="true">→</span>}
+            {format(step)}
           </li>
         ))}
       </ol>
