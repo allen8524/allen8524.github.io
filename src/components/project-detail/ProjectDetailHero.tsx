@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { Project, ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
-import ImagePreview from "../portfolio/ImagePreview";
+import ImagePreview, { type PreviewImage } from "../portfolio/ImagePreview";
 import ProjectTechGroups from "./ProjectTechGroups";
 
 type ProjectDetailHeroProps = {
@@ -11,7 +11,9 @@ type ProjectDetailHeroProps = {
 
 function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
   const heroImage = detail.heroImage || project.previewImage;
-  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const thumbnail = useRef<HTMLImageElement>(null);
+  const [previewImages, setPreviewImages] = useState<PreviewImage[] | null>(null);
+  const closePreview = useCallback(() => setPreviewImages(null), []);
   const projectTitle = formatMiddleDotSpacing(project.title);
   const previewAddress = `${project.id}.portfolio/detail`;
 
@@ -64,14 +66,14 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
             type="button"
             className="project-detail-image-button"
             aria-label={`${projectTitle} 이미지 확대`}
-            onClick={() => setPreviewImage(heroImage)}
+            onClick={() => setPreviewImages([{ src: heroImage, alt: projectTitle, thumbnail: thumbnail.current }])}
           >
-            <img src={heroImage} alt={projectTitle} className="img-fluid" />
+            <img ref={thumbnail} src={heroImage} alt={projectTitle} className="img-fluid" />
           </button>
         </div>
       </figure>
 
-      {previewImage && <ImagePreview alt={projectTitle} image={previewImage} onClose={() => setPreviewImage(null)} />}
+      {previewImages && <ImagePreview images={previewImages} onClose={closePreview} />}
     </section>
   );
 }

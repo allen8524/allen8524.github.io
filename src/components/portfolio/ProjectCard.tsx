@@ -1,20 +1,22 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import type { Project } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
 
 type ProjectCardProps = {
   project: Project;
-  onPreview: (project: Project) => void;
+  onPreview: (project: Project, thumbnail: HTMLImageElement | null) => void;
 };
 
 function ProjectCard({ onPreview, project }: ProjectCardProps) {
+  const thumbnail = useRef<HTMLImageElement>(null);
   const projectTitle = formatMiddleDotSpacing(project.title);
 
   return (
     <div className={`col-lg-6 portfolio-item filter-${project.filter}`}>
       <div className="portfolio-card">
         <div className={`portfolio-image${project.type === "game" || project.type === "mobile-app" ? " portfolio-image--portrait" : ""}`}>
-          <img src={project.image} className="img-fluid" alt={projectTitle} loading="lazy" />
+          <img ref={thumbnail} src={project.image} className="img-fluid" alt={projectTitle} loading="lazy" />
           <div className="portfolio-overlay">
             <div className="portfolio-actions">
               <button
@@ -22,7 +24,7 @@ function ProjectCard({ onPreview, project }: ProjectCardProps) {
                 className="action-btn preview-btn"
                 title={projectTitle}
                 aria-label={`${projectTitle} 이미지 미리보기`}
-                onClick={() => onPreview(project)}
+                onClick={() => onPreview(project, thumbnail.current)}
               >
                 <i className="bi bi-eye" aria-hidden="true" />
               </button>
