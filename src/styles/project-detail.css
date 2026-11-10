@@ -315,10 +315,19 @@
   background: var(--accent-color);
 }
 
+.project-flow-list li:last-child {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
 .project-design-list,
 .project-troubleshooting-list {
   display: grid;
   gap: 24px;
+}
+
+.project-design-list {
+  gap: 18px;
 }
 
 .project-troubleshooting-list {
@@ -346,7 +355,8 @@
 }
 
 .project-design-entry:first-child h3 {
-  font-size: 1.24rem;
+  font-size: clamp(1.25rem, 2vw, 1.45rem);
+  font-weight: 600;
 }
 
 .project-results-list,
@@ -360,9 +370,7 @@
 }
 
 .project-result-entry + .project-result-entry {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid var(--project-divider);
+  margin-top: 10px;
 }
 
 .project-troubleshooting-details dt {
