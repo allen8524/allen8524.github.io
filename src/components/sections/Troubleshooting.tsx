@@ -136,7 +136,7 @@ function Troubleshooting() {
                       .filter((flow) => flow.label !== "원인")
                       .map((flow) => (
                         <li key={flow.label}>
-                          <span>{flow.label}</span>
+                          {flow.label !== "문제" && <span>{flow.label}</span>}
                           <div className="trouble-card-description">
                             <p>{flow.description}</p>
                             {flow.label === "문제" && cause && (

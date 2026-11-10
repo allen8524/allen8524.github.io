@@ -53,6 +53,7 @@
   line-height: 1.7;
 }
 .testimonials .trouble-card-description {
+  grid-column: 2;
   min-width: 0;
 }
 .testimonials .trouble-card-flow p {
