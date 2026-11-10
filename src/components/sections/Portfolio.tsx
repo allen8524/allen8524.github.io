@@ -12,7 +12,7 @@ function Portfolio() {
   const [previewImages, setPreviewImages] = useState<PreviewImage[] | null>(null);
   const closePreview = useCallback(() => setPreviewImages(null), []);
   const openPreview = (project: Project, thumbnail: HTMLImageElement | null) => {
-    setPreviewImages([{ src: project.previewImage, alt: formatMiddleDotSpacing(project.title), thumbnail }]);
+    setPreviewImages([{ src: project.image, alt: formatMiddleDotSpacing(project.title), thumbnail }]);
   };
 
   const filteredProjects = useMemo(() => {
