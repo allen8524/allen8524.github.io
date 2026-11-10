@@ -277,9 +277,16 @@ function ServiceDetailPage() {
               {otherServices.map((item) => (
                 <li key={item.id}>
                   <Link to={`/services/${item.id}`}>
-                    <ServiceFeatureIcon icon={item.icon} />
-                    <span>{formatMiddleDotSpacing(item.title)}</span>
-                    <i className="bi bi-arrow-right" aria-hidden="true" />
+                    <span className="service-other-visual">
+                      <ServiceFeatureIcon icon={item.icon} />
+                    </span>
+                    <span className="service-other-title">
+                      {formatMiddleDotSpacing(item.title)}
+                      <i className="bi bi-arrow-right" aria-hidden="true" />
+                    </span>
+                    <span className="service-other-description">
+                      {formatMiddleDotSpacing(item.introduction)}
+                    </span>
                   </Link>
                 </li>
               ))}

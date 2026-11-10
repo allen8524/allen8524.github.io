@@ -161,49 +161,78 @@
 }
 
 .service-other {
-  max-width: 48rem;
-  margin-inline: auto;
   padding-top: 24px;
   border-top: 1px solid var(--project-divider);
   text-align: start;
 }
 
 .service-other h2 {
-  margin: 0 0 8px;
-  padding-inline: 12px;
+  margin: 0 0 18px;
   font-family: var(--font-subheading);
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 .service-other-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.service-other-list li + li {
-  border-top: 1px solid var(--project-divider);
+.service-other-list li {
+  display: grid;
 }
 
 .service-other-list a {
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) 20px;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 12px;
+  grid-template-rows: auto auto 1fr;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--project-divider);
+  border-radius: 12px;
+  background: var(--surface-color);
   color: var(--heading-color);
-  font-weight: 500;
   text-decoration: none;
 }
 
 .service-other-list a:is(:hover, :focus-visible) {
-  background-color: color-mix(in srgb, var(--accent-color) 7%, transparent);
+  border-color: var(--accent-color);
+}
+
+.service-other-visual {
+  display: grid;
+  min-height: 84px;
+  place-items: center;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent-color) 8%, var(--surface-color));
+}
+
+.service-other-visual svg {
+  width: 38px;
+  height: 38px;
+}
+
+.service-other-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  word-break: keep-all;
+}
+
+.service-other-title i {
   color: var(--accent-color);
 }
 
-.service-other-list i {
-  color: var(--accent-color);
+.service-other-description {
+  color: var(--project-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  word-break: keep-all;
 }
 
 a.service-evidence-card:hover h3 {
@@ -233,5 +262,11 @@ a.service-evidence-card:hover h3 {
   .service-process-list {
     grid-template-columns: 1fr;
     gap: 22px;
+  }
+}
+
+@media (max-width: 575px) {
+  .service-other-list {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
