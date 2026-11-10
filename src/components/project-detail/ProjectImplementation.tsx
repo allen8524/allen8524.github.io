@@ -13,6 +13,7 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
         <div className="project-design-list">
           {detail.implementationPoints.map((point) => (
             <article className="project-design-entry" key={point.title}>
+              <i className={`bi bi-${point.icon}`} aria-hidden="true" />
               <h3>{format(point.title)}</h3>
               <p>{format(point.description)}</p>
             </article>
@@ -25,8 +26,11 @@ function ProjectImplementation({ detail }: ProjectImplementationProps) {
         <ul className="project-results-list" role="list">
           {detail.results.map((result) => (
             <li className="project-result-entry" key={result.value}>
-              <strong>{format(result.value)}</strong>
-              {result.description && <p>{format(result.description)}</p>}
+              <i className="bi bi-check2" aria-hidden="true" />
+              <div>
+                <strong>{format(result.value)}</strong>
+                {result.description && <p>{format(result.description)}</p>}
+              </div>
             </li>
           ))}
         </ul>

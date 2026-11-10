@@ -7,22 +7,26 @@ export const projectDetails: ProjectDetail[] = [
       "관객은 상영회차를 고르고 좌석 선택부터 결제·예매 조회까지 진행할 수 있고, 관리자는 영화·극장·상영일정·예매를 한곳에서 관리할 수 있는 영화 예매 서비스입니다.",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/cineflow-main-hero.png",
+    flowIcons: ["film", "calendar-event", "grid-3x3-gap", "credit-card", "check-circle"],
     dataFlow: [
       "영화 선택 → 상영회차 선택 → 좌석 선택 → 결제 → 예매 완료",
     ],
     implementationPoints: [
       {
         title: "좌석 잠금으로 중복 예매 방지",
+        icon: "lock",
         description:
           "예매를 확정할 때 해당 회차의 좌석에 잠금을 겁니다. 좌석 상태와 예매 및 결제 기록을 한 트랜잭션에서 저장합니다.",
       },
       {
         title: "회원 · 비회원 조회 기준 분리",
+        icon: "people",
         description:
           "회원은 계정으로, 비회원은 예매번호와 연락처로 조회합니다.",
       },
       {
         title: "운영 데이터와 DB 변경 관리",
+        icon: "database",
         description:
           "예매가 연결된 데이터는 수정 범위를 제한하고, 스키마와 초기 데이터 변경은 Flyway로 관리합니다.",
       },
@@ -75,22 +79,26 @@ export const projectDetails: ProjectDetail[] = [
       "팬은 선수, 경기 일정과 결과, 순위, 뉴스를 확인하고, 관리자는 경기 결과와 포털 콘텐츠를 관리할 수 있는 e스포츠 웹사이트입니다.",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/esports_main.png",
+    flowIcons: ["pencil-square", "check-circle", "calculator", "sort-down", "trophy"],
     dataFlow: [
       "경기 결과 입력 → 종료 상태 확인 → 팀 기록 계산 → 순위 정렬 → 순위표 갱신",
     ],
     implementationPoints: [
       {
         title: "종료 경기 기준 순위 집계",
+        icon: "trophy",
         description:
           "종료된 경기의 홈과 원정 기록을 팀별로 합쳐 승패, 승률, 득실차를 계산합니다.",
       },
       {
         title: "운영 영역 접근 분리",
+        icon: "shield-lock",
         description:
           "인증과 관리자 미들웨어로 경기 관리 기능의 접근을 제한합니다.",
       },
       {
         title: "뉴스 식별자와 라우팅 기준",
+        icon: "link-45deg",
         description:
           "뉴스 제목과 별도로 slug를 관리해 목록과 상세 URL을 연결합니다.",
       },
@@ -127,17 +135,20 @@ export const projectDetails: ProjectDetail[] = [
       "고객은 상품과 옵션을 골라 주문하고, 관리자는 상품과 주문을 관리할 수 있는 PHP 쇼핑몰입니다. 결제 단계는 학습용으로 구현했습니다.",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/shopping_main.png",
+    flowIcons: ["bag", "cart3", "clipboard", "database", "receipt"],
     dataFlow: [
       "상품 선택 → 장바구니 → 주문서 작성 → 주문 저장 → 주문 조회",
     ],
     implementationPoints: [
       {
         title: "주문과 상품 내역을 한 트랜잭션으로 저장",
+        icon: "database",
         description:
           "주문자 정보는 jumun에 한 번만, 옵션과 수량은 jumuns에 상품별로 기록합니다. 한 상품이라도 저장에 실패하면 주문 전체를 롤백합니다.",
       },
       {
         title: "사용자 · 관리자 조회 기준 통일",
+        icon: "receipt",
         description:
           "사용자와 관리자가 같은 주문번호로 상품 내역을 조회합니다.",
       },
@@ -175,12 +186,14 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/bakery-sales-management-laravel/main/docs/images/dashboard.png",
+    flowIcons: ["box-seam", "boxes", "receipt", "journal-text", "bar-chart"],
     dataFlow: [
       "제품 등록 → 재고 연결 → 판매 기록 → 장부 집계 → 통계 확인",
     ],
     implementationPoints: [
       {
         title: "거래 장부를 기준으로 재고 계산",
+        icon: "boxes",
         description:
           "제품 ID로 상품과 장부를 연결하고, 매입 및 매출 수량을 반영해 재고를 계산합니다.",
       },
@@ -230,12 +243,14 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/poster_202212004_hwang_minseo.png",
+    flowIcons: ["filetype-csv", "filter", "diagram-3", "graph-up", "save"],
     dataFlow: [
       "CSV 로드 → 전처리 → PCA · 상관분석 → 회귀분석 → 결과 저장",
     ],
     implementationPoints: [
       {
         title: "PC1 기반 평점 회귀 분석",
+        icon: "graph-up",
         description:
           "여러 수치 지표를 PC1로 압축해 선형회귀로 평점을 얼마나 설명할 수 있는지 확인했습니다.",
       },
@@ -297,22 +312,26 @@ export const projectDetails: ProjectDetail[] = [
       "서울 공공자전거 이용 기록으로 수요가 집중되는 시간대를 살펴보고, 이용건수 예측과 고수요 분류, 대여소 유형 분석을 진행했습니다.",
     developmentType: "개인 프로젝트",
     heroImage: "assets/img/portfolio/seoul-bike-hourly-usage.png",
+    flowIcons: ["database", "filter", "bar-chart", "diagram-3", "save"],
     dataFlow: [
       "데이터 로드 → 전처리 · 파생변수 → 시각화 → 회귀 · 분류 · 군집 → 결과 저장",
     ],
     implementationPoints: [
       {
         title: "이용건수 예측과 고수요 분류",
+        icon: "graph-up",
         description:
           "이용건수는 다중선형회귀로 예측하고, 고수요 여부는 로지스틱 회귀와 KNN으로 분류했습니다.",
       },
       {
         title: "분석 기준 데이터셋 고정",
+        icon: "database",
         description:
           "시각화와 모델링에 같은 전처리 데이터와 대여소 집합을 사용했습니다.",
       },
       {
         title: "대여소 특성 군집화",
+        icon: "diagram-3",
         description:
           "이동거리·이용시간과 출퇴근·주말 이용 비율로 대여소 유형을 나눴습니다.",
       },
@@ -394,17 +413,20 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/undead-survivor-unity/main/Screenshots/gameplay-main.png",
+    flowIcons: ["person", "lightning-charge", "arrow-up-circle", "heart", "flag"],
     dataFlow: [
       "캐릭터 선택 → 전투 루프 → 경험치 · 레벨업 → 생존 판정 → 결과 화면",
     ],
     implementationPoints: [
       {
         title: "오브젝트 풀링으로 적과 투사체 재사용",
+        icon: "arrow-repeat",
         description:
           "PoolManager가 비활성 적과 투사체를 재사용하고, 쓸 수 있는 항목이 없을 때만 새로 생성합니다.",
       },
       {
         title: "생존 루프 상태 연결",
+        icon: "lightning-charge",
         description:
           "플레이어가 이동하는 동안 주변 적을 탐색해 자동 공격하고, 처치 경험치를 레벨업 보상으로 연결합니다.",
       },
@@ -460,22 +482,26 @@ export const projectDetails: ProjectDetail[] = [
     developmentType: "개인 프로젝트",
     heroImage:
       "https://raw.githubusercontent.com/allen8524/healthyup-ios/main/docs/screenshots/bmi-result.png",
+    flowIcons: ["pencil-square", "shield-check", "calculator", "clipboard-data", "play-circle"],
     dataFlow: [
       "키 · 체중 입력 → 입력값 검증 → BMI 판정 → 결과 표시 → 운동 콘텐츠 이동",
     ],
     implementationPoints: [
       {
         title: "BMI 계산 전 입력값 검증",
+        icon: "shield-check",
         description:
           "키와 체중을 검증한 뒤 BMI를 계산하고, 학습용 판정 기준에 따라 문구와 색상을 바꿉니다.",
       },
       {
         title: "네트워크 · 로컬 콘텐츠 분리",
+        icon: "play-circle",
         description:
           "운동 정보는 WebView에서 탐색하고, 시범 영상은 앱에 포함된 파일로 재생합니다.",
       },
       {
         title: "입력 컨트롤과 운동 계획 연결",
+        icon: "sliders",
         description:
           "강도·시간·세트 수를 조절하면 운동 계획 요약이 바로 갱신됩니다.",
       },

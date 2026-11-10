@@ -15,10 +15,14 @@ function ProjectTroubleshooting({ detail }: { detail: ProjectDetail }) {
           <li key={item.title}>
             <h3>{format(item.title)}</h3>
             <dl className="project-troubleshooting-details">
-              <dt>원인</dt>
-              <dd>{format(item.cause)}</dd>
-              <dt>해결</dt>
-              <dd>{format(item.solution)}</dd>
+              <div>
+                <dt><i className="bi bi-exclamation-circle" aria-hidden="true" /> 원인</dt>
+                <dd>{format(item.cause)}</dd>
+              </div>
+              <div>
+                <dt><i className="bi bi-check-circle" aria-hidden="true" /> 해결</dt>
+                <dd>{format(item.solution)}</dd>
+              </div>
             </dl>
           </li>
         ))}

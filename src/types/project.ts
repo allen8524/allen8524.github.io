@@ -37,8 +37,10 @@ export type ProjectDetail = {
   teamRole?: string;
   heroImage: string;
   dataFlow?: string[];
+  flowIcons: string[];
   implementationPoints: Array<{
     title: string;
+    icon: string;
     description: string;
   }>;
   troubleshooting: Array<{
