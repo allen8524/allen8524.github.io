@@ -98,6 +98,16 @@
   min-width: 0;
 }
 
+.service-auth-flow {
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.service-detail-page .service-auth-flow .service-process-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
 .service-process-number {
   display: block;
   margin-bottom: 6px;

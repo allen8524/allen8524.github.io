@@ -43,9 +43,9 @@ export const services: ServiceDetail[] = [
     ],
     processTitle: "인증 흐름",
     processSteps: [
-      { title: "로그인" },
-      { title: "접근 권한 확인" },
-      { title: "로그아웃" },
+      { title: "로그인", icon: "bi-box-arrow-in-right" },
+      { title: "접근 권한 확인", icon: "bi-shield-check" },
+      { title: "로그아웃", icon: "bi-box-arrow-right" },
     ],
     evidenceTitle: "적용 프로젝트",
     evidence: [

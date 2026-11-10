@@ -71,6 +71,10 @@ function ServiceDetailPage() {
     .filter((item) => item.id !== service.id)
     .slice(0, 3);
   const ProcessList = service.processOrdered === false ? "ul" : "ol";
+  const processClassName =
+    service.id === "auth"
+      ? "project-flow-list service-auth-flow"
+      : "service-process-list";
   const [technologies, ...checklists] = service.sideInfo;
   const findEvidenceProject = (title: string) => {
     const normalizedTitle = title.toLocaleLowerCase();
@@ -128,10 +132,13 @@ function ServiceDetailPage() {
                   {formatMiddleDotSpacing(service.processTitle)}
                 </h2>
               </div>
-              <ProcessList className="service-process-list" role="list">
+              <ProcessList className={processClassName} role="list">
                 {service.processSteps.map((step, index) => (
                   <li key={step.title}>
-                    {service.processOrdered !== false && (
+                    {step.icon && (
+                      <i className={`bi ${step.icon}`} aria-hidden="true" />
+                    )}
+                    {!step.icon && service.processOrdered !== false && (
                       <span className="service-process-number" aria-hidden="true">
                         {index + 1}
                       </span>
