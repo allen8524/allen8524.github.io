@@ -347,22 +347,15 @@ export const projectDetails: ProjectDetail[] = [
     ],
     results: [
       {
-        value: "이용 피크 오전 8시, 오후 5~6시",
+        value: "이용 피크 오전 8시와 오후 5~6시",
       },
       {
-        value: "다중선형회귀 R² 0.5431",
-        description: "시간대별 이용건수 변동의 약 54.3%를 설명",
+        value: "이용건수 예측과 고수요 분류 성능",
+        description: "다중선형회귀 R² 0.5431. 고수요 분류 정확도는 로지스틱 회귀 0.8969, KNN 0.9013입니다.",
       },
       {
-        value: "로지스틱 회귀 정확도 0.8969",
-      },
-      {
-        value: "KNN 정확도 0.9013",
-        description: "같은 고수요 분류에서 로지스틱 회귀보다 0.44%p 높았습니다.",
-      },
-      {
-        value: "K-means로 대여소 유형 분류",
-        description: "대여소를 출근형, 장거리 · 장시간형, 퇴근형 고수요 유형으로 구분",
+        value: "K-means로 대여소를 세 유형으로 분류",
+        description: "출근형, 장거리·장시간형, 퇴근형 고수요 대여소로 나눴습니다.",
       },
     ],
     resultLinks: [

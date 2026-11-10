@@ -5,6 +5,7 @@ export const services: ServiceDetail[] = [
     id: "auth",
     title: "인증 · 권한 관리",
     summary: "Spring Security · 세션 인증 · BCrypt · 관리자 권한 제어",
+    introduction: "로그인 세션을 관리하고 사용자와 관리자의 접근 범위를 구분합니다.",
     icon: "shield",
     image: "assets/img/portfolio/cineflow-admin.png",
     imageAlt: "CineFlow 관리자 접근 권한 분리 화면",
@@ -113,6 +114,7 @@ export const services: ServiceDetail[] = [
     id: "order",
     title: "예매 · 주문 흐름 관리",
     summary: "Spring @Transactional · JPA 비관적 잠금 · 예매 상태 전이",
+    introduction: "좌석 선택부터 예매 확정과 취소까지, 좌석과 결제 상태를 함께 관리합니다.",
     icon: "ticket",
     image: "assets/img/portfolio/cineflow-booking-gallery.png",
     imageAlt: "CineFlow 빠른예매와 좌석 선택 진행 화면",
@@ -148,22 +150,22 @@ export const services: ServiceDetail[] = [
         },
       },
     ],
-    processTitle: "구현 기준",
+    processTitle: "예매 처리 흐름",
     processSteps: [
       {
         title: "좌석 잠금",
         description:
-          "요청 좌석을 정규화하고 예약 가능 여부를 확인한 뒤 DB 잠금 획득.",
+          "요청 좌석을 잠근 뒤 예약 가능 여부를 확인합니다.",
       },
       {
         title: "예매 저장",
-        description: "예매·좌석 내역과 결제 결과를 트랜잭션 안에서 함께 기록.",
-      },
-      {
-        title: "취소 처리",
-        description: "권한·취소 조건 검증 후 좌석 해제와 예매 상태 변경.",
+        description: "예매·좌석 내역과 결제 결과를 한 트랜잭션으로 저장합니다.",
       },
     ],
+    alternateProcess: {
+      title: "예매 취소",
+      description: "취소 권한과 조건을 확인한 뒤 결제를 취소하고 좌석을 해제합니다.",
+    },
     evidenceTitle: "적용 프로젝트",
     evidence: [
       {
@@ -223,6 +225,7 @@ export const services: ServiceDetail[] = [
     id: "board",
     title: "관리자 데이터 운영",
     summary: "Spring MVC · Laravel FormRequest · 파일 검증 · 상태 기반 노출",
+    introduction: "관리자 요청을 분리하고, 검증한 데이터와 운영 상태를 화면에 반영합니다.",
     icon: "document",
     image: "assets/img/portfolio/cineflow-admin-gallery.png",
     imageAlt: "CineFlow 관리자 상영일정 데이터 운영 화면",
@@ -334,6 +337,7 @@ export const services: ServiceDetail[] = [
     id: "database",
     title: "DB 설계 및 데이터 처리",
     summary: "JPA 연관관계 · Flyway SQL · pandas 전처리 · PCA·회귀",
+    introduction: "서비스 데이터의 관계와 변경 이력을 설계하고, 분석 데이터는 비교 가능한 형태로 정리합니다.",
     icon: "database",
     image:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
@@ -370,7 +374,8 @@ export const services: ServiceDetail[] = [
         },
       },
     ],
-    processTitle: "구현 기준",
+    processTitle: "데이터 처리 영역",
+    processOrdered: false,
     processSteps: [
       {
         title: "관계 정의",

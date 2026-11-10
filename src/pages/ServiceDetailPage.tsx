@@ -68,7 +68,7 @@ function ServiceDetailPage() {
   const otherServices = services
     .filter((item) => item.id !== service.id)
     .slice(0, 3);
-  const keywords = service.sideInfo[0]?.items.slice(0, 4) ?? [];
+  const ProcessList = service.processOrdered === false ? "ul" : "ol";
   const findEvidenceProject = (title: string) => {
     const normalizedTitle = title.toLocaleLowerCase();
     const meaningfulTokens = normalizedTitle
@@ -97,17 +97,9 @@ function ServiceDetailPage() {
               <h1 id="service-title">
                 {formatMiddleDotSpacing(service.title)}
               </h1>
-              <ul className="service-detail-keywords" aria-label="핵심 기술">
-                {keywords.map((keyword) => (
-                  <li key={keyword}>
-                    <i
-                      className={`bi ${getTechnologyIcon(keyword)}`}
-                      aria-hidden="true"
-                    />
-                    {formatMiddleDotSpacing(keyword)}
-                  </li>
-                ))}
-              </ul>
+              <p className="service-detail-summary">
+                {formatMiddleDotSpacing(service.introduction)}
+              </p>
             </div>
             <figure className="service-detail-hero__image">
               <img src={service.image} alt={service.imageAlt} />
@@ -166,12 +158,14 @@ function ServiceDetailPage() {
                 {formatMiddleDotSpacing(service.processTitle)}
               </h2>
             </div>
-            <ol className="service-process-list">
+            <ProcessList className="service-process-list" role="list">
               {service.processSteps.map((step, index) => (
                 <li key={step.title}>
-                  <span className="service-process-number" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  {service.processOrdered !== false && (
+                    <span className="service-process-number" aria-hidden="true">
+                      {index + 1}
+                    </span>
+                  )}
                   <h3 className="service-process-title">
                     {formatMiddleDotSpacing(step.title)}
                   </h3>
@@ -180,7 +174,15 @@ function ServiceDetailPage() {
                   </p>
                 </li>
               ))}
-            </ol>
+            </ProcessList>
+            {service.alternateProcess && (
+              <div className="service-alternate-process">
+                <h3>{formatMiddleDotSpacing(service.alternateProcess.title)}</h3>
+                <p className="service-process-description">
+                  {formatMiddleDotSpacing(service.alternateProcess.description)}
+                </p>
+              </div>
+            )}
           </section>
 
           <section

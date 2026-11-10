@@ -36,12 +36,15 @@ export type ServiceDetail = {
   id: string;
   title: string;
   summary: string;
+  introduction: string;
   icon: ServiceIconKey;
   image: string;
   imageAlt: string;
   features: ServiceFeature[];
   processTitle: string;
   processSteps: ServiceStep[];
+  processOrdered?: boolean;
+  alternateProcess?: ServiceStep;
   evidenceTitle: string;
   evidence: ServiceFeature[];
   sideInfo: {

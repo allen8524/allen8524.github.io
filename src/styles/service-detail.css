@@ -8,6 +8,7 @@
   padding: 32px 0 48px;
   background: var(--background-color);
   font-family: var(--font-body);
+  text-align: center;
   color: var(--default-color);
   line-height: 1.65;
 }
@@ -55,23 +56,11 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.service-detail-keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  padding: 0;
-  margin: 24px 0 0;
-  list-style: none;
-}
-.service-detail-keywords li {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.8rem;
+.service-detail-summary {
+  max-width: 34rem;
+  margin: 0 auto;
   color: var(--service-muted);
-}
-.service-detail-keywords i {
-  color: var(--accent-color);
+  word-break: keep-all;
 }
 .service-detail-hero__image {
   min-width: 0;
@@ -93,46 +82,23 @@
   text-align: center;
 }
 .service-detail-section {
-  padding: 0;
-  margin-top: 48px;
+  padding: 28px 0 0;
+  margin-top: 44px;
   overflow: visible;
+  border-top: 1px solid var(--service-border);
   background: transparent;
 }
 .service-detail-section__heading {
-  margin-bottom: 28px;
-  text-align: center;
+  margin-bottom: 24px;
 }
 .service-detail-section__heading h2 {
-  position: relative;
-  padding-bottom: 20px;
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 300;
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  font-weight: 500;
   line-height: 1.25;
-  letter-spacing: -0.03em;
   color: var(--heading-color);
   word-break: keep-all;
-}
-.service-detail-section__heading h2::before {
-  width: 160px;
-  height: 1px;
-  background: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-.service-detail-section__heading h2::after {
-  width: 60px;
-  height: 3px;
-  background: var(--accent-color);
-}
-
-.service-detail-section__heading h2::before,
-.service-detail-section__heading h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
 }
 .service-detail-page h3 {
   margin: 0;
@@ -154,37 +120,18 @@
 }
 .service-feature-card,
 .service-evidence-card,
-.service-process-list li,
-.service-info-panel,
 .service-other-card {
-  position: relative;
-  min-width: 0;
-  border: 1px solid var(--service-border);
-  border-radius: var(--service-radius);
-  background: var(--surface-color);
-  padding: 24px;
-}
-.service-feature-card::before,
-.service-evidence-card::before,
-.service-process-list li::before,
-.service-info-panel::before,
-.service-other-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-      90deg,
-      var(--accent-color),
-      color-mix(in srgb, var(--accent-color), transparent 50%)
-    )
-    top / 100% 3px no-repeat;
-  pointer-events: none;
-}
-.service-feature-card {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.service-detail-section .service-feature-icon {
+  flex: none;
+  width: auto;
+  height: auto;
+  background: transparent;
 }
 .service-feature-card__content {
   min-width: 0;
@@ -212,48 +159,45 @@
   overflow-wrap: anywhere;
 }
 .service-process-list {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .service-process-list li {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
   align-content: start;
-  align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
-
 .service-process-number {
-  display: block;
-  margin-bottom: 0;
   color: var(--accent-color);
   font-family: var(--font-ui);
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 0.85rem;
   font-variant-numeric: tabular-nums;
 }
 .service-process-description {
-  grid-column: 1 / -1;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 36rem;
   color: var(--service-muted);
   font-size: 0.9rem;
   word-break: keep-all;
 }
-.service-evidence-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.service-alternate-process {
+  max-width: 36rem;
+  margin: 20px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--service-border);
+}
+.service-alternate-process h3 {
+  margin-bottom: 6px;
+}
+.service-evidence-card,
+.service-other-card {
   color: inherit;
   text-decoration: none;
 }
-.service-evidence-card > div:not(.service-feature-icon) {
-  flex: 1;
-  min-width: 0;
-}
 .service-evidence-card > i,
 .service-other-card > i {
-  flex-shrink: 0;
   color: var(--accent-color);
 }
 .service-info-panel {
@@ -265,8 +209,7 @@
   min-width: 0;
 }
 .service-info-group + .service-info-group {
-  padding-left: 32px;
-  border-left: 1px solid var(--service-border);
+  border-inline-start: 1px solid var(--service-border);
 }
 .service-info-group ul {
   display: flex;
@@ -278,6 +221,7 @@
 }
 .service-info-group li {
   display: flex;
+  justify-content: center;
   align-items: baseline;
   gap: 8px;
   font-size: 0.9rem;
@@ -292,31 +236,9 @@
   display: grid;
   gap: 10px;
 }
-.service-other-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  color: inherit;
-  text-decoration: none;
-}
-.service-other__heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-a.service-evidence-card,
-a.service-other-card {
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease;
-}
-a.service-evidence-card:hover,
-a.service-other-card:hover {
-  border-color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), var(--surface-color) 96%);
-  color: var(--heading-color);
+a.service-evidence-card:hover h3,
+a.service-other-card:hover h3 {
+  color: var(--accent-color);
 }
 .service-detail-page a:focus-visible {
   outline: 2px solid var(--accent-color);
@@ -330,9 +252,6 @@ a.service-other-card:hover {
   .service-evidence-grid,
   .service-other-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .service-feature-card {
-    flex-direction: column;
   }
 }
 @media (max-width: 767px) {
@@ -364,20 +283,9 @@ a.service-other-card:hover {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  .service-feature-card {
-    flex-direction: row;
-  }
-  .service-feature-card,
-  .service-evidence-card,
-  .service-process-list li,
-  .service-info-panel,
-  .service-other-card {
-    padding: 20px;
-  }
   .service-info-group + .service-info-group {
-    padding-left: 0;
     padding-top: 20px;
-    border-left: 0;
+    border-inline-start: 0;
     border-top: 1px solid var(--service-border);
   }
 }
