@@ -362,11 +362,6 @@
   text-wrap: pretty;
 }
 
-.project-design-entry:first-child h3 {
-  font-size: 1.24rem;
-  font-weight: 600;
-}
-
 .project-results-list,
 .project-troubleshooting-details {
   margin: 0;
@@ -433,12 +428,12 @@
   }
 
   .project-design-list:has(> .project-design-entry:nth-child(2)) {
-    grid-template-columns: minmax(0, 1.45fr) repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 28px;
   }
 
   .project-design-list:has(> .project-design-entry:nth-child(2):last-child) {
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-troubleshooting-details {
