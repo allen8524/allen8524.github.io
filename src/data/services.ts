@@ -7,6 +7,7 @@ export const services: ServiceDetail[] = [
     summary: "Spring Security · 세션 인증 · BCrypt · 관리자 권한 제어",
     introduction: "로그인 세션을 관리하고 사용자와 관리자의 접근 범위를 구분합니다.",
     icon: "shield",
+    relatedIcons: ["user", "document"],
     image: "assets/img/portfolio/cineflow-login.png",
     imageAlt: "CineFlow 로그인 화면",
     features: [
@@ -104,6 +105,7 @@ export const services: ServiceDetail[] = [
     summary: "Spring @Transactional · JPA 비관적 잠금 · 예매 상태 전이",
     introduction: "좌석 선택부터 예매 확정과 취소까지, 좌석과 결제 상태를 함께 관리합니다.",
     icon: "ticket",
+    relatedIcons: ["cart", "box"],
     image: "assets/img/portfolio/cineflow-booking-gallery.png",
     imageAlt: "CineFlow 빠른예매와 좌석 선택 진행 화면",
     features: [
@@ -215,6 +217,7 @@ export const services: ServiceDetail[] = [
     summary: "Spring MVC · Laravel FormRequest · 파일 검증 · 상태 기반 노출",
     introduction: "관리자 요청을 분리하고, 검증한 데이터와 운영 상태를 화면에 반영합니다.",
     icon: "document",
+    relatedIcons: ["user", "chart"],
     image: "assets/img/portfolio/cineflow-admin-gallery.png",
     imageAlt: "CineFlow 관리자 상영일정 데이터 운영 화면",
     features: [
@@ -327,6 +330,7 @@ export const services: ServiceDetail[] = [
     summary: "JPA 연관관계 · Flyway SQL · pandas 전처리 · PCA·회귀",
     introduction: "서비스 데이터의 관계와 변경 이력을 설계하고, 분석 데이터는 비교 가능한 형태로 정리합니다.",
     icon: "database",
+    relatedIcons: ["box", "chart"],
     image:
       "https://raw.githubusercontent.com/allen8524/movie-pca-rating-analysis/main/docs/images/correlation_heatmap.png",
     imageAlt: "Cine21 영화 데이터 상관관계 분석 결과 화면",

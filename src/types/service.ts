@@ -38,6 +38,7 @@ export type ServiceDetail = {
   summary: string;
   introduction: string;
   icon: ServiceIconKey;
+  relatedIcons: [ServiceIconKey, ServiceIconKey];
   image: string;
   imageAlt: string;
   features: ServiceFeature[];

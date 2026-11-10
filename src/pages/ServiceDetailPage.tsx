@@ -278,7 +278,9 @@ function ServiceDetailPage() {
                 <li key={item.id}>
                   <Link to={`/services/${item.id}`}>
                     <span className="service-other-visual">
-                      <ServiceFeatureIcon icon={item.icon} />
+                      {[item.icon, ...item.relatedIcons].map((icon) => (
+                        <ServiceFeatureIcon key={icon} icon={icon} />
+                      ))}
                     </span>
                     <span className="service-other-title">
                       {formatMiddleDotSpacing(item.title)}
