@@ -9,8 +9,8 @@ type ImagePreviewProps = {
 };
 
 const reduceMotionQuery = "(prefers-reduced-motion: reduce)";
-const closedMask = "inset(30% 38% round 120px)";
-const openMask = "inset(0% 0% round 8px)";
+const closedMask = "inset(30% 38%)";
+const openMask = "inset(0% 0%)";
 
 function ImagePreview({ alt, image, onClose }: ImagePreviewProps) {
   const overlayRef = useRef<HTMLDivElement | null>(null);
