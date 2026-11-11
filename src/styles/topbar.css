@@ -12,7 +12,7 @@
 }
 .site-topbar .header-top { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .site-topbar .profile-img { display: flex; align-items: center; }
-.site-topbar .profile-img img { width: 40.8px; height: 40.8px; border-radius: 9.6px; object-fit: cover; }
+.site-topbar .profile-img img { border-radius: 9.6px; width: auto; height: 40.8px; object-fit: contain; }
 .site-topbar .logo { margin: 0; text-decoration: none; }
 .site-topbar .logo .sitename { margin: 0; font-family: var(--nav-font); font-size: 19.2px; font-weight: 500; line-height: 1.4; color: var(--heading-color); }
 .site-topbar .header-navigation-stack { margin-left: auto; align-self: stretch; display: flex; align-items: stretch; }

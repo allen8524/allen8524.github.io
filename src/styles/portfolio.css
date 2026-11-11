@@ -73,10 +73,19 @@
   border-radius: 8px;
   margin-bottom: 32px;
   flex-shrink: 0;
+  width: fit-content;
+  max-width: 100%;
+  aspect-ratio: auto;
+  margin-inline: auto;
 }
 
 .portfolio .portfolio-image img {
   transition: all 0.6s ease;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
 }
 
 .portfolio .portfolio-image .portfolio-overlay {
@@ -134,10 +143,6 @@
 .portfolio .portfolio-image .action-btn:focus-visible {
   outline: 3px solid var(--surface-color);
   outline-offset: 3px;
-}
-
-.portfolio .portfolio-image:hover img {
-  transform: scale(1.05);
 }
 
 .portfolio .portfolio-content {
@@ -278,36 +283,8 @@
   width: 100%;
 }
 
-.portfolio .portfolio-image {
-  aspect-ratio: 16 / 9;
-}
-
 .portfolio .portfolio-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   object-position: center top;
-}
-
-.portfolio .portfolio-image--portrait {
-  container-type: inline-size;
-  background: color-mix(in srgb, var(--accent-color), var(--surface-color) 94%);
-}
-
-.portfolio .portfolio-image--portrait img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 56.25cqw;
-  height: 100cqw;
-  max-width: none;
-  object-fit: cover;
-  object-position: center;
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.portfolio .portfolio-image--portrait:hover img {
-  transform: translate(-50%, -50%) rotate(90deg) scale(1.05);
 }
 
 .portfolio .portfolio-content {
