@@ -539,6 +539,24 @@
   display: none;
 }
 
+.portfolio-details--mobile-project .project-detail-browser-frame {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.portfolio-details--mobile-project .project-detail-browser-frame .project-detail-image-button {
+  width: auto;
+  aspect-ratio: auto;
+}
+
+.portfolio-details--mobile-project .project-detail-browser-frame img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 420px;
+}
+
 .portfolio-details--mobile-project .project-detail-browser-frame img,
 .portfolio-details--mobile-project .project-gallery-fan__front img {
   object-fit: contain;
