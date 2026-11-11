@@ -1,10 +1,26 @@
 .testimonials {
+  position: relative;
+  padding: 102px 0 96px;
+  overflow: hidden;
   background: var(--background-color);
 }
-.testimonials::before {
-  display: none;
-  content: none;
+
+.testimonials .section-title {
+  position: relative;
+  margin-bottom: 2.2rem;
 }
+
+.testimonials .section-title p {
+  margin: 0.75rem auto 0;
+  max-width: 660px;
+}
+
+@media (max-width: 767.98px) {
+  .testimonials {
+    padding: 88px 0 82px;
+  }
+}
+
 .testimonials .troubleshooting-showcase {
   max-width: 1120px;
   margin: 0 auto;

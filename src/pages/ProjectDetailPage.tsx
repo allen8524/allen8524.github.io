@@ -20,7 +20,7 @@ import "../styles/project-detail.css";
 function ProjectDetailPage() {
   const { projectId } = useParams();
   const project = projects.find((item) => item.id === projectId);
-  const detail = projectId ? getProjectDetail(projectId) : undefined;
+  const detail = project ? getProjectDetail(project) : undefined;
   const metadataImage = detail?.heroImage
     ? /^https?:\/\//i.test(detail.heroImage)
       ? detail.heroImage
@@ -49,6 +49,7 @@ function ProjectDetailPage() {
     return <NotFoundPage />;
   }
 
+  const isMobileProject = project.type === "mobile-app" || project.type === "game";
   const projectIndex = projects.findIndex((item) => item.id === project.id);
   const previousProject = projects[(projectIndex - 1 + projects.length) % projects.length];
   const nextProject = projects[(projectIndex + 1) % projects.length];
@@ -57,7 +58,7 @@ function ProjectDetailPage() {
     <>
       <Header />
       <main className="main">
-        <section id="portfolio-details" className="portfolio-details section">
+        <section id="portfolio-details" className={`portfolio-details section${isMobileProject ? " portfolio-details--mobile-project" : ""}`}>
           <div className="project-detail-container">
             <ProjectDetailHero detail={detail} project={project} />
             <div className="project-case-study">

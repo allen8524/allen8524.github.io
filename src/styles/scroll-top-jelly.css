@@ -41,6 +41,12 @@
   transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.jelly-scroll-top__icon i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
 .jelly-scroll-top__blob {
   position: absolute;
   top: 50%;
@@ -69,23 +75,6 @@
   height: 0.85rem;
 }
 
-.jelly-scroll-top__gloss {
-  position: absolute;
-  top: 4px;
-  right: 10%;
-  left: 10%;
-  height: 40%;
-  border-radius: 14px 14px 50% 50%;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--theme-highlight-base), transparent 68%) 0%,
-    color-mix(in srgb, var(--theme-highlight-base), transparent 94%) 100%
-  );
-  opacity: 0.9;
-  pointer-events: none;
-  transition: opacity 300ms ease;
-}
-
 .jelly-scroll-top__svg {
   position: absolute;
   width: 0;
@@ -94,7 +83,7 @@
 }
 
 #scroll-top.jelly-scroll-top.active:hover {
-  background: var(--jelly-hover);
+  background: var(--jelly-bg);
   box-shadow: 0 0.45rem 1.25rem var(--jelly-shadow);
   transform: translateY(0) scaleX(1.08) scaleY(0.92);
 }
@@ -130,10 +119,6 @@
   transition-delay: var(--blob-3-delay);
 }
 
-#scroll-top.jelly-scroll-top:hover .jelly-scroll-top__gloss {
-  opacity: 0.68;
-}
-
 #scroll-top.jelly-scroll-top.active:active {
   box-shadow: 0 0.2rem 0.65rem var(--jelly-shadow);
   transform: translateY(0) scaleX(0.92) scaleY(1.08);
@@ -150,30 +135,9 @@
   transition-duration: 150ms;
 }
 
-#scroll-top.jelly-scroll-top:active .jelly-scroll-top__gloss {
-  opacity: 0.3;
-}
-
 #scroll-top.jelly-scroll-top:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--accent-color), var(--theme-text-bright) 35%);
   outline-offset: 4px;
-}
-
-/* Keep the light theme jelly visually flat: one solid green without gloss or tone shifts. */
-:root[data-theme="light"] #scroll-top.jelly-scroll-top {
-  --jelly-bg: var(--accent-color);
-  --jelly-hover: var(--accent-color);
-  background: var(--accent-color);
-}
-
-:root[data-theme="light"] #scroll-top.jelly-scroll-top.active:hover,
-:root[data-theme="light"] #scroll-top.jelly-scroll-top.active:active,
-:root[data-theme="light"] .jelly-scroll-top__blob {
-  background: var(--accent-color);
-}
-
-:root[data-theme="light"] .jelly-scroll-top__gloss {
-  display: none;
 }
 
 @media (max-width: 575px) {
@@ -189,8 +153,7 @@
 @media (prefers-reduced-motion: reduce) {
   #scroll-top.jelly-scroll-top,
   .jelly-scroll-top__icon,
-  .jelly-scroll-top__blob,
-  .jelly-scroll-top__gloss {
+  .jelly-scroll-top__blob {
     transition: none;
   }
 
@@ -232,17 +195,5 @@
   color: var(--jelly-text);
   cursor: pointer;
   filter: url(#scroll-top-jelly-goo);
-  --jelly-hover: var(--jelly-bg);
   background: var(--jelly-bg);
-}
-
-#scroll-top.jelly-scroll-top.active:hover,
-#scroll-top.jelly-scroll-top.active:active,
-#scroll-top.jelly-scroll-top .jelly-scroll-top__blob {
-  background: var(--jelly-bg);
-}
-
-.jelly-scroll-top__gloss {
-  z-index: 1;
-  display: none;
 }

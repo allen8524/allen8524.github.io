@@ -56,15 +56,12 @@ function ScrollTop() {
     <button
       type="button"
       id="scroll-top"
-      className={`scroll-top jelly-scroll-top${isActive ? " active" : ""}`}
+      className={`jelly-scroll-top${isActive ? " active" : ""}`}
       aria-label="맨 위로 이동"
       onPointerEnter={(event) => {
         randomizeBlobPositions(event.currentTarget, event.pointerType);
       }}
-      onClick={(event) => {
-        event.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
+      onClick={() => window.scrollTo({ top: 0 })}
     >
       <span className="jelly-scroll-top__icon" aria-hidden="true">
         <i className="bi bi-arrow-up-short" />
@@ -72,7 +69,6 @@ function ScrollTop() {
       <span className="jelly-scroll-top__blob jelly-scroll-top__blob--1" aria-hidden="true" />
       <span className="jelly-scroll-top__blob jelly-scroll-top__blob--2" aria-hidden="true" />
       <span className="jelly-scroll-top__blob jelly-scroll-top__blob--3" aria-hidden="true" />
-      <span className="jelly-scroll-top__gloss" aria-hidden="true" />
 
       <svg
         className="jelly-scroll-top__svg"

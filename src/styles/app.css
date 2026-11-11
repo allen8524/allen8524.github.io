@@ -70,10 +70,6 @@ a {
   background: var(--accent-color);
 }
 
-.scroll-top {
-  border: 0;
-}
-
 .reveal-item {
   opacity: 0;
   transform: translateY(12px);
@@ -393,7 +389,7 @@ a {
 .footer.footer-minimal .footer-minimal__copyright {
   margin: 0;
   padding: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  color: var(--theme-text-muted);
   font-size: 0.82rem;
   line-height: 1.4;
 }
