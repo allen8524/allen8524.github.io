@@ -28,6 +28,7 @@ jobs:
       - name: ESLint
         env:
           QA_MODULES: ${{ runner.temp }}/portfolio-lint/node_modules
-        run: "$QA_MODULES/.bin/eslint" src --max-warnings 0
+        run: |
+          "$QA_MODULES/.bin/eslint" src --max-warnings 0
       - name: Stylelint
         run: '"$RUNNER_TEMP/portfolio-lint/node_modules/.bin/stylelint" "src/styles/**/*.css" "assets/css/**/*.css"'
