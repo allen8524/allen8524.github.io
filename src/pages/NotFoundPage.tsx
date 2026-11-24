@@ -7,7 +7,7 @@ function NotFoundPage() {
   return (
     <>
       <Header />
-      <main className="main">
+      <main id="main-content" tabIndex={-1} className="main">
         <section className="not-found section">
           <div className="container">
             <div className="not-found__content">

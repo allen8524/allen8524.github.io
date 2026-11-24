@@ -27,7 +27,7 @@ function HomePage() {
   return (
     <>
       <Header />
-      <main className="main">
+      <main id="main-content" tabIndex={-1} className="main">
         <Hero />
         <About />
         <Skills />

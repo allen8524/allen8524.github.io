@@ -57,7 +57,7 @@ function ProjectDetailPage() {
   return (
     <>
       <Header />
-      <main className="main">
+      <main id="main-content" tabIndex={-1} className="main">
         <section id="portfolio-details" className={`portfolio-details section${isMobileProject ? " portfolio-details--mobile-project" : ""}`}>
           <div className="project-detail-container">
             <ProjectDetailHero detail={detail} project={project} />

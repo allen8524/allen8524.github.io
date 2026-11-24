@@ -167,7 +167,7 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
 
     document.body.classList.add("preview-open");
     window.addEventListener("keydown", handleKeyDown);
-    dialogRef.current?.focus({ preventScroll: true });
+    closeButtonRef.current?.focus({ preventScroll: true });
 
     const selected = galleryImages.current[initialIndex];
     const animationContext = gsap.context(() => {
@@ -219,10 +219,6 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
     };
   }, [images, initialIndex, handleClose, moveGallery]);
 
-  useLayoutEffect(() => {
-    if (controlsVisible) closeButtonRef.current?.focus({ preventScroll: true });
-  }, [controlsVisible]);
-
   const previewContent = (
     <div
       ref={overlayRef}
@@ -234,11 +230,9 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
     >
       <div ref={backdropRef} className="image-preview__backdrop" />
       <div ref={dialogRef} className="image-preview__dialog" tabIndex={-1} onClick={(event) => event.stopPropagation()}>
-        {controlsVisible && (
-          <button ref={closeButtonRef} type="button" className="image-preview__close" aria-label="미리보기 닫기" onClick={handleClose}>
-            <i className="bi bi-x-lg" />
-          </button>
-        )}
+        <button ref={closeButtonRef} type="button" className="image-preview__close" aria-label="미리보기 닫기" onClick={handleClose}>
+          <i className="bi bi-x-lg" aria-hidden="true" />
+        </button>
         <div
           className="image-preview__stage"
           onPointerDown={(event) => {

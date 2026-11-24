@@ -50,6 +50,7 @@ function AppRoutes() {
           <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <RouteScrollManager />
       </Suspense>
     </RouteErrorBoundary>
   );
@@ -58,7 +59,6 @@ function AppRoutes() {
 function App() {
   return (
     <HashRouter>
-      <RouteScrollManager />
       <AppRoutes />
     </HashRouter>
   );

@@ -13,29 +13,7 @@ function ProjectCard({ project }: ProjectCardProps) {
     <div className={`col-lg-6 portfolio-item filter-${project.filter}`}>
       <div className="portfolio-card">
         <div className="portfolio-image">
-          <img src={project.image} className="img-fluid" alt={projectTitle} loading="lazy" />
-          <div className="portfolio-overlay">
-            <div className="portfolio-actions">
-              <a
-                href={project.githubUrl}
-                className="action-btn"
-                title={`${projectTitle} GitHub`}
-                aria-label={`${projectTitle} GitHub 저장소 열기`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="bi bi-github" aria-hidden="true" />
-              </a>
-              <Link
-                to={project.detailUrl}
-                className="action-btn details-btn"
-                title={`${projectTitle} 상세 보기`}
-                aria-label={`${projectTitle} 상세 페이지 보기`}
-              >
-                <i className="bi bi-arrow-up-right" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
+          <img src={project.image} className="img-fluid" alt={projectTitle} loading="lazy" decoding="async" />
         </div>
 
         <div className="portfolio-content">
@@ -51,10 +29,10 @@ function ProjectCard({ project }: ProjectCardProps) {
             <p className="portfolio-description">{formatMiddleDotSpacing(project.description)}</p>
           )}
           <div className="portfolio-cta">
-            <Link to={project.detailUrl} className="portfolio-link primary">
+            <Link to={project.detailUrl} className="portfolio-link primary" aria-label={`상세보기: ${projectTitle}`}>
               상세보기
             </Link>
-            <a href={project.githubUrl} className="portfolio-link secondary" target="_blank" rel="noopener noreferrer">
+            <a href={project.githubUrl} className="portfolio-link secondary" target="_blank" rel="noopener noreferrer" aria-label={`GitHub: ${projectTitle}`}>
               GitHub
             </a>
           </div>

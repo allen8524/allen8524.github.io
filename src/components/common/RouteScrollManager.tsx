@@ -3,60 +3,27 @@ import { useLocation } from "react-router-dom";
 
 const validSectionIdPattern = /^[a-zA-Z0-9_-]+$/;
 
-function scrollToTopInstant() {
-  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-}
-
 function getSectionId(hash: string) {
   const sectionId = hash.replace(/^#/, "");
-
-  if (!sectionId || !validSectionIdPattern.test(sectionId)) {
-    return "";
-  }
-
-  return sectionId;
+  return validSectionIdPattern.test(sectionId) ? sectionId : "";
 }
 
 function RouteScrollManager() {
   const location = useLocation();
 
   useLayoutEffect(() => {
-    const isDetailRoute = location.pathname.startsWith("/services/") || location.pathname.startsWith("/projects/");
+    const requestedSection = new URLSearchParams(location.search).get("section") ?? "";
+    const sectionId = getSectionId(location.hash) || getSectionId(requestedSection);
+    const section = sectionId ? document.getElementById(sectionId) : null;
 
-    if (isDetailRoute && !location.hash) {
-      scrollToTopInstant();
-
-      const frameId = window.requestAnimationFrame(scrollToTopInstant);
-      const timeoutId = window.setTimeout(scrollToTopInstant, 80);
-
-      return () => {
-        window.cancelAnimationFrame(frameId);
-        window.clearTimeout(timeoutId);
-      };
+    if (section) {
+      section.tabIndex = -1;
+      section.focus({ preventScroll: true });
+      section.scrollIntoView({ block: "start" });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
-
-    const timeoutId = window.setTimeout(() => {
-      const requestedSection = new URLSearchParams(location.search).get("section") ?? "";
-      const sectionId = getSectionId(location.hash) || getSectionId(requestedSection);
-
-      if (sectionId) {
-        const section = document.getElementById(sectionId);
-
-        if (section) {
-          section.scrollIntoView({ block: "start" });
-          return;
-        }
-      }
-
-      scrollToTopInstant();
-    }, 80);
-
-    return () => {
-      window.clearTimeout(timeoutId);
-    };
-  }, [location.pathname, location.search, location.hash]);
+  }, [location.key, location.pathname, location.search, location.hash]);
 
   return null;
 }

@@ -226,7 +226,7 @@
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
   border-radius: 999px;
   background: color-mix(in srgb, var(--background-color), transparent 12%);
-  color: color-mix(in srgb, var(--default-color), transparent 42%);
+  color: var(--theme-text-muted);
   font-size: 0.74rem;
   font-weight: 700;
   line-height: 1;

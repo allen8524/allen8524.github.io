@@ -94,7 +94,7 @@ function ServiceDetailPage() {
   return (
     <>
       <Header />
-      <main className="main portfolio-details service-detail-page">
+      <main id="main-content" tabIndex={-1} className="main portfolio-details service-detail-page">
         <div className="project-detail-container">
           <DetailHero
             key={service.id}

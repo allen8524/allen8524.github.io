@@ -407,7 +407,7 @@ a {
 .resume .professional-journey .experience-timeline .timeline-summary-list li {
   position: relative;
   padding-left: 0.9rem;
-  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  color: var(--theme-text-muted);
   font-size: 0.95rem;
   line-height: 1.55;
   word-break: keep-all;
@@ -478,4 +478,21 @@ a {
 .hero .hero-image .hero-resume-card:focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 4px;
+}
+
+.skip-navigation {
+  position: fixed;
+  z-index: 11000;
+  top: 8px;
+  left: 8px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(calc(-100% - 16px));
+}
+.skip-navigation:focus-visible {
+  transform: none;
+  outline: 2px solid var(--heading-color);
+  outline-offset: 3px;
 }

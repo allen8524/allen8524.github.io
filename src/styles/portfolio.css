@@ -75,7 +75,6 @@
   flex-shrink: 0;
   width: fit-content;
   max-width: 100%;
-  aspect-ratio: auto;
   margin-inline: auto;
 }
 
@@ -86,65 +85,9 @@
   max-width: 100%;
   max-height: 320px;
   object-fit: contain;
+  object-position: center top;
   min-width: 1px;
   min-height: 1px;
-}
-
-.portfolio .portfolio-image .portfolio-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: color-mix(in srgb, var(--theme-shadow-base), transparent 30%);
-  opacity: 0;
-  transition: all 0.4s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.portfolio .portfolio-image .portfolio-actions {
-  display: flex;
-  gap: 16px;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-}
-
-.portfolio .portfolio-image .action-btn {
-  border: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface-color);
-  color: var(--heading-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 18px;
-}
-
-.portfolio .portfolio-image .action-btn:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transform: scale(1.1);
-}
-
-.portfolio .portfolio-image:hover .portfolio-overlay,
-.portfolio .portfolio-image:focus-within .portfolio-overlay {
-  opacity: 1;
-}
-
-.portfolio .portfolio-image:hover .portfolio-actions,
-.portfolio .portfolio-image:focus-within .portfolio-actions {
-  transform: translateY(0);
-}
-
-.portfolio .portfolio-image .action-btn:focus-visible {
-  outline: 3px solid var(--surface-color);
-  outline-offset: 3px;
 }
 
 .portfolio .portfolio-content {
@@ -224,7 +167,7 @@
 }
 
 .portfolio .portfolio-link.primary:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 12%);
+  background: var(--theme-accent-hover);
   color: var(--contrast-color);
 }
 
@@ -283,10 +226,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.portfolio .portfolio-image img {
-  object-position: center top;
 }
 
 .portfolio .portfolio-content {

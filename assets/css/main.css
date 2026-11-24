@@ -136,6 +136,7 @@
 
   /* Brand accent */
   --theme-accent: #22e7a1;
+  --theme-accent-hover: #19ce8e;
   --theme-accent-soft: color-mix(in srgb, var(--theme-accent), transparent 82%);
 
 }
@@ -177,6 +178,7 @@
 
   /* Brand accent */
   --theme-accent: #087f5b;
+  --theme-accent-hover: #066749;
   --theme-accent-soft: rgba(8, 127, 91, 0.12);
 }
 
@@ -231,7 +233,7 @@ a {
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: var(--theme-accent-hover);
   text-decoration: none;
 }
 
@@ -260,47 +262,6 @@ h6 {
 .footer p {
   padding: 0;
   margin: 0 0 30px 0;
-}
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid var(--theme-highlight-base);
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #preloader::before {
-    animation: none;
-  }
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /*--------------------------------------------------------------
@@ -1016,7 +977,7 @@ section,
 .resume .section-intro p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: var(--theme-text-muted);
   margin: 0;
   font-family: var(--font-body);
 }
@@ -1086,7 +1047,7 @@ section,
 
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content h4 {
   font-size: 0.95rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: var(--theme-text-muted);
   font-weight: 500;
   margin-bottom: 1rem;
   font-family: var(--font-subheading);
@@ -1095,7 +1056,7 @@ section,
 .resume .professional-journey .experience-timeline .timeline-item .timeline-content p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: var(--theme-text-muted);
   margin-bottom: 1rem;
   font-family: var(--font-card-body);
 }
@@ -1157,7 +1118,7 @@ section,
 
 .resume .education-skills .education-grid .education-card .education-header .degree-info .institution {
   font-size: 1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: var(--theme-text-muted);
   margin-bottom: 0.5rem;
   font-weight: 500;
   font-family: var(--font-label);
@@ -1221,7 +1182,7 @@ section,
 
 .resume .education-skills .education-grid .certification-section .certifications .cert-item .cert-details .cert-provider {
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: var(--theme-text-muted);
   font-family: var(--font-label);
 }
 

@@ -25,7 +25,7 @@
 .contact .info-item .info-content p {
   font-size: 16px;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: var(--theme-text-muted);
   margin: 0;
   max-width: 440px;
 }
@@ -100,7 +100,7 @@
 }
 
 .contact .form-wrapper .form-group input::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  color: var(--theme-text-muted);
 }
 
 .contact .form-wrapper .submit-btn {
@@ -123,7 +123,7 @@
 }
 
 .contact .form-wrapper .submit-btn:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 10%);
+  background: var(--theme-accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
 }

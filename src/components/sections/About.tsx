@@ -20,6 +20,9 @@ function BackendDiagram() {
   const [position, setPosition] = useState({ left: 0, top: 0 });
   const popup = useRef<HTMLDivElement>(null);
   const pinned = useRef(false);
+  const trigger = useRef<HTMLElement | null>(null);
+  const focusPopup = useRef(false);
+  const restoringFocus = useRef(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const detail = active ? diagramDetails[active] : null;
   function keepOpen() {
@@ -38,7 +41,8 @@ function BackendDiagram() {
   }
   function pin(part: DiagramPart, element: HTMLElement) {
     keepOpen();
-    if (active !== part) show(part, element);
+    trigger.current = element;
+    show(part, element);
     pinned.current = true;
   }
   useLayoutEffect(() => {
@@ -51,9 +55,24 @@ function BackendDiagram() {
       top: Math.max(12, Math.min(top, window.innerHeight - height - 12)),
     });
   }, [active, anchor]);
+  useLayoutEffect(() => {
+    if (!active || !focusPopup.current) return;
+    focusPopup.current = false;
+    popup.current?.querySelector("a")?.focus({ preventScroll: true });
+  }, [active, anchor]);
   useEffect(() => {
-    const dismiss = () => { keepOpen(); pinned.current = false; setActive(null); };
-    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") dismiss(); };
+    const dismiss = () => { keepOpen(); pinned.current = false; focusPopup.current = false; setActive(null); };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || !popup.current) return;
+      const previous = trigger.current;
+      const restore = popup.current.contains(document.activeElement);
+      dismiss();
+      if (restore && previous?.isConnected) {
+        restoringFocus.current = true;
+        previous.focus({ preventScroll: true });
+        restoringFocus.current = false;
+      }
+    };
     const onPointer = (event: PointerEvent) => {
       if (event.target instanceof Element && !event.target.closest(".backend-inspect, .backend-design-detail")) dismiss();
     };
@@ -73,14 +92,19 @@ function BackendDiagram() {
     };
   }, []);
   function card(part: DiagramPart, className: string, children: ReactNode) {
+    const visibleLabels: Record<DiagramPart, string> = {
+      request: "BookingController.java", client: "Client 상영 회차 선택", api: "Controller 상영 회차 검증",
+      auth: "Security 비회원 접근 허용", table: "seat_templates", service: "SeatService 좌석 배치 · 가격 구성",
+      database: "schedule_seats 회차별 예약 · 선점 상태", response: className.includes("backend-response-preview") ? "View model Thymeleaf" : "booking/seat 좌석 선택 HTML 화면 반환",
+    };
     return <div className={`${className} backend-inspect${active === part ? " is-active" : ""}`}
-      role="button" tabIndex={0} aria-label={`${diagramDetails[part].title} 설계 설명`} aria-pressed={active === part}
+      role="button" tabIndex={0} aria-label={`${visibleLabels[part]} · ${diagramDetails[part].title} 설계 설명`} aria-expanded={active === part}
       aria-controls={active === part ? "backend-design-detail" : undefined}
       onMouseEnter={(event) => { if (pinned.current) return; keepOpen(); setActive(part); setAnchor({ x: event.clientX, y: event.clientY }); }}
       onMouseMove={(event) => { if (!pinned.current && active === part) setAnchor({ x: event.clientX, y: event.clientY }); }}
-      onMouseLeave={closeSoon} onFocus={(event) => { if (!pinned.current && active !== part) show(part, event.currentTarget); }}
+      onMouseLeave={closeSoon} onFocus={(event) => { if (!restoringFocus.current && !pinned.current && active !== part) show(part, event.currentTarget); }}
       onBlur={closeSoon} onClick={(event) => pin(part, event.currentTarget)} onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); pin(part, event.currentTarget); popup.current?.querySelector("a")?.focus(); }
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); focusPopup.current = true; pin(part, event.currentTarget); }
       }}>{children}</div>;
   }
   return (

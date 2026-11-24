@@ -44,6 +44,7 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
                     src={image.src}
                     alt={imageAlt}
                     loading="lazy"
+                    decoding="async"
                   />
                 </button>
               </div>

@@ -10,7 +10,7 @@ function NavigationThumbnail({ alt, src }: NavigationThumbnailProps) {
     <span className="nav-thumbnail">
       <span className="project-nav-thumb-effect">
         <span className="project-nav-thumb-effect__image-frame">
-          <img className="project-nav-thumb-effect__image" src={src} alt={alt} />
+          <img className="project-nav-thumb-effect__image" src={src} alt={alt} loading="lazy" decoding="async" />
           <span className="project-nav-thumb-effect__overlay" aria-hidden="true" />
         </span>
         {[1, 2, 3].map((leaf) => (

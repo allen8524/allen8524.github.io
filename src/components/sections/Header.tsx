@@ -66,16 +66,16 @@ function Header() {
   const moveToSection = (sectionId: string) => {
     setIsOpen(false);
     navigate({ pathname: "/", hash: `#${sectionId}` });
-
-    if (isHome) {
-      window.setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView();
-      }, 0);
-    }
   };
 
   return (
     <>
+      <a className="skip-navigation" href="#main-content" onClick={(event) => {
+        event.preventDefault();
+        const main = document.getElementById("main-content");
+        main?.focus({ preventScroll: true });
+        main?.scrollIntoView({ block: "start" });
+      }}>본문 바로가기</a>
       <header
         id="header"
         onKeyDown={(event) => {
