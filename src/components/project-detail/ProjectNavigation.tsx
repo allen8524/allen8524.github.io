@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Project } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import { thumbnailUrl } from "../../utils/thumbnail";
 
 type ProjectNavigationProps = { previousProject: Project; nextProject: Project };
 type NavigationThumbnailProps = { src: string; alt: string };
@@ -10,7 +11,7 @@ function NavigationThumbnail({ alt, src }: NavigationThumbnailProps) {
     <span className="nav-thumbnail">
       <span className="project-nav-thumb-effect">
         <span className="project-nav-thumb-effect__image-frame">
-          <img className="project-nav-thumb-effect__image" src={src} alt={alt} loading="lazy" decoding="async" />
+          <img className="project-nav-thumb-effect__image" src={thumbnailUrl(src, 960)} alt={alt} loading="lazy" decoding="async" />
           <span className="project-nav-thumb-effect__overlay" aria-hidden="true" />
         </span>
         {[1, 2, 3].map((leaf) => (

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "../common/ThemeToggle";
+import { thumbnailUrl } from "../../utils/thumbnail";
 
 const navItems = [
   { id: "hero", label: "홈", icon: "bi-house" },
@@ -98,7 +99,7 @@ function Header() {
 
         <div className="header-top">
           <div className="profile-img">
-            <img src="assets/img/profile/profile_face.png" alt="" className="img-fluid" />
+            <img src={thumbnailUrl("assets/img/profile/profile_face.png", 96)} alt="" className="img-fluid" />
           </div>
 
           <Link to="/" className="logo d-flex align-items-center justify-content-center">

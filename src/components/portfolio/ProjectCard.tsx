@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Project } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
+import { thumbnailUrl } from "../../utils/thumbnail";
 
 type ProjectCardProps = {
   project: Project;
@@ -13,7 +14,7 @@ function ProjectCard({ project }: ProjectCardProps) {
     <div className={`col-lg-6 portfolio-item filter-${project.filter}`}>
       <div className="portfolio-card">
         <div className="portfolio-image">
-          <img src={project.image} className="img-fluid" alt={projectTitle} loading="lazy" decoding="async" />
+          <img src={thumbnailUrl(project.image, 960)} className="img-fluid" alt={projectTitle} loading="lazy" decoding="async" />
         </div>
 
         <div className="portfolio-content">

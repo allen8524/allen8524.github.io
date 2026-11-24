@@ -1,3 +1,5 @@
+import { thumbnailUrl } from "../../utils/thumbnail";
+
 function Hero() {
   return (
     <section id="hero" className="hero section">
@@ -18,7 +20,7 @@ function Hero() {
               <div className="image-wrapper">
                 <div className="hero-profile-shell">
                   <img
-                    src="assets/img/profile/profile_face.png"
+                    src={thumbnailUrl("assets/img/profile/profile_face.png", 800)}
                     alt="황민서 백엔드 개발자 포트폴리오"
                     className="img-fluid main-image"
                   />
