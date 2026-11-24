@@ -104,7 +104,6 @@ function Contact() {
                     type="button"
                     className="submit-btn w-100 justify-content-center"
                     onClick={handleCopyEmail}
-                    aria-label="이메일 주소 복사"
                   >
                     <span>{isCopySuccessful ? "복사 완료" : "이메일 복사"}</span>
                     <i className={`bi ${isCopySuccessful ? "bi-check-lg" : "bi-copy"}`} aria-hidden="true" />
@@ -114,10 +113,9 @@ function Contact() {
                   <a
                     href={`mailto:${EMAIL_ADDRESS}`}
                     className="submit-btn w-100 justify-content-center"
-                    aria-label="이메일 앱 열기"
                   >
                     <span>메일 보내기</span>
-                    <i className="bi bi-envelope-arrow-up" />
+                    <i className="bi bi-envelope-arrow-up" aria-hidden="true" />
                   </a>
                 </div>
                 <div className="col-md-6">
@@ -126,10 +124,9 @@ function Contact() {
                     className="submit-btn contact-secondary-btn w-100 justify-content-center"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="GitHub 바로가기"
                   >
                     <span>GitHub 바로가기</span>
-                    <i className="bi bi-github" />
+                    <i className="bi bi-github" aria-hidden="true" />
                   </a>
                 </div>
                 <div className="col-md-6">
@@ -138,10 +135,9 @@ function Contact() {
                     className="submit-btn contact-secondary-btn w-100 justify-content-center"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="블로그 바로가기"
                   >
                     <span>블로그 보기</span>
-                    <i className="bi bi-journal-text" />
+                    <i className="bi bi-journal-text" aria-hidden="true" />
                   </a>
                 </div>
               </div>

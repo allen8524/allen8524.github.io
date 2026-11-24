@@ -70,6 +70,13 @@ export function useScrollReveal({ scope, deps = [] }: UseScrollRevealOptions) {
         : null;
 
     const collect = () => {
+      elements.forEach((element) => {
+        if (root.contains(element)) return;
+        observer?.unobserve(element);
+        element.classList.remove("reveal-item", "is-visible");
+        elements.delete(element);
+      });
+
       const candidates = Array.from(
         root.querySelectorAll<HTMLElement>(selectors[scope]),
       );

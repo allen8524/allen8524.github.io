@@ -5,7 +5,6 @@ import Footer from "../components/sections/Footer";
 import Header from "../components/sections/Header";
 import Hero from "../components/sections/Hero";
 import Portfolio from "../components/sections/Portfolio";
-import Preloader from "../components/sections/Preloader";
 import Resume from "../components/sections/Resume";
 import ScrollTop from "../components/sections/ScrollTop";
 import Services from "../components/sections/Services";
@@ -40,7 +39,6 @@ function HomePage() {
       </main>
       <Footer />
       <ScrollTop />
-      <Preloader />
     </>
   );
 }

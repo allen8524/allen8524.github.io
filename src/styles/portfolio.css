@@ -168,7 +168,7 @@
 }
 
 .portfolio .portfolio-description {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: var(--theme-text-muted);
   font-size: 15px;
   line-height: 1.6;
   margin: 0;
@@ -306,7 +306,7 @@
 .portfolio .portfolio-description-list li {
   position: relative;
   padding-left: 0.95rem;
-  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  color: var(--theme-text-muted);
   font-size: 15px;
   line-height: 1.6;
   word-break: keep-all;
