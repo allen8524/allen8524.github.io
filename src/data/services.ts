@@ -52,15 +52,15 @@ export const services: ServiceDetail[] = [
     evidence: [
       {
         icon: "film",
-        title: "CineFlow",
+        title: "CineFlow", projectId: "cineflow",
         description: "Spring Security · BCrypt · 세션 인증",
       },
       {
         icon: "controller",
-        title: "e스포츠 포털",
+        title: "e스포츠 포털", projectId: "esports",
         description: "auth·admin 미들웨어 · 세션 재발급",
       },
-      { icon: "cart", title: "쇼핑몰", description: "PHP 세션 로그인" },
+      { icon: "cart", title: "쇼핑몰", projectId: "shopping", description: "PHP 세션 로그인" },
     ],
     sideInfo: [
       {
@@ -160,17 +160,17 @@ export const services: ServiceDetail[] = [
     evidence: [
       {
         icon: "film",
-        title: "CineFlow",
+        title: "CineFlow", projectId: "cineflow",
         description: "예매번호 · 좌석 · 결제 연결",
       },
       {
         icon: "cart",
-        title: "쇼핑몰",
+        title: "쇼핑몰", projectId: "shopping",
         description: "주문번호 · 주문 상세 저장",
       },
       {
         icon: "shop",
-        title: "베이커리",
+        title: "베이커리", projectId: "bakery",
         description: "제품 ID · 재고 · 판매 확인",
       },
     ],
@@ -273,17 +273,17 @@ export const services: ServiceDetail[] = [
     evidence: [
       {
         icon: "film",
-        title: "CineFlow",
+        title: "CineFlow", projectId: "cineflow",
         description: "영화 · 극장 · 상영일정 운영",
       },
       {
         icon: "controller",
-        title: "e스포츠 포털",
+        title: "e스포츠 포털", projectId: "esports",
         description: "뉴스 · 팀 · 선수 · 경기 운영",
       },
       {
         icon: "shop",
-        title: "베이커리",
+        title: "베이커리", projectId: "bakery",
         description: "제품 · 재고 · 판매 운영",
       },
     ],
@@ -384,15 +384,15 @@ export const services: ServiceDetail[] = [
     ],
     evidenceTitle: "적용 프로젝트",
     evidence: [
-      { icon: "film", title: "CineFlow", description: "JPA · Flyway" },
+      { icon: "film", title: "CineFlow", projectId: "cineflow", description: "JPA · Flyway" },
       {
         icon: "controller",
-        title: "e스포츠 포털",
+        title: "e스포츠 포털", projectId: "esports",
         description: "MySQL JOIN · 집계",
       },
       {
         icon: "chart",
-        title: "Movie PCA",
+        title: "Movie PCA", projectId: "movie-analysis",
         description: "CSV 전처리 · PCA · 회귀분석",
       },
     ],

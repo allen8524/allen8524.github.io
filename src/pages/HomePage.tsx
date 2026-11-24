@@ -1,12 +1,9 @@
-import { useEffect } from "react";
+import PageLayout from "../components/common/PageLayout";
 import About from "../components/sections/About";
 import Contact from "../components/sections/Contact";
-import Footer from "../components/sections/Footer";
-import Header from "../components/sections/Header";
 import Hero from "../components/sections/Hero";
 import Portfolio from "../components/sections/Portfolio";
 import Resume from "../components/sections/Resume";
-import ScrollTop from "../components/sections/ScrollTop";
 import Services from "../components/sections/Services";
 import Skills from "../components/sections/Skills";
 import Troubleshooting from "../components/sections/Troubleshooting";
@@ -15,19 +12,8 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 function HomePage() {
   useScrollReveal({ scope: "home" });
 
-  useEffect(() => {
-    document.body.classList.add("index-page");
-    document.body.classList.remove("portfolio-details-page");
-
-    return () => {
-      document.body.classList.remove("index-page");
-    };
-  }, []);
-
   return (
-    <>
-      <Header />
-      <main id="main-content" tabIndex={-1} className="main">
+    <PageLayout pageClass="index-page">
         <Hero />
         <About />
         <Skills />
@@ -36,10 +22,7 @@ function HomePage() {
         <Services />
         <Troubleshooting />
         <Contact />
-      </main>
-      <Footer />
-      <ScrollTop />
-    </>
+    </PageLayout>
   );
 }
 

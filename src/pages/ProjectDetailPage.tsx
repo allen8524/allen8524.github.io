@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import PageLayout from "../components/common/PageLayout";
 import { useParams } from "react-router-dom";
 import ProjectDetailHero from "../components/project-detail/ProjectDetailHero";
 import ProjectGallery from "../components/project-detail/ProjectGallery";
@@ -7,9 +7,6 @@ import ProjectNavigation from "../components/project-detail/ProjectNavigation";
 import ProjectOverview from "../components/project-detail/ProjectOverview";
 import ProjectResultLinks from "../components/project-detail/ProjectResultLinks";
 import ProjectTroubleshooting from "../components/project-detail/ProjectTroubleshooting";
-import Footer from "../components/sections/Footer";
-import Header from "../components/sections/Header";
-import ScrollTop from "../components/sections/ScrollTop";
 import { getProjectDetail } from "../data/projectDetails";
 import { projects } from "../data/projects";
 import { DEFAULT_PAGE_METADATA, NOT_FOUND_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata";
@@ -32,18 +29,9 @@ function ProjectDetailPage() {
     description: project && detail ? project.description : NOT_FOUND_PAGE_METADATA.description,
     image: metadataImage,
     url: project ? `https://allen8524.github.io/#/projects/${project.id}` : DEFAULT_PAGE_METADATA.url,
-  });
+  }, Boolean(project && detail));
 
-  useScrollReveal({ scope: "project", deps: [projectId] });
-
-  useEffect(() => {
-    document.body.classList.remove("index-page");
-    document.body.classList.add("portfolio-details-page");
-
-    return () => {
-      document.body.classList.remove("portfolio-details-page");
-    };
-  }, []);
+  useScrollReveal({ scope: "project", routeKey: projectId });
 
   if (!project || !detail) {
     return <NotFoundPage />;
@@ -55,9 +43,7 @@ function ProjectDetailPage() {
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
-    <>
-      <Header />
-      <main id="main-content" tabIndex={-1} className="main">
+    <PageLayout pageClass="portfolio-details-page">
         <section id="portfolio-details" className={`portfolio-details section${isMobileProject ? " portfolio-details--mobile-project" : ""}`}>
           <div className="project-detail-container">
             <ProjectDetailHero detail={detail} project={project} />
@@ -71,10 +57,7 @@ function ProjectDetailPage() {
             <ProjectNavigation previousProject={previousProject} nextProject={nextProject} />
           </div>
         </section>
-      </main>
-      <Footer />
-      <ScrollTop />
-    </>
+    </PageLayout>
   );
 }
 

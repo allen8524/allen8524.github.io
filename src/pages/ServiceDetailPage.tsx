@@ -1,10 +1,7 @@
-import { useEffect } from "react";
+import PageLayout from "../components/common/PageLayout";
 import { Link, useParams } from "react-router-dom";
 import DetailHero from "../components/common/DetailHero";
 import ServiceFeatureIcon from "../components/service-detail/ServiceFeatureIcon";
-import Footer from "../components/sections/Footer";
-import Header from "../components/sections/Header";
-import ScrollTop from "../components/sections/ScrollTop";
 import { getServiceDetail, services } from "../data/services";
 import {
   DEFAULT_PAGE_METADATA,
@@ -17,24 +14,7 @@ import NotFoundPage from "./NotFoundPage";
 import "../styles/project-detail.css";
 import "../styles/service-detail.css";
 
-function getTechnologyIcon(technology: string) {
-  const value = technology.toLocaleLowerCase();
-
-  if (value.includes("spring security") || value.includes("access control"))
-    return "bi-shield-lock";
-  if (value.includes("laravel")) return "bi-boxes";
-  if (value.includes("php")) return "bi-filetype-php";
-  if (value.includes("bootstrap")) return "bi-bootstrap-fill";
-  if (
-    value.includes("mysql") ||
-    value.includes("jpa") ||
-    value.includes("flyway")
-  )
-    return "bi-database";
-  if (value.includes("pandas")) return "bi-table";
-  if (value.includes("scikit")) return "bi-cpu";
-  return "bi-code-slash";
-}
+import { getTechnologyIcon } from "../utils/technologyIcon";
 
 function ServiceDetailPage() {
   const { serviceId } = useParams();
@@ -55,16 +35,9 @@ function ServiceDetailPage() {
     url: service
       ? `https://allen8524.github.io/#/services/${service.id}`
       : DEFAULT_PAGE_METADATA.url,
-  });
+  }, Boolean(service));
 
-  useScrollReveal({ scope: "service", deps: [serviceId] });
-
-  useEffect(() => {
-    document.body.classList.remove("index-page");
-    document.body.classList.add("service-details-page");
-
-    return () => document.body.classList.remove("service-details-page");
-  }, []);
+  useScrollReveal({ scope: "service", routeKey: serviceId });
 
   if (!service) return <NotFoundPage />;
 
@@ -77,25 +50,9 @@ function ServiceDetailPage() {
       ? "project-flow-list service-auth-flow"
       : "service-process-list";
   const [technologies, ...checklists] = service.sideInfo;
-  const findEvidenceProject = (title: string) => {
-    const normalizedTitle = title.toLocaleLowerCase();
-    const meaningfulTokens = normalizedTitle
-      .split(/\s+/)
-      .filter((token) => token.length >= 3);
-
-    return service.relatedProjects.find((project) => {
-      const normalizedLabel = project.label.toLocaleLowerCase();
-      return (
-        normalizedLabel.includes(normalizedTitle) ||
-        meaningfulTokens.some((token) => normalizedLabel.includes(token))
-      );
-    });
-  };
 
   return (
-    <>
-      <Header />
-      <main id="main-content" tabIndex={-1} className="main portfolio-details service-detail-page">
+    <PageLayout pageClass="service-details-page" mainClass="main portfolio-details service-detail-page">
         <div className="project-detail-container">
           <DetailHero
             key={service.id}
@@ -216,7 +173,7 @@ function ServiceDetailPage() {
               </div>
               <div className="service-evidence-grid">
                 {service.evidence.map((item) => {
-                  const project = findEvidenceProject(item.title);
+                  const project = service.relatedProjects.find(({ projectId }) => projectId === item.projectId);
                   const content = (
                     <>
                       <ServiceFeatureIcon icon={item.icon} />
@@ -296,10 +253,7 @@ function ServiceDetailPage() {
             </ul>
           </nav>
         </div>
-      </main>
-      <Footer />
-      <ScrollTop />
-    </>
+    </PageLayout>
   );
 }
 

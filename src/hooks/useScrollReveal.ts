@@ -1,7 +1,7 @@
 import { useLayoutEffect } from "react";
 
 type RevealScope = "home" | "project" | "service";
-type UseScrollRevealOptions = { scope: RevealScope; deps?: unknown[] };
+type UseScrollRevealOptions = { scope: RevealScope; routeKey?: string };
 
 // Animate complete blocks once, never both a block and its children.
 const selectors: Record<RevealScope, string> = {
@@ -49,7 +49,7 @@ const selectors: Record<RevealScope, string> = {
   ].join(","),
 };
 
-export function useScrollReveal({ scope, deps = [] }: UseScrollRevealOptions) {
+export function useScrollReveal({ scope, routeKey }: UseScrollRevealOptions) {
   useLayoutEffect(() => {
     const root = document.querySelector("main.main");
     if (!root) return;
@@ -113,5 +113,5 @@ export function useScrollReveal({ scope, deps = [] }: UseScrollRevealOptions) {
         element.classList.remove("reveal-item", "is-visible"),
       );
     };
-  }, [scope, ...deps]);
+  }, [scope, routeKey]);
 }

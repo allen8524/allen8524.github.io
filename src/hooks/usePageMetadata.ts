@@ -60,8 +60,9 @@ function applyMetadata({ description, image, title, url }: Required<PageMetadata
   updateMetaTag("name", "twitter:image", image);
 }
 
-export function usePageMetadata({ description, image, title, url }: PageMetadata) {
+export function usePageMetadata({ description, image, title, url }: PageMetadata, enabled = true) {
   useEffect(() => {
+    if (!enabled) return;
     applyMetadata({
       title,
       description,
@@ -72,5 +73,5 @@ export function usePageMetadata({ description, image, title, url }: PageMetadata
     return () => {
       applyMetadata(DEFAULT_PAGE_METADATA);
     };
-  }, [description, image, title, url]);
+  }, [description, image, title, url, enabled]);
 }

@@ -47,7 +47,7 @@ export type ServiceDetail = {
   processOrdered?: boolean;
   alternateProcess?: ServiceStep;
   evidenceTitle: string;
-  evidence: ServiceFeature[];
+  evidence: (ServiceFeature & { projectId: string })[];
   sideInfo: {
     title: string;
     items: string[];
