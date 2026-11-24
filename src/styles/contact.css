@@ -22,14 +22,6 @@
   letter-spacing: -0.3px;
 }
 
-.contact .info-item .info-content p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--theme-text-muted);
-  margin: 0;
-  max-width: 440px;
-}
-
 .contact .contact-details .detail-item {
   display: flex;
   margin-bottom: 36px;
@@ -73,15 +65,6 @@
   line-height: 1.6;
 }
 
-.contact .form-wrapper .form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--heading-color);
-  margin-bottom: 12px;
-  letter-spacing: 0.2px;
-}
-
 .contact .form-wrapper .form-group input {
   width: 100%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
@@ -97,10 +80,6 @@
   outline: none;
   border-color: var(--accent-color);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.contact .form-wrapper .form-group input::placeholder {
-  color: var(--theme-text-muted);
 }
 
 .contact .form-wrapper .submit-btn {
@@ -162,16 +141,11 @@
   font-family: var(--font-card-title);
 }
 
-.contact .info-item .info-content p {
-  font-family: var(--font-body);
-}
-
 .contact .contact-details .detail-item .detail-content .detail-label {
   font-family: var(--font-label);
 }
 
 .contact .contact-details .detail-item .detail-content .detail-value,
-.contact .form-wrapper .form-group label,
 .contact .form-wrapper .form-group input {
   font-family: var(--font-ui);
 }

@@ -104,10 +104,6 @@
 }
 
 @media (max-width: 768px) {
-  .portfolio .portfolio-filters {
-    gap: 18px;
-  }
-
   .image-preview {
     padding: 14px;
   }

@@ -15,6 +15,7 @@
   .portfolio .portfolio-filters {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 18px;
   }
 }
 

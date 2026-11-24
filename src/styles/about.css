@@ -182,10 +182,10 @@
 .backend-flow__route { grid-area: 2 / 3; }
 .backend-flow__service { grid-area: 3 / 3; }
 .backend-flow__query { grid-area: 3 / 4; }
-.backend-flow__database { grid-area: 3 / 5; }
 .backend-flow__result { grid-area: 4 / 3; }
 
 .backend-flow__database {
+  grid-area: 3 / 5;
   border-color: color-mix(in srgb, var(--flow-purple), transparent 70%);
   background: color-mix(in srgb, var(--flow-purple), var(--theme-surface-1) 94%);
 }

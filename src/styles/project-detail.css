@@ -628,7 +628,6 @@
   .project-detail-hero { padding: 30px 26px; }
   .project-detail-hero__role { grid-template-columns: 1fr; gap: 2px; }
   .project-detail-links--count-2 { grid-template-columns: 1fr; }
-  .project-gallery-grid { grid-template-columns: 1fr; }
   .project-gallery-item { padding-right: 5px; }
   .project-nav { grid-template-columns: 1fr; }
   .project-nav .prev-project,
@@ -937,6 +936,7 @@
     margin-bottom: 24px;
   }
   .project-gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
     gap: 28px;
     padding-right: 10px;
   }
@@ -945,11 +945,6 @@
   .portfolio-details .project-detail-hero .detail-hero-blob,
   .project-nav-thumb-effect__leaf {
     animation: none !important;
-  }
-}
-@media (max-width: 767px) {
-  .project-gallery-grid {
-    grid-template-columns: minmax(0, 1fr);
   }
 }
 .project-nav-thumb-effect {
