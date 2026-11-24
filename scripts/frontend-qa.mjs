@@ -109,9 +109,12 @@ try {
       await page.waitForFunction(()=>document.activeElement?.id==="portfolio");
       assert.equal(await page.locator("#portfolio").evaluate(el=>getComputedStyle(el).outlineStyle),"none");
       mark("project filter");
-      await page.getByRole("button",{name:"Spring",exact:true}).focus();
+      const springFilter = page.getByRole("button",{name:"Spring",exact:true});
+      await springFilter.focus();
       await page.keyboard.press("Enter");
-      assert.equal(await page.locator(".portfolio-card").count(),1);
+      await page.waitForURL("**/?filter=spring#portfolio");
+      await page.waitForFunction(()=>document.querySelectorAll(".portfolio-card").length===1);
+      assert.equal(await springFilter.evaluate(el=>el===document.activeElement), true);
       mark("card image keyboard preview");
       const cardPreview = page.locator(".portfolio-preview-button").first();
       await cardPreview.focus();
@@ -122,8 +125,14 @@ try {
       await page.getByRole("dialog").waitFor({state:"detached"});
       assert.equal(await cardPreview.evaluate(el=>el===document.activeElement), true);
       mark("project detail navigation");
-      await page.locator(".portfolio-cta .primary").first().click();
+      await page.locator(".portfolio-cta .primary").first().focus();
+      await page.keyboard.press("Enter");
       await page.locator(".project-detail-hero h1").waitFor();
+      assert.equal(await page.evaluate(()=>document.activeElement?.id), "main-content");
+      mark("gallery screenshot layers");
+      const galleryCard = page.locator(".project-gallery-item").first();
+      await galleryCard.waitFor();
+      assert.equal(await galleryCard.locator(".project-gallery-fan__sheet[aria-hidden=true]").count(), 3);
       mark("image modal open");
       await page.locator(".project-detail-hero .project-detail-image-button").click();
       mark("image modal close control");
@@ -135,6 +144,16 @@ try {
       mark("browser back");
       await page.goBack();
       await page.locator("#portfolio").waitFor();
+      assert.equal(await page.locator(".portfolio-card").count(), 1);
+      assert.equal(await springFilter.getAttribute("aria-pressed"), "true");
+      assert.equal(await page.evaluate(()=>document.activeElement?.id), "portfolio");
+      mark("back to top focus");
+      const scrollTop = page.getByRole("button", {name:"맨 위로 이동"});
+      await scrollTop.waitFor();
+      await scrollTop.focus();
+      await page.keyboard.press("Enter");
+      await page.waitForFunction(()=>window.scrollY===0);
+      assert.equal(await page.evaluate(()=>document.activeElement?.id), "main-content");
       interactionsPassed++;
       console.log("interaction "+width+"x"+height+" passed");
     } catch(error) {

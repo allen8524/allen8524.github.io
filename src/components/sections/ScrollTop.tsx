@@ -61,7 +61,10 @@ function ScrollTop() {
       onPointerEnter={(event) => {
         randomizeBlobPositions(event.currentTarget, event.pointerType);
       }}
-      onClick={() => window.scrollTo({ top: 0 })}
+      onClick={() => {
+        document.getElementById("main-content")?.focus({ preventScroll: true });
+        window.scrollTo({ top: 0 });
+      }}
     >
       <span className="jelly-scroll-top__icon" aria-hidden="true">
         <i className="bi bi-arrow-up-short" />

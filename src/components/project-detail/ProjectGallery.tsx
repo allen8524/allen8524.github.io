@@ -33,6 +33,15 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
           return (
             <figure className="project-gallery-item" key={image.src}>
               <div className="project-gallery-fan">
+                {[1, 2, 3].map((layer) => (
+                  <span
+                    key={layer}
+                    className={`project-gallery-fan__sheet project-gallery-fan__sheet--${layer}`}
+                    aria-hidden="true"
+                  >
+                    <img src={image.src} alt="" loading="lazy" decoding="async" />
+                  </span>
+                ))}
                 <button
                   type="button"
                   className="project-detail-image-button project-gallery-fan__front"

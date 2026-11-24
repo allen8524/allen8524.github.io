@@ -213,6 +213,7 @@ a {
   scroll-margin-top: 96px;
 }
 
+#main-content:focus,
 main section[tabindex="-1"]:focus {
   outline: none;
 }

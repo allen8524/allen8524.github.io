@@ -66,7 +66,7 @@ function Header() {
 
   const moveToSection = (sectionId: string) => {
     setIsOpen(false);
-    navigate({ pathname: "/", hash: `#${sectionId}` });
+    navigate({ pathname: "/", search: isHome ? location.search : "", hash: `#${sectionId}` });
   };
 
   return (

@@ -1,5 +1,5 @@
 import { useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigationType } from "react-router-dom";
 
 const validSectionIdPattern = /^[a-zA-Z0-9_-]+$/;
 
@@ -10,8 +10,11 @@ function getSectionId(hash: string) {
 
 function RouteScrollManager() {
   const location = useLocation();
+  const navigationType = useNavigationType();
 
   useLayoutEffect(() => {
+    if (navigationType === "REPLACE" && location.state?.preserveViewport) return;
+
     const requestedSection = new URLSearchParams(location.search).get("section") ?? "";
     const sectionId = getSectionId(location.hash) || getSectionId(requestedSection);
     const section = sectionId ? document.getElementById(sectionId) : null;
@@ -22,8 +25,11 @@ function RouteScrollManager() {
       section.scrollIntoView({ block: "start" });
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      if (location.pathname !== "/") {
+        document.getElementById("main-content")?.focus({ preventScroll: true });
+      }
     }
-  }, [location.key, location.pathname, location.search, location.hash]);
+  }, [location, navigationType]);
 
   return null;
 }
