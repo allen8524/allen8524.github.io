@@ -1,0 +1,384 @@
+/*--------------------------------------------------------------
+# Resume Section
+--------------------------------------------------------------*/
+.resume .section-title {
+  padding-bottom: 26px;
+}
+
+.resume .resume-column {
+  display: flex;
+}
+
+.resume .professional-journey,
+.resume .education-skills {
+  width: 100%;
+}
+
+.resume .resume-panel {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  background: color-mix(in srgb, var(--surface-color), transparent 6%);
+  padding: 2rem;
+}
+
+.resume .resume-panel-header {
+  margin-bottom: 1.5rem;
+  min-height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.resume .resume-panel-body {
+  margin-top: 1.5rem;
+}
+
+.resume .section-intro {
+  margin-bottom: 0;
+}
+
+.resume .section-intro .icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.resume .section-intro .icon-wrapper i {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.resume .section-intro h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--heading-color);
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+}
+
+.resume .section-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--theme-text-muted);
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+.resume .professional-journey .experience-timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-left: 0.4rem;
+}
+
+.resume .professional-journey .experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.resume .professional-journey .experience-timeline .timeline-item {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1.2rem 1.25rem 1.15rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  background: color-mix(in srgb, var(--surface-color), transparent 8%);
+}
+
+.resume .professional-journey .experience-timeline .timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.resume .timeline-dot {
+  position: absolute;
+  left: -2.08rem;
+  top: 1.3rem;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  border: 3px solid var(--background-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.resume .timeline-content .position-meta {
+  margin-bottom: 0.5rem;
+}
+
+.resume .timeline-content .position-meta .timeline-year {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-label);
+}
+
+.resume .timeline-content h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--heading-color);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+  font-family: var(--font-card-title);
+}
+
+.resume .timeline-content h4 {
+  font-size: 0.95rem;
+  color: var(--theme-text-muted);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-family: var(--font-subheading);
+}
+
+.resume .timeline-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--theme-text-muted);
+  margin-bottom: 1rem;
+  font-family: var(--font-card-body);
+}
+
+.resume .education-skills .education-grid .education-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.resume .education-skills .education-grid .education-card.primary {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+  position: relative;
+}
+
+.resume .education-skills .education-grid .education-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.resume .education-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.resume .degree-icon {
+  width: 40px;
+  height: 40px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.resume .degree-icon i {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+}
+
+.resume .degree-info {
+  flex: 1;
+}
+
+.resume .degree-info h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--heading-color);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+  font-family: var(--font-card-title);
+}
+
+.resume .degree-info .institution {
+  font-size: 1rem;
+  color: var(--theme-text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-family: var(--font-label);
+}
+
+.resume .degree-info .graduation-year {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-family: var(--font-label);
+}
+
+.resume .education-skills .education-grid .certification-section {
+  margin-top: 1.35rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  background: color-mix(in srgb, var(--surface-color), transparent 10%);
+}
+
+.resume .education-skills .education-grid .certification-section h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--heading-color);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+  font-family: var(--font-subheading);
+}
+
+.resume .cert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
+}
+
+.resume .cert-item:last-child {
+  border-bottom: none;
+}
+
+.resume .cert-item i {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.resume .cert-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.resume .cert-details .cert-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--heading-color);
+  font-family: var(--font-card-title);
+}
+
+.resume .cert-details .cert-provider {
+  font-size: 0.85rem;
+  color: var(--theme-text-muted);
+  font-family: var(--font-label);
+}
+
+@media (max-width: 992px) {
+
+  .resume .resume-panel {
+    padding: 1.6rem;
+  }
+
+  .resume .resume-panel-header {
+    min-height: auto;
+  }
+
+  .resume .section-intro {
+    margin-bottom: 0;
+  }
+
+  .resume .section-intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .resume .section-intro p {
+    font-size: 1rem;
+  }
+
+  .resume .professional-journey {
+    margin-bottom: 0;
+  }
+
+  .resume .professional-journey .experience-timeline {
+    margin-left: 0.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume .section-title {
+    padding-bottom: 22px;
+  }
+
+  .resume .resume-panel {
+    padding: 1.35rem;
+  }
+
+  .resume .section-intro .icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .resume .section-intro .icon-wrapper i {
+    font-size: 1.3rem;
+  }
+
+  .resume .section-intro h2 {
+    font-size: 1.6rem;
+  }
+
+  .resume .professional-journey .experience-timeline {
+    padding-left: 1.5rem;
+    margin-left: 0;
+  }
+
+  .resume .timeline-dot {
+    left: -1.8rem;
+  }
+
+  .resume .education-skills .education-grid .education-card {
+    padding: 1.3rem;
+  }
+
+  .resume .degree-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .resume .degree-icon i {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .resume .section-intro .icon-wrapper {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 1rem;
+  }
+
+  .resume .section-intro .icon-wrapper i {
+    font-size: 1.2rem;
+  }
+
+  .resume .section-intro h2 {
+    font-size: 1.4rem;
+  }
+
+  .resume .education-skills .education-grid .education-card {
+    padding: 1.2rem;
+  }
+
+  .resume .education-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .resume .cert-item {
+    padding: 0.8rem 0;
+  }
+}

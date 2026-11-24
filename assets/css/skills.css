@@ -1,0 +1,244 @@
+/*--------------------------------------------------------------
+# Skills Section
+--------------------------------------------------------------*/
+.skills {
+  --category-spacing: 60px;
+  --skill-spacing: 24px;
+  --border-light: color-mix(in srgb, var(--default-color), transparent 92%);
+  --text-light: var(--theme-text-muted);
+  --surface-soft: color-mix(in srgb, var(--surface-color), var(--accent-color) 1%);
+}
+
+.skills .skills-container {
+  padding-right: 40px;
+}
+
+.skills .skill-category {
+  margin-bottom: var(--category-spacing);
+}
+
+.skills .skill-category:last-child {
+  margin-bottom: 0;
+}
+
+.skills .category-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.skills .category-header .category-title {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+  font-family: var(--font-card-title);
+}
+
+.skills .skill-row {
+  margin-bottom: var(--skill-spacing);
+}
+
+.skills .skill-row:last-child {
+  margin-bottom: 0;
+}
+
+.skills .skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.skills .skill-info .skill-name {
+  font-size: 18px;
+  color: var(--default-color);
+  font-weight: 300;
+  font-family: var(--font-ui);
+}
+
+.skills .skill-info .skill-percentage {
+  font-size: 14px;
+  color: var(--accent-color);
+  font-weight: 500;
+  font-family: var(--font-ui);
+}
+
+.skills .skills-sidebar {
+  padding-left: 40px;
+}
+
+.skills .expertise-highlight {
+  background: var(--surface-soft);
+  padding: 40px 32px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-light);
+}
+
+.skills .expertise-highlight .highlight-icon {
+  margin-bottom: 24px;
+}
+
+.skills .expertise-highlight .highlight-icon i {
+  font-size: 48px;
+  color: var(--accent-color);
+}
+
+.skills .expertise-highlight .highlight-title {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  font-family: var(--font-card-title);
+}
+
+.skills .expertise-highlight .experience-number {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.skills .expertise-highlight .experience-number .experience-label {
+  font-size: 18px;
+  color: var(--text-light);
+  font-weight: 300;
+  font-family: var(--font-label);
+}
+
+.skills .technologies-section {
+  margin-bottom: 40px;
+}
+
+.skills .technologies-section .tech-title {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--heading-color);
+  margin-bottom: 24px;
+  font-family: var(--font-subheading);
+}
+
+.skills .technologies-section .tech-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.skills .tech-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.skills .tech-item:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 2%);
+}
+
+.skills .tech-item i {
+  font-size: 20px;
+  color: var(--accent-color);
+}
+
+.skills .tech-item span {
+  font-size: 14px;
+  color: var(--default-color);
+  font-weight: 400;
+  font-family: var(--font-ui);
+}
+
+.skills .achievements-section .achievements-title {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--heading-color);
+  margin-bottom: 24px;
+  font-family: var(--font-subheading);
+}
+
+.skills .achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.skills .achievement-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.skills .achievement-item .achievement-date {
+  font-size: 12px;
+  color: var(--accent-color);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 40px;
+  margin-top: 2px;
+  font-family: var(--font-label);
+}
+
+.skills .achievement-item .achievement-text {
+  font-size: 15px;
+  color: var(--default-color);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+@media (max-width: 992px) {
+  .skills .skills-container {
+    padding-right: 0;
+    margin-bottom: 60px;
+  }
+
+  .skills .skills-sidebar {
+    padding-left: 0;
+  }
+
+  .skills .expertise-highlight {
+    margin-bottom: 32px;
+  }
+
+  .skills .technologies-section {
+    margin-bottom: 32px;
+  }
+
+  .skills .technologies-section .tech-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    --category-spacing: 40px;
+  }
+
+  .skills .category-header .category-title {
+    font-size: 22px;
+  }
+
+  .skills .skill-info .skill-name {
+    font-size: 16px;
+  }
+
+  .skills .expertise-highlight {
+    padding: 32px 24px;
+}
+
+  .skills .tech-item {
+    padding: 12px;
+  }
+
+  .skills .tech-item span {
+    font-size: 13px;
+  }
+}

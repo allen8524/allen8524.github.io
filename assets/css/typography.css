@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+# Typography System
+--------------------------------------------------------------*/
+.hero .hero-content h1 {
+  word-break: keep-all;
+  line-break: strict;
+  text-wrap: balance;
+  font-family: var(--font-heading);
+}
+
+.section-title h2 {
+  font-family: var(--font-heading);
+}
+
+
+.footer,
+.footer p {
+  font-family: var(--font-label);
+}

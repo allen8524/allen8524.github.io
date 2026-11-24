@@ -526,8 +526,7 @@
   margin: 0 auto;
   padding: 0; }
 .project-gallery-fan { position: relative; isolation: isolate; overflow: visible; transform-origin: 10% 100%; width: fit-content; max-width: 100%; }
-.project-gallery-fan__front { border: 1px solid var(--project-border); border-radius: var(--project-radius); background: var(--project-card-bg); transform-origin: 10% 100%; transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 380ms ease, filter 380ms ease; width: fit-content; height: auto; position: relative; inset: auto; margin-inline: auto; }
-.project-gallery-fan__front { overflow: hidden; background: color-mix(in srgb, var(--project-page-bg), var(--theme-highlight-base) 2%); }
+.project-gallery-fan__front { border: 1px solid var(--project-border); transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 380ms ease, filter 380ms ease; width: fit-content; height: auto; position: relative; inset: auto; margin-inline: auto; overflow: hidden; background: color-mix(in srgb, var(--project-page-bg), var(--theme-highlight-base) 2%); }
 .project-gallery-fan__front img { display: block; object-fit: contain; width: auto; height: auto; max-width: 100%; max-height: 560px; min-width: 1px; min-height: 1px; }
 .project-gallery-item figcaption { position: relative; z-index: 5; padding: 10px 13px 11px; border: 1px solid color-mix(in srgb, var(--project-border), transparent 28%); background: color-mix(in srgb, var(--project-card-bg), var(--project-page-bg) 46%); color: var(--project-muted); font-size: 0.78rem; line-height: 1.55; }
 
@@ -549,8 +548,8 @@
 .project-nav .nav-title { font-size: 1.1rem; line-height: 1.5; }
 .project-nav .nav-meta { color: var(--project-muted); font-size: 0.79rem; font-weight: 600; line-height: 1.55; }
 .project-nav .nav-thumbnail { position: relative; display: block; grid-area: thumbnail; align-self: center; margin: 0; overflow: visible; border-radius: 8px; width: fit-content; max-width: 100%; aspect-ratio: auto; }
-.project-nav-thumb-effect { position: relative; display: block; width: 100%; height: 100%; overflow: visible; border-radius: inherit; isolation: isolate; transform: translateZ(0); transition: transform 180ms ease; }
-.project-nav-thumb-effect__image-frame { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: inherit; background: var(--project-card-bg); box-shadow: 0 4px 12px color-mix(in srgb, var(--theme-shadow-base), transparent 90%); }
+.project-nav-thumb-effect { position: relative; display: block; height: 100%; overflow: visible; border-radius: inherit; isolation: isolate; transform: translateZ(0); transition: transform 180ms ease; }
+.project-nav-thumb-effect__image-frame { position: relative; display: block; height: 100%; overflow: hidden; border: 1px solid color-mix(in srgb, var(--project-border), transparent 20%); border-radius: inherit; background: var(--project-card-bg); box-shadow: 0 4px 12px color-mix(in srgb, var(--theme-shadow-base), transparent 90%); }
 .project-nav-thumb-effect__image { inset: 0; display: block; object-position: center top; transition: transform 300ms ease, filter 300ms ease; position: relative; width: auto; height: auto; max-width: 100%; max-height: 160px; object-fit: contain; }
 .project-nav-thumb-effect__overlay { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(100deg, transparent 12%, color-mix(in srgb, var(--accent-color), transparent 78%) 34%, color-mix(in srgb, var(--accent-color), var(--theme-highlight-base) 18%) 50%, color-mix(in srgb, var(--accent-color), transparent 80%) 66%, transparent 88%); background-position: 0% 50%; background-size: 220% 220%; mix-blend-mode: screen; opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
 .project-nav-thumb-effect__leaf { position: absolute; z-index: 3; color: var(--accent-color); pointer-events: none; transform-origin: 50% 0; filter: drop-shadow(2px 2px 3px color-mix(in srgb, var(--theme-shadow-base), transparent 70%)); }
@@ -682,9 +681,6 @@
 
 .project-gallery-fan__front {
   box-shadow: 0 5px 14px color-mix(in srgb, var(--theme-shadow-base), transparent 90%);
-}
-
-.project-gallery-fan__front {
   z-index: 4;
   border-bottom-color: transparent;
   border-radius: var(--project-radius) var(--project-radius) 0 0;
