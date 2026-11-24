@@ -1,0 +1,33 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: TypeScript and unused declarations
+        run: npx --no-install tsc -b
+      - name: Install isolated lint tools
+        run: npm install --prefix "$RUNNER_TEMP/portfolio-lint" --no-save eslint@9.39.1 @typescript-eslint/parser@8.46.2 eslint-plugin-react-hooks@5.2.0 stylelint@16.25.0
+      - name: ESLint
+        env:
+          QA_MODULES: ${{ runner.temp }}/portfolio-lint/node_modules
+        run: "$QA_MODULES/.bin/eslint" src --max-warnings 0
+      - name: Stylelint
+        run: '"$RUNNER_TEMP/portfolio-lint/node_modules/.bin/stylelint" "src/styles/**/*.css" "assets/css/**/*.css"'
