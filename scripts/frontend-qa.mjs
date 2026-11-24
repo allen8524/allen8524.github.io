@@ -18,6 +18,8 @@ const browser = await chromium.launch();
 const failures = [];
 let executed = 0;
 let incomplete = 0;
+let interactionsPassed = 0;
+let viewsCompleted = 0;
 
 async function createContext(width, height, theme) {
   const context = await browser.newContext({ viewport: { width, height }, colorScheme: theme, reducedMotion: "reduce", serviceWorkers: "block" });
@@ -38,6 +40,21 @@ async function createContext(width, height, theme) {
     return route.fulfill({ response });
   });
   return context;
+}
+
+async function closeContext(context) {
+  // Stop active documents before removing the network isolation handlers.
+  // Wait for any outstanding route.fetch/fulfill callbacks before closing.
+  try {
+    for (const page of context.pages()) {
+      if (!page.isClosed()) await page.goto("about:blank", { waitUntil: "load" });
+    }
+    await context.unrouteAll({ behavior: "wait" });
+  } catch (error) {
+    failures.push("context teardown failed: " + error.name + " " + error.message);
+  } finally {
+    await context.close();
+  }
 }
 
 async function openRoute(page, route, index) {
@@ -94,10 +111,11 @@ try {
       mark("browser back");
       await page.goBack();
       await page.locator("#portfolio").waitFor();
+      interactionsPassed++;
       console.log("interaction "+width+"x"+height+" passed");
     } catch(error) {
       failures.push("interaction "+width+"x"+height+" stage="+stage+" "+error.name+" "+error.message);
-    } finally { await context.close(); }
+    } finally { await closeContext(context); }
   }
   for (const theme of ["light","dark"]) {
     for (const [width,height] of viewports) {
@@ -133,16 +151,20 @@ try {
           incomplete += result.incomplete;
           for (const violation of result.violations) failures.push(label+" axe "+violation.id+" ("+violation.count+")");
           if (errors.length) failures.push(label+" runtime/console errors: "+errors.length);
+          viewsCompleted++;
           console.log(label+" checked; overflow="+overflow+"; axe violations="+result.violations.length+"; incomplete="+result.incomplete);
         } catch (error) {
           failures.push(label+" load/check failed: "+error.name+" "+error.message);
         }
       }
-      await context.close();
+      await closeContext(context);
     }
   }
 
 } finally { await browser.close(); }
-console.log("View checks executed: "+executed+"/"+(routes.length*viewports.length*2)+"; axe incomplete: "+incomplete+"; failure records: "+failures.length);
+const expectedViews = routes.length * viewports.length * 2;
+if (executed !== expectedViews || viewsCompleted !== expectedViews) failures.push("view coverage incomplete: "+viewsCompleted+"/"+expectedViews);
+if (interactionsPassed !== 2) failures.push("interaction coverage incomplete: "+interactionsPassed+"/2");
+console.log("View checks executed: "+executed+"/"+expectedViews+"; completed: "+viewsCompleted+"/"+expectedViews+"; interactions passed: "+interactionsPassed+"/2; axe incomplete: "+incomplete+"; failure records: "+failures.length);
 for (const failure of failures) console.error(failure);
 if (failures.length) process.exitCode=1;
