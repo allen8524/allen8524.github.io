@@ -90,7 +90,16 @@ try {
       await page.keyboard.press("Escape");
       assert.equal(await diagram.evaluate(el=>el===document.activeElement),true);
       mark("open navigation");
-      if (width < 1200) await page.locator(".site-topbar-menu-toggle").click();
+      if (width < 1200) {
+        const menu = page.locator(".site-topbar-menu-toggle");
+        await menu.focus();
+        await page.keyboard.press("Enter");
+        await page.locator("#navmenu button").first().focus();
+        await page.keyboard.press("Escape");
+        assert.equal(await menu.getAttribute("aria-expanded"), "false");
+        assert.equal(await menu.evaluate(el=>el===document.activeElement), true);
+        await page.keyboard.press("Enter");
+      }
       await page.locator("#navmenu").getByRole("button",{name:"프로젝트",exact:true}).click();
       mark("section focus");
       await page.waitForFunction(()=>document.activeElement?.id==="portfolio");
@@ -100,8 +109,18 @@ try {
       await page.waitForFunction(()=>document.activeElement?.id==="portfolio");
       assert.equal(await page.locator("#portfolio").evaluate(el=>getComputedStyle(el).outlineStyle),"none");
       mark("project filter");
-      await page.getByRole("button",{name:"Spring",exact:true}).click();
+      await page.getByRole("button",{name:"Spring",exact:true}).focus();
+      await page.keyboard.press("Enter");
       assert.equal(await page.locator(".portfolio-card").count(),1);
+      mark("card image keyboard preview");
+      const cardPreview = page.locator(".portfolio-preview-button").first();
+      await cardPreview.focus();
+      assert.equal(await cardPreview.evaluate(el=>getComputedStyle(el).outlineStyle), "solid");
+      await page.keyboard.press("Enter");
+      await page.getByRole("button", {name:"미리보기 닫기"}).waitFor({state:"visible"});
+      await page.keyboard.press("Escape");
+      await page.getByRole("dialog").waitFor({state:"detached"});
+      assert.equal(await cardPreview.evaluate(el=>el===document.activeElement), true);
       mark("project detail navigation");
       await page.locator(".portfolio-cta .primary").first().click();
       await page.locator(".project-detail-hero h1").waitFor();
@@ -140,7 +159,7 @@ try {
           const overflow = await page.evaluate(() => Math.max(0,document.documentElement.scrollWidth - document.documentElement.clientWidth));
           if (overflow > 1) failures.push(label+" document overflow "+overflow+"px");
           const clippedControls = await page.evaluate(() => {
-            const selectors = ".site-topbar button, .site-topbar .logo, .portfolio-cta a, .project-detail-image-button, .contact .submit-btn";
+            const selectors = ".site-topbar button, .site-topbar .logo, .portfolio-cta a, .portfolio-preview-button, .project-detail-image-button, .contact .submit-btn";
             return [...document.querySelectorAll(selectors)].filter(el => {
               const rect = el.getBoundingClientRect();
               return rect.width > 0 && rect.height > 0 && getComputedStyle(el).visibility === "visible"
