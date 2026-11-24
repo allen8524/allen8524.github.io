@@ -94,6 +94,11 @@ try {
       await page.locator("#navmenu").getByRole("button",{name:"프로젝트",exact:true}).click();
       mark("section focus");
       await page.waitForFunction(()=>document.activeElement?.id==="portfolio");
+      assert.equal(await page.locator("#portfolio").evaluate(el=>getComputedStyle(el).outlineStyle),"none");
+      mark("section reload focus");
+      await page.reload({ waitUntil: "load" });
+      await page.waitForFunction(()=>document.activeElement?.id==="portfolio");
+      assert.equal(await page.locator("#portfolio").evaluate(el=>getComputedStyle(el).outlineStyle),"none");
       mark("project filter");
       await page.getByRole("button",{name:"Spring",exact:true}).click();
       assert.equal(await page.locator(".portfolio-card").count(),1);
