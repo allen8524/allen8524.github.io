@@ -48,6 +48,57 @@ async function openRoute(page, route, index) {
 }
 
 try {
+  for (const [width,height] of [[390,844],[1440,900]]) {
+    const context = await createContext(width,height,"light");
+    const page = await context.newPage();
+    let stage = "open home";
+    const mark = (name) => { stage = name; console.log("interaction "+width+"x"+height+" stage: "+name); };
+    try {
+      await openRoute(page,"/","interaction");
+      mark("skip navigation");
+      await page.locator(".skip-navigation").focus();
+      await page.keyboard.press("Enter");
+      assert.equal(await page.evaluate(()=>document.activeElement?.id),"main-content");
+      mark("theme toggle");
+      const theme = page.locator(".theme-orb-toggle");
+      await theme.click();
+      assert.equal(await page.locator("html").getAttribute("data-theme"),"dark");
+      mark("diagram focus and open");
+      const diagram = page.getByRole("button",{name:/Client 상영 회차 선택/});
+      await diagram.focus();
+      await page.keyboard.press("Enter");
+      await page.locator("#backend-design-detail a").waitFor();
+      assert.equal(await page.evaluate(()=>document.activeElement?.closest("#backend-design-detail")?.id),"backend-design-detail");
+      mark("diagram close and restore focus");
+      await page.keyboard.press("Escape");
+      assert.equal(await diagram.evaluate(el=>el===document.activeElement),true);
+      mark("open navigation");
+      if (width < 1200) await page.locator(".site-topbar-menu-toggle").click();
+      await page.locator("#navmenu").getByRole("button",{name:"프로젝트",exact:true}).click();
+      mark("section focus");
+      await page.waitForFunction(()=>document.activeElement?.id==="portfolio");
+      mark("project filter");
+      await page.getByRole("button",{name:"Spring",exact:true}).click();
+      assert.equal(await page.locator(".portfolio-card").count(),1);
+      mark("project detail navigation");
+      await page.locator(".portfolio-cta .primary").first().click();
+      await page.locator(".project-detail-hero h1").waitFor();
+      mark("image modal open");
+      await page.locator(".project-detail-hero .project-detail-image-button").click();
+      mark("image modal close control");
+      await page.getByRole("button",{name:"미리보기 닫기"}).waitFor({state:"visible"});
+      await page.keyboard.press("Escape");
+      mark("image modal close and focus restore");
+      await page.locator(".image-preview").waitFor({state:"detached"});
+      assert.equal(await page.locator(".project-detail-hero .project-detail-image-button").evaluate(el=>el===document.activeElement),true);
+      mark("browser back");
+      await page.goBack();
+      await page.locator("#portfolio").waitFor();
+      console.log("interaction "+width+"x"+height+" passed");
+    } catch(error) {
+      failures.push("interaction "+width+"x"+height+" stage="+stage+" "+error.name+" "+error.message);
+    } finally { await context.close(); }
+  }
   for (const theme of ["light","dark"]) {
     for (const [width,height] of viewports) {
       const context = await createContext(width,height,theme);
@@ -84,49 +135,13 @@ try {
           if (errors.length) failures.push(label+" runtime/console errors: "+errors.length);
           console.log(label+" checked; overflow="+overflow+"; axe violations="+result.violations.length+"; incomplete="+result.incomplete);
         } catch (error) {
-          failures.push(label+" load/check failed: "+error.name);
+          failures.push(label+" load/check failed: "+error.name+" "+error.message);
         }
       }
       await context.close();
     }
   }
-  for (const [width,height] of [[390,844],[1440,900]]) {
-    const context = await createContext(width,height,"light");
-    const page = await context.newPage();
-    try {
-      await openRoute(page,"/","interaction");
-      await page.locator(".skip-navigation").focus();
-      await page.keyboard.press("Enter");
-      assert.equal(await page.evaluate(()=>document.activeElement?.id),"main-content");
-      const theme = page.locator(".theme-orb-toggle");
-      await theme.click();
-      assert.equal(await page.locator("html").getAttribute("data-theme"),"dark");
-      const diagram = page.getByRole("button",{name:/Client 상영 회차 선택/});
-      await diagram.focus();
-      await page.keyboard.press("Enter");
-      await page.locator("#backend-design-detail a").waitFor();
-      assert.equal(await page.evaluate(()=>document.activeElement?.closest("#backend-design-detail")?.id),"backend-design-detail");
-      await page.keyboard.press("Escape");
-      assert.equal(await diagram.evaluate(el=>el===document.activeElement),true);
-      if (width < 1200) await page.locator(".site-topbar-menu-toggle").click();
-      await page.locator("#navmenu").getByRole("button",{name:"프로젝트",exact:true}).click();
-      await page.waitForFunction(()=>document.activeElement?.id==="portfolio");
-      await page.getByRole("button",{name:"Spring",exact:true}).click();
-      assert.equal(await page.locator(".portfolio-card").count(),1);
-      await page.locator(".portfolio-cta .primary").first().click();
-      await page.locator(".project-detail-hero h1").waitFor();
-      await page.locator(".project-detail-hero .project-detail-image-button").click();
-      await page.getByRole("button",{name:"미리보기 닫기"}).waitFor({state:"visible"});
-      await page.keyboard.press("Escape");
-      await page.locator(".image-preview").waitFor({state:"detached"});
-      assert.equal(await page.locator(".project-detail-hero .project-detail-image-button").evaluate(el=>el===document.activeElement),true);
-      await page.goBack();
-      await page.locator("#portfolio").waitFor();
-      console.log("interaction "+width+"x"+height+" passed");
-    } catch(error) {
-      failures.push("interaction "+width+"x"+height+" "+error.name);
-    } finally { await context.close(); }
-  }
+
 } finally { await browser.close(); }
 console.log("View checks executed: "+executed+"/"+(routes.length*viewports.length*2)+"; axe incomplete: "+incomplete+"; failure records: "+failures.length);
 for (const failure of failures) console.error(failure);

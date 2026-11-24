@@ -118,7 +118,7 @@ function Header() {
                     aria-current={activeSection === item.id ? "location" : undefined}
                     onClick={() => moveToSection(item.id)}
                   >
-                    <i className={`bi ${item.icon} navicon`} />
+                    <i className={`bi ${item.icon} navicon`} aria-hidden="true" />
                     {item.label}
                   </button>
                 </li>

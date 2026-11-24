@@ -77,7 +77,13 @@ function BackendDiagram() {
       if (event.target instanceof Element && !event.target.closest(".backend-inspect, .backend-design-detail")) dismiss();
     };
     const onScroll = (event: Event) => {
-      if (!(event.target instanceof Node) || !popup.current?.contains(event.target)) dismiss();
+      if (event.target instanceof Node && popup.current?.contains(event.target)) return;
+      if (pinned.current && trigger.current && popup.current?.contains(document.activeElement)) {
+        const rect = trigger.current.getBoundingClientRect();
+        setAnchor({ x: rect.right, y: rect.top });
+        return;
+      }
+      dismiss();
     };
     window.addEventListener("keydown", onKey);
     window.addEventListener("pointerdown", onPointer);
