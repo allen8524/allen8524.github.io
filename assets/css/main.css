@@ -177,7 +177,7 @@
   --theme-shell-text: #272829;
 
   /* Brand accent */
-  --theme-accent: #087f5b;
+  --theme-accent: #087856;
   --theme-accent-hover: #066749;
   --theme-accent-soft: rgba(8, 127, 91, 0.12);
 }
@@ -669,7 +669,7 @@ section,
   --category-spacing: 60px;
   --skill-spacing: 24px;
   --border-light: color-mix(in srgb, var(--default-color), transparent 92%);
-  --text-light: color-mix(in srgb, var(--default-color), transparent 35%);
+  --text-light: var(--theme-text-muted);
   --surface-soft: color-mix(in srgb, var(--surface-color), var(--accent-color) 1%);
 }
 

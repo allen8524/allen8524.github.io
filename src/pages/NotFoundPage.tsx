@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import Footer from "../components/sections/Footer";
 import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
+import { NOT_FOUND_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata";
 
 function NotFoundPage() {
+  usePageMetadata(NOT_FOUND_PAGE_METADATA);
   return (
     <>
       <Header />

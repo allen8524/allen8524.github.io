@@ -90,7 +90,7 @@
 }
 
 .project-detail-meta i {
-  color: color-mix(in srgb, var(--project-muted), transparent 18%);
+  color: var(--project-muted);
   font-size: 0.88rem;
 }
 
@@ -739,7 +739,7 @@
   --project-card-bg: var(--surface-color);
   --project-border: color-mix(in srgb, var(--accent-color), transparent 80%);
   --project-divider: color-mix(in srgb, var(--accent-color), transparent 85%);
-  --project-muted: color-mix(in srgb, var(--default-color), transparent 28%);
+  --project-muted: var(--theme-text-muted);
   --project-radius: 12px;
 }
 .portfolio-details {

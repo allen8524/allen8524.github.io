@@ -496,3 +496,10 @@ a {
   outline: 2px solid var(--heading-color);
   outline-offset: 3px;
 }
+
+.skip-navigation:is(:hover, :focus-visible) {
+  color: var(--contrast-color);
+}
+#main-content {
+  scroll-margin-top: 96px;
+}

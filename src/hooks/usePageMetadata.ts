@@ -15,6 +15,12 @@ export const DEFAULT_PAGE_METADATA = {
   url: "https://allen8524.github.io/",
 } as const;
 
+export const NOT_FOUND_PAGE_METADATA = {
+  ...DEFAULT_PAGE_METADATA,
+  title: "페이지를 찾을 수 없습니다 | 황민서 포트폴리오",
+  description: "요청하신 포트폴리오 페이지가 존재하지 않습니다.",
+} as const;
+
 type MetaAttribute = "name" | "property";
 
 function updateMetaTag(attribute: MetaAttribute, key: string, content: string) {

@@ -12,7 +12,7 @@ import Header from "../components/sections/Header";
 import ScrollTop from "../components/sections/ScrollTop";
 import { getProjectDetail } from "../data/projectDetails";
 import { projects } from "../data/projects";
-import { DEFAULT_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata";
+import { DEFAULT_PAGE_METADATA, NOT_FOUND_PAGE_METADATA, usePageMetadata } from "../hooks/usePageMetadata";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import NotFoundPage from "./NotFoundPage";
 import "../styles/project-detail.css";
@@ -28,8 +28,8 @@ function ProjectDetailPage() {
     : DEFAULT_PAGE_METADATA.image;
 
   usePageMetadata({
-    title: project ? `${project.title} | 황민서 포트폴리오` : DEFAULT_PAGE_METADATA.title,
-    description: project?.description ?? DEFAULT_PAGE_METADATA.description,
+    title: project && detail ? `${project.title} | 황민서 포트폴리오` : NOT_FOUND_PAGE_METADATA.title,
+    description: project && detail ? project.description : NOT_FOUND_PAGE_METADATA.description,
     image: metadataImage,
     url: project ? `https://allen8524.github.io/#/projects/${project.id}` : DEFAULT_PAGE_METADATA.url,
   });

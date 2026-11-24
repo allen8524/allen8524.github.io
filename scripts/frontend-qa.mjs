@@ -65,6 +65,15 @@ try {
           assert.equal(await page.locator("html").getAttribute("data-theme"),theme);
           const overflow = await page.evaluate(() => Math.max(0,document.documentElement.scrollWidth - document.documentElement.clientWidth));
           if (overflow > 1) failures.push(label+" document overflow "+overflow+"px");
+          const clippedControls = await page.evaluate(() => {
+            const selectors = ".site-topbar button, .site-topbar .logo, .portfolio-cta a, .project-detail-image-button, .contact .submit-btn";
+            return [...document.querySelectorAll(selectors)].filter(el => {
+              const rect = el.getBoundingClientRect();
+              return rect.width > 0 && rect.height > 0 && getComputedStyle(el).visibility === "visible"
+                && (rect.left < -1 || rect.right > document.documentElement.clientWidth + 1);
+            }).length;
+          });
+          if (clippedControls) failures.push(label+" controls outside viewport: "+clippedControls);
           await page.addScriptTag({ content: axeSource });
           const result = await page.evaluate(async () => {
             const results = await window.axe.run({ runOnly: { type: "tag", values: ["wcag2a","wcag2aa","wcag21a","wcag21aa","wcag22aa"] } });

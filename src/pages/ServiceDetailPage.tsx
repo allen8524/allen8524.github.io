@@ -8,6 +8,7 @@ import ScrollTop from "../components/sections/ScrollTop";
 import { getServiceDetail, services } from "../data/services";
 import {
   DEFAULT_PAGE_METADATA,
+  NOT_FOUND_PAGE_METADATA,
   usePageMetadata,
 } from "../hooks/usePageMetadata";
 import { useScrollReveal } from "../hooks/useScrollReveal";
@@ -48,8 +49,8 @@ function ServiceDetailPage() {
   usePageMetadata({
     title: service
       ? `${service.title} | 황민서 포트폴리오`
-      : DEFAULT_PAGE_METADATA.title,
-    description: service?.summary ?? DEFAULT_PAGE_METADATA.description,
+      : NOT_FOUND_PAGE_METADATA.title,
+    description: service?.summary ?? NOT_FOUND_PAGE_METADATA.description,
     image: metadataImage,
     url: service
       ? `https://allen8524.github.io/#/services/${service.id}`
