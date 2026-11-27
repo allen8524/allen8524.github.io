@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import type { Project } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
 import { thumbnailUrl } from "../../utils/thumbnail";
-import ImagePreview, { type PreviewImage } from "./ImagePreview";
+import ImagePreview, { type PreviewState } from "./ImagePreview";
 
 type ProjectCardProps = {
   project: Project;
@@ -12,7 +12,7 @@ type ProjectCardProps = {
 function ProjectCard({ project }: ProjectCardProps) {
   const projectTitle = formatMiddleDotSpacing(project.title);
   const thumbnail = useRef<HTMLImageElement>(null);
-  const [preview, setPreview] = useState<PreviewImage[] | null>(null);
+  const [preview, setPreview] = useState<PreviewState | null>(null);
   const closePreview = useCallback(() => setPreview(null), []);
 
   return (
@@ -24,7 +24,10 @@ function ProjectCard({ project }: ProjectCardProps) {
             type="button"
             className="portfolio-preview-button"
             aria-label={`${projectTitle} 이미지 확대`}
-            onClick={() => setPreview([{ src: project.image, alt: projectTitle, thumbnail: thumbnail.current }])}
+            onClick={event => setPreview({
+              images: [{ src: project.image, alt: projectTitle, thumbnail: thumbnail.current }],
+              trigger: event.currentTarget,
+            })}
           >
             <i className="bi bi-arrows-angle-expand" aria-hidden="true" />
           </button>
@@ -58,7 +61,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </div>
-      {preview && <ImagePreview images={preview} onClose={closePreview} />}
+      {preview && <ImagePreview {...preview} onClose={closePreview} />}
     </div>
   );
 }

@@ -16,8 +16,7 @@ function Contact() {
 
       await navigator.clipboard.writeText(EMAIL_ADDRESS);
       setCopyMessage(COPY_SUCCESS_MESSAGE);
-    } catch (error) {
-      console.error("이메일 주소 복사에 실패했습니다.", error);
+    } catch {
       setCopyMessage(COPY_FAILURE_MESSAGE);
     }
   };

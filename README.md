@@ -7,14 +7,11 @@
 [포트폴리오 바로가기](https://allen8524.github.io/) · [이력서 PDF](https://allen8524.github.io/assets/files/Hwang_Minseo_Resume.pdf)
 
 [![React 19](https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![TypeScript 5.8](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite 7](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-222222?style=flat-square&logo=github)](https://pages.github.com/)
 
-[![Deploy](https://github.com/allen8524/allen8524.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/allen8524/allen8524.github.io/actions/workflows/deploy.yml)
-[![Code Quality](https://github.com/allen8524/allen8524.github.io/actions/workflows/code-quality.yml/badge.svg?branch=main)](https://github.com/allen8524/allen8524.github.io/actions/workflows/code-quality.yml)
-[![Frontend QA](https://github.com/allen8524/allen8524.github.io/actions/workflows/frontend-qa.yml/badge.svg?branch=main)](https://github.com/allen8524/allen8524.github.io/actions/workflows/frontend-qa.yml)
-[![Pull Request Check](https://github.com/allen8524/allen8524.github.io/actions/workflows/pull-request.yml/badge.svg)](https://github.com/allen8524/allen8524.github.io/actions/workflows/pull-request.yml)
+[![Portfolio quality and Pages](https://github.com/allen8524/allen8524.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/allen8524/allen8524.github.io/actions/workflows/deploy.yml)
 
 ## 프로젝트
 
@@ -46,7 +43,7 @@ CineFlow의 좌석 선택 다이어그램은 Controller, Spring Security, SeatSe
 
 | 구분 | 기술 |
 | --- | --- |
-| 애플리케이션 | React 19, TypeScript 5.8, React Router 7 |
+| 애플리케이션 | React 19, TypeScript 5.9, React Router 7 |
 | 빌드 | Vite 7, Node.js 22, npm |
 | UI | 역할별 CSS, Bootstrap 5.3.8, Bootstrap Icons 1.13.1, GSAP |
 | 이미지 최적화 | Python 3.12, Pillow 11.3.0, WebP |
@@ -88,7 +85,11 @@ GitHub Pages의 정적 호스팅 환경에서 새로고침 시 라우팅을 유�
 │   ├── img/                 # 원본 이미지 및 파비콘
 │   └── vendor/              # Bootstrap 및 아이콘
 ├── scripts/
-│   ├── frontend-qa.mjs      # 격리된 브라우저 회귀 검사
+│   ├── frontend-qa.mjs      # 기능·접근성·라우트 매트릭스
+│   ├── qa-browser.mjs       # 브라우저 격리와 오류 기록
+│   ├── qa-server.mjs        # 로컬 빌드 서버 실행
+│   ├── seo.test.mjs         # 정적 SEO 파일 검사
+│   ├── visual-qa.mjs        # 고정 커밋과 스크린샷 비교
 │   └── optimize-thumbnails.py
 ├── src/
 │   ├── components/
@@ -134,7 +135,7 @@ GitHub Pages의 정적 호스팅 환경에서 새로고침 시 라우팅을 유�
 
 ## 로컬 실행
 
-Node.js 22와 npm을 권장합니다.
+CI와 동일한 Node.js 버전은 `.nvmrc`에 지정되어 있습니다. `npm ci`는 커밋된 lockfile의 버전을 사용합니다.
 
 ```bash
 npm ci
@@ -156,32 +157,41 @@ npm run preview
 
 | 명령 | 기능 |
 | --- | --- |
-| `npm run dev` | 개발 서버 실행 |
-| `npm run build` | TypeScript 검사 및 Vite 프로덕션 빌드 |
-| `npm run preview` | 로컬 빌드 결과 미리보기 |
-| `npm run deploy` | 로컬 빌드 실행(실제 배포는 GitHub Actions 담당) |
+| `npm run dev` / `npm run preview` | 개발 서버 / 프로덕션 빌드 미리보기 |
+| `npm run typecheck` | TypeScript와 미사용 선언 검사 |
+| `npm run lint` / `npm run lint:css` | ESLint / Stylelint 검사 |
+| `npm test` | robots.txt, sitemap, 구조화 데이터, 파비콘·대표 이미지 경로 검사 |
+| `npm run build` | Vite 프로덕션 빌드 |
+| `npm run qa` | 로컬 프로덕션 빌드의 브라우저·axe 검사 |
+| `npm run qa:visual` | 로컬 프로덕션 빌드와 고정 기준선의 스크린샷 비교 |
+| `npm run check` | 위 품질 검사와 빌드를 CI와 같은 순서로 실행 |
 
-## 자동화된 품질 검사
+## 브라우저 QA
 
-| 검사 | 범위 |
-| --- | --- |
-| TypeScript | 타입 오류, 미사용 지역 변수 및 매개변수 |
-| ESLint | React Hooks 및 설정된 코드 품질 규칙 |
-| Stylelint | CSS 속성, 중복 선언, 선택자 및 구문 검사 |
-| Playwright | 페이지 로딩, 가로 오버플로, 컨트롤 잘림, 콘솔·런타임 오류 및 주요 기능 |
-| axe-core | 자동화 가능한 WCAG 관련 접근성 규칙 |
+Chromium에서 16개 라우트 × 8개 뷰포트 × 2개 테마의 기존 256개 조합을 검사합니다. 추가로 주요 화면을 세 엔진(Chromium, Firefox, WebKit)의 라이트·다크 테마 및 두 가지 모션 설정에서 확인하고, Chromium에서 주요 반응형 경계 전후를 확인합니다. 각 엔진의 모바일과 데스크톱에서 키보드 탐색과 포커스 복원, 새로고침과 뒤로·앞으로 이동, 프로젝트 필터, 이미지 모달, 테마 유지, 클립보드 성공·거부, 청크 로딩 실패 및 복구를 검사합니다. 모바일 테스트는 터치 입력을 에뮬레이션합니다.
 
-브라우저 QA는 Chromium에서 **16개 라우트 × 8개 화면 크기 × 2개 테마(256개 화면 조합)**를 검사하도록 구성합니다. 별도로 모바일과 데스크톱에서 본문 바로가기, 테마 전환, 다이어그램, 메뉴, 필터, 상세 페이지 이동, 모달 및 뒤로가기를 검사합니다.
+QA 서버는 루프백에 바인딩됩니다. 외부 요청을 차단하고 원격 GitHub 이미지를 테스트 픽스처로 대체합니다. axe 위반은 검사 실패로 처리하며, 자동 판정이 불완전한 항목은 규칙·대상·메시지와 함께 `qa-artifacts/browser.json`에 기록합니다. 스크린리더와 실기기 수동 검수 상태는 [접근성 검수 기록](docs/accessibility-review.md)에 따로 관리합니다.
 
-검사는 운영 사이트가 아닌 CI 내부의 로컬 빌드를 대상으로 실행합니다. 외부 요청은 차단하며 일부 외부 이미지는 테스트용 이미지로 대체합니다. 자동화된 접근성 검사는 전체 WCAG 준수나 모든 브라우저의 호환성을 보장하지 않습니다. 실제 통과 여부는 상단 Actions 배지 및 실행 로그를 기준으로 확인합니다.
+## 시각적 회귀
 
-## CI/CD
+데스크톱·모바일, 라이트·다크의 홈, 프로젝트 상세, 구현 경험 상세, 404와 메뉴·필터·갤러리·모달을 비교합니다. 기준선은 수정 전 커밋 `72c8099810cd6da8df1f1c324cd1d587d588e0b8`에서 생성합니다. 고정 Chromium에서 기준선과 변경본을 같은 실행에서 캡처하고, 모션 감소 설정과 폰트·이미지 대기로 렌더링 편차를 줄입니다. 기준선 변경은 별도 검토가 필요합니다.
 
-| 워크플로 | 실행 조건 | 역할 |
-| --- | --- | --- |
-| [Pull Request Check](.github/workflows/pull-request.yml) | main 대상 PR | 이미지 생성 및 빌드 |
-| [Code Quality](.github/workflows/code-quality.yml) | main push·PR·수동 실행 | TypeScript, ESLint, Stylelint |
-| [Frontend QA](.github/workflows/frontend-qa.yml) | main push·PR·수동 실행 | 로컬 빌드의 브라우저 및 접근성 검사 |
-| [Deploy GitHub Pages](.github/workflows/deploy.yml) | main push·수동 실행 | 이미지 생성, 빌드, Pages Artifact 업로드 및 배포 |
+Python과 Pillow를 앞 절대로 준비한 뒤 Bash에서 다음을 실행합니다. Windows PowerShell에서는 `VISUAL_BASELINE_DIST`를 `$env:VISUAL_BASELINE_DIST`로 설정합니다. Linux에서는 브라우저 설치에 `--with-deps`를 추가할 수 있습니다.
 
-배포는 빌드 성공을 기준으로 수행되며, 코드 품질과 브라우저 QA는 별도 워크플로로 실행합니다. 따라서 배포 성공과 전체 QA 통과는 구분해서 확인합니다.
+```bash
+npm ci
+npx --no-install playwright install chromium firefox webkit
+git worktree add --detach ../portfolio-baseline 72c8099810cd6da8df1f1c324cd1d587d588e0b8
+(cd ../portfolio-baseline && npm ci && python scripts/optimize-thumbnails.py && npm run build)
+python scripts/optimize-thumbnails.py
+export VISUAL_BASELINE_DIST="$(cd ../portfolio-baseline && pwd)/dist"
+npm run check
+```
+
+비교 이미지는 `qa-artifacts/visual`에 저장합니다. CI는 검사 결과와 캡처를 `frontend-evidence` 아티팩트로 보관합니다.
+
+## SEO와 GitHub Pages
+
+sitemap은 HTTP로 독립적으로 요청할 수 있는 홈 URL을 등록합니다. 콘텐츠 변경 날짜를 정확하게 관리할 근거가 생기면 `lastmod`를 추가합니다. 상세 화면의 메타 태그는 브라우저에서 갱신됩니다. URL 프래그먼트는 서버로 전송되지 않으므로 해시 상세 주소의 독립 색인과 공유 미리보기는 제한됩니다. 클라이언트 404는 렌더링 후 `noindex`를 적용하며 HTTP 상태는 정적 호스트의 응답을 따릅니다.
+
+[Portfolio quality and Pages](.github/workflows/deploy.yml)는 main 대상 PR, main push 및 수동 실행에서 `npm run check`를 실행합니다. main의 push와 main을 선택한 수동 실행은 모든 검사에 성공한 동일 실행의 `dist`를 기존 `github-pages` 환경으로 전달합니다. 배포는 한 번에 하나씩 실행되며, 배포 단계에서 원격 main SHA와 실행 SHA가 일치하는지 확인합니다.

@@ -71,7 +71,7 @@ function Header() {
 
   return (
     <>
-      <a className="skip-navigation" href="#main-content" onClick={(event) => {
+      <a className="skip-navigation" href="#main-content" tabIndex={0} onClick={(event) => {
         event.preventDefault();
         const main = document.getElementById("main-content");
         main?.focus({ preventScroll: true });

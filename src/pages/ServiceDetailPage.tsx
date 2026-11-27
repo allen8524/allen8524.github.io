@@ -67,7 +67,7 @@ function ServiceDetailPage() {
               {formatMiddleDotSpacing(service.introduction)}
             </p>
             {technologies && (
-              <div className="project-detail-tech-groups" aria-label="주요 적용 기술">
+              <div className="project-detail-tech-groups" role="group" aria-label="주요 적용 기술">
                 <div className="project-detail-tech-chip-list">
                   {technologies.items.map((item) => (
                     <span className="project-detail-tech-chip" key={item}>

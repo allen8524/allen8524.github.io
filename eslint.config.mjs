@@ -1,11 +1,5 @@
-import { createRequire } from "node:module";
-import path from "node:path";
-
-const root = process.env.QA_MODULES;
-if (!root || !path.isAbsolute(root)) throw new Error("QA_MODULES must point to isolated lint dependencies");
-const require = createRequire(path.join(root, "lint-entry.cjs"));
-const parser = require("@typescript-eslint/parser");
-const hooks = require("eslint-plugin-react-hooks");
+import parser from "@typescript-eslint/parser";
+import hooks from "eslint-plugin-react-hooks";
 
 export default [
   { ignores: ["dist/**", "node_modules/**", "assets/vendor/**"] },

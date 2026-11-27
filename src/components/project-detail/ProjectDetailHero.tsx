@@ -15,7 +15,7 @@ function ProjectDetailHero({ detail, project }: ProjectDetailHeroProps) {
 
   return (
     <DetailHero image={heroImage} imageAlt={projectTitle} previewAddress={previewAddress}>
-      <div className="project-detail-meta" aria-label="프로젝트 정보">
+      <div className="project-detail-meta" role="group" aria-label="프로젝트 정보">
         <span><i className="bi bi-person" aria-hidden="true" />{formatMiddleDotSpacing(detail.developmentType)}</span>
         <span><i className="bi bi-calendar3" aria-hidden="true" />{formatMiddleDotSpacing(project.year)}</span>
       </div>

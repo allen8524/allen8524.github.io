@@ -8,23 +8,24 @@ export type PreviewImage = {
   thumbnail: HTMLImageElement | null;
 };
 
-type ImagePreviewProps = {
+export type PreviewState = {
   images: PreviewImage[];
   initialIndex?: number;
-  onClose: () => void;
+  trigger: HTMLButtonElement;
 };
+
+type ImagePreviewProps = PreviewState & { onClose: () => void };
 
 const reduceMotionQuery = "(prefers-reduced-motion: reduce)";
 const galleryOpenMask = "inset(0% 0% 0% 0%)";
 
 import { getThumbnailTransform } from "../../utils/thumbnailTransform";
 
-function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) {
+function ImagePreview({ images, initialIndex = 0, trigger, onClose }: ImagePreviewProps) {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const backdropRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
-  const previousFocusRef = useRef<HTMLElement | null>(null);
   const isClosingRef = useRef(false);
   const closeTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const galleryImages = useRef<Array<HTMLImageElement | null>>([]);
@@ -134,7 +135,6 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
       }
     };
 
-    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const appRoot = document.getElementById("root");
     const wasRootInert = appRoot?.inert ?? false;
 
@@ -192,9 +192,9 @@ function ImagePreview({ images, initialIndex = 0, onClose }: ImagePreviewProps) 
         appRoot.inert = wasRootInert;
       }
 
-      previousFocusRef.current?.focus();
+      trigger.focus({ preventScroll: true });
     };
-  }, [images, initialIndex, handleClose, moveGallery]);
+  }, [images, initialIndex, trigger, handleClose, moveGallery]);
 
   const previewContent = (
     <div
