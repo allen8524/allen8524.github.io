@@ -7,7 +7,8 @@ const baseline = "http://127.0.0.1:4174";
 const root = "qa-artifacts/visual";
 const pages = { home: "/", project: "/projects/cineflow", service: "/services/auth", missing: "/not-found-qa" };
 
-const browser = await chromium.launch({ channel: "chromium", args: ["--disable-gpu"] });
+// Use grayscale glyph antialiasing in both captures to avoid LCD compositing variance.
+const browser = await chromium.launch({ channel: "chromium", args: ["--disable-gpu", "--disable-lcd-text"] });
 async function capture(origin, directory) {
   await mkdir(directory, { recursive: true });
   const files = [];
