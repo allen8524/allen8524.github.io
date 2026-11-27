@@ -160,9 +160,8 @@ for (const [engine, browserType] of Object.entries(engines)) {
         assert.equal(await springFilter.getAttribute("aria-pressed"), "true");
         mark("back to top focus");
         const scrollTop = page.getByRole("button", {name:"맨 위로 이동"});
-        await scrollTop.waitFor();
-        await scrollTop.focus();
-        await page.keyboard.press("Enter");
+        await page.waitForFunction(() => window.scrollY > 100);
+        await scrollTop.press("Enter");
         await page.waitForFunction(()=>window.scrollY===0);
         assert.equal(await page.evaluate(()=>document.activeElement?.id), "main-content");
         mark("email copy and fallback");
@@ -191,7 +190,9 @@ for (const [engine, browserType] of Object.entries(engines)) {
         interactionsPassed++;
         console.log("interaction "+engine+" "+motion+" "+width+"x"+height+" passed");
       } catch(error) {
-        failures.push("interaction "+engine+" "+motion+" "+width+"x"+height+" stage="+stage+" "+error.name+" "+error.message);
+        const failure = "interaction "+engine+" "+motion+" "+width+"x"+height+" stage="+stage+" "+error.name+" "+error.message;
+        failures.push(failure);
+        console.error(failure);
       } finally { await closeContext(context); }
     }
     const batches = [];
@@ -244,7 +245,9 @@ for (const [engine, browserType] of Object.entries(engines)) {
             viewsCompleted++;
             console.log(label+" checked; overflow="+overflow+"; axe violations="+result.violations.length+"; incomplete="+result.incomplete.length);
           } catch (error) {
-            failures.push(label+" load/check failed: "+error.name+" "+error.message);
+            const failure = label+" load/check failed: "+error.name+" "+error.message;
+            failures.push(failure);
+            console.error(failure);
           }
         }
         await closeContext(context);
@@ -279,4 +282,3 @@ async function checkMetadata(page, route) {
   assert.deepEqual(meta.twitter, [meta.title, meta.description, meta.og[2], "summary_large_image"]);
   if (notFound) assert.match(meta.title, /찾을 수 없습니다/);
 }
-

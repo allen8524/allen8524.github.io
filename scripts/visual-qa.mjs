@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { base, closeContext, createContext, openRoute } from "./qa-browser.mjs";
 
@@ -7,7 +7,7 @@ const baseline = "http://127.0.0.1:4174";
 const root = "qa-artifacts/visual";
 const pages = { home: "/", project: "/projects/cineflow", service: "/services/auth", missing: "/not-found-qa" };
 
-const browser = await chromium.launch({ channel: "chromium" });
+const browser = await chromium.launch({ channel: "chromium", args: ["--disable-gpu"] });
 async function capture(origin, directory) {
   await mkdir(directory, { recursive: true });
   const files = [];
@@ -21,13 +21,24 @@ async function capture(origin, directory) {
             await document.fonts.ready;
             const visible = [...document.images].filter(image => {
               const rect = image.getBoundingClientRect();
-              return rect.bottom > 0 && rect.top < innerHeight && rect.width > 0;
+              return rect.bottom > 0 && rect.top < innerHeight && rect.width > 0 && image.closest('[aria-hidden="true"]') === null;
             });
-            await Promise.allSettled(visible.map(image => image.decode()));
+            await Promise.all(visible.map(image => image.decode()));
+            await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
           });
           const file = device + "-" + theme + "-" + name + ".png";
-          await page.screenshot({ path: directory + "/" + file, animations: "disabled", caret: "hide", scale: "css" });
-          files.push(file);
+          const options = { animations: "disabled", caret: "hide", scale: "css" };
+          let previous = await page.screenshot(options);
+          for (let attempt = 0; attempt < 8; attempt++) {
+            const current = await page.screenshot(options);
+            if (previous.equals(current)) {
+              await writeFile(directory + "/" + file, current);
+              files.push(file);
+              return;
+            }
+            previous = current;
+          }
+          throw new Error("Screen did not settle: " + file);
         }
         for (const [name, route] of Object.entries(pages)) {
           await openRoute(page, route, name, origin);
@@ -44,7 +55,7 @@ async function capture(origin, directory) {
             await page.locator(".portfolio-card").scrollIntoViewIfNeeded();
             await screenshot("filter");
             await page.locator(".portfolio-preview-button").click();
-            await page.getByRole("dialog").waitFor();
+            await page.getByRole("dialog").locator(".is-initial").waitFor({state: "visible"});
             await screenshot("card-modal");
           }
           if (name === "project") {
@@ -79,4 +90,3 @@ try {
 } finally {
   await browser.close();
 }
-
