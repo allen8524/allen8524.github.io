@@ -110,7 +110,11 @@ for (const [engine, browserType] of Object.entries(engines)) {
           const sheet = galleryCard.locator(".project-gallery-fan__sheet--3");
           const initial = await sheet.evaluate(el => getComputedStyle(el).transform);
           await galleryCard.locator("button").hover();
-          await sheet.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)));
+          await page.waitForFunction(value => {
+            const sheet = document.querySelector(".project-gallery-fan__sheet--3");
+            return sheet && getComputedStyle(sheet).transform !== value;
+          }, initial);
+          await sheet.evaluate(el => Promise.allSettled(el.getAnimations().map(animation => animation.finished)));
           assert.notEqual(await sheet.evaluate(el => getComputedStyle(el).transform), initial);
         }
         mark("gallery image modal");
@@ -182,11 +186,16 @@ for (const [engine, browserType] of Object.entries(engines)) {
         assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
         assert.deepEqual(errors, [], "unexpected browser errors");
         mark("lazy route unavailable and retry");
-        const failChunk = route => route.fulfill({ status: 503, headers: { "cache-control": "no-store" }, body: "QA fixture: unavailable" });
+        let injected = false;
+        const failChunk = async route => {
+          await route.fulfill({ status: 503, headers: { "cache-control": "no-store" }, body: "QA fixture: unavailable" });
+          injected = true;
+        };
         await page.route("**/ServiceDetailPage-*.js", failChunk);
         await page.goto(base + "/#/services/auth");
         await page.getByRole("heading", { name: "페이지를 불러오지 못했습니다" }).waitFor();
-        assert(errors.some(error => /HTTP 503: .*ServiceDetailPage/.test(error)), "failed chunk should be recorded");
+        assert(injected, "503 fixture should be served");
+        assert(errors.some(error => /^(HTTP 503|requestfailed): .*ServiceDetailPage/.test(error)), "failed chunk should be recorded");
         await page.unroute("**/ServiceDetailPage-*.js", failChunk);
         await page.getByRole("button", { name: "다시 시도" }).click();
         await page.locator("main#main-content h1").waitFor();
@@ -239,13 +248,13 @@ for (const [engine, browserType] of Object.entries(engines)) {
             await page.addScriptTag({ content: axeSource });
             const result = await page.evaluate(async () => {
               await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-            // Contrast is evaluated after the existing entrance transition has completed.
-            const reveal = document.getAnimations().filter(animation =>
-              animation.effect?.target?.classList.contains("reveal-item") &&
-              Number.isFinite(animation.effect.getComputedTiming().endTime)
-            );
-            await Promise.allSettled(reveal.map(animation => animation.finished));
-            const results = await window.axe.run({ runOnly: { type: "tag", values: ["wcag2a","wcag2aa","wcag21a","wcag21aa","wcag22aa"] } });
+              // Contrast is evaluated after the existing entrance transition has completed.
+              const reveal = document.getAnimations().filter(animation =>
+                animation.effect?.target?.classList.contains("reveal-item") &&
+                Number.isFinite(animation.effect.getComputedTiming().endTime)
+              );
+              await Promise.allSettled(reveal.map(animation => animation.finished));
+              const results = await window.axe.run({ runOnly: { type: "tag", values: ["wcag2a","wcag2aa","wcag21a","wcag21aa","wcag22aa"] } });
               return { violations: results.violations.map(v=>({id:v.id,count:v.nodes.length})), incomplete: results.incomplete.map(({id, impact, description, helpUrl, nodes}) => ({ id, impact, description, helpUrl, nodes: nodes.map(({target, failureSummary, any, all, none}) => ({ target, failureSummary, checks: [...any, ...all, ...none].map(({id, message, data}) => ({id, message, data})) })) })) };
             });
             incomplete += result.incomplete.length;
