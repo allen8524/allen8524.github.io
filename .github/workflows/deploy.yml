@@ -14,8 +14,6 @@ jobs:
   quality:
     runs-on: ubuntu-24.04
     timeout-minutes: 35
-    env:
-      VISUAL_BASELINE_DIST: ${{ runner.temp }}/portfolio-baseline/dist
     steps:
       - uses: actions/checkout@v4
         with:
@@ -39,6 +37,8 @@ jobs:
           python scripts/optimize-thumbnails.py
           npm run build
       - run: npm run check
+        env:
+          VISUAL_BASELINE_DIST: ${{ runner.temp }}/portfolio-baseline/dist
       - uses: actions/upload-artifact@v4
         if: always()
         with:
