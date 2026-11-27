@@ -18,16 +18,28 @@ async function capture(origin, directory) {
       try {
         const page = await context.newPage();
         async function screenshot(name) {
-          await page.evaluate(async () => {
+          const file = device + "-" + theme + "-" + name + ".png";
+          await page.evaluate(async label => {
             await document.fonts.ready;
+            await new Promise(resolve => requestAnimationFrame(resolve));
             const visible = [...document.images].filter(image => {
               const rect = image.getBoundingClientRect();
               return rect.bottom > 0 && rect.top < innerHeight && rect.width > 0 && image.closest('[aria-hidden="true"]') === null;
             });
-            await Promise.all(visible.map(image => image.decode()));
+            // A lazy image just scrolled into view may not have started loading yet.
+            for (const image of visible) {
+              if (!image.complete && image.loading === "lazy") image.loading = "eager";
+            }
+            await Promise.all(visible.map(async image => {
+              try {
+                await image.decode();
+              } catch {
+                const url = new URL(image.currentSrc || image.src);
+                throw new Error(label + " could not decode " + (url.protocol === "data:" ? "an inline image" : url.pathname));
+              }
+            }));
             await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-          });
-          const file = device + "-" + theme + "-" + name + ".png";
+          }, file);
           const options = { animations: "disabled", caret: "hide", scale: "css" };
           let previous = await page.screenshot(options);
           for (let attempt = 0; attempt < 8; attempt++) {
