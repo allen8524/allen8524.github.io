@@ -5,9 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build"
+    "typecheck": "tsc -b",
+    "lint": "eslint src --max-warnings 0",
+    "lint:css": "stylelint \"src/styles/**/*.css\" \"assets/css/**/*.css\"",
+    "qa": "node scripts/qa-server.mjs",
+    "qa:visual": "node scripts/qa-server.mjs visual",
+    "test": "node --test scripts/*.test.mjs",
+    "check": "npm run typecheck && npm run lint && npm run lint:css && npm test && npm run build && npm run qa && npm run qa:visual"
   },
   "dependencies": {
     "gsap": "^3.15.0",
@@ -18,7 +24,13 @@
   "devDependencies": {
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/parser": "8.74.0",
     "@vitejs/plugin-react": "^4.6.0",
+    "axe-core": "4.10.3",
+    "eslint": "9.39.1",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "playwright": "1.56.1",
+    "stylelint": "16.25.0",
     "typescript": "^5.8.3",
     "vite": "^7.0.0",
     "vite-plugin-static-copy": "^4.1.1"

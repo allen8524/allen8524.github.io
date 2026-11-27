@@ -5,6 +5,7 @@ type PageMetadata = {
   description: string;
   image?: string;
   url?: string;
+  noindex?: boolean;
 };
 
 export const DEFAULT_PAGE_METADATA = {
@@ -13,12 +14,14 @@ export const DEFAULT_PAGE_METADATA = {
     "신입 백엔드 개발자 황민서의 백엔드 포트폴리오입니다. Java, Spring Boot, JPA, Spring Security, Laravel, PHP, MySQL 기반 프로젝트의 설계와 구현 경험을 소개합니다.",
   image: "https://allen8524.github.io/assets/img/profile/profile_face.png",
   url: "https://allen8524.github.io/",
+  noindex: false,
 } as const;
 
 export const NOT_FOUND_PAGE_METADATA = {
   ...DEFAULT_PAGE_METADATA,
   title: "페이지를 찾을 수 없습니다 | 황민서 포트폴리오",
   description: "요청하신 포트폴리오 페이지가 존재하지 않습니다.",
+  noindex: true,
 } as const;
 
 type MetaAttribute = "name" | "property";
@@ -47,10 +50,11 @@ function updateCanonicalUrl(url: string) {
   canonical.href = url;
 }
 
-function applyMetadata({ description, image, title, url }: Required<PageMetadata>) {
+function applyMetadata({ description, image, title, url, noindex }: Required<PageMetadata>) {
   document.title = title;
   updateCanonicalUrl(url);
   updateMetaTag("name", "description", description);
+  updateMetaTag("name", "robots", noindex ? "noindex, follow" : "index, follow, max-image-preview:large");
   updateMetaTag("property", "og:title", title);
   updateMetaTag("property", "og:description", description);
   updateMetaTag("property", "og:image", image);
@@ -60,7 +64,7 @@ function applyMetadata({ description, image, title, url }: Required<PageMetadata
   updateMetaTag("name", "twitter:image", image);
 }
 
-export function usePageMetadata({ description, image, title, url }: PageMetadata, enabled = true) {
+export function usePageMetadata({ description, image, title, url, noindex = false }: PageMetadata, enabled = true) {
   useEffect(() => {
     if (!enabled) return;
     applyMetadata({
@@ -68,10 +72,11 @@ export function usePageMetadata({ description, image, title, url }: PageMetadata
       description,
       image: image ?? DEFAULT_PAGE_METADATA.image,
       url: url ?? DEFAULT_PAGE_METADATA.url,
+      noindex,
     });
 
     return () => {
       applyMetadata(DEFAULT_PAGE_METADATA);
     };
-  }, [description, image, title, url, enabled]);
+  }, [description, image, title, url, noindex, enabled]);
 }
