@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import type { ReactNode } from "react";
-import ImagePreview, { type PreviewImage } from "../portfolio/ImagePreview";
+import ImagePreview, { type PreviewState } from "../portfolio/ImagePreview";
 
 type DetailHeroProps = {
   children: ReactNode;
@@ -13,8 +13,8 @@ type DetailHeroProps = {
 
 function DetailHero({ children, image, imageAlt, previewAddress, labelledBy, caption }: DetailHeroProps) {
   const thumbnail = useRef<HTMLImageElement>(null);
-  const [previewImages, setPreviewImages] = useState<PreviewImage[] | null>(null);
-  const closePreview = useCallback(() => setPreviewImages(null), []);
+  const [preview, setPreview] = useState<PreviewState | null>(null);
+  const closePreview = useCallback(() => setPreview(null), []);
 
   return (
     <section className="project-detail-hero" aria-labelledby={labelledBy}>
@@ -36,7 +36,10 @@ function DetailHero({ children, image, imageAlt, previewAddress, labelledBy, cap
             type="button"
             className="project-detail-image-button"
             aria-label={`${imageAlt} 이미지 확대`}
-            onClick={() => setPreviewImages([{ src: image, alt: imageAlt, thumbnail: thumbnail.current }])}
+            onClick={event => setPreview({
+              images: [{ src: image, alt: imageAlt, thumbnail: thumbnail.current }],
+              trigger: event.currentTarget,
+            })}
           >
             <img ref={thumbnail} src={image} alt={imageAlt} className="img-fluid" />
           </button>
@@ -44,7 +47,7 @@ function DetailHero({ children, image, imageAlt, previewAddress, labelledBy, cap
         {caption && <figcaption>{caption}</figcaption>}
       </figure>
 
-      {previewImages && <ImagePreview images={previewImages} onClose={closePreview} />}
+      {preview && <ImagePreview {...preview} onClose={closePreview} />}
     </section>
   );
 }

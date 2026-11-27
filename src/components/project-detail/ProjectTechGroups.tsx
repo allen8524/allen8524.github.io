@@ -51,7 +51,7 @@ function ProjectTechGroups({ className = "", project }: ProjectTechGroupsProps) 
     .join(" ");
 
   return (
-    <div className={rootClassName} aria-label="기술 스택">
+    <div className={rootClassName} role="group" aria-label="기술 스택">
       <div className="project-detail-tech-row">
         <div className="project-detail-tech-chip-list">
           {project.techStack.map((tech) => (

@@ -1,21 +1,22 @@
 import { useCallback, useRef, useState } from "react";
 import type { ProjectDetail } from "../../types/project";
 import { formatMiddleDotSpacing } from "../../utils/typography";
-import ImagePreview, { type PreviewImage } from "../portfolio/ImagePreview";
+import ImagePreview, { type PreviewState } from "../portfolio/ImagePreview";
 import ProjectSectionHeading from "./ProjectSectionHeading";
 
 type ProjectGalleryProps = { detail: ProjectDetail };
 function ProjectGallery({ detail }: ProjectGalleryProps) {
-  const [preview, setPreview] = useState<{ images: PreviewImage[]; initialIndex: number } | null>(null);
+  const [preview, setPreview] = useState<PreviewState | null>(null);
   const thumbnails = useRef<Array<HTMLImageElement | null>>([]);
   const closePreview = useCallback(() => setPreview(null), []);
   const gallery = detail.gallery?.filter((image) => image.src !== detail.heroImage);
 
   if (!gallery?.length) return null;
 
-  const openPreview = (initialIndex: number) => {
+  const openPreview = (initialIndex: number, trigger: HTMLButtonElement) => {
     setPreview({
       initialIndex,
+      trigger,
       images: gallery.map((item, index) => ({
         src: item.src,
         alt: formatMiddleDotSpacing(item.alt),
@@ -46,7 +47,7 @@ function ProjectGallery({ detail }: ProjectGalleryProps) {
                   type="button"
                   className="project-detail-image-button project-gallery-fan__front"
                   aria-label={`${imageAlt} 이미지 확대`}
-                  onClick={() => openPreview(index)}
+                  onClick={event => openPreview(index, event.currentTarget)}
                 >
                   <img
                     ref={(element) => { thumbnails.current[index] = element; }}

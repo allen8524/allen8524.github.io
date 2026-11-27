@@ -167,6 +167,7 @@ for (const [engine, browserType] of Object.entries(engines)) {
         assert.equal(await springFilter.getAttribute("aria-pressed"), "true");
         mark("email copy and fallback");
         const copy = page.getByRole("button", { name: "이메일 복사", exact: true });
+        await copy.evaluate(el => el.scrollIntoView({ behavior: "instant", block: "center" }));
         await copy.click();
         await page.getByRole("status").filter({ hasText: "이메일 주소가 복사되었습니다." }).waitFor();
         assert.equal(await page.evaluate(() => sessionStorage.getItem("qa-clipboard-written")), "true");
@@ -184,7 +185,7 @@ for (const [engine, browserType] of Object.entries(engines)) {
         await page.route("**/ServiceDetailPage-*.js", failChunk);
         await page.goto(base + "/#/services/auth");
         await page.getByRole("heading", { name: "페이지를 불러오지 못했습니다" }).waitFor();
-        assert(errors.length > 0, "failed resource should be recorded");
+        assert(errors.some(error => /HTTP 503: .*ServiceDetailPage/.test(error)), "failed chunk should be recorded");
         await page.unroute("**/ServiceDetailPage-*.js", failChunk);
         await page.getByRole("button", { name: "다시 시도" }).click();
         await page.locator("main#main-content h1").waitFor();
@@ -194,7 +195,7 @@ for (const [engine, browserType] of Object.entries(engines)) {
         const failure = "interaction "+engine+" "+motion+" "+width+"x"+height+" stage="+stage+" "+error.name+" "+error.message;
         failures.push(failure);
         console.error(failure);
-      } finally { await closeContext(context); }
+      } finally { await finishContext(context, engine); }
     }
     const batches = [];
     for (const theme of ["light","dark"]) {
@@ -236,7 +237,14 @@ for (const [engine, browserType] of Object.entries(engines)) {
             await checkMetadata(page, route);
             await page.addScriptTag({ content: axeSource });
             const result = await page.evaluate(async () => {
-              const results = await window.axe.run({ runOnly: { type: "tag", values: ["wcag2a","wcag2aa","wcag21a","wcag21aa","wcag22aa"] } });
+              await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+            // Contrast is evaluated after the existing entrance transition has completed.
+            const reveal = document.getAnimations().filter(animation =>
+              animation.effect?.target?.classList.contains("reveal-item") &&
+              Number.isFinite(animation.effect.getComputedTiming().endTime)
+            );
+            await Promise.allSettled(reveal.map(animation => animation.finished));
+            const results = await window.axe.run({ runOnly: { type: "tag", values: ["wcag2a","wcag2aa","wcag21a","wcag21aa","wcag22aa"] } });
               return { violations: results.violations.map(v=>({id:v.id,count:v.nodes.length})), incomplete: results.incomplete.map(({id, impact, description, helpUrl, nodes}) => ({ id, impact, description, helpUrl, nodes: nodes.map(({target, failureSummary, any, all, none}) => ({ target, failureSummary, checks: [...any, ...all, ...none].map(({id, message, data}) => ({id, message, data})) })) })) };
             });
             incomplete += result.incomplete.length;
@@ -251,7 +259,7 @@ for (const [engine, browserType] of Object.entries(engines)) {
             console.error(failure);
           }
         }
-        await closeContext(context);
+        await finishContext(context, engine);
     }
     const expected = batches.reduce((total, batch) => total + batch.pages.length, 0);
     const result = { engine, expected, completed: viewsCompleted - before.views, interactionExpected: interactionCases.length, interactions: interactionsPassed - before.interactions };
@@ -265,6 +273,16 @@ await writeFile("qa-artifacts/browser.json", JSON.stringify({ browserResults, in
 console.log("View checks executed: "+executed+"; completed: "+viewsCompleted+"; interactions passed: "+interactionsPassed+"; axe incomplete: "+incomplete+"; failure records: "+failures.length);
 for (const failure of failures) console.error(failure);
 if (failures.length) process.exitCode=1;
+
+async function finishContext(context, engine) {
+  try {
+    await closeContext(context);
+  } catch (error) {
+    const failure = engine + " context teardown failed: " + error.message;
+    failures.push(failure);
+    console.error(failure);
+  }
+}
 
 async function checkMetadata(page, route) {
   const notFound = route.includes("not-found-qa");

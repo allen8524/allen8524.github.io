@@ -7,7 +7,7 @@
 [포트폴리오 바로가기](https://allen8524.github.io/) · [이력서 PDF](https://allen8524.github.io/assets/files/Hwang_Minseo_Resume.pdf)
 
 [![React 19](https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![TypeScript 5.8](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite 7](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-222222?style=flat-square&logo=github)](https://pages.github.com/)
 
@@ -43,7 +43,7 @@ CineFlow의 좌석 선택 다이어그램은 Controller, Spring Security, SeatSe
 
 | 구분 | 기술 |
 | --- | --- |
-| 애플리케이션 | React 19, TypeScript 5.8, React Router 7 |
+| 애플리케이션 | React 19, TypeScript 5.9, React Router 7 |
 | 빌드 | Vite 7, Node.js 22, npm |
 | UI | 역할별 CSS, Bootstrap 5.3.8, Bootstrap Icons 1.13.1, GSAP |
 | 이미지 최적화 | Python 3.12, Pillow 11.3.0, WebP |
