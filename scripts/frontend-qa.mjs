@@ -49,15 +49,9 @@ for (const [engine, browserType] of Object.entries(engines)) {
         assert.equal(await page.evaluate(()=>document.activeElement?.id),"main-content");
         mark("theme toggle");
         const theme = page.locator(".theme-orb-toggle");
-        const toggleTheme = () => width === 390 ? theme.tap() : theme.click();
-        await toggleTheme();
-        assert.equal(await page.locator("html").getAttribute("data-theme"),"dark");
-        await toggleTheme();
-        assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
-        await page.reload({ waitUntil: "domcontentloaded" });
-        await page.locator("main#main-content h1").waitFor();
-        assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
-        await toggleTheme();
+        if (width === 390) await theme.tap();
+        else await theme.click();
+        assert.equal(await page.locator("html").getAttribute("data-theme"), "dark");
         mark("diagram focus and open");
         const diagram = page.getByRole("button",{name:/Client 상영 회차 선택/});
         await diagram.focus();
@@ -112,19 +106,32 @@ for (const [engine, browserType] of Object.entries(engines)) {
         const galleryCard = page.locator(".project-gallery-item").first();
         await galleryCard.waitFor();
         assert.equal(await galleryCard.locator(".project-gallery-fan__sheet[aria-hidden=true]").count(), 3);
+        const galleryButton = galleryCard.locator("button");
         if (width >= 1200 && motion === "no-preference") {
           const sheet = galleryCard.locator(".project-gallery-fan__sheet--3");
+          await galleryButton.scrollIntoViewIfNeeded();
+          await page.mouse.move(0, 0);
+          const settleFan = () => sheet.evaluate(el => Promise.allSettled(el.getAnimations().map(animation => animation.finished)));
+          await settleFan();
           const initial = await sheet.evaluate(el => getComputedStyle(el).transform);
-          await galleryCard.locator("button").hover();
-          await page.waitForFunction(value => {
-            const sheet = document.querySelector(".project-gallery-fan__sheet--3");
-            return sheet && getComputedStyle(sheet).transform !== value;
-          }, initial);
-          await sheet.evaluate(el => Promise.allSettled(el.getAnimations().map(animation => animation.finished)));
-          assert.notEqual(await sheet.evaluate(el => getComputedStyle(el).transform), initial);
+          const waitForFan = value => page.waitForFunction(expected => {
+            const layer = document.querySelector(".project-gallery-fan__sheet--3");
+            return layer && (getComputedStyle(layer).transform === expected.value) === expected.matches;
+          }, { value: initial, matches: value });
+          await galleryButton.focus();
+          await waitForFan(false);
+          await settleFan();
+          await galleryButton.blur();
+          await waitForFan(true);
+          if (await page.evaluate(() => matchMedia("(hover: hover)").matches)) {
+            await galleryButton.hover();
+            await waitForFan(false);
+            await settleFan();
+          } else {
+            console.log(engine + " does not advertise hover; gallery fan verified via keyboard focus");
+          }
         }
         mark("gallery image modal");
-        const galleryButton = galleryCard.locator("button");
         if (width === 390) await galleryButton.tap();
         else await galleryButton.click();
         const galleryDialog = page.getByRole("dialog");
@@ -185,6 +192,21 @@ for (const [engine, browserType] of Object.entries(engines)) {
         await page.getByRole("button", { name: "이메일 주소 복사" }).click();
         await page.getByRole("status").filter({ hasText: "직접 선택해 주세요." }).waitFor();
         assert.deepEqual(errors, [], "unexpected browser errors");
+        mark("light theme persistence");
+        const themePage = await context.newPage();
+        const themeErrors = [];
+        observeErrors(themePage, themeErrors);
+        await openRoute(themePage, "/", "theme");
+        assert.equal(await themePage.locator("html").getAttribute("data-theme"), "dark");
+        const lightToggle = themePage.locator(".theme-orb-toggle");
+        if (width === 390) await lightToggle.tap();
+        else await lightToggle.click();
+        assert.equal(await themePage.locator("html").getAttribute("data-theme"), "light");
+        await themePage.reload({ waitUntil: "domcontentloaded" });
+        await themePage.locator("main#main-content h1").waitFor();
+        assert.equal(await themePage.locator("html").getAttribute("data-theme"), "light");
+        assert.deepEqual(themeErrors, [], "unexpected theme page errors");
+        await themePage.close();
         mark("lazy route unavailable and retry");
         const recoveryPage = await context.newPage();
         const recoveryErrors = [];
