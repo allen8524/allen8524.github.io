@@ -177,11 +177,12 @@ for (const [engine, browserType] of Object.entries(engines)) {
         if (width === 390) await theme.tap();
         else await theme.click();
         assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
-        await page.reload({ waitUntil: "load" });
+        await page.reload({ waitUntil: "domcontentloaded" });
+        await page.locator("main#main-content h1").waitFor();
         assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
         assert.deepEqual(errors, [], "unexpected browser errors");
         mark("lazy route unavailable and retry");
-        const failChunk = route => route.fulfill({ status: 503, body: "QA fixture: unavailable" });
+        const failChunk = route => route.fulfill({ status: 503, headers: { "cache-control": "no-store" }, body: "QA fixture: unavailable" });
         await page.route("**/ServiceDetailPage-*.js", failChunk);
         await page.goto(base + "/#/services/auth");
         await page.getByRole("heading", { name: "페이지를 불러오지 못했습니다" }).waitFor();

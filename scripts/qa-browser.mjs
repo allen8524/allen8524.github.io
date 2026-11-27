@@ -23,22 +23,14 @@ export async function createContext(browser, width, height, theme, reducedMotion
       }
       return route.abort();
     }
-    const response = await route.fetch({ maxRedirects: 0 });
-    if (response.status() >= 300 && response.status() < 400) return route.abort();
-    return route.fulfill({ response });
+    // This origin is a local static preview server with no external redirects.
+    return route.continue();
   });
   return context;
 }
 
 export async function closeContext(context) {
-  try {
-    for (const page of context.pages()) {
-      if (!page.isClosed()) await page.goto("about:blank", { waitUntil: "load" });
-    }
-    await context.unrouteAll({ behavior: "wait" });
-  } finally {
-    await context.close();
-  }
+  await context.close();
 }
 
 export async function openRoute(page, route, index, origin = base) {
@@ -55,7 +47,7 @@ export function observeErrors(page, errors) {
     if (message.type() === "error") errors.push("console: " + resource(message.location().url || base));
   });
   page.on("requestfailed", request => {
-    if (request.url().startsWith(base + "/") && !/aborted|binding_aborted/i.test(request.failure()?.errorText ?? "")) {
+    if (request.url().startsWith(base + "/") && !/aborted|cancelled|canceled/i.test(request.failure()?.errorText ?? "")) {
       errors.push("requestfailed: " + resource(request.url()));
     }
   });

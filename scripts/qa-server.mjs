@@ -5,11 +5,28 @@ import { preview } from "vite";
 const command = process.argv[2];
 const baseline = process.env.VISUAL_BASELINE_DIST;
 const servers = [];
+const blockRedirects = {
+  name: "qa-block-redirects",
+  configurePreviewServer(server) {
+    server.middlewares.use((_request, response, next) => {
+      const writeHead = response.writeHead;
+      response.writeHead = function (status, ...args) {
+        if (status >= 300 && status < 400 && status !== 304) {
+          this.removeHeader("location");
+          return writeHead.call(this, 502);
+        }
+        return writeHead.call(this, status, ...args);
+      };
+      next();
+    });
+  },
+};
 
 async function serve(directory, port) {
   await stat(path.join(directory, "index.html"));
   const server = await preview({
     configFile: false,
+    plugins: [blockRedirects],
     build: { outDir: directory },
     preview: { host: "127.0.0.1", port, strictPort: true },
   });

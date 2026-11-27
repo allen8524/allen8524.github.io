@@ -17,6 +17,26 @@ function RouteLoading() {
 
 class RouteErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
   state = { hasError: false };
+  private retrying = false;
+
+  private retry = async () => {
+    if (this.retrying) return;
+    this.retrying = true;
+
+    // WebKit can retain a failed module preload across a document reload.
+    const preloadUrls = [...document.querySelectorAll<HTMLLinkElement>('link[rel="modulepreload"]')]
+      .map(link => new URL(link.href))
+      .filter(url => url.origin === window.location.origin);
+    try {
+      const signal = AbortSignal.timeout(3000);
+      await Promise.allSettled(preloadUrls.map(async url => {
+        const response = await fetch(url, { cache: "reload", signal });
+        await response.arrayBuffer();
+      }));
+    } finally {
+      window.location.reload();
+    }
+  };
 
   static getDerivedStateFromError() {
     return { hasError: true };
@@ -30,7 +50,7 @@ class RouteErrorBoundary extends Component<{ children: ReactNode }, { hasError: 
         <h1>페이지를 불러오지 못했습니다</h1>
         <p role="alert">네트워크 연결을 확인한 후 다시 시도해 주세요.</p>
         <div className="route-status__actions">
-          <button type="button" onClick={() => window.location.reload()}>다시 시도</button>
+          <button type="button" onClick={this.retry}>다시 시도</button>
           <Link to="/">메인으로 돌아가기</Link>
         </div>
       </main>
