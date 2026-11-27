@@ -38,6 +38,7 @@ for (const [engine, browserType] of Object.entries(engines)) {
       const page = await context.newPage();
       observeErrors(page, errors);
       let stage = "open home";
+      page.setDefaultTimeout(12000);
       const mark = (name) => { stage = name; console.log("interaction "+engine+" "+motion+" "+width+"x"+height+" stage: "+name); };
       try {
         await openRoute(page,"/","interaction");
@@ -152,18 +153,18 @@ for (const [engine, browserType] of Object.entries(engines)) {
         assert.equal(await page.locator(".portfolio-card").count(), 1);
         assert.equal(await springFilter.getAttribute("aria-pressed"), "true");
         assert.equal(await page.evaluate(()=>document.activeElement?.id), "portfolio");
+        mark("back to top focus");
+        const scrollTop = page.getByRole("button", {name:"맨 위로 이동"});
+        await page.waitForFunction(() => window.scrollY > 100);
+        await scrollTop.press("Enter");
+        await page.waitForFunction(() => window.scrollY === 0);
+        assert.equal(await page.evaluate(() => document.activeElement?.id), "main-content");
         mark("forward and back");
         await page.goForward();
         await page.locator(".project-detail-hero h1").waitFor();
         await page.goBack();
         await page.waitForFunction(() => document.activeElement?.id === "portfolio");
         assert.equal(await springFilter.getAttribute("aria-pressed"), "true");
-        mark("back to top focus");
-        const scrollTop = page.getByRole("button", {name:"맨 위로 이동"});
-        await page.waitForFunction(() => window.scrollY > 100);
-        await scrollTop.press("Enter");
-        await page.waitForFunction(()=>window.scrollY===0);
-        assert.equal(await page.evaluate(()=>document.activeElement?.id), "main-content");
         mark("email copy and fallback");
         const copy = page.getByRole("button", { name: "이메일 복사", exact: true });
         await copy.click();
